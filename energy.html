@@ -76,8 +76,8 @@
           <span class="fade-label">Fade</span>
         </label>
         <div id="map-style-selector" class="style-selector-inline">
-          <button class="style-btn active" data-style="dark" title="Dark">🌙</button>
-          <button class="style-btn" data-style="streets" title="Streets">🗺️</button>
+          <button class="style-btn" data-style="dark" title="Dark">🌙</button>
+          <button class="style-btn active" data-style="streets" title="Streets">🗺️</button>
           <button class="style-btn" data-style="satellite" title="Satellite">🛰️</button>
         </div>
       </div>
@@ -131,6 +131,12 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/energy_app.js?v=11"></script>
+  <script type="module" src="js/energy_app.js?v=13"></script>
+  <!-- ─── Bottom Panel: Bar Chart ─── -->
+  <div id="bottom-panel" class="glass hidden">
+    <div class="chart-title">Monthly Generation by Source</div>
+    <div class="bar-chart" id="bar-chart"></div>
+  </div>
+
 </body>
 </html>

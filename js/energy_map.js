@@ -41,7 +41,7 @@ export class EngineMap {
 
     this.map = new maplibregl.Map({
       container: containerId,
-      style: MAP_STYLES.dark,
+      style: MAP_STYLES.streets,
       center: [initialView.longitude, initialView.latitude],
       zoom: initialView.zoom,
       minZoom: 1,

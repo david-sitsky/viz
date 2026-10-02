@@ -16,9 +16,9 @@ class EngineApp {
     this._cacheDom();
     try {
       this.data = await loadData(
-        'data_energy/metadata.json?v=11',
-        'data_energy/energy.bin?v=11',
-        'energy-v11',
+        'data_energy/metadata.json?v=13',
+        'data_energy/energy.bin?v=13',
+        'energy-v13',
         [
           [17, 17, 17],    // 0: coal
           [244, 142, 27],  // 1: gas
@@ -30,7 +30,7 @@ class EngineApp {
         (phase, pct) => this._updateLoading(phase, pct),
       );
       
-      this.facilities = await fetch('data_energy/facilities.json?v=11').then(r => r.json());
+      this.facilities = await fetch('data_energy/facilities.json?v=13').then(r => r.json());
       this.facilityMap = new Map();
       for(let f of this.facilities) this.facilityMap.set(f.id, f);
 
@@ -230,6 +230,59 @@ class EngineApp {
     const d = new Date(metadata.startDate + 'T00:00:00');
     d.setMonth(d.getMonth() + this.currentDay);
     this.dom.statDate.textContent   = d.toLocaleDateString('en-AU', { month:'long', year:'numeric' });
+
+    const { generation, categoryIndices, palette, dayOffsets } = this.data;
+    const dayStart = dayOffsets[this.currentDay] ?? 0;
+    const endIdx = (this.currentDay + 1 < dayOffsets.length) ? dayOffsets[this.currentDay + 1] : metadata.recordCount;
+    
+    // Accumulate power by category
+    const catTotals = new Array(metadata.fuelTypes.length).fill(0);
+    let maxTotal = 0;
+    for (let i = dayStart; i < endIdx; i++) {
+        const catIdx = categoryIndices[i];
+        if (catIdx >= 0 && catIdx < catTotals.length) {
+            catTotals[catIdx] += generation[i];
+        }
+    }
+    
+    // Build array of objects for sorting
+    let chartData = [];
+    for (let i = 0; i < metadata.fuelTypes.length; i++) {
+        if (catTotals[i] > maxTotal) maxTotal = catTotals[i];
+        chartData.push({
+            name: metadata.fuelTypes[i],
+            total: catTotals[i],
+            color: palette[i]
+        });
+    }
+    
+    // Sort highest to lowest
+    chartData.sort((a, b) => b.total - a.total);
+    
+    // Render HTML
+    if (!this.dom.barChart) this.dom.barChart = document.getElementById('bar-chart');
+    if (this.dom.barChart) {
+        let html = '';
+        for (const item of chartData) {
+            const pct = maxTotal > 0 ? (item.total / maxTotal) * 100 : 0;
+            const colorStr = `rgb(${item.color[0]}, ${item.color[1]}, ${item.color[2]})`;
+            const label = item.name.replace('_', ' ');
+            const valStr = Math.round(item.total).toLocaleString() + ' MWh';
+            
+            html += `
+              <div class="bar-row">
+                <div class="bar-label">${label}</div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width: ${pct}%; background: ${colorStr};"></div>
+                </div>
+                <div class="bar-value">${valStr}</div>
+              </div>
+            `;
+        }
+        this.dom.barChart.innerHTML = html;
+        document.getElementById('bottom-panel').classList.remove('hidden');
+    }
+
     const counts = this.map.getVisibleCounts();
     this.dom.statRecords.textContent = counts.total.toLocaleString() + ' records';
     this.dom.todayInfo.textContent   = `${counts.today.toLocaleString()} facilities`;
