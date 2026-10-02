@@ -16,20 +16,21 @@ class EngineApp {
     this._cacheDom();
     try {
       this.data = await loadData(
-        'data_energy/metadata.json?v=15',
-        'data_energy/energy.bin?v=15',
-        'energy-v15',
+        'data_energy/metadata.json?v=16',
+        'data_energy/energy.bin?v=16',
+        'energy-v16',
         [
           [17, 17, 17],    // 0: coal
           [244, 142, 27],  // 1: gas
           [69, 130, 180],  // 2: hydro
           [65, 118, 12],   // 3: wind
           [243, 199, 70],  // 4: commercial solar
+          [248, 231, 28],  // 5: rooftop solar
         ],
         (phase, pct) => this._updateLoading(phase, pct),
       );
       
-      this.facilities = await fetch('data_energy/facilities.json?v=15').then(r => r.json());
+      this.facilities = await fetch('data_energy/facilities.json?v=16').then(r => r.json());
       this.facilityMap = new Map();
       for(let f of this.facilities) this.facilityMap.set(f.id, f);
 
@@ -250,9 +251,20 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         }
     }
     
-    // Accumulate power by category
+// 1. Calculate absolute max total for the entire timeline
+    if (this._absoluteMaxTotal === undefined) {
+        let absCatTotals = new Array(metadata.fuelTypes.length).fill(0);
+        for (let i = 0; i < metadata.recordCount; i++) {
+            const cIdx = categoryIndices[i];
+            if (cIdx >= 0 && cIdx < absCatTotals.length) {
+                absCatTotals[cIdx] += generation[i];
+            }
+        }
+        this._absoluteMaxTotal = Math.max(...absCatTotals);
+    }
+    
+    // Accumulate power by category up to current day
     const catTotals = new Array(metadata.fuelTypes.length).fill(0);
-    let maxTotal = 0;
     for (let i = 0; i < endIdx; i++) {
         const catIdx = categoryIndices[i];
         if (catIdx >= 0 && catIdx < catTotals.length) {
@@ -263,7 +275,6 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
     // Build array of objects for sorting
     let chartData = [];
     for (let i = 0; i < metadata.fuelTypes.length; i++) {
-        if (catTotals[i] > maxTotal) maxTotal = catTotals[i];
         chartData.push({
             name: metadata.fuelTypes[i],
             total: catTotals[i],
@@ -279,7 +290,7 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
     if (this.dom.barChart) {
         let html = '';
         for (const item of chartData) {
-            const pct = maxTotal > 0 ? (item.total / maxTotal) * 100 : 0;
+            const pct = this._absoluteMaxTotal > 0 ? (item.total / this._absoluteMaxTotal) * 100 : 0;
             const colorStr = `rgb(${item.color[0]}, ${item.color[1]}, ${item.color[2]})`;
             const label = item.name.replace('_', ' ');
             const valStr = Math.round(item.total).toLocaleString() + ' MWh';

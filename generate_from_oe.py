@@ -44,6 +44,39 @@ async def fetch_facility(session, semaphore, fac_id, start_str, end_str):
                 pass
     return fac_id, day_sums
 
+async def fetch_rooftop(session, network_code, start_dt, end_dt):
+    url = f"https://api.openelectricity.org.au/v4/data/network/{network_code}"
+    
+    chunks = []
+    curr = start_dt
+    while curr < end_dt:
+        chunk_end = min(curr + timedelta(days=365), end_dt)
+        chunks.append((curr.strftime("%Y-%m-%dT%H:%M:%S"), chunk_end.strftime("%Y-%m-%dT%H:%M:%S")))
+        curr = chunk_end
+        
+    day_sums = {}
+    for c_start, c_end in chunks:
+        params = {
+            "metrics": "energy",
+            "interval": "1d",
+            "date_start": c_start,
+            "date_end": c_end,
+            "fuel_tech": "solar_rooftop"
+        }
+        try:
+            async with session.get(url, params=params) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    for item in data.get("data", []):
+                        for r in item.get("results", []):
+                            for row in r.get("data", []):
+                                date_str = row[0][:10]
+                                val = row[1] or 0
+                                day_sums[date_str] = day_sums.get(date_str, 0) + val
+        except Exception:
+            pass
+    return day_sums
+
 async def main():
     with open('oe_full_stations.json', 'r') as f:
         source_data = json.load(f)
@@ -87,7 +120,7 @@ async def main():
         "hydro": "hydro",
         "wind": "wind",
         "solar_utility": "commercial_solar",
-        "solar_rooftop": "other",
+        "solar_rooftop": "rooftop_solar",
         "bioenergy_biogas": "gas",
         "bioenergy_biomass": "gas",
         "distillate": "gas"
@@ -111,7 +144,7 @@ async def main():
     with open('data_energy/facilities.json', 'w') as f:
         json.dump(facilities, f, indent=2)
 
-    fuel_types = ["coal", "gas", "hydro", "wind", "commercial_solar", ]
+    fuel_types = ["coal", "gas", "hydro", "wind", "commercial_solar", "rooftop_solar"]
     fuel_type_to_id = {f: i for i, f in enumerate(fuel_types)}
 
     num_days = (end_date - start_date).days
