@@ -395,7 +395,7 @@
     "name": "Broadwater",
     "lat": -29.016483,
     "lon": 153.445756,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 38,
     "start_year": 2008
   },
@@ -845,7 +845,7 @@
     "name": "Condong",
     "lat": -28.314766,
     "lon": 153.433808,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 30,
     "start_year": 2007
   },
@@ -1765,7 +1765,7 @@
     "name": "Invicta Sugar Mill",
     "lat": -19.520476,
     "lon": 147.107439,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 50.3,
     "start_year": 1996
   },
@@ -1775,7 +1775,7 @@
     "name": "Isis Central Sugar Mill",
     "lat": -25.197619,
     "lon": 152.206949,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 25,
     "start_year": 2006
   },
@@ -1835,7 +1835,7 @@
     "name": "Jindabyne Pump At Guthega",
     "lat": -36.434918,
     "lon": 148.63057,
-    "type": "gas",
+    "type": "other",
     "capacity_mw": 70,
     "start_year": 2017
   },
@@ -2295,7 +2295,7 @@
     "name": "Manjimup",
     "lat": -34.333151,
     "lon": 116.108521,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 40,
     "start_year": 2018
   },
@@ -2935,7 +2935,7 @@
     "name": "Phoenix",
     "lat": -32.202137,
     "lon": 115.77391,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 38,
     "start_year": 2025
   },
@@ -2985,7 +2985,7 @@
     "name": "Pioneer Sugar Mill",
     "lat": -19.557546,
     "lon": 147.330825,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 67.78,
     "start_year": 2009
   },
@@ -3065,7 +3065,7 @@
     "name": "Racecourse Mill",
     "lat": -21.144611,
     "lon": 149.15868,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 48.5,
     "start_year": 2013
   },
@@ -3125,7 +3125,7 @@
     "name": "Rocky Point Cogen",
     "lat": -27.733342,
     "lon": 153.327699,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 30,
     "start_year": 2002
   },
@@ -3255,7 +3255,7 @@
     "name": "Shoalhaven",
     "lat": -34.723141,
     "lon": 150.479632,
-    "type": "gas",
+    "type": "other",
     "capacity_mw": 240,
     "start_year": 1976
   },
@@ -3485,7 +3485,7 @@
     "name": "Tableland Mill",
     "lat": -17.119813,
     "lon": 145.34513,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 24,
     "start_year": 2017
   },
@@ -3725,7 +3725,7 @@
     "name": "Tully Sugar Mill",
     "lat": -17.937329,
     "lon": 145.92739,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 32,
     "start_year": 1996
   },
@@ -3805,7 +3805,7 @@
     "name": "Victoria Mill",
     "lat": -18.650208,
     "lon": 146.200866,
-    "type": "coal",
+    "type": "gas",
     "capacity_mw": 24,
     "start_year": 2011
   },

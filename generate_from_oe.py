@@ -1,104 +1,160 @@
 import json
 import struct
-import random
+import math
+import asyncio
+import aiohttp
+import os
 from datetime import datetime
 
-with open('oe_full_stations.json', 'r') as f:
-    raw_stations = json.load(f)
+API_KEY = os.environ.get("OPENELECTRICITY_API_KEY", "REMOVED_API_KEY")
 
-def map_fuel_type(fuel):
-    fuel = str(fuel).lower()
-    if 'coal' in fuel: return 'coal'
-    if 'battery' in fuel: return 'gas' # Treat battery as gas for orange/yellow color? Actually gas is orange.
-    if 'gas' in fuel or 'diesel' in fuel or 'distillate' in fuel or 'liquid' in fuel: return 'gas'
-    if 'water' in fuel or 'hydro' in fuel: return 'hydro'
-    if 'wind' in fuel: return 'wind'
-    if 'solar' in fuel: return 'commercial_solar'
-    if 'biomass' in fuel: return 'coal' # Biomass as coal (dark)
-    return 'gas'
-
-stations = []
-id_counter = 1
-for r in raw_stations:
-    cap = r['capacity_mw']
-    if cap <= 0: cap = 50
-    if 'battery' in str(r['fueltech']).lower(): continue
-    cat = map_fuel_type(r['fueltech'])
+async def fetch_facility(session, semaphore, fac_id):
+    url = "https://api.openelectricity.org.au/v4/data/network/NEM"
+    params = {
+        "metrics": "energy",
+        "interval": "1M",
+        "date_start": "2024-01-01T00:00:00",
+        "date_end": "2026-10-01T00:00:00",
+        "facility_code": fac_id
+    }
     
-    stations.append({
-        'id': id_counter,
-        'oe_id': r['code'],
-        'name': r['name'],
-        'lat': r['lat'],
-        'lon': r['lon'],
-        'type': cat,
-        'capacity_mw': cap,
-        'start_year': r['start_year']
-    })
-    id_counter += 1
+    async with semaphore:
+        try:
+            async with session.get(url, params=params) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    results = []
+                    for item in data.get("data", []):
+                        for r in item.get("results", []):
+                            for row in r.get("data", []):
+                                date_str = row[0][:7] # YYYY-MM
+                                val = row[1]
+                                results.append((date_str, val))
+                    return fac_id, results
+                else:
+                    return fac_id, None
+        except Exception:
+            return fac_id, None
 
-print(f"Loaded {len(stations)} real stations from OpenElectricity.")
+async def main():
+    with open('oe_full_stations.json', 'r') as f:
+        source_data = json.load(f)
 
-# Save to facilities.json
-with open('data_energy/facilities.json', 'w') as f:
-    json.dump(stations, f, indent=2)
+    # 1. Filter out batteries
+    stations = []
+    for s in source_data:
+        fuel = s.get('fueltech', '').lower()
+        if 'battery' in fuel or 'storage' in fuel:
+            continue
+        stations.append(s)
+        
+    print(f"Total non-battery stations to process: {len(stations)}")
 
-# Generate energy.bin and metadata.json
-start_date = datetime(2000, 1, 1)
-end_date = datetime(2026, 12, 31)
-num_months = (end_date.year - start_date.year) * 12 + (end_date.month - start_date.month) + 1
-
-fuel_types = ["coal", "gas", "hydro", "wind", "commercial_solar", "rooftop_solar"]
-fuel_type_to_id = {f: i for i, f in enumerate(fuel_types)}
-
-records = []
-day_offsets = []
-
-for month_idx in range(num_months):
-    day_offsets.append(len(records))
-    year = start_date.year + month_idx // 12
+    # 2. Fetch real data for 2024-2026
+    print("Fetching real generation data for 2024-2026...")
+    headers = {"Authorization": f"Bearer {API_KEY}"}
+    facility_data = {}
+    semaphore = asyncio.Semaphore(15)
     
-    # Seasonal factors
-    month = 1 + (month_idx % 12)
-    solar_factor = 1.0 + 0.4 * (1 if month in [11,12,1,2] else -1)
-    hydro_factor = 1.0 + 0.4 * (1 if month in [6,7,8] else -1)
-    
-    for s in stations:
-        if year < s['start_year']: continue
+    # We must bypass proxy or use sandbox if we are in BypassSandbox!
+    # I will run this via python3 generate_from_oe.py later
+    async with aiohttp.ClientSession(headers=headers) as session:
+        tasks = [fetch_facility(session, semaphore, s['code']) for s in stations]
+        results = await asyncio.gather(*tasks)
         
-        cap = s['capacity_mw']
-        cf = 0.5
-        if s['type'] == 'commercial_solar': cf = 0.25 * solar_factor
-        elif s['type'] == 'hydro': cf = 0.3 * hydro_factor
-        elif s['type'] == 'wind': cf = 0.35
-        elif s['type'] == 'coal': cf = 0.7
+        for fac_id, res in results:
+            if res:
+                facility_data[fac_id] = { k:v for k,v in res }
+            else:
+                facility_data[fac_id] = {}
+
+    # 3. Create map data mapping
+    fuel_tech_map = {
+        "coal_black": "coal",
+        "coal_brown": "coal",
+        "gas_ccgt": "gas",
+        "gas_ocgt": "gas",
+        "gas_recip": "gas",
+        "gas_steam": "gas",
+        "gas_wcmg": "gas",
+        "hydro": "hydro",
+        "wind": "wind",
+        "solar_utility": "commercial_solar",
+        "solar_rooftop": "rooftop_solar",
+        "bioenergy_biogas": "gas",
+        "bioenergy_biomass": "gas",
+        "distillate": "gas"
+    }
+
+    facilities = []
+    for idx, s in enumerate(stations):
+        mapped_type = fuel_tech_map.get(s.get('fueltech'), 'other')
         
-        # INCREASE random noise so the circles jitter more visibly (0.3 to 1.7)
-        noise = random.uniform(0.3, 1.7)
-        gen = (cap * 24 * 30 * cf * noise)
-        
-        records.append({
-            "facility_id": s['id'],
-            "lon": s['lon'],
+        f = {
+            "id": idx + 1,
+            "oe_id": s['code'],
+            "name": s['name'],
             "lat": s['lat'],
-            "cat_idx": fuel_type_to_id.get(s['type'], 0),
-            "generation": max(0, gen)
-        })
+            "lon": s['lon'],
+            "type": mapped_type,
+            "capacity_mw": s['capacity_mw'],
+            "start_year": s['start_year']
+        }
+        facilities.append(f)
 
-print(f"Generated {len(records)} records across {num_months} months.")
+    with open('data_energy/facilities.json', 'w') as f:
+        json.dump(facilities, f, indent=2)
 
-metadata = {
-    "startDate": "2000-01-01",
-    "totalDays": num_months,
-    "recordCount": len(records),
-    "dayOffsets": day_offsets,
-    "fuelTypes": fuel_types
-}
-with open('data_energy/metadata.json', 'w') as f:
-    json.dump(metadata, f, indent=2)
+    # 4. Generate energy.bin with real data for 2024+
+    fuel_types = ["coal", "gas", "hydro", "wind", "commercial_solar", "rooftop_solar"]
+    fuel_type_to_id = {f: i for i, f in enumerate(fuel_types)}
 
-with open('data_energy/energy.bin', 'wb') as f:
-    for r in records:
-        f.write(struct.pack('<HffBf', r['facility_id'], r['lon'], r['lat'], r['cat_idx'], r['generation']))
+    start_date = datetime(2000, 1, 1)
+    end_date = datetime(2026, 12, 31)
+    num_months = (end_date.year - start_date.year) * 12 + (end_date.month - start_date.month) + 1
 
-print("Done.")
+    records = []
+    
+    for month_idx in range(num_months):
+        y = 2000 + (month_idx // 12)
+        m = 1 + (month_idx % 12)
+        date_str = f"{y:04d}-{m:02d}"
+        
+        for idx, s in enumerate(facilities):
+            if y < s['start_year']:
+                continue
+                
+            fac_id = s['oe_id']
+            energy = 0
+            
+            # Use real data if we have it for this month
+            if y >= 2024:
+                if fac_id in facility_data and date_str in facility_data[fac_id]:
+                    val = facility_data[fac_id][date_str]
+                    if val is not None:
+                        energy = val
+            else:
+                # Simulated for < 2024 (as user said "focus on last few years worst case")
+                # Just so it's not totally empty before 2024
+                capacity = s['capacity_mw']
+                f_type = s['type']
+                cf = 0.6 if f_type == 'coal' else 0.3 if f_type == 'wind' else 0.2 if 'solar' in f_type else 0.1
+                base_gen = capacity * cf * 730 
+                import random
+                noise = random.uniform(0.8, 1.2)
+                energy = base_gen * noise
+
+            if energy > 0:
+                fid = fuel_type_to_id.get(s['type'], 1)
+                records.append(struct.pack('<IffH', idx, energy, energy, fid))
+                
+        records.append(struct.pack('<IffH', 0xFFFFFFFF, 0, 0, 0))
+
+    with open("data_energy/energy.bin", "wb") as f:
+        for r in records:
+            f.write(r)
+
+    print("Generation complete.")
+
+if __name__ == "__main__":
+    asyncio.run(main())
