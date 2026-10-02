@@ -8,32 +8,41 @@ from datetime import datetime, timedelta
 API_KEY = os.environ.get("OPENELECTRICITY_API_KEY", "REMOVED_API_KEY")
 
 async def fetch_facility(session, semaphore, fac_id, start_str, end_str):
-    url = "https://api.openelectricity.org.au/v4/data/network/NEM"
-    params = {
-        "metrics": "energy",
-        "interval": "1M",
-        "date_start": start_str,
-        "date_end": end_str,
-        "facility_code": fac_id
-    }
+    url = "https://api.openelectricity.org.au/v4/data/facilities/AU"
     
+    start_dt = datetime.strptime(start_str, "%Y-%m-%dT%H:%M:%S")
+    end_dt = datetime.strptime(end_str, "%Y-%m-%dT%H:%M:%S")
+    
+    chunks = []
+    curr = start_dt
+    while curr < end_dt:
+        chunk_end = min(curr + timedelta(days=365), end_dt)
+        chunks.append((curr.strftime("%Y-%m-%dT%H:%M:%S"), chunk_end.strftime("%Y-%m-%dT%H:%M:%S")))
+        curr = chunk_end
+        
+    day_sums = {}
     async with semaphore:
-        try:
-            async with session.get(url, params=params) as resp:
-                if resp.status == 200:
-                    data = await resp.json()
-                    results = []
-                    for item in data.get("data", []):
-                        for r in item.get("results", []):
-                            for row in r.get("data", []):
-                                date_str = row[0][:7] # YYYY-MM
-                                val = row[1]
-                                results.append((date_str, val))
-                    return fac_id, results
-                else:
-                    return fac_id, None
-        except Exception:
-            return fac_id, None
+        for c_start, c_end in chunks:
+            params = {
+                "metrics": "energy",
+                "interval": "1d",
+                "date_start": c_start,
+                "date_end": c_end,
+                "facility_code": fac_id
+            }
+            try:
+                async with session.get(url, params=params) as resp:
+                    if resp.status == 200:
+                        data = await resp.json()
+                        for item in data.get("data", []):
+                            for r in item.get("results", []):
+                                for row in r.get("data", []):
+                                    date_str = row[0][:10]
+                                    val = row[1] or 0
+                                    day_sums[date_str] = day_sums.get(date_str, 0) + val
+            except Exception:
+                pass
+    return fac_id, day_sums
 
 async def main():
     with open('oe_full_stations.json', 'r') as f:
@@ -63,7 +72,7 @@ async def main():
         
         for fac_id, res in results:
             if res:
-                facility_data[fac_id] = { k:v for k,v in res }
+                facility_data[fac_id] = res
             else:
                 facility_data[fac_id] = {}
 
@@ -78,7 +87,7 @@ async def main():
         "hydro": "hydro",
         "wind": "wind",
         "solar_utility": "commercial_solar",
-        "solar_rooftop": "rooftop_solar",
+        "solar_rooftop": "other",
         "bioenergy_biogas": "gas",
         "bioenergy_biomass": "gas",
         "distillate": "gas"
@@ -102,24 +111,19 @@ async def main():
     with open('data_energy/facilities.json', 'w') as f:
         json.dump(facilities, f, indent=2)
 
-    fuel_types = ["coal", "gas", "hydro", "wind", "commercial_solar", "rooftop_solar"]
+    fuel_types = ["coal", "gas", "hydro", "wind", "commercial_solar", ]
     fuel_type_to_id = {f: i for i, f in enumerate(fuel_types)}
 
-    num_months = (end_date.year - start_date.year) * 12 + (end_date.month - start_date.month) + 1
-
+    num_days = (end_date - start_date).days
+    
     records = []
     day_offsets = []
 
-    current_offset = 0
-
-    for month_idx in range(num_months):
+    for day_idx in range(num_days):
         day_offsets.append(len(records))
-        
-        y = start_date.year + (start_date.month - 1 + month_idx) // 12
-        m = 1 + (start_date.month - 1 + month_idx) % 12
-        date_str = f"{y:04d}-{m:02d}"
-        
-        current_offset += 1 
+        current_date = start_date + timedelta(days=day_idx)
+        y = current_date.year
+        date_str = current_date.strftime("%Y-%m-%d")
 
         for idx, s in enumerate(facilities):
             if y < s['start_year']:
@@ -149,8 +153,8 @@ async def main():
             f.write(struct.pack('<HffBf', r['facility_id'], r['lon'], r['lat'], r['cat_idx'], r['generation']))
 
     metadata = {
-        "startDate": f"{start_date.year:04d}-{start_date.month:02d}-01",
-        "totalDays": num_months,
+        "startDate": start_date.strftime("%Y-%m-%d"),
+        "totalDays": num_days,
         "recordCount": len(records),
         "dayOffsets": day_offsets,
         "fuelTypes": fuel_types
