@@ -233,38 +233,14 @@ export class EngineMap {
     const active = this._getActiveData();
     const day = this.currentDay;
     const offsets = active.dayOffsets;
-    const endIdx   = (day + 1 < offsets.length) ? offsets[day + 1] : active.recordCount;
     const dayStart = offsets[day] ?? 0;
+    const endIdx   = (day + 1 < offsets.length) ? offsets[day + 1] : active.recordCount;
     const dayEnd   = endIdx;
     const todayCount = dayEnd - dayStart;
 
-    let histStart = 0;
-    if (this.fadeMode && day > FADE_WINDOW) {
-      histStart = offsets[day - FADE_WINDOW] ?? 0;
-    }
-    const histCount = endIdx - histStart;
-    const layers = [];
-
-    if (histCount > 0) {
-      layers.push(new ScatterplotLayer({
-        id: 'history',
-        data: {
-          length: histCount,
-          attributes: {
-            getPosition: { value: active.positions.subarray(histStart*2, endIdx*2), size: 2 },
-            getFillColor:{ value: active.colors.subarray(histStart*4, endIdx*4),    size: 4 },
-            getRadius:   { value: active.generation.subarray(histStart, endIdx),    size: 1 },
-          },
-        },
-        radiusUnits: 'pixels', radiusScale: 0.00001, radiusMinPixels: 2.5, radiusMaxPixels: 15,
-        opacity: this.fadeMode ? 0.35 : 0.55,
-        pickable: true, autoHighlight: true, highlightColor: [255,255,255,80],
-        parameters: { depthTest: false },
-        _histStart: histStart,
-      }));
-    }
-
+    let layers = [];
     if (todayCount > 0) {
+      // Glow layer for active generation
       layers.push(new ScatterplotLayer({
         id: 'glow',
         data: {
@@ -274,23 +250,24 @@ export class EngineMap {
             getRadius:   { value: active.generation.subarray(dayStart, dayEnd),    size: 1 },
           },
         },
-        radiusUnits: 'pixels', radiusScale: 0.000025, radiusMinPixels: 12, radiusMaxPixels: 45,
-        getFillColor: [60, 220, 100, 35], opacity: 0.35,
+        radiusUnits: 'pixels', radiusScale: 0.000025, radiusMinPixels: 4, radiusMaxPixels: 20,
+        getFillColor: [255, 255, 255, 40], opacity: 0.5,
         pickable: false, parameters: { depthTest: false },
       }));
 
+      // Main station layer
       layers.push(new ScatterplotLayer({
-        id: 'pulse',
+        id: 'stations',
         data: {
           length: todayCount,
           attributes: {
             getPosition: { value: active.positions.subarray(dayStart*2, dayEnd*2), size: 2 },
-            getFillColor:{ value: active.pulseColors.subarray(dayStart*4, dayEnd*4), size: 4 },
+            getFillColor:{ value: active.colors.subarray(dayStart*4, dayEnd*4), size: 4 },
             getRadius:   { value: active.generation.subarray(dayStart, dayEnd),    size: 1 },
           },
         },
-        radiusUnits: 'pixels', radiusScale: 0.000015, radiusMinPixels: 5, radiusMaxPixels: 30,
-        opacity: 0.9, pickable: true, parameters: { depthTest: false },
+        radiusUnits: 'pixels', radiusScale: 0.000015, radiusMinPixels: 3, radiusMaxPixels: 15,
+        opacity: 0.95, pickable: true, parameters: { depthTest: false },
         _dayStart: dayStart,
       }));
     }
@@ -301,12 +278,9 @@ export class EngineMap {
   _resolveRecordIndex(info) {
     const active = this._getActiveData();
     let activeIdx;
-    if (info.layer.id === 'pulse') {
+    if (info.layer.id === 'stations') {
       const dayStart = info.layer.props._dayStart ?? active.dayOffsets[this.currentDay];
       activeIdx = dayStart + info.index;
-    } else if (info.layer.id === 'history') {
-      const histStart = info.layer.props._histStart ?? 0;
-      activeIdx = histStart + info.index;
     } else {
       return -1;
     }
