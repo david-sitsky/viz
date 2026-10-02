@@ -139,7 +139,7 @@ export class EngineMap {
     if (recordIdx === this._lastHoveredRecord) return;
     this._lastHoveredRecord = recordIdx;
 
-    if (this.onRecord) this.onRecord(recordIdx);
+    if (this.onRecord) this.onRecord(recordIdx, info.x, info.y);
   }
 
   _handleClick(info) {
@@ -150,7 +150,7 @@ export class EngineMap {
     if (recordIdx < 0) return;
 
     this._lastHoveredRecord = recordIdx;
-    if (this.onRecord) this.onRecord(recordIdx);
+    if (this.onRecord) this.onRecord(recordIdx, info.x, info.y);
   }
 
   _rebuildFilteredData() {

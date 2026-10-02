@@ -16,9 +16,9 @@ class EngineApp {
     this._cacheDom();
     try {
       this.data = await loadData(
-        'data_energy/metadata.json?v=6',
-        'data_energy/energy.bin?v=6',
-        'energy-v6',
+        'data_energy/metadata.json?v=7',
+        'data_energy/energy.bin?v=7',
+        'energy-v7',
         [
           [17, 17, 17],    // 0: coal
           [244, 142, 27],  // 1: gas
@@ -30,14 +30,14 @@ class EngineApp {
         (phase, pct) => this._updateLoading(phase, pct),
       );
       
-      this.facilities = await fetch('data_energy/facilities.json?v=6').then(r => r.json());
+      this.facilities = await fetch('data_energy/facilities.json?v=7').then(r => r.json());
       this.facilityMap = new Map();
       for(let f of this.facilities) this.facilityMap.set(f.id, f);
 
       this.map = new EngineMap(
         'map-container',
         this.data,
-        (recordIdx) => this._onHover(recordIdx)
+        (recordIdx, x, y) => this._onHover(recordIdx, x, y)
       );
 
       this._setupControls();
@@ -59,7 +59,20 @@ class EngineApp {
     }
   }
 
-  _onHover(recordIdx) {
+  _onHover(recordIdx, x, y) {
+    if (this._hideTooltipTimeout) {
+      clearTimeout(this._hideTooltipTimeout);
+      this._hideTooltipTimeout = null;
+    }
+    
+    if (recordIdx < 0) {
+      this._hideTooltipTimeout = setTimeout(() => {
+        if (this.dom && this.dom.tooltip) {
+          this.dom.tooltip.classList.add('hidden');
+        }
+      }, 250);
+      return;
+    }
     const fId = this.data.facilityIds[recordIdx];
     const gen = this.data.generation[recordIdx];
     const catIdx = this.data.categoryIndices[recordIdx];

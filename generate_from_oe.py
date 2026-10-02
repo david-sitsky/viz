@@ -22,6 +22,7 @@ id_counter = 1
 for r in raw_stations:
     cap = r['capacity_mw']
     if cap <= 0: cap = 50
+    if 'battery' in str(r['fueltech']).lower(): continue
     cat = map_fuel_type(r['fueltech'])
     
     stations.append({
