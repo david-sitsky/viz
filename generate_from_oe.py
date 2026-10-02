@@ -40,11 +40,12 @@ async def fetch_facility(session, semaphore, fac_id, start_str, end_str):
                                     date_str = row[0][:10]
                                     val = row[1] or 0
                                     day_sums[date_str] = day_sums.get(date_str, 0) + val
-            except Exception:
+            except Exception as e:
+                print("Exception in fetch_rooftop:", e)
                 pass
     return fac_id, day_sums
 
-async def fetch_rooftop(session, network_code, start_dt, end_dt):
+async def fetch_rooftop(network_code, start_dt, end_dt):
     url = f"https://api.openelectricity.org.au/v4/data/network/{network_code}"
     
     chunks = []
@@ -55,26 +56,28 @@ async def fetch_rooftop(session, network_code, start_dt, end_dt):
         curr = chunk_end
         
     day_sums = {}
-    for c_start, c_end in chunks:
-        params = {
-            "metrics": "energy",
-            "interval": "1d",
-            "date_start": c_start,
-            "date_end": c_end,
-            "fuel_tech": "solar_rooftop"
-        }
-        try:
-            async with session.get(url, params=params) as resp:
-                if resp.status == 200:
-                    data = await resp.json()
-                    for item in data.get("data", []):
-                        for r in item.get("results", []):
-                            for row in r.get("data", []):
-                                date_str = row[0][:10]
-                                val = row[1] or 0
-                                day_sums[date_str] = day_sums.get(date_str, 0) + val
-        except Exception:
-            pass
+    headers = {"Authorization": f"Bearer {API_KEY}"}
+    async with aiohttp.ClientSession(headers=headers) as session:
+        for c_start, c_end in chunks:
+            params = {
+                "metrics": "energy",
+                "interval": "1d",
+                "date_start": c_start,
+                "date_end": c_end,
+                "fuel_tech": "solar_rooftop"
+            }
+            try:
+                async with session.get(url, params=params) as resp:
+                    if resp.status == 200:
+                        data = await resp.json()
+                        for item in data.get("data", []):
+                            for r in item.get("results", []):
+                                for row in r.get("data", []):
+                                    date_str = row[0][:10]
+                                    val = row[1] or 0
+                                    day_sums[date_str] = day_sums.get(date_str, 0) + val
+            except Exception as e:
+                pass
     return day_sums
 
 async def main():
@@ -143,6 +146,34 @@ async def main():
     with open('data_energy/facilities.json', 'w') as f:
         json.dump(facilities, f, indent=2)
 
+    # Append rooftop solar data
+    rooftop_nem = await fetch_rooftop("NEM", start_date, end_date)
+    rooftop_wem = await fetch_rooftop("WEM", start_date, end_date)
+    
+    facility_data["ROOFTOP_NEM"] = rooftop_nem
+    facility_data["ROOFTOP_WEM"] = rooftop_wem
+    
+    facilities.append({
+        "id": len(facilities) + 1,
+        "oe_id": "ROOFTOP_NEM",
+        "name": "NEM Rooftop Solar",
+        "lat": -32.0,
+        "lon": 145.0,
+        "type": "rooftop_solar",
+        "capacity_mw": 0,
+        "start_year": 2000
+    })
+    facilities.append({
+        "id": len(facilities) + 1,
+        "oe_id": "ROOFTOP_WEM",
+        "name": "WEM Rooftop Solar",
+        "lat": -30.0,
+        "lon": 118.0,
+        "type": "rooftop_solar",
+        "capacity_mw": 0,
+        "start_year": 2000
+    })
+    
     fuel_types = ["coal", "gas", "hydro", "wind", "commercial_solar", "rooftop_solar"]
     fuel_type_to_id = {f: i for i, f in enumerate(fuel_types)}
 
