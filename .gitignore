@@ -10,3 +10,7 @@ data/audio_cache/
 test-results/
 playwright-report/
 playwright/.cache/
+oe_facilities.html
+oe_script.js
+oe_api_*.json
+next_f_extracted.txt

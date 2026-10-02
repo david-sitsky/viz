@@ -1,10 +1,13 @@
 import sys
 import os
-sys.path.insert(0, os.path.abspath('.'))
 import sys
 import os
 import random
 import pandas as pd
+import json
+with open('oe_real_coords.json', 'r') as f:
+    oe_coords = {item['code']: (item['lat'], item['lon']) for item in json.load(f) if item['lat'] is not None}
+
 import json
 import struct
 from datetime import datetime, timedelta
@@ -56,7 +59,13 @@ for idx, row in df.iterrows():
 
     
     cat = map_fuel_type(fuel)
-    lat, lon = get_state_coords(region)
+    if duid in oe_coords:
+        lat, lon = oe_coords[duid]
+    elif duid.rstrip('123456789') in oe_coords:
+        lat, lon = oe_coords[duid.rstrip('123456789')]
+    else:
+        lat, lon = get_state_coords(region)
+
     
     stations.append({
         'id': id_counter,

@@ -1,0 +1,3502 @@
+[
+  {
+    "code": "ADP",
+    "name": "Adelaide Desalination",
+    "network_region": "SA1",
+    "lat": -35.096948,
+    "lon": 138.484061
+  },
+  {
+    "code": "ALBANY",
+    "name": "Albany",
+    "network_region": "WEM",
+    "lat": -35.055759,
+    "lon": 117.777048
+  },
+  {
+    "code": "ALDGASF",
+    "name": "Aldoga",
+    "network_region": "QLD1",
+    "lat": -23.815177,
+    "lon": 151.05811
+  },
+  {
+    "code": "ANGASTON",
+    "name": "Angaston",
+    "network_region": "SA1",
+    "lat": -34.503389,
+    "lon": 139.02458
+  },
+  {
+    "code": "APPIN",
+    "name": "Appin",
+    "network_region": "NSW1",
+    "lat": -34.210868,
+    "lon": 150.792711
+  },
+  {
+    "code": "ARWF",
+    "name": "Ararat",
+    "network_region": "VIC1",
+    "lat": -37.238714,
+    "lon": 143.079243
+  },
+  {
+    "code": "AVLSF",
+    "name": "Avonlie",
+    "network_region": "NSW1",
+    "lat": -34.913826,
+    "lon": 146.590545
+  },
+  {
+    "code": "BADGINGARRA",
+    "name": "Badgingarra",
+    "network_region": "WEM",
+    "lat": -30.456742,
+    "lon": 115.343726
+  },
+  {
+    "code": "DEIBDL",
+    "name": "Bairnsdale",
+    "network_region": "VIC1",
+    "lat": -37.842918,
+    "lon": 147.563855
+  },
+  {
+    "code": "BAKING",
+    "name": "Baking Board",
+    "network_region": "QLD1",
+    "lat": -26.720639,
+    "lon": 150.553781
+  },
+  {
+    "code": "BHWF",
+    "name": "Bald Hills",
+    "network_region": "VIC1",
+    "lat": -38.746897,
+    "lon": 145.949104
+  },
+  {
+    "code": "BALBESS",
+    "name": "Ballarat",
+    "network_region": "VIC1",
+    "lat": -37.567603,
+    "lon": 143.919894
+  },
+  {
+    "code": "BANGOWF",
+    "name": "Bango",
+    "network_region": "NSW1",
+    "lat": -34.767208,
+    "lon": 148.921499
+  },
+  {
+    "code": "BAPS",
+    "name": "Banimboola",
+    "network_region": "VIC1",
+    "lat": -36.534342,
+    "lon": 147.45934
+  },
+  {
+    "code": "BANNSP",
+    "name": "Bannerton",
+    "network_region": "VIC1",
+    "lat": -34.687324,
+    "lon": 142.77895
+  },
+  {
+    "code": "BARCALDN",
+    "name": "Barcaldine",
+    "network_region": "QLD1",
+    "lat": -23.552279,
+    "lon": 145.314856
+  },
+  {
+    "code": "BARCSF",
+    "name": "Barcaldine",
+    "network_region": "QLD1",
+    "lat": -23.547776,
+    "lon": 145.318817
+  },
+  {
+    "code": "BARKIPS",
+    "name": "Barker Inlet",
+    "network_region": "SA1",
+    "lat": -34.803695,
+    "lon": 138.523864
+  },
+  {
+    "code": "BARRON",
+    "name": "Barron Gorge",
+    "network_region": "QLD1",
+    "lat": -16.850852,
+    "lon": 145.646758
+  },
+  {
+    "code": "BASTYAN",
+    "name": "Bastyan",
+    "network_region": "TAS1",
+    "lat": -41.736045,
+    "lon": 145.532064
+  },
+  {
+    "code": "BAYSW",
+    "name": "Bayswater",
+    "network_region": "NSW1",
+    "lat": -32.394981,
+    "lon": 150.94949
+  },
+  {
+    "code": "BBP31",
+    "name": "Bell Bay Three",
+    "network_region": "TAS1",
+    "lat": -41.140419,
+    "lon": 146.905197
+  },
+  {
+    "code": "BLAIRFOX_BEROSRD_WF",
+    "name": "Beros Road",
+    "network_region": "WEM",
+    "lat": -29.957885,
+    "lon": 115.362947
+  },
+  {
+    "code": "BRYB1WF1",
+    "name": "Berrybank",
+    "network_region": "VIC1",
+    "lat": -37.885519,
+    "lon": 143.453446
+  },
+  {
+    "code": "BERYLSF",
+    "name": "Beryl",
+    "network_region": "NSW1",
+    "lat": -32.356446,
+    "lon": 149.470517
+  },
+  {
+    "code": "BIALAWF",
+    "name": "Biala",
+    "network_region": "NSW1",
+    "lat": -34.584149,
+    "lon": 149.347019
+  },
+  {
+    "code": "BLAYNEY",
+    "name": "Blayney",
+    "network_region": "NSW1",
+    "lat": -33.622867,
+    "lon": 149.200983
+  },
+  {
+    "code": "SNOWY6",
+    "name": "Blowering",
+    "network_region": "NSW1",
+    "lat": -35.398563,
+    "lon": 148.246201
+  },
+  {
+    "code": "BLUEGSF",
+    "name": "Blue Grass",
+    "network_region": "QLD1",
+    "lat": -26.682643,
+    "lon": 150.504537
+  },
+  {
+    "code": "BLUEWATERS",
+    "name": "Bluewaters",
+    "network_region": "WEM",
+    "lat": -33.330601,
+    "lon": 116.227816
+  },
+  {
+    "code": "BLYTHB",
+    "name": "Blyth",
+    "network_region": "SA1",
+    "lat": -33.848475,
+    "lon": 138.403204
+  },
+  {
+    "code": "BOCOROCK",
+    "name": "Boco Rock",
+    "network_region": "NSW1",
+    "lat": -36.593627,
+    "lon": 149.101512
+  },
+  {
+    "code": "BODWF",
+    "name": "Bodangora",
+    "network_region": "NSW1",
+    "lat": -32.414669,
+    "lon": 149.099633
+  },
+  {
+    "code": "MCKAY",
+    "name": "Bogong / Mackay",
+    "network_region": "VIC1",
+    "lat": -36.858282,
+    "lon": 147.234146
+  },
+  {
+    "code": "BOLIVAR",
+    "name": "Bolivar",
+    "network_region": "SA1",
+    "lat": -34.772402,
+    "lon": 138.579432
+  },
+  {
+    "code": "BOLIVPS",
+    "name": "Bolivar",
+    "network_region": "SA1",
+    "lat": -34.7772,
+    "lon": 138.5826
+  },
+  {
+    "code": "BOMENSF",
+    "name": "Bomen",
+    "network_region": "NSW1",
+    "lat": -35.046577,
+    "lon": 147.442585
+  },
+  {
+    "code": "BBATTERY",
+    "name": "Bouldercombe",
+    "network_region": "QLD1",
+    "lat": -23.535251,
+    "lon": 150.489057
+  },
+  {
+    "code": "BRAEMARA",
+    "name": "Braemar",
+    "network_region": "QLD1",
+    "lat": -27.110488,
+    "lon": 150.905683
+  },
+  {
+    "code": "B2PS",
+    "name": "Braemar 2",
+    "network_region": "QLD1",
+    "lat": -27.112874,
+    "lon": 150.905442
+  },
+  {
+    "code": "BREMER_BAY",
+    "name": "Bremer Bay",
+    "network_region": "WEM",
+    "lat": -34.399033,
+    "lon": 119.389377
+  },
+  {
+    "code": "BRNDBES",
+    "name": "Brendale",
+    "network_region": "QLD1",
+    "lat": -27.329333,
+    "lon": 152.974384
+  },
+  {
+    "code": "BRDD",
+    "name": "Broadsound",
+    "network_region": "QLD1",
+    "lat": -22.810001,
+    "lon": 149.36302
+  },
+  {
+    "code": "BWTR1",
+    "name": "Broadwater",
+    "network_region": "NSW1",
+    "lat": -29.016483,
+    "lon": 153.445756
+  },
+  {
+    "code": "BHILLGT",
+    "name": "Broken Hill",
+    "network_region": "NSW1",
+    "lat": -31.986313,
+    "lon": 141.42062
+  },
+  {
+    "code": "BROKENH",
+    "name": "Broken Hill",
+    "network_region": "NSW1",
+    "lat": -31.987538,
+    "lon": 141.391994
+  },
+  {
+    "code": "BHB",
+    "name": "Broken Hill Battery",
+    "network_region": "NSW1",
+    "lat": -31.986306,
+    "lon": 141.422951
+  },
+  {
+    "code": "BROOKLYN",
+    "name": "Brooklyn",
+    "network_region": "VIC1",
+    "lat": -37.819005,
+    "lon": 144.831257
+  },
+  {
+    "code": "BROWNMT",
+    "name": "Brown Mountain",
+    "network_region": "NSW1",
+    "lat": -36.594993,
+    "lon": 149.473997
+  },
+  {
+    "code": "BPLANDF",
+    "name": "Browns Plains",
+    "network_region": "QLD1",
+    "lat": -27.672038,
+    "lon": 153.066312
+  },
+  {
+    "code": "BULGANA",
+    "name": "Bulgana Green Power Hub",
+    "network_region": "VIC1",
+    "lat": -37.038034,
+    "lon": 142.983474
+  },
+  {
+    "code": "BUSF",
+    "name": "Bundaberg",
+    "network_region": "QLD1",
+    "lat": -24.943515,
+    "lon": 152.020698
+  },
+  {
+    "code": "BNGSF1",
+    "name": "Bungala One",
+    "network_region": "SA1",
+    "lat": -32.415846,
+    "lon": 137.841225
+  },
+  {
+    "code": "BNGSF2",
+    "name": "Bungala Two",
+    "network_region": "SA1",
+    "lat": -32.415846,
+    "lon": 137.841225
+  },
+  {
+    "code": "BUNGAMB",
+    "name": "Bungama",
+    "network_region": "SA1",
+    "lat": -33.191223,
+    "lon": 138.08733
+  },
+  {
+    "code": "BDONGHYD",
+    "name": "Burrendong",
+    "network_region": "NSW1",
+    "lat": -32.664624,
+    "lon": 149.107959
+  },
+  {
+    "code": "BURRIN",
+    "name": "Burrinjuck",
+    "network_region": "NSW1",
+    "lat": -35.003008,
+    "lon": 148.582864
+  },
+  {
+    "code": "BUTLERSG",
+    "name": "Butlers Gorge",
+    "network_region": "TAS1",
+    "lat": -42.266898,
+    "lon": 146.261823
+  },
+  {
+    "code": "CALL_B",
+    "name": "Callide B",
+    "network_region": "QLD1",
+    "lat": -24.346016,
+    "lon": 150.61856
+  },
+  {
+    "code": "CALLIDEC1",
+    "name": "Callide C",
+    "network_region": "QLD1",
+    "lat": -24.346016,
+    "lon": 150.61856
+  },
+  {
+    "code": "CANUNDA1",
+    "name": "Canunda",
+    "network_region": "SA1",
+    "lat": -37.691515,
+    "lon": 140.35514
+  },
+  {
+    "code": "CAPBES",
+    "name": "Capital",
+    "network_region": "NSW1",
+    "lat": -35.338251,
+    "lon": 149.215529
+  },
+  {
+    "code": "CAPTL_WF",
+    "name": "Capital",
+    "network_region": "NSW1",
+    "lat": -35.136662,
+    "lon": 149.503302
+  },
+  {
+    "code": "CESF",
+    "name": "Capital East",
+    "network_region": "NSW1",
+    "lat": -35.180684,
+    "lon": 149.546482
+  },
+  {
+    "code": "CRWARP",
+    "name": "Carwarp",
+    "network_region": "VIC1",
+    "lat": -34.399542,
+    "lon": 142.172804
+  },
+  {
+    "code": "LI_WY_CA",
+    "name": "Catagunya / Liapootah / Wayatinah",
+    "network_region": "TAS1",
+    "lat": -42.376279,
+    "lon": 146.510051
+  },
+  {
+    "code": "CATHROCK",
+    "name": "Cathedral Rocks",
+    "network_region": "SA1",
+    "lat": -34.854865,
+    "lon": 135.583318
+  },
+  {
+    "code": "CTHLWF",
+    "name": "Cattle Hill",
+    "network_region": "TAS1",
+    "lat": -42.149661,
+    "lon": 146.724045
+  },
+  {
+    "code": "CETHANA",
+    "name": "Cethana",
+    "network_region": "TAS1",
+    "lat": -41.480804,
+    "lon": 146.134511
+  },
+  {
+    "code": "CHALLWF",
+    "name": "Challicum Hills",
+    "network_region": "VIC1",
+    "lat": -37.388065,
+    "lon": 143.109502
+  },
+  {
+    "code": "CHPSTWF",
+    "name": "Chepstowe",
+    "network_region": "VIC1",
+    "lat": -37.596065,
+    "lon": 143.495467
+  },
+  {
+    "code": "CHYTWF",
+    "name": "Cherry Tree",
+    "network_region": "VIC1",
+    "lat": -37.10249,
+    "lon": 145.2657
+  },
+  {
+    "code": "CHILDSF",
+    "name": "Childers",
+    "network_region": "QLD1",
+    "lat": -25.305189,
+    "lon": 152.402663
+  },
+  {
+    "code": "CHBESS",
+    "name": "Chinchilla",
+    "network_region": "QLD1",
+    "lat": -26.918598,
+    "lon": 150.745396
+  },
+  {
+    "code": "CBWWBA",
+    "name": "Christies Beach",
+    "network_region": "SA1",
+    "lat": -35.125958,
+    "lon": 138.47135
+  },
+  {
+    "code": "CLARESF",
+    "name": "Clare",
+    "network_region": "QLD1",
+    "lat": -19.839817,
+    "lon": 147.204884
+  },
+  {
+    "code": "CLRKCWF",
+    "name": "Clarke Creek",
+    "network_region": "QLD1",
+    "lat": -22.850446,
+    "lon": 149.453252
+  },
+  {
+    "code": "CLAYTON",
+    "name": "Clayton",
+    "network_region": "VIC1",
+    "lat": -37.950618,
+    "lon": 145.119681
+  },
+  {
+    "code": "CLEMGPWF",
+    "name": "Clements Gap",
+    "network_region": "SA1",
+    "lat": -33.507311,
+    "lon": 138.115629
+  },
+  {
+    "code": "CLERMSF",
+    "name": "Clermont",
+    "network_region": "QLD1",
+    "lat": -22.837763,
+    "lon": 147.579322
+  },
+  {
+    "code": "CLOVER",
+    "name": "Clover",
+    "network_region": "VIC1",
+    "lat": -36.785257,
+    "lon": 147.220466
+  },
+  {
+    "code": "CLUNY",
+    "name": "Cluny",
+    "network_region": "TAS1",
+    "lat": -42.506442,
+    "lon": 146.68104
+  },
+  {
+    "code": "COCKBURN",
+    "name": "Cockburn",
+    "network_region": "WEM",
+    "lat": -32.200134,
+    "lon": 115.773988
+  },
+  {
+    "code": "CODRGTON",
+    "name": "Codrington",
+    "network_region": "VIC1",
+    "lat": -38.284935,
+    "lon": 141.961499
+  },
+  {
+    "code": "COHUNSF1",
+    "name": "Cohuna",
+    "network_region": "VIC1",
+    "lat": -35.886553,
+    "lon": 144.217421
+  },
+  {
+    "code": "COLEASF",
+    "name": "Coleambally",
+    "network_region": "NSW1",
+    "lat": -34.762456,
+    "lon": 145.928786
+  },
+  {
+    "code": "COLWF01",
+    "name": "Collector",
+    "network_region": "NSW1",
+    "lat": -34.862066,
+    "lon": 149.388245
+  },
+  {
+    "code": "INVESTEC_COLLGAR",
+    "name": "Collgar",
+    "network_region": "WEM",
+    "lat": -31.542533,
+    "lon": 118.456525
+  },
+  {
+    "code": "COLLIE",
+    "name": "Collie",
+    "network_region": "WEM",
+    "lat": -33.342097,
+    "lon": 116.261439
+  },
+  {
+    "code": "COLLIE_ESR4",
+    "name": "Collie",
+    "network_region": "WEM",
+    "lat": -33.336691,
+    "lon": 116.261109
+  },
+  {
+    "code": "COLLIE_ESR",
+    "name": "Collie 1",
+    "network_region": "WEM",
+    "lat": -33.336507,
+    "lon": 116.260662
+  },
+  {
+    "code": "COLLIE_BESS2",
+    "name": "Collie 2",
+    "network_region": "WEM",
+    "lat": -33.336507,
+    "lon": 116.260662
+  },
+  {
+    "code": "COLLIE_ESR5",
+    "name": "Collie 2",
+    "network_region": "WEM",
+    "lat": -33.336691,
+    "lon": 116.261109
+  },
+  {
+    "code": "CSPVPS",
+    "name": "Collinsville",
+    "network_region": "QLD1",
+    "lat": -20.541215,
+    "lon": 147.807432
+  },
+  {
+    "code": "COLONGRA",
+    "name": "Colongra",
+    "network_region": "NSW1",
+    "lat": -33.209801,
+    "lon": 151.544968
+  },
+  {
+    "code": "COLUMSF",
+    "name": "Columboola",
+    "network_region": "QLD1",
+    "lat": -26.633781,
+    "lon": 150.298894
+  },
+  {
+    "code": "CPSA",
+    "name": "Condamine A",
+    "network_region": "QLD1",
+    "lat": -26.668181,
+    "lon": 150.270023
+  },
+  {
+    "code": "CONDONG1",
+    "name": "Condong",
+    "network_region": "NSW1",
+    "lat": -28.314766,
+    "lon": 153.433808
+  },
+  {
+    "code": "CBWF",
+    "name": "Coonoer Bridge",
+    "network_region": "VIC1",
+    "lat": -36.415237,
+    "lon": 143.380189
+  },
+  {
+    "code": "COOPGWF",
+    "name": "Coopers Gap",
+    "network_region": "QLD1",
+    "lat": -26.733659,
+    "lon": 151.474795
+  },
+  {
+    "code": "COPTNHYD",
+    "name": "Copeton",
+    "network_region": "NSW1",
+    "lat": -29.910174,
+    "lon": 150.92348
+  },
+  {
+    "code": "CRWASF1",
+    "name": "Corowa",
+    "network_region": "NSW1",
+    "lat": -35.979325,
+    "lon": 146.359356
+  },
+  {
+    "code": "CROOKWEL",
+    "name": "Crookwell",
+    "network_region": "NSW1",
+    "lat": -34.517075,
+    "lon": 149.542648
+  },
+  {
+    "code": "CROOKWF2",
+    "name": "Crookwell 2",
+    "network_region": "NSW1",
+    "lat": -34.556855,
+    "lon": 149.609565
+  },
+  {
+    "code": "CROOKWF3",
+    "name": "Crookwell 3",
+    "network_region": "NSW1",
+    "lat": -34.517075,
+    "lon": 149.542648
+  },
+  {
+    "code": "CROWLWF",
+    "name": "Crowlands",
+    "network_region": "VIC1",
+    "lat": -36.97615,
+    "lon": 143.097998
+  },
+  {
+    "code": "CRURWF1",
+    "name": "Crudine Ridge",
+    "network_region": "NSW1",
+    "lat": -32.864748,
+    "lon": 149.81297
+  },
+  {
+    "code": "CULCSF",
+    "name": "Culcairn",
+    "network_region": "NSW1",
+    "lat": -35.702717,
+    "lon": 146.963901
+  },
+  {
+    "code": "CULLERIN",
+    "name": "Cullerin Range",
+    "network_region": "NSW1",
+    "lat": -34.809208,
+    "lon": 149.399185
+  },
+  {
+    "code": "SBSOLAR1_CUNDERDIN_PV",
+    "name": "Cunderdin",
+    "network_region": "WEM",
+    "lat": -31.656115,
+    "lon": 117.276303
+  },
+  {
+    "code": "DALNTH",
+    "name": "Dalrymple North",
+    "network_region": "SA1",
+    "lat": -34.933952,
+    "lon": 137.743532
+  },
+  {
+    "code": "DDPS1",
+    "name": "Darling Downs",
+    "network_region": "QLD1",
+    "lat": -27.116855,
+    "lon": 150.894761
+  },
+  {
+    "code": "DDSF",
+    "name": "Darling Downs",
+    "network_region": "QLD1",
+    "lat": -27.113797,
+    "lon": 150.879733
+  },
+  {
+    "code": "DARLSF",
+    "name": "Darlington Point",
+    "network_region": "NSW1",
+    "lat": -34.648971,
+    "lon": 146.061179
+  },
+  {
+    "code": "DPNTB",
+    "name": "Darlington Point",
+    "network_region": "NSW1",
+    "lat": -34.647016,
+    "lon": 146.035236
+  },
+  {
+    "code": "DARTM",
+    "name": "Dartmouth",
+    "network_region": "VIC1",
+    "lat": -36.556485,
+    "lon": 147.520456
+  },
+  {
+    "code": "DAYDSF",
+    "name": "Daydream",
+    "network_region": "QLD1",
+    "lat": -20.479752,
+    "lon": 147.763711
+  },
+  {
+    "code": "DCWL_DENMARK",
+    "name": "Denmark",
+    "network_region": "WEM",
+    "lat": -35.036189,
+    "lon": 117.319938
+  },
+  {
+    "code": "DEVILS_G",
+    "name": "Devils Gate",
+    "network_region": "TAS1",
+    "lat": -41.350513,
+    "lon": 146.263394
+  },
+  {
+    "code": "DIAPURWF",
+    "name": "Diapur 2",
+    "network_region": "VIC1",
+    "lat": -36.342581,
+    "lon": 141.434701
+  },
+  {
+    "code": "DRYCGT",
+    "name": "Dry Creek",
+    "network_region": "SA1",
+    "lat": -34.847703,
+    "lon": 138.5816
+  },
+  {
+    "code": "DULAWF",
+    "name": "Dulacca",
+    "network_region": "QLD1",
+    "lat": -26.631438,
+    "lon": 149.867554
+  },
+  {
+    "code": "DUNDWF",
+    "name": "Dundonnell",
+    "network_region": "VIC1",
+    "lat": -37.865682,
+    "lon": 142.951894
+  },
+  {
+    "code": "EASTCRK",
+    "name": "Eastern Creek",
+    "network_region": "NSW1",
+    "lat": -33.815468,
+    "lon": 150.854307
+  },
+  {
+    "code": "EASTCRK2",
+    "name": "Eastern Creek 2",
+    "network_region": "NSW1",
+    "lat": -33.815468,
+    "lon": 150.854307
+  },
+  {
+    "code": "EDENVSF",
+    "name": "Edenvale",
+    "network_region": "QLD1",
+    "lat": -26.931732,
+    "lon": 150.582727
+  },
+  {
+    "code": "EILDON",
+    "name": "Eildon",
+    "network_region": "VIC1",
+    "lat": -37.221982,
+    "lon": 145.921476
+  },
+  {
+    "code": "EILDONPD",
+    "name": "Eildon",
+    "network_region": "VIC1",
+    "lat": -37.243123,
+    "lon": 145.89735
+  },
+  {
+    "code": "ELAINEWF",
+    "name": "Elaine",
+    "network_region": "VIC1",
+    "lat": -37.627677,
+    "lon": 144.025313
+  },
+  {
+    "code": "EMERASF",
+    "name": "Emerald",
+    "network_region": "QLD1",
+    "lat": -23.507996,
+    "lon": 148.126404
+  },
+  {
+    "code": "EDWFMAN",
+    "name": "Emu Downs",
+    "network_region": "WEM",
+    "lat": -30.490991,
+    "lon": 115.359843
+  },
+  {
+    "code": "ERARING",
+    "name": "Eraring",
+    "network_region": "NSW1",
+    "lat": -33.061039,
+    "lon": 151.51984
+  },
+  {
+    "code": "ERB",
+    "name": "Eraring",
+    "network_region": "NSW1",
+    "lat": -33.060582,
+    "lon": 151.520047
+  },
+  {
+    "code": "ERGT01",
+    "name": "Eraring",
+    "network_region": "NSW1",
+    "lat": -33.062117,
+    "lon": 151.517224
+  },
+  {
+    "code": "ERB2",
+    "name": "Eraring 2",
+    "network_region": "NSW1",
+    "lat": -33.066837,
+    "lon": 151.515026
+  },
+  {
+    "code": "FWF",
+    "name": "Ferguson",
+    "network_region": "VIC1",
+    "lat": -38.609776,
+    "lon": 143.179314
+  },
+  {
+    "code": "FINLEYSF",
+    "name": "Finley",
+    "network_region": "NSW1",
+    "lat": -35.648941,
+    "lon": 145.50575
+  },
+  {
+    "code": "FISHER",
+    "name": "Fisher",
+    "network_region": "TAS1",
+    "lat": -41.673312,
+    "lon": 146.268511
+  },
+  {
+    "code": "FLATROCKS",
+    "name": "Flat Rocks",
+    "network_region": "WEM",
+    "lat": -33.992789,
+    "lon": 117.354335
+  },
+  {
+    "code": "FLYCRKWF",
+    "name": "Flyers Creek",
+    "network_region": "NSW1",
+    "lat": -33.517716,
+    "lon": 149.052949
+  },
+  {
+    "code": "GANGARR",
+    "name": "Gangarri",
+    "network_region": "QLD1",
+    "lat": -26.270557,
+    "lon": 149.758054
+  },
+  {
+    "code": "GANNBESS",
+    "name": "Gannawarra",
+    "network_region": "VIC1",
+    "lat": -35.734598,
+    "lon": 143.779894
+  },
+  {
+    "code": "GANNSF",
+    "name": "Gannawarra",
+    "network_region": "VIC1",
+    "lat": -35.729012,
+    "lon": 143.783189
+  },
+  {
+    "code": "TESLA_GERALDTON",
+    "name": "Geraldton",
+    "network_region": "WEM",
+    "lat": -28.790815,
+    "lon": 114.691831
+  },
+  {
+    "code": "GERMCRK",
+    "name": "German Creek",
+    "network_region": "QLD1",
+    "lat": -22.928526,
+    "lon": 148.549097
+  },
+  {
+    "code": "GIRGSF",
+    "name": "Girgarre",
+    "network_region": "VIC1",
+    "lat": -36.424428,
+    "lon": 144.947305
+  },
+  {
+    "code": "GSTONE",
+    "name": "Gladstone",
+    "network_region": "QLD1",
+    "lat": -23.853641,
+    "lon": 151.217515
+  },
+  {
+    "code": "GLBWNHYD",
+    "name": "Glenbawn",
+    "network_region": "NSW1",
+    "lat": -32.107937,
+    "lon": 150.999481
+  },
+  {
+    "code": "GESF",
+    "name": "Glenellen",
+    "network_region": "NSW1",
+    "lat": -35.929882,
+    "lon": 146.909107
+  },
+  {
+    "code": "GLENMAGG",
+    "name": "Glenmaggie",
+    "network_region": "VIC1",
+    "lat": -37.904836,
+    "lon": 146.800388
+  },
+  {
+    "code": "GLENNCRK",
+    "name": "Glennies Creek",
+    "network_region": "NSW1",
+    "lat": -32.459876,
+    "lon": 151.128697
+  },
+  {
+    "code": "GLENSF",
+    "name": "Glenrowan",
+    "network_region": "VIC1",
+    "lat": -36.490814,
+    "lon": 146.158762
+  },
+  {
+    "code": "GLRWNSF",
+    "name": "Glenrowan West",
+    "network_region": "VIC1",
+    "lat": -36.4907,
+    "lon": 146.157473
+  },
+  {
+    "code": "GPWFEST",
+    "name": "Golden Plains East",
+    "network_region": "VIC1",
+    "lat": -37.95728,
+    "lon": 143.769665
+  },
+  {
+    "code": "GPWFWST",
+    "name": "Golden Plains West",
+    "network_region": "VIC1",
+    "lat": -37.896786,
+    "lon": 143.648042
+  },
+  {
+    "code": "GOONUMSF",
+    "name": "Goonumbla",
+    "network_region": "NSW1",
+    "lat": -33.109212,
+    "lon": 148.092982
+  },
+  {
+    "code": "GOESF1",
+    "name": "Goorambat East",
+    "network_region": "VIC1",
+    "lat": -36.434304,
+    "lon": 145.923113
+  },
+  {
+    "code": "GORDON",
+    "name": "Gordon",
+    "network_region": "TAS1",
+    "lat": -42.740519,
+    "lon": 145.982796
+  },
+  {
+    "code": "GSWF",
+    "name": "Goyder South",
+    "network_region": "SA1",
+    "lat": -33.778423,
+    "lon": 138.97176
+  },
+  {
+    "code": "GRANGEAV",
+    "name": "Grange Avenue",
+    "network_region": "NSW1",
+    "lat": -33.713011,
+    "lon": 150.83316
+  },
+  {
+    "code": "GRANWF",
+    "name": "Granville Harbour",
+    "network_region": "TAS1",
+    "lat": -41.778439,
+    "lon": 145.065517
+  },
+  {
+    "code": "GRASMERE",
+    "name": "Grasmere",
+    "network_region": "WEM",
+    "lat": -35.055759,
+    "lon": 117.777048
+  },
+  {
+    "code": "GREENB",
+    "name": "Greenbank",
+    "network_region": "QLD1",
+    "lat": -27.733142,
+    "lon": 152.954374
+  },
+  {
+    "code": "GREENOUGH_RIVER",
+    "name": "Greenough River",
+    "network_region": "WEM",
+    "lat": -28.90381,
+    "lon": 115.10937
+  },
+  {
+    "code": "GRIFSF",
+    "name": "Griffith",
+    "network_region": "NSW1",
+    "lat": -34.317617,
+    "lon": 146.121416
+  },
+  {
+    "code": "GROSV1",
+    "name": "Grosvenor 1",
+    "network_region": "QLD1",
+    "lat": -21.929194,
+    "lon": 148.032416
+  },
+  {
+    "code": "GROSV2",
+    "name": "Grosvenor 2",
+    "network_region": "QLD1",
+    "lat": -21.929194,
+    "lon": 148.032416
+  },
+  {
+    "code": "GULLRGWF",
+    "name": "Gullen Range",
+    "network_region": "NSW1",
+    "lat": -34.615245,
+    "lon": 149.45808
+  },
+  {
+    "code": "GNNDHSF",
+    "name": "Gunnedah",
+    "network_region": "NSW1",
+    "lat": -30.937263,
+    "lon": 150.344174
+  },
+  {
+    "code": "GUNNING",
+    "name": "Gunning",
+    "network_region": "NSW1",
+    "lat": -34.691531,
+    "lon": 149.373013
+  },
+  {
+    "code": "GUSF",
+    "name": "Gunsynd",
+    "network_region": "QLD1",
+    "lat": -28.408388,
+    "lon": 150.343437
+  },
+  {
+    "code": "SNOWY3",
+    "name": "Guthega",
+    "network_region": "NSW1",
+    "lat": -36.350097,
+    "lon": 148.413602
+  },
+  {
+    "code": "HLMSEW01",
+    "name": "Hallam",
+    "network_region": "VIC1",
+    "lat": -38.143332,
+    "lon": 145.119964
+  },
+  {
+    "code": "HALAMRD",
+    "name": "Hallam Road",
+    "network_region": "VIC1",
+    "lat": -38.052181,
+    "lon": 145.267798
+  },
+  {
+    "code": "AGLHAL",
+    "name": "Hallett",
+    "network_region": "SA1",
+    "lat": -33.349528,
+    "lon": 138.751607
+  },
+  {
+    "code": "HALLWF",
+    "name": "Hallett 1",
+    "network_region": "SA1",
+    "lat": -33.349308,
+    "lon": 138.750829
+  },
+  {
+    "code": "HALLWF2",
+    "name": "Hallett 2",
+    "network_region": "SA1",
+    "lat": -33.550778,
+    "lon": 138.863924
+  },
+  {
+    "code": "HAMISF",
+    "name": "Hamilton",
+    "network_region": "QLD1",
+    "lat": -20.496081,
+    "lon": 147.738803
+  },
+  {
+    "code": "HAMPTON",
+    "name": "Hampton",
+    "network_region": "NSW1",
+    "lat": -33.638759,
+    "lon": 150.049667
+  },
+  {
+    "code": "HVWW",
+    "name": "Happy Valley",
+    "network_region": "SA1",
+    "lat": -35.056156,
+    "lon": 138.564957
+  },
+  {
+    "code": "HASTING",
+    "name": "Hastings",
+    "network_region": "VIC1",
+    "lat": -38.295952,
+    "lon": 145.221926
+  },
+  {
+    "code": "HAUGHT1",
+    "name": "Haughton",
+    "network_region": "QLD1",
+    "lat": -19.750134,
+    "lon": 147.048103
+  },
+  {
+    "code": "HD1WF",
+    "name": "Hawkesdale",
+    "network_region": "VIC1",
+    "lat": -38.148008,
+    "lon": 142.360925
+  },
+  {
+    "code": "HAYMSF",
+    "name": "Hayman",
+    "network_region": "QLD1",
+    "lat": -20.510097,
+    "lon": 147.755711
+  },
+  {
+    "code": "HBESS",
+    "name": "Hazelwood BESS",
+    "network_region": "VIC1",
+    "lat": -38.267845,
+    "lon": 146.390293
+  },
+  {
+    "code": "HENDERSON_RENEWABLE",
+    "name": "Henderson",
+    "network_region": "WEM",
+    "lat": -32.202137,
+    "lon": 115.77391
+  },
+  {
+    "code": "HEPWIND",
+    "name": "Hepburn",
+    "network_region": "VIC1",
+    "lat": -37.427069,
+    "lon": 144.122158
+  },
+  {
+    "code": "HILLSTN",
+    "name": "Hillston Sun",
+    "network_region": "NSW1",
+    "lat": -33.531624,
+    "lon": 145.52242
+  },
+  {
+    "code": "HORNSDAL",
+    "name": "Hornsdale",
+    "network_region": "SA1",
+    "lat": -33.071721,
+    "lon": 138.556978
+  },
+  {
+    "code": "HORNSDAL2",
+    "name": "Hornsdale 2",
+    "network_region": "SA1",
+    "lat": -33.05982,
+    "lon": 138.537673
+  },
+  {
+    "code": "HORNSDAL3",
+    "name": "Hornsdale 3",
+    "network_region": "SA1",
+    "lat": -33.05982,
+    "lon": 138.537673
+  },
+  {
+    "code": "HORNSDPR",
+    "name": "Hornsdale Power Reserve",
+    "network_region": "SA1",
+    "lat": -33.086389,
+    "lon": 138.518659
+  },
+  {
+    "code": "HUGSF",
+    "name": "Hughenden",
+    "network_region": "QLD1",
+    "lat": -20.85484,
+    "lon": 144.186257
+  },
+  {
+    "code": "HUMENSW",
+    "name": "Hume",
+    "network_region": "NSW1",
+    "lat": -36.106639,
+    "lon": 147.032526
+  },
+  {
+    "code": "HUMEV",
+    "name": "Hume",
+    "network_region": "VIC1",
+    "lat": -36.106887,
+    "lon": 147.032572
+  },
+  {
+    "code": "HUNTER",
+    "name": "Hunter",
+    "network_region": "NSW1",
+    "lat": -32.836104,
+    "lon": 151.450523
+  },
+  {
+    "code": "HEZ",
+    "name": "Hunter Economic Zone",
+    "network_region": "NSW1",
+    "lat": -32.835481,
+    "lon": 151.451033
+  },
+  {
+    "code": "INVICTA",
+    "name": "Invicta Sugar Mill",
+    "network_region": "QLD1",
+    "lat": -19.520476,
+    "lon": 147.107439
+  },
+  {
+    "code": "ICSM",
+    "name": "Isis Central Sugar Mill",
+    "network_region": "QLD1",
+    "lat": -25.197619,
+    "lon": 152.206949
+  },
+  {
+    "code": "JACKSGUL",
+    "name": "Jacks Gully",
+    "network_region": "NSW1",
+    "lat": -34.072955,
+    "lon": 150.743691
+  },
+  {
+    "code": "JEERA",
+    "name": "Jeeralang A",
+    "network_region": "VIC1",
+    "lat": -38.275046,
+    "lon": 146.425572
+  },
+  {
+    "code": "JEERB",
+    "name": "Jeeralang B",
+    "network_region": "VIC1",
+    "lat": -38.275189,
+    "lon": 146.425555
+  },
+  {
+    "code": "JEMALNG1",
+    "name": "Jemalong",
+    "network_region": "NSW1",
+    "lat": -33.409099,
+    "lon": 147.655008
+  },
+  {
+    "code": "JNDSHPS",
+    "name": "Jindabyne",
+    "network_region": "NSW1",
+    "lat": -36.434918,
+    "lon": 148.63057
+  },
+  {
+    "code": "SNWYGJP2",
+    "name": "Jindabyne Pump At Guthega",
+    "network_region": "NSW1",
+    "lat": -36.434918,
+    "lon": 148.63057
+  },
+  {
+    "code": "JBUTTERS",
+    "name": "John Butters",
+    "network_region": "TAS1",
+    "lat": -42.154894,
+    "lon": 145.534508
+  },
+  {
+    "code": "JOUNAMA",
+    "name": "Jounama",
+    "network_region": "NSW1",
+    "lat": -35.562015,
+    "lon": 148.305493
+  },
+  {
+    "code": "JUNEESF",
+    "name": "Junee",
+    "network_region": "NSW1",
+    "lat": -34.814929,
+    "lon": 147.572334
+  },
+  {
+    "code": "KABANWF",
+    "name": "Kaban",
+    "network_region": "QLD1",
+    "lat": -17.560606,
+    "lon": 145.413125
+  },
+  {
+    "code": "KALBARRI",
+    "name": "Kalbarri",
+    "network_region": "WEM",
+    "lat": -27.899626,
+    "lon": 114.194519
+  },
+  {
+    "code": "STHRNCRS",
+    "name": "Kambalda",
+    "network_region": "WEM",
+    "lat": -31.191281,
+    "lon": 121.673741
+  },
+  {
+    "code": "KARSF",
+    "name": "Karadoc",
+    "network_region": "VIC1",
+    "lat": -34.411851,
+    "lon": 142.250443
+  },
+  {
+    "code": "BLAIRFOX_KARAKIN",
+    "name": "Karakin",
+    "network_region": "WEM",
+    "lat": -30.942242,
+    "lon": 115.366613
+  },
+  {
+    "code": "KAREEYA",
+    "name": "Kareeya",
+    "network_region": "QLD1",
+    "lat": -17.767013,
+    "lon": 145.577993
+  },
+  {
+    "code": "KEEPIT",
+    "name": "Keepit",
+    "network_region": "NSW1",
+    "lat": -30.87868,
+    "lon": 150.491876
+  },
+  {
+    "code": "KEMERTON",
+    "name": "Kemerton",
+    "network_region": "WEM",
+    "lat": -33.163352,
+    "lon": 115.780966
+  },
+  {
+    "code": "TESLA_KEMERTON",
+    "name": "Kemerton",
+    "network_region": "WEM",
+    "lat": -33.211662,
+    "lon": 115.76057
+  },
+  {
+    "code": "KENNEDY",
+    "name": "Kennedy Energy Park",
+    "network_region": "QLD1",
+    "lat": -20.873828,
+    "lon": 144.412727
+  },
+  {
+    "code": "KERNGSP",
+    "name": "Kerang",
+    "network_region": "VIC1",
+    "lat": -35.779895,
+    "lon": 143.941051
+  },
+  {
+    "code": "KIAMSF1",
+    "name": "Kiamal",
+    "network_region": "VIC1",
+    "lat": -35.021508,
+    "lon": 142.297971
+  },
+  {
+    "code": "KIATAWF",
+    "name": "Kiata",
+    "network_region": "VIC1",
+    "lat": -36.397288,
+    "lon": 141.747394
+  },
+  {
+    "code": "KSP1",
+    "name": "Kidston",
+    "network_region": "QLD1",
+    "lat": -18.889381,
+    "lon": 144.14246
+  },
+  {
+    "code": "KINGASF",
+    "name": "Kingaroy",
+    "network_region": "QLD1",
+    "lat": -26.538639,
+    "lon": 151.881271
+  },
+  {
+    "code": "KOGANCK",
+    "name": "Kogan Creek",
+    "network_region": "QLD1",
+    "lat": -26.917925,
+    "lon": 150.749127
+  },
+  {
+    "code": "KESS1",
+    "name": "Koorangie",
+    "network_region": "VIC1",
+    "lat": -35.726424,
+    "lon": 143.752212
+  },
+  {
+    "code": "KWINANA",
+    "name": "Kwinana",
+    "network_region": "WEM",
+    "lat": -32.198281,
+    "lon": 115.77559
+  },
+  {
+    "code": "KWINANA_ESR",
+    "name": "Kwinana Battery",
+    "network_region": "WEM",
+    "lat": -32.19855,
+    "lon": 115.778521
+  },
+  {
+    "code": "KWINANA_ESR2",
+    "name": "Kwinana Battery 2",
+    "network_region": "WEM",
+    "lat": -32.202465,
+    "lon": 115.778452
+  },
+  {
+    "code": "TIWEST_COG1",
+    "name": "Kwinana Cogen",
+    "network_region": "WEM",
+    "lat": -32.22762,
+    "lon": 115.773435
+  },
+  {
+    "code": "PERTHENERGY_KWINANA",
+    "name": "Kwinana Swift",
+    "network_region": "WEM",
+    "lat": -32.224368,
+    "lon": 115.778586
+  },
+  {
+    "code": "LADBROKE",
+    "name": "Ladbroke Grove",
+    "network_region": "SA1",
+    "lat": -37.456341,
+    "lon": 140.782163
+  },
+  {
+    "code": "LBBESS",
+    "name": "Lake Bonney",
+    "network_region": "SA1",
+    "lat": -37.738979,
+    "lon": 140.38681
+  },
+  {
+    "code": "LKBONNY1",
+    "name": "Lake Bonney",
+    "network_region": "SA1",
+    "lat": -37.769885,
+    "lon": 140.406271
+  },
+  {
+    "code": "LKBONNY_2",
+    "name": "Lake Bonney 2",
+    "network_region": "SA1",
+    "lat": -37.769885,
+    "lon": 140.406271
+  },
+  {
+    "code": "LKBONNY3",
+    "name": "Lake Bonney 3",
+    "network_region": "SA1",
+    "lat": -37.769885,
+    "lon": 140.406271
+  },
+  {
+    "code": "LK_ECHO",
+    "name": "Lake Echo",
+    "network_region": "TAS1",
+    "lat": -42.253643,
+    "lon": 146.620627
+  },
+  {
+    "code": "LANCSF",
+    "name": "Lancaster",
+    "network_region": "VIC1",
+    "lat": -36.290467,
+    "lon": 145.141535
+  },
+  {
+    "code": "LVES",
+    "name": "Latrobe Valley",
+    "network_region": "VIC1",
+    "lat": -38.258183,
+    "lon": 146.418614
+  },
+  {
+    "code": "LNGS",
+    "name": "Laverton North",
+    "network_region": "VIC1",
+    "lat": -37.841703,
+    "lon": 144.788796
+  },
+  {
+    "code": "LEM_WIL",
+    "name": "Lemonthyme / Wilmot",
+    "network_region": "TAS1",
+    "lat": -41.603738,
+    "lon": 146.13894
+  },
+  {
+    "code": "LDBESS",
+    "name": "Liddell",
+    "network_region": "NSW1",
+    "lat": -32.37564,
+    "lon": 150.978578
+  },
+  {
+    "code": "LILYVASF",
+    "name": "Lilyvale",
+    "network_region": "QLD1",
+    "lat": -23.084225,
+    "lon": 148.425994
+  },
+  {
+    "code": "LIMBESS",
+    "name": "Limondale",
+    "network_region": "NSW1",
+    "lat": -34.769354,
+    "lon": 143.559464
+  },
+  {
+    "code": "LIMOSF1",
+    "name": "Limondale",
+    "network_region": "NSW1",
+    "lat": -34.771747,
+    "lon": 143.500494
+  },
+  {
+    "code": "LIMOSF2",
+    "name": "Limondale 2",
+    "network_region": "NSW1",
+    "lat": -34.771747,
+    "lon": 143.500494
+  },
+  {
+    "code": "LGAPWF1",
+    "name": "Lincoln Gap",
+    "network_region": "SA1",
+    "lat": -32.564612,
+    "lon": 137.557203
+  },
+  {
+    "code": "LONGFORD",
+    "name": "Longford",
+    "network_region": "VIC1",
+    "lat": -38.223244,
+    "lon": 147.1631
+  },
+  {
+    "code": "LRSF",
+    "name": "Longreach",
+    "network_region": "QLD1",
+    "lat": -23.446178,
+    "lon": 144.35918
+  },
+  {
+    "code": "LONSDALE",
+    "name": "Lonsdale",
+    "network_region": "SA1",
+    "lat": -35.109703,
+    "lon": 138.490992
+  },
+  {
+    "code": "LOYYANGA",
+    "name": "Loy Yang A",
+    "network_region": "VIC1",
+    "lat": -38.253534,
+    "lon": 146.574459
+  },
+  {
+    "code": "LOYYB",
+    "name": "Loy Yang B",
+    "network_region": "VIC1",
+    "lat": -38.256446,
+    "lon": 146.584982
+  },
+  {
+    "code": "LUCASHGT",
+    "name": "Lucas Heights",
+    "network_region": "NSW1",
+    "lat": -34.04829,
+    "lon": 150.973916
+  },
+  {
+    "code": "LUCAS2S2",
+    "name": "Lucas Heights 2",
+    "network_region": "NSW1",
+    "lat": -34.044088,
+    "lon": 150.972475
+  },
+  {
+    "code": "MACARTH",
+    "name": "Macarthur",
+    "network_region": "VIC1",
+    "lat": -38.036376,
+    "lon": 142.181753
+  },
+  {
+    "code": "MCINTYR",
+    "name": "MacIntyre",
+    "network_region": "QLD1",
+    "lat": -28.350769,
+    "lon": 151.635944
+  },
+  {
+    "code": "MACKNTSH",
+    "name": "Mackintosh",
+    "network_region": "TAS1",
+    "lat": -41.69974,
+    "lon": 145.646154
+  },
+  {
+    "code": "MANSLR",
+    "name": "Manildra",
+    "network_region": "NSW1",
+    "lat": -33.172681,
+    "lon": 148.718175
+  },
+  {
+    "code": "BRIDGETOWN_BIOMASS_PLANT",
+    "name": "Manjimup",
+    "network_region": "WEM",
+    "lat": -34.333151,
+    "lon": 116.108521
+  },
+  {
+    "code": "MANNUMB",
+    "name": "Mannum",
+    "network_region": "SA1",
+    "lat": -34.917537,
+    "lon": 139.262695
+  },
+  {
+    "code": "MANNSF",
+    "name": "Mannum 2",
+    "network_region": "SA1",
+    "lat": -34.914923,
+    "lon": 139.269268
+  },
+  {
+    "code": "MAPS2",
+    "name": "Mannum Pumping Station",
+    "network_region": "SA1",
+    "lat": -34.854044,
+    "lon": 139.189749
+  },
+  {
+    "code": "MAROOWF1",
+    "name": "Maroona",
+    "network_region": "VIC1",
+    "lat": -37.41875,
+    "lon": 142.82434
+  },
+  {
+    "code": "MARYRSF",
+    "name": "Maryrorough",
+    "network_region": "QLD1",
+    "lat": -27.708611,
+    "lon": 151.546202
+  },
+  {
+    "code": "MEADOWBK",
+    "name": "Meadowbank",
+    "network_region": "TAS1",
+    "lat": -42.611178,
+    "lon": 146.845687
+  },
+  {
+    "code": "MREH",
+    "name": "Melbourne A1",
+    "network_region": "VIC1",
+    "lat": -37.669178,
+    "lon": 144.733221
+  },
+  {
+    "code": "MREHA2",
+    "name": "Melbourne A2",
+    "network_region": "VIC1",
+    "lat": -37.669178,
+    "lon": 144.733221
+  },
+  {
+    "code": "MREHA3",
+    "name": "Melbourne A3",
+    "network_region": "VIC1",
+    "lat": -37.669178,
+    "lon": 144.733221
+  },
+  {
+    "code": "MERREDIN_ESR1",
+    "name": "Merredin",
+    "network_region": "WEM",
+    "lat": -31.539455,
+    "lon": 118.227167
+  },
+  {
+    "code": "MERSOLAR",
+    "name": "Merredin",
+    "network_region": "WEM",
+    "lat": -31.539824,
+    "lon": 118.238339
+  },
+  {
+    "code": "NAMKKN_MERR",
+    "name": "Merredin",
+    "network_region": "WEM",
+    "lat": -31.542681,
+    "lon": 118.22701
+  },
+  {
+    "code": "AMBRISOLAR",
+    "name": "Metro",
+    "network_region": "WEM",
+    "lat": -32.1224,
+    "lon": 115.84775
+  },
+  {
+    "code": "METZSF",
+    "name": "Metz N",
+    "network_region": "NSW1",
+    "lat": -30.515484,
+    "lon": 151.859815
+  },
+  {
+    "code": "MIDDLSF1",
+    "name": "Middlemount",
+    "network_region": "QLD1",
+    "lat": -22.823243,
+    "lon": 148.718008
+  },
+  {
+    "code": "MIDLDPS",
+    "name": "Midlands",
+    "network_region": "TAS1",
+    "lat": -42.085747,
+    "lon": 147.274558
+  },
+  {
+    "code": "MILLMERN",
+    "name": "Millmerran",
+    "network_region": "QLD1",
+    "lat": -27.961319,
+    "lon": 151.277699
+  },
+  {
+    "code": "MINTARO",
+    "name": "Mintaro",
+    "network_region": "SA1",
+    "lat": -33.903056,
+    "lon": 138.738162
+  },
+  {
+    "code": "MOKOSF",
+    "name": "Mokoan",
+    "network_region": "VIC1",
+    "lat": -36.489246,
+    "lon": 146.128325
+  },
+  {
+    "code": "MOLNGSF1",
+    "name": "Molong",
+    "network_region": "NSW1",
+    "lat": -33.08981,
+    "lon": 148.912255
+  },
+  {
+    "code": "MOORAWF1",
+    "name": "Moorabool",
+    "network_region": "VIC1",
+    "lat": -37.698975,
+    "lon": 144.173829
+  },
+  {
+    "code": "MORANBAH",
+    "name": "Moranbah",
+    "network_region": "QLD1",
+    "lat": -21.962469,
+    "lon": 148.006004
+  },
+  {
+    "code": "MBAHNTH",
+    "name": "Moranbah North",
+    "network_region": "QLD1",
+    "lat": -21.978481,
+    "lon": 148.004809
+  },
+  {
+    "code": "MOREESF",
+    "name": "Moree",
+    "network_region": "NSW1",
+    "lat": -29.569066,
+    "lon": 149.866721
+  },
+  {
+    "code": "MWPS",
+    "name": "Morganwhyalla Pipeline",
+    "network_region": "SA1",
+    "lat": -33.973387,
+    "lon": 139.191879
+  },
+  {
+    "code": "MRNBESS",
+    "name": "Mornington",
+    "network_region": "VIC1",
+    "lat": -38.269239,
+    "lon": 145.204811
+  },
+  {
+    "code": "MLB",
+    "name": "Mortlake",
+    "network_region": "VIC1",
+    "lat": -38.06698,
+    "lon": 142.669466
+  },
+  {
+    "code": "MORTLK",
+    "name": "Mortlake",
+    "network_region": "VIC1",
+    "lat": -38.063237,
+    "lon": 142.668677
+  },
+  {
+    "code": "MRTLSWF",
+    "name": "Mortlake South",
+    "network_region": "VIC1",
+    "lat": -38.146832,
+    "lon": 142.853134
+  },
+  {
+    "code": "MLWF",
+    "name": "Mortons Lane",
+    "network_region": "VIC1",
+    "lat": -37.839273,
+    "lon": 142.464343
+  },
+  {
+    "code": "SKYFRM_MTBARKER",
+    "name": "Mount Barker",
+    "network_region": "WEM",
+    "lat": -34.597501,
+    "lon": 117.64351
+  },
+  {
+    "code": "MOUSF",
+    "name": "Moura",
+    "network_region": "QLD1",
+    "lat": -24.515007,
+    "lon": 150.087256
+  },
+  {
+    "code": "MEWF",
+    "name": "Mt Emerald",
+    "network_region": "QLD1",
+    "lat": -17.170847,
+    "lon": 145.38046
+  },
+  {
+    "code": "MTGELWF",
+    "name": "Mt Gellibrand",
+    "network_region": "VIC1",
+    "lat": -38.258519,
+    "lon": 143.802037
+  },
+  {
+    "code": "MTMERCER",
+    "name": "Mt Mercer",
+    "network_region": "VIC1",
+    "lat": -37.831791,
+    "lon": 143.888681
+  },
+  {
+    "code": "MTMILLAR",
+    "name": "Mt Millar",
+    "network_region": "SA1",
+    "lat": -33.62534,
+    "lon": 136.703771
+  },
+  {
+    "code": "MP",
+    "name": "Mt Piper",
+    "network_region": "NSW1",
+    "lat": -33.358121,
+    "lon": 150.032642
+  },
+  {
+    "code": "MSTUART",
+    "name": "Mt Stuart",
+    "network_region": "QLD1",
+    "lat": -19.337807,
+    "lon": 146.850916
+  },
+  {
+    "code": "MLSP",
+    "name": "Mugga Lane",
+    "network_region": "NSW1",
+    "lat": -35.399485,
+    "lon": 149.1454
+  },
+  {
+    "code": "MUJA",
+    "name": "Muja CD",
+    "network_region": "WEM",
+    "lat": -33.450246,
+    "lon": 116.30482
+  },
+  {
+    "code": "MULWASF",
+    "name": "Mulwala",
+    "network_region": "NSW1",
+    "lat": -35.958258,
+    "lon": 146.007893
+  },
+  {
+    "code": "MWF_MUMBIDA",
+    "name": "Mumbida",
+    "network_region": "WEM",
+    "lat": -28.98915,
+    "lon": 114.958725
+  },
+  {
+    "code": "MUNGARRA",
+    "name": "Mungarra",
+    "network_region": "WEM",
+    "lat": -28.889524,
+    "lon": 115.117946
+  },
+  {
+    "code": "MUCRKSF",
+    "name": "Munna Creek",
+    "network_region": "QLD1",
+    "lat": -25.875326,
+    "lon": 152.435409
+  },
+  {
+    "code": "MUWAWF",
+    "name": "Murra Warra",
+    "network_region": "VIC1",
+    "lat": -36.434062,
+    "lon": 142.307969
+  },
+  {
+    "code": "MURRAY",
+    "name": "Murray",
+    "network_region": "VIC1",
+    "lat": -36.24683,
+    "lon": 148.1902
+  },
+  {
+    "code": "MBPS2",
+    "name": "Murray Bridge-Onkaparinga",
+    "network_region": "SA1",
+    "lat": -35.096848,
+    "lon": 139.209527
+  },
+  {
+    "code": "MUSSELRO",
+    "name": "Musselroe",
+    "network_region": "TAS1",
+    "lat": -40.780012,
+    "lon": 148.010283
+  },
+  {
+    "code": "NASF",
+    "name": "Narromine",
+    "network_region": "NSW1",
+    "lat": -32.220895,
+    "lon": 148.255308
+  },
+  {
+    "code": "NEWGEN_NEERABUP",
+    "name": "Neerabup",
+    "network_region": "WEM",
+    "lat": -31.671138,
+    "lon": 115.802397
+  },
+  {
+    "code": "NEVERSF",
+    "name": "Nevertire",
+    "network_region": "NSW1",
+    "lat": -31.822603,
+    "lon": 147.703086
+  },
+  {
+    "code": "NEWENSF",
+    "name": "New England",
+    "network_region": "NSW1",
+    "lat": -30.613863,
+    "lon": 151.604209
+  },
+  {
+    "code": "NESBESS1",
+    "name": "New England 1",
+    "network_region": "NSW1",
+    "lat": -30.626481,
+    "lon": 151.616
+  },
+  {
+    "code": "NESBESS2",
+    "name": "New England 2",
+    "network_region": "NSW1",
+    "lat": -30.626481,
+    "lon": 151.616
+  },
+  {
+    "code": "NEWGEN_KWINANA",
+    "name": "Newgen Kwinana",
+    "network_region": "WEM",
+    "lat": -32.202009,
+    "lon": 115.773434
+  },
+  {
+    "code": "NEWPORT",
+    "name": "Newport",
+    "network_region": "VIC1",
+    "lat": -37.841423,
+    "lon": 144.894923
+  },
+  {
+    "code": "NBHWF",
+    "name": "North Brown Hill",
+    "network_region": "SA1",
+    "lat": -33.291159,
+    "lon": 138.715508
+  },
+  {
+    "code": "NORTHAM_SF",
+    "name": "Northam",
+    "network_region": "WEM",
+    "lat": -31.65161,
+    "lon": 116.711541
+  },
+  {
+    "code": "TESLA_NORTHAM",
+    "name": "Northam",
+    "network_region": "WEM",
+    "lat": -31.642906,
+    "lon": 116.847503
+  },
+  {
+    "code": "NUMURKSF",
+    "name": "Numurkah",
+    "network_region": "VIC1",
+    "lat": -36.161038,
+    "lon": 145.476491
+  },
+  {
+    "code": "NYNGAN",
+    "name": "Nyngan",
+    "network_region": "NSW1",
+    "lat": -31.555475,
+    "lon": 147.08622
+  },
+  {
+    "code": "OAKEY",
+    "name": "Oakey",
+    "network_region": "QLD1",
+    "lat": -27.418268,
+    "lon": 151.680205
+  },
+  {
+    "code": "OAKEY2SF",
+    "name": "Oakey 2",
+    "network_region": "QLD1",
+    "lat": -27.410516,
+    "lon": 151.652849
+  },
+  {
+    "code": "OAKEY1SF",
+    "name": "Oakey Solar Farm",
+    "network_region": "QLD1",
+    "lat": -27.410516,
+    "lon": 151.652849
+  },
+  {
+    "code": "OAKLAND",
+    "name": "Oaklands Hill",
+    "network_region": "VIC1",
+    "lat": -37.681514,
+    "lon": 142.552322
+  },
+  {
+    "code": "OCPS",
+    "name": "Oaky Creek",
+    "network_region": "QLD1",
+    "lat": -23.048717,
+    "lon": 148.484462
+  },
+  {
+    "code": "OAKY2",
+    "name": "Oaky Creek 2",
+    "network_region": "QLD1",
+    "lat": -23.048717,
+    "lon": 148.484462
+  },
+  {
+    "code": "ORABESS",
+    "name": "Orana",
+    "network_region": "NSW1",
+    "lat": -32.530421,
+    "lon": 148.962923
+  },
+  {
+    "code": "OSBORNE",
+    "name": "Osborne",
+    "network_region": "SA1",
+    "lat": -34.797702,
+    "lon": 138.50779
+  },
+  {
+    "code": "PALOONA",
+    "name": "Paloona",
+    "network_region": "TAS1",
+    "lat": -41.282674,
+    "lon": 146.249036
+  },
+  {
+    "code": "PSF",
+    "name": "Parkes",
+    "network_region": "NSW1",
+    "lat": -33.117567,
+    "lon": 148.078825
+  },
+  {
+    "code": "PRK_AG",
+    "name": "Parkeston",
+    "network_region": "WEM",
+    "lat": -30.737642,
+    "lon": 121.50639
+  },
+  {
+    "code": "NPPPPS",
+    "name": "Pelican Point",
+    "network_region": "SA1",
+    "lat": -34.765325,
+    "lon": 138.505402
+  },
+  {
+    "code": "PIBESS",
+    "name": "Phillip Island",
+    "network_region": "VIC1",
+    "lat": -38.484903,
+    "lon": 145.238216
+  },
+  {
+    "code": "PHOENIX_KWINANA_WTE",
+    "name": "Phoenix",
+    "network_region": "WEM",
+    "lat": -32.202137,
+    "lon": 115.77391
+  },
+  {
+    "code": "TESLA_PICTON",
+    "name": "Picton",
+    "network_region": "WEM",
+    "lat": -33.356646,
+    "lon": 115.72098
+  },
+  {
+    "code": "PINDARI",
+    "name": "Pindari",
+    "network_region": "NSW1",
+    "lat": -29.388034,
+    "lon": 151.244774
+  },
+  {
+    "code": "PINJAR",
+    "name": "Pinjar",
+    "network_region": "WEM",
+    "lat": -31.557738,
+    "lon": 115.820469
+  },
+  {
+    "code": "ALINTA_PNJ",
+    "name": "Pinjarra",
+    "network_region": "WEM",
+    "lat": -32.647459,
+    "lon": 115.946592
+  },
+  {
+    "code": "PIONEER",
+    "name": "Pioneer Sugar Mill",
+    "network_region": "QLD1",
+    "lat": -19.557546,
+    "lon": 147.330825
+  },
+  {
+    "code": "PTINA",
+    "name": "Poatina",
+    "network_region": "TAS1",
+    "lat": -41.811531,
+    "lon": 146.919117
+  },
+  {
+    "code": "PAREPW",
+    "name": "Port Augusta Energy Park",
+    "network_region": "SA1",
+    "lat": -32.597785,
+    "lon": 137.895914
+  },
+  {
+    "code": "PORTLCN",
+    "name": "Port Lincoln",
+    "network_region": "SA1",
+    "lat": -34.700389,
+    "lon": 135.804384
+  },
+  {
+    "code": "STANVAC",
+    "name": "Port Stanvac",
+    "network_region": "SA1",
+    "lat": -35.110332,
+    "lon": 138.49135
+  },
+  {
+    "code": "PORTWF",
+    "name": "Portland",
+    "network_region": "VIC1",
+    "lat": -38.372199,
+    "lon": 141.37945
+  },
+  {
+    "code": "QUARANTN",
+    "name": "Quarantine",
+    "network_region": "SA1",
+    "lat": -34.779339,
+    "lon": 138.522883
+  },
+  {
+    "code": "QBYNB",
+    "name": "Queanbeyan",
+    "network_region": "NSW1",
+    "lat": -35.338148,
+    "lon": 149.215613
+  },
+  {
+    "code": "QP",
+    "name": "Quorn Park",
+    "network_region": "NSW1",
+    "lat": -33.079517,
+    "lon": 148.089521
+  },
+  {
+    "code": "RACOMIL",
+    "name": "Racecourse Mill",
+    "network_region": "QLD1",
+    "lat": -21.144611,
+    "lon": 149.15868
+  },
+  {
+    "code": "RANGEB",
+    "name": "Rangebank",
+    "network_region": "VIC1",
+    "lat": -38.085056,
+    "lon": 145.259936
+  },
+  {
+    "code": "RED_HILL",
+    "name": "Red Hill",
+    "network_region": "WEM",
+    "lat": -31.830628,
+    "lon": 116.100888
+  },
+  {
+    "code": "REECE",
+    "name": "Reece",
+    "network_region": "TAS1",
+    "lat": -41.723739,
+    "lon": 145.136012
+  },
+  {
+    "code": "REPULSE",
+    "name": "Repulse",
+    "network_region": "TAS1",
+    "lat": -42.507691,
+    "lon": 146.647
+  },
+  {
+    "code": "BIOGAS01",
+    "name": "Richgro",
+    "network_region": "WEM",
+    "lat": -32.103786,
+    "lon": 115.895771
+  },
+  {
+    "code": "RESS",
+    "name": "Riverina 1",
+    "network_region": "NSW1",
+    "lat": -34.646349,
+    "lon": 146.035015
+  },
+  {
+    "code": "RIVNB",
+    "name": "Riverina 2",
+    "network_region": "NSW1",
+    "lat": -34.646349,
+    "lon": 146.035015
+  },
+  {
+    "code": "ROCKINGHAM",
+    "name": "Rockingham",
+    "network_region": "WEM",
+    "lat": -32.224335,
+    "lon": 115.778298
+  },
+  {
+    "code": "RPCG",
+    "name": "Rocky Point Cogen",
+    "network_region": "QLD1",
+    "lat": -27.733342,
+    "lon": 153.327699
+  },
+  {
+    "code": "ROMA",
+    "name": "Roma",
+    "network_region": "QLD1",
+    "lat": -26.577126,
+    "lon": 148.84009
+  },
+  {
+    "code": "RRSF",
+    "name": "Ross River",
+    "network_region": "QLD1",
+    "lat": -19.42622,
+    "lon": 146.715299
+  },
+  {
+    "code": "ROWALLAN",
+    "name": "Rowallan",
+    "network_region": "TAS1",
+    "lat": -41.729547,
+    "lon": 146.217649
+  },
+  {
+    "code": "ROYALLA",
+    "name": "Royalla",
+    "network_region": "NSW1",
+    "lat": -35.489826,
+    "lon": 149.142704
+  },
+  {
+    "code": "RUBICON",
+    "name": "Rubicon",
+    "network_region": "VIC1",
+    "lat": -37.327154,
+    "lon": 145.860547
+  },
+  {
+    "code": "RUGBYR",
+    "name": "Rugby Run",
+    "network_region": "QLD1",
+    "lat": -22.142401,
+    "lon": 147.928736
+  },
+  {
+    "code": "RYANCWF",
+    "name": "Ryan Corner",
+    "network_region": "VIC1",
+    "lat": -38.271156,
+    "lon": 142.14003
+  },
+  {
+    "code": "RYEPARK",
+    "name": "Rye Park",
+    "network_region": "NSW1",
+    "lat": -34.550899,
+    "lon": 148.95544
+  },
+  {
+    "code": "SALTCRK",
+    "name": "Salt Creek",
+    "network_region": "VIC1",
+    "lat": -37.930719,
+    "lon": 142.773524
+  },
+  {
+    "code": "SAPHWF1",
+    "name": "Sapphire",
+    "network_region": "NSW1",
+    "lat": -29.699609,
+    "lon": 151.412417
+  },
+  {
+    "code": "SEBSF",
+    "name": "Sebastopol",
+    "network_region": "NSW1",
+    "lat": -34.609386,
+    "lon": 147.557888
+  },
+  {
+    "code": "SHEP1",
+    "name": "Shepparton",
+    "network_region": "VIC1",
+    "lat": -36.322223,
+    "lon": 145.379291
+  },
+  {
+    "code": "SHOALHAV",
+    "name": "Shoalhaven",
+    "network_region": "NSW1",
+    "lat": -34.723141,
+    "lon": 150.479632
+  },
+  {
+    "code": "SHOAL",
+    "name": "Shoalhaven Starches",
+    "network_region": "NSW1",
+    "lat": -34.8547,
+    "lon": 150.6138
+  },
+  {
+    "code": "STWF",
+    "name": "Silverton",
+    "network_region": "NSW1",
+    "lat": -31.86095,
+    "lon": 141.296349
+  },
+  {
+    "code": "SITHE",
+    "name": "Smithfield",
+    "network_region": "NSW1",
+    "lat": -33.849945,
+    "lon": 150.94941
+  },
+  {
+    "code": "SMTHBES1",
+    "name": "Smithfield",
+    "network_region": "NSW1",
+    "lat": -33.849972,
+    "lon": 150.947448
+  },
+  {
+    "code": "SNAPPER",
+    "name": "Snapper Point",
+    "network_region": "SA1",
+    "lat": -34.764433,
+    "lon": 138.508149
+  },
+  {
+    "code": "SNOWTOWN",
+    "name": "Snowtown",
+    "network_region": "SA1",
+    "lat": -33.728666,
+    "lon": 138.148351
+  },
+  {
+    "code": "SNOWNTH",
+    "name": "Snowtown North",
+    "network_region": "SA1",
+    "lat": -33.728666,
+    "lon": 138.148351
+  },
+  {
+    "code": "SNOWSTH",
+    "name": "Snowtown South",
+    "network_region": "SA1",
+    "lat": -33.862624,
+    "lon": 138.130367
+  },
+  {
+    "code": "SNUG",
+    "name": "Snuggery",
+    "network_region": "SA1",
+    "lat": -37.664996,
+    "lon": 140.414686
+  },
+  {
+    "code": "AGLSOM",
+    "name": "Somerton",
+    "network_region": "VIC1",
+    "lat": -37.631692,
+    "lon": 144.952802
+  },
+  {
+    "code": "SOUTH_CARDUP",
+    "name": "South Cardup",
+    "network_region": "WEM",
+    "lat": -32.26642,
+    "lon": 116.019263
+  },
+  {
+    "code": "SKSF",
+    "name": "South Keswick",
+    "network_region": "NSW1",
+    "lat": -32.272801,
+    "lon": 148.659285
+  },
+  {
+    "code": "STABESS",
+    "name": "Stanwell",
+    "network_region": "QLD1",
+    "lat": -23.513568,
+    "lon": 150.31811
+  },
+  {
+    "code": "STANWELL",
+    "name": "Stanwell",
+    "network_region": "QLD1",
+    "lat": -23.507452,
+    "lon": 150.313355
+  },
+  {
+    "code": "STAPYLTON",
+    "name": "Stapylton",
+    "network_region": "QLD1",
+    "lat": -27.736111,
+    "lon": 153.245931
+  },
+  {
+    "code": "STARFHILL",
+    "name": "Starfish Hill",
+    "network_region": "SA1",
+    "lat": -35.567844,
+    "lon": 138.139148
+  },
+  {
+    "code": "STOCKYD",
+    "name": "Stockyard Hill",
+    "network_region": "VIC1",
+    "lat": -37.552275,
+    "lon": 143.340126
+  },
+  {
+    "code": "STUBSF",
+    "name": "Stubbo",
+    "network_region": "NSW1",
+    "lat": -32.248099,
+    "lon": 149.580548
+  },
+  {
+    "code": "SMFBESS1",
+    "name": "Summerfield 1",
+    "network_region": "SA1",
+    "lat": -34.9538,
+    "lon": 139.21502
+  },
+  {
+    "code": "SMFBESS2",
+    "name": "Summerfield 2",
+    "network_region": "SA1",
+    "lat": -34.958457,
+    "lon": 139.2099
+  },
+  {
+    "code": "SMCSF",
+    "name": "Sun Metals",
+    "network_region": "QLD1",
+    "lat": -19.332335,
+    "lon": 146.875929
+  },
+  {
+    "code": "SUNRSF1",
+    "name": "Sunraysia",
+    "network_region": "NSW1",
+    "lat": -34.804891,
+    "lon": 143.491185
+  },
+  {
+    "code": "VALDORA",
+    "name": "Sunshine Coast",
+    "network_region": "QLD1",
+    "lat": -26.560094,
+    "lon": 153.02574
+  },
+  {
+    "code": "SUNTPSF",
+    "name": "Suntop",
+    "network_region": "NSW1",
+    "lat": -32.583514,
+    "lon": 148.826931
+  },
+  {
+    "code": "SNB1",
+    "name": "Supernode",
+    "network_region": "QLD1",
+    "lat": -27.318111,
+    "lon": 152.969309
+  },
+  {
+    "code": "SNB02",
+    "name": "Supernode 2",
+    "network_region": "QLD1",
+    "lat": -27.318697,
+    "lon": 152.968579
+  },
+  {
+    "code": "SRSF",
+    "name": "Susan River",
+    "network_region": "QLD1",
+    "lat": -25.419331,
+    "lon": 152.741687
+  },
+  {
+    "code": "SWANBBF",
+    "name": "Swanbank",
+    "network_region": "QLD1",
+    "lat": -27.65619,
+    "lon": 152.817139
+  },
+  {
+    "code": "SWAN_E",
+    "name": "Swanbank E",
+    "network_region": "QLD1",
+    "lat": -27.655138,
+    "lon": 152.817933
+  },
+  {
+    "code": "TABMILL2",
+    "name": "Tableland Mill",
+    "network_region": "QLD1",
+    "lat": -17.119813,
+    "lon": 145.34513
+  },
+  {
+    "code": "TAHMOOR",
+    "name": "Tahmoor",
+    "network_region": "NSW1",
+    "lat": -34.249117,
+    "lon": 150.577718
+  },
+  {
+    "code": "TBSF",
+    "name": "Tailem Bend",
+    "network_region": "SA1",
+    "lat": -35.271346,
+    "lon": 139.488379
+  },
+  {
+    "code": "TB2SF",
+    "name": "Tailem Bend 2",
+    "network_region": "SA1",
+    "lat": -35.271346,
+    "lon": 139.488379
+  },
+  {
+    "code": "TALLAWAR",
+    "name": "Tallawarra",
+    "network_region": "NSW1",
+    "lat": -34.522808,
+    "lon": 150.807237
+  },
+  {
+    "code": "TALWB",
+    "name": "Tallawarra B",
+    "network_region": "NSW1",
+    "lat": -34.522808,
+    "lon": 150.807237
+  },
+  {
+    "code": "TAMALA_PARK",
+    "name": "Tamala Park",
+    "network_region": "WEM",
+    "lat": -31.706198,
+    "lon": 115.725734
+  },
+  {
+    "code": "TVCCPS",
+    "name": "Tamar Valley",
+    "network_region": "TAS1",
+    "lat": -41.140348,
+    "lon": 146.904872
+  },
+  {
+    "code": "TARALGA",
+    "name": "Taralga",
+    "network_region": "NSW1",
+    "lat": -34.431428,
+    "lon": 149.865258
+  },
+  {
+    "code": "TARBESS",
+    "name": "Tarong",
+    "network_region": "QLD1",
+    "lat": -26.780561,
+    "lon": 151.910086
+  },
+  {
+    "code": "TARONG",
+    "name": "Tarong",
+    "network_region": "QLD1",
+    "lat": -26.784086,
+    "lon": 151.914537
+  },
+  {
+    "code": "TARONGN",
+    "name": "Tarong North",
+    "network_region": "QLD1",
+    "lat": -26.774391,
+    "lon": 151.914007
+  },
+  {
+    "code": "TARRALEA",
+    "name": "Tarraleah",
+    "network_region": "TAS1",
+    "lat": -42.301224,
+    "lon": 146.457294
+  },
+  {
+    "code": "TATIARA",
+    "name": "Tataria",
+    "network_region": "SA1",
+    "lat": -36.326977,
+    "lon": 140.737035
+  },
+  {
+    "code": "TATURA",
+    "name": "Tatura",
+    "network_region": "VIC1",
+    "lat": -36.47915,
+    "lon": 145.235037
+  },
+  {
+    "code": "TEMPB",
+    "name": "Templers",
+    "network_region": "SA1",
+    "lat": -34.461503,
+    "lon": 138.772925
+  },
+  {
+    "code": "TRGBESS",
+    "name": "Terang",
+    "network_region": "VIC1",
+    "lat": -38.231839,
+    "lon": 142.933262
+  },
+  {
+    "code": "BLUFF",
+    "name": "The Bluff",
+    "network_region": "SA1",
+    "lat": -33.384301,
+    "lon": 138.794904
+  },
+  {
+    "code": "THEDROP",
+    "name": "The Drop",
+    "network_region": "NSW1",
+    "lat": -36.009382,
+    "lon": 145.99946
+  },
+  {
+    "code": "TIMWEST",
+    "name": "Timboon West",
+    "network_region": "VIC1",
+    "lat": -38.532667,
+    "lon": 142.915224
+  },
+  {
+    "code": "TOORAWF",
+    "name": "Toora",
+    "network_region": "VIC1",
+    "lat": -38.653258,
+    "lon": 146.340154
+  },
+  {
+    "code": "TIB",
+    "name": "Torrens Island",
+    "network_region": "SA1",
+    "lat": -34.802305,
+    "lon": 138.520262
+  },
+  {
+    "code": "TORRIS",
+    "name": "Torrens Island",
+    "network_region": "SA1",
+    "lat": -34.80651,
+    "lon": 138.523127
+  },
+  {
+    "code": "TOWER",
+    "name": "Tower",
+    "network_region": "NSW1",
+    "lat": -34.219461,
+    "lon": 150.718012
+  },
+  {
+    "code": "YABULU",
+    "name": "Townsville",
+    "network_region": "QLD1",
+    "lat": -19.20127,
+    "lon": 146.618573
+  },
+  {
+    "code": "TGNSS",
+    "name": "Traralgon Network Support",
+    "network_region": "VIC1",
+    "lat": -37.841113,
+    "lon": 144.895001
+  },
+  {
+    "code": "TREVALLN",
+    "name": "Trevallyn",
+    "network_region": "TAS1",
+    "lat": -41.42262,
+    "lon": 147.111785
+  },
+  {
+    "code": "TRIBUTE",
+    "name": "Tribute",
+    "network_region": "TAS1",
+    "lat": -41.815832,
+    "lon": 145.650178
+  },
+  {
+    "code": "TULLYSM",
+    "name": "Tully Sugar Mill",
+    "network_region": "QLD1",
+    "lat": -17.937329,
+    "lon": 145.92739
+  },
+  {
+    "code": "SNOWY2",
+    "name": "Tumut",
+    "network_region": "NSW1",
+    "lat": -35.952003,
+    "lon": 148.367255
+  },
+  {
+    "code": "TUMUT3",
+    "name": "Tumut 3",
+    "network_region": "NSW1",
+    "lat": -35.611138,
+    "lon": 148.29175
+  },
+  {
+    "code": "TUNGATIN",
+    "name": "Tungatinah",
+    "network_region": "TAS1",
+    "lat": -42.296802,
+    "lon": 146.456568
+  },
+  {
+    "code": "ULBESS",
+    "name": "Ulinda Park",
+    "network_region": "QLD1",
+    "lat": -26.918598,
+    "lon": 150.745396
+  },
+  {
+    "code": "URANQ",
+    "name": "Uranquinty",
+    "network_region": "NSW1",
+    "lat": -35.180061,
+    "lon": 147.21567
+  },
+  {
+    "code": "VP",
+    "name": "Vales Point B",
+    "network_region": "NSW1",
+    "lat": -33.16078,
+    "lon": 151.543985
+  },
+  {
+    "code": "VPGS",
+    "name": "Valley Power Peaking",
+    "network_region": "VIC1",
+    "lat": -38.253709,
+    "lon": 146.588886
+  },
+  {
+    "code": "TITREE",
+    "name": "Veolia Ti Tree",
+    "network_region": "QLD1",
+    "lat": -27.695551,
+    "lon": 152.650313
+  },
+  {
+    "code": "VICMILL",
+    "name": "Victoria Mill",
+    "network_region": "QLD1",
+    "lat": -18.650208,
+    "lon": 146.200866
+  },
+  {
+    "code": "VBB",
+    "name": "Victorian Big Battery",
+    "network_region": "VIC1",
+    "lat": -38.038278,
+    "lon": 144.290383
+  },
+  {
+    "code": "ALCOA_WGP",
+    "name": "Wagerup",
+    "network_region": "WEM",
+    "lat": -32.91546,
+    "lon": 115.917892
+  },
+  {
+    "code": "ALINTA_WGP_ESR",
+    "name": "Wagerup",
+    "network_region": "WEM",
+    "lat": -32.918167,
+    "lon": 115.916584
+  },
+  {
+    "code": "WAGGNSF",
+    "name": "Wagga North",
+    "network_region": "NSW1",
+    "lat": -35.070575,
+    "lon": 147.438807
+  },
+  {
+    "code": "ALINTA_WWF",
+    "name": "Walkaway",
+    "network_region": "WEM",
+    "lat": -28.916734,
+    "lon": 114.914165
+  },
+  {
+    "code": "WLWLSF",
+    "name": "Walla Walla",
+    "network_region": "NSW1",
+    "lat": -35.747397,
+    "lon": 146.96666
+  },
+  {
+    "code": "WALGRV",
+    "name": "Wallgrove",
+    "network_region": "NSW1",
+    "lat": -33.813917,
+    "lon": 150.830827
+  },
+  {
+    "code": "PRDSO_WALPOLE",
+    "name": "Walpole",
+    "network_region": "WEM",
+    "lat": -34.92338,
+    "lon": 116.82121
+  },
+  {
+    "code": "WAMBOWF",
+    "name": "Wambo",
+    "network_region": "QLD1",
+    "lat": -26.612935,
+    "lon": 151.262523
+  },
+  {
+    "code": "WANDSF",
+    "name": "Wandoan",
+    "network_region": "QLD1",
+    "lat": -26.248848,
+    "lon": 149.765988
+  },
+  {
+    "code": "WANDBG",
+    "name": "Wandoan South",
+    "network_region": "QLD1",
+    "lat": -26.261526,
+    "lon": 149.765738
+  },
+  {
+    "code": "WNSF",
+    "name": "Wangaratta",
+    "network_region": "VIC1",
+    "lat": -36.323808,
+    "lon": 146.366
+  },
+  {
+    "code": "WTAHB",
+    "name": "Waratah Super Battery",
+    "network_region": "NSW1",
+    "lat": -33.215276,
+    "lon": 151.543465
+  },
+  {
+    "code": "WARRADARGE",
+    "name": "Warradarge",
+    "network_region": "WEM",
+    "lat": -29.942809,
+    "lon": 115.470459
+  },
+  {
+    "code": "WARWSF",
+    "name": "Warwick",
+    "network_region": "QLD1",
+    "lat": -28.183037,
+    "lon": 152.071764
+  },
+  {
+    "code": "WATERLWF",
+    "name": "Waterloo",
+    "network_region": "SA1",
+    "lat": -34.001298,
+    "lon": 138.91088
+  },
+  {
+    "code": "WPWF",
+    "name": "Wattle Point",
+    "network_region": "SA1",
+    "lat": -35.110379,
+    "lon": 137.705789
+  },
+  {
+    "code": "WAUBRAWF",
+    "name": "Waubra",
+    "network_region": "VIC1",
+    "lat": -37.357446,
+    "lon": 143.603659
+  },
+  {
+    "code": "WELLSF1",
+    "name": "Wellington",
+    "network_region": "NSW1",
+    "lat": -32.513792,
+    "lon": 148.95829
+  },
+  {
+    "code": "WELNSF",
+    "name": "Wellington North",
+    "network_region": "NSW1",
+    "lat": -32.496071,
+    "lon": 148.956507
+  },
+  {
+    "code": "WEMENSF1",
+    "name": "Wemen",
+    "network_region": "VIC1",
+    "lat": -34.799853,
+    "lon": 142.547621
+  },
+  {
+    "code": "BLAIRFOX_WESTHILLS",
+    "name": "West Hills",
+    "network_region": "WEM",
+    "lat": -30.868556,
+    "lon": 115.392136
+  },
+  {
+    "code": "WESTILLA",
+    "name": "West Illawarra Leagues Club",
+    "network_region": "NSW1",
+    "lat": -34.451645,
+    "lon": 150.843037
+  },
+  {
+    "code": "WEST_KALGOORLIE",
+    "name": "West Kalgoorlie",
+    "network_region": "WEM",
+    "lat": -30.781226,
+    "lon": 121.424464
+  },
+  {
+    "code": "WKIEWA",
+    "name": "West Kiewa",
+    "network_region": "VIC1",
+    "lat": -36.759974,
+    "lon": 147.185812
+  },
+  {
+    "code": "WSTWYSF",
+    "name": "West Wyalong",
+    "network_region": "NSW1",
+    "lat": -33.809655,
+    "lon": 147.325015
+  },
+  {
+    "code": "WDBESS",
+    "name": "Western Downs",
+    "network_region": "QLD1",
+    "lat": -26.952278,
+    "lon": 150.690528
+  },
+  {
+    "code": "WDGPH",
+    "name": "Western Downs",
+    "network_region": "QLD1",
+    "lat": -26.955534,
+    "lon": 150.67862
+  },
+  {
+    "code": "WDBESS2",
+    "name": "Western Downs 2",
+    "network_region": "QLD1",
+    "lat": -26.952139,
+    "lon": 150.690787
+  },
+  {
+    "code": "WRSF1",
+    "name": "White Rock Solar Farm",
+    "network_region": "NSW1",
+    "lat": -29.764429,
+    "lon": 151.553007
+  },
+  {
+    "code": "WRWF1",
+    "name": "White Rock Wind Farm",
+    "network_region": "NSW1",
+    "lat": -29.7718,
+    "lon": 151.5755
+  },
+  {
+    "code": "WHITSF",
+    "name": "Whitsunday",
+    "network_region": "QLD1",
+    "lat": -20.492712,
+    "lon": 147.756358
+  },
+  {
+    "code": "WHIT1",
+    "name": "Whitwood Road",
+    "network_region": "QLD1",
+    "lat": -27.654899,
+    "lon": 152.817672
+  },
+  {
+    "code": "WILGAPK",
+    "name": "Wilga Park",
+    "network_region": "NSW1",
+    "lat": -30.363284,
+    "lon": 149.677422
+  },
+  {
+    "code": "WILGAPKB",
+    "name": "Wilga Park B",
+    "network_region": "NSW1",
+    "lat": -30.363284,
+    "lon": 149.677422
+  },
+  {
+    "code": "WILLHOV",
+    "name": "William Hovel",
+    "network_region": "VIC1",
+    "lat": -36.912899,
+    "lon": 146.392181
+  },
+  {
+    "code": "WILLBES",
+    "name": "Williamsdale",
+    "network_region": "NSW1",
+    "lat": -35.57458,
+    "lon": 149.131993
+  },
+  {
+    "code": "WGWF",
+    "name": "Willogoleche",
+    "network_region": "SA1",
+    "lat": -33.413128,
+    "lon": 138.845663
+  },
+  {
+    "code": "WINDHILL",
+    "name": "Windy Hill",
+    "network_region": "QLD1",
+    "lat": -17.592083,
+    "lon": 145.532115
+  },
+  {
+    "code": "WINGF1",
+    "name": "Wingfield",
+    "network_region": "SA1",
+    "lat": -34.779749,
+    "lon": 138.522379
+  },
+  {
+    "code": "WINGF2",
+    "name": "Wingfield 2",
+    "network_region": "SA1",
+    "lat": -34.779749,
+    "lon": 138.522379
+  },
+  {
+    "code": "WINTSF1",
+    "name": "Winton",
+    "network_region": "VIC1",
+    "lat": -36.503538,
+    "lon": 146.124102
+  },
+  {
+    "code": "WIVENHOE",
+    "name": "Wivenhoe",
+    "network_region": "QLD1",
+    "lat": -27.372417,
+    "lon": 152.63203
+  },
+  {
+    "code": "WOLARSF",
+    "name": "Wollar",
+    "network_region": "NSW1",
+    "lat": -32.416988,
+    "lon": 149.935347
+  },
+  {
+    "code": "WOLLERT",
+    "name": "Wollert",
+    "network_region": "VIC1",
+    "lat": -37.583073,
+    "lon": 145.048357
+  },
+  {
+    "code": "WONWP",
+    "name": "Wonthaggi",
+    "network_region": "VIC1",
+    "lat": -38.604079,
+    "lon": 145.545379
+  },
+  {
+    "code": "WDLNGN",
+    "name": "Woodlawn",
+    "network_region": "NSW1",
+    "lat": -35.06298,
+    "lon": 149.570198
+  },
+  {
+    "code": "WOODLWN",
+    "name": "Woodlawn",
+    "network_region": "NSW1",
+    "lat": -35.091982,
+    "lon": 149.572021
+  },
+  {
+    "code": "WOOLNTH1",
+    "name": "Woolnorth",
+    "network_region": "TAS1",
+    "lat": -40.786606,
+    "lon": 144.738536
+  },
+  {
+    "code": "WOOLGSF",
+    "name": "Woolooga",
+    "network_region": "QLD1",
+    "lat": -26.075843,
+    "lon": 152.437448
+  },
+  {
+    "code": "WUNUSF",
+    "name": "Wunghnu",
+    "network_region": "VIC1",
+    "lat": -36.164639,
+    "lon": 145.394245
+  },
+  {
+    "code": "WYASF",
+    "name": "Wyalong",
+    "network_region": "NSW1",
+    "lat": -33.887269,
+    "lon": 147.315314
+  },
+  {
+    "code": "WYANGALA",
+    "name": "Wyangala A",
+    "network_region": "NSW1",
+    "lat": -33.968824,
+    "lon": 148.948823
+  },
+  {
+    "code": "WYANGALB",
+    "name": "Wyangala B",
+    "network_region": "NSW1",
+    "lat": -33.968824,
+    "lon": 148.948823
+  },
+  {
+    "code": "YALLOURN",
+    "name": "Yallourn W",
+    "network_region": "VIC1",
+    "lat": -38.177589,
+    "lon": 146.342556
+  },
+  {
+    "code": "YSWF",
+    "name": "Yaloak South",
+    "network_region": "VIC1",
+    "lat": -37.726107,
+    "lon": 144.255041
+  },
+  {
+    "code": "YAMBUK",
+    "name": "Yambuk",
+    "network_region": "VIC1",
+    "lat": -38.310953,
+    "lon": 142.014788
+  },
+  {
+    "code": "YANDIN",
+    "name": "Yandin",
+    "network_region": "WEM",
+    "lat": -30.680971,
+    "lon": 115.694249
+  },
+  {
+    "code": "YARANSF",
+    "name": "Yarranlea",
+    "network_region": "QLD1",
+    "lat": -27.709261,
+    "lon": 151.533038
+  },
+  {
+    "code": "YWNGAHYD",
+    "name": "Yarrawonga",
+    "network_region": "VIC1",
+    "lat": -36.009466,
+    "lon": 145.999568
+  },
+  {
+    "code": "YARWUN",
+    "name": "Yarwun",
+    "network_region": "QLD1",
+    "lat": -23.8309,
+    "lon": 151.151136
+  },
+  {
+    "code": "YATSF1",
+    "name": "Yatpool",
+    "network_region": "VIC1",
+    "lat": -34.396363,
+    "lon": 142.173809
+  },
+  {
+    "code": "YAWWF",
+    "name": "Yawong",
+    "network_region": "VIC1",
+    "lat": -36.481161,
+    "lon": 143.366605
+  },
+  {
+    "code": "YENDONWF",
+    "name": "Yendon",
+    "network_region": "VIC1",
+    "lat": -37.630407,
+    "lon": 144.023136
+  }
+]
