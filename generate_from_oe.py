@@ -121,14 +121,13 @@ async def main():
         "wind": "wind",
         "solar_utility": "commercial_solar",
         "solar_rooftop": "rooftop_solar",
-        "bioenergy_biogas": "gas",
-        "bioenergy_biomass": "gas",
-        "distillate": "gas"
     }
 
     facilities = []
     for idx, s in enumerate(stations):
         mapped_type = fuel_tech_map.get(s.get('fueltech'), 'other')
+        if mapped_type == 'other':
+            continue
         f = {
             "id": idx + 1,
             "oe_id": s['code'],
