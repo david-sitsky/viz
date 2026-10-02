@@ -16,9 +16,9 @@ class EngineApp {
     this._cacheDom();
     try {
       this.data = await loadData(
-        'data_energy/metadata.json?v=13',
-        'data_energy/energy.bin?v=13',
-        'energy-v13',
+        'data_energy/metadata.json?v=14',
+        'data_energy/energy.bin?v=14',
+        'energy-v14',
         [
           [17, 17, 17],    // 0: coal
           [244, 142, 27],  // 1: gas
@@ -30,7 +30,7 @@ class EngineApp {
         (phase, pct) => this._updateLoading(phase, pct),
       );
       
-      this.facilities = await fetch('data_energy/facilities.json?v=13').then(r => r.json());
+      this.facilities = await fetch('data_energy/facilities.json?v=14').then(r => r.json());
       this.facilityMap = new Map();
       for(let f of this.facilities) this.facilityMap.set(f.id, f);
 
@@ -231,9 +231,25 @@ class EngineApp {
     d.setMonth(d.getMonth() + this.currentDay);
     this.dom.statDate.textContent   = d.toLocaleDateString('en-AU', { month:'long', year:'numeric' });
 
-    const { generation, categoryIndices, palette, dayOffsets } = this.data;
-    const dayStart = dayOffsets[this.currentDay] ?? 0;
-    const endIdx = (this.currentDay + 1 < dayOffsets.length) ? dayOffsets[this.currentDay + 1] : metadata.recordCount;
+    const { generation, categoryIndices, palette } = this.data;
+    const dayOffsets = metadata.dayOffsets;
+let dayStart = dayOffsets[this.currentDay] ?? 0;
+    let endIdx = (this.currentDay + 1 < dayOffsets.length) ? dayOffsets[this.currentDay + 1] : metadata.recordCount;
+    
+    // Fallback if no data
+    if (endIdx - dayStart === 0) {
+        let fallbackDay = this.currentDay - 1;
+        while (fallbackDay >= 0) {
+            let s = dayOffsets[fallbackDay] ?? 0;
+            let e = (fallbackDay + 1 < dayOffsets.length) ? dayOffsets[fallbackDay + 1] : metadata.recordCount;
+            if (e - s > 0) {
+                dayStart = s;
+                endIdx = e;
+                break;
+            }
+            fallbackDay--;
+        }
+    }
     
     // Accumulate power by category
     const catTotals = new Array(metadata.fuelTypes.length).fill(0);

@@ -233,10 +233,27 @@ export class EngineMap {
     const active = this._getActiveData();
     const day = this.currentDay;
     const offsets = active.dayOffsets;
-    const dayStart = offsets[day] ?? 0;
-    const endIdx   = (day + 1 < offsets.length) ? offsets[day + 1] : active.recordCount;
-    const dayEnd   = endIdx;
-    const todayCount = dayEnd - dayStart;
+let dayStart = offsets[day] ?? 0;
+    let endIdx   = (day + 1 < offsets.length) ? offsets[day + 1] : active.recordCount;
+    let todayCount = endIdx - dayStart;
+    
+    // If there is no data for this day (e.g. at the very end of the timeline),
+    // fallback to the last day that actually had data so we don't blank out.
+    if (todayCount === 0) {
+        let fallbackDay = day - 1;
+        while (fallbackDay >= 0) {
+            let s = offsets[fallbackDay] ?? 0;
+            let e = (fallbackDay + 1 < offsets.length) ? offsets[fallbackDay + 1] : active.recordCount;
+            if (e - s > 0) {
+                dayStart = s;
+                endIdx = e;
+                todayCount = endIdx - dayStart;
+                break;
+            }
+            fallbackDay--;
+        }
+    }
+    const dayEnd = endIdx;
 
     let layers = [];
     if (todayCount > 0) {
