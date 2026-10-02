@@ -250,7 +250,7 @@ export class EngineMap {
             getRadius:   { value: active.generation.subarray(dayStart, dayEnd),    size: 1 },
           },
         },
-        radiusUnits: 'pixels', radiusScale: 0.000025, radiusMinPixels: 4, radiusMaxPixels: 20,
+        radiusUnits: 'pixels', radiusScale: 0.00004, radiusMinPixels: 2, radiusMaxPixels: 30,
         getFillColor: [255, 255, 255, 40], opacity: 0.5,
         pickable: false, parameters: { depthTest: false },
       }));
@@ -266,7 +266,7 @@ export class EngineMap {
             getRadius:   { value: active.generation.subarray(dayStart, dayEnd),    size: 1 },
           },
         },
-        radiusUnits: 'pixels', radiusScale: 0.000015, radiusMinPixels: 3, radiusMaxPixels: 15,
+        radiusUnits: 'pixels', radiusScale: 0.00003, radiusMinPixels: 2, radiusMaxPixels: 25,
         opacity: 0.95, pickable: true, parameters: { depthTest: false },
         _dayStart: dayStart,
       }));

@@ -1,0 +1,5002 @@
+[
+  {
+    "code": "ADP",
+    "name": "Adelaide Desalination",
+    "network_region": "SA1",
+    "lat": -35.096948,
+    "lon": 138.484061,
+    "start_year": 2021,
+    "capacity_mw": 24.75,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "ALBANY",
+    "name": "Albany",
+    "network_region": "WEM",
+    "lat": -35.055759,
+    "lon": 117.777048,
+    "start_year": 2001,
+    "capacity_mw": 21.6,
+    "fueltech": "wind"
+  },
+  {
+    "code": "ALDGASF",
+    "name": "Aldoga",
+    "network_region": "QLD1",
+    "lat": -23.815177,
+    "lon": 151.05811,
+    "start_year": 2025,
+    "capacity_mw": 535.21,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "ANGASTON",
+    "name": "Angaston",
+    "network_region": "SA1",
+    "lat": -34.503389,
+    "lon": 139.02458,
+    "start_year": 2016,
+    "capacity_mw": 50,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "APPIN",
+    "name": "Appin",
+    "network_region": "NSW1",
+    "lat": -34.210868,
+    "lon": 150.792711,
+    "start_year": 1995,
+    "capacity_mw": 55.6,
+    "fueltech": "gas_wcmg"
+  },
+  {
+    "code": "ARWF",
+    "name": "Ararat",
+    "network_region": "VIC1",
+    "lat": -37.238714,
+    "lon": 143.079243,
+    "start_year": 2016,
+    "capacity_mw": 241.59,
+    "fueltech": "wind"
+  },
+  {
+    "code": "AVLSF",
+    "name": "Avonlie",
+    "network_region": "NSW1",
+    "lat": -34.913826,
+    "lon": 146.590545,
+    "start_year": 2023,
+    "capacity_mw": 254.1,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BADGINGARRA",
+    "name": "Badgingarra",
+    "network_region": "WEM",
+    "lat": -30.456742,
+    "lon": 115.343726,
+    "start_year": 2019,
+    "capacity_mw": 130,
+    "fueltech": "wind"
+  },
+  {
+    "code": "DEIBDL",
+    "name": "Bairnsdale",
+    "network_region": "VIC1",
+    "lat": -37.842918,
+    "lon": 147.563855,
+    "start_year": 2001,
+    "capacity_mw": 46,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "BAKING",
+    "name": "Baking Board",
+    "network_region": "QLD1",
+    "lat": -26.720639,
+    "lon": 150.553781,
+    "start_year": 2018,
+    "capacity_mw": 17.5,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BHWF",
+    "name": "Bald Hills",
+    "network_region": "VIC1",
+    "lat": -38.746897,
+    "lon": 145.949104,
+    "start_year": 2015,
+    "capacity_mw": 106.6,
+    "fueltech": "wind"
+  },
+  {
+    "code": "BALBESS",
+    "name": "Ballarat",
+    "network_region": "VIC1",
+    "lat": -37.567603,
+    "lon": 143.919894,
+    "start_year": 2018,
+    "capacity_mw": 30,
+    "fueltech": "battery"
+  },
+  {
+    "code": "BANGOWF",
+    "name": "Bango",
+    "network_region": "NSW1",
+    "lat": -34.767208,
+    "lon": 148.921499,
+    "start_year": 2021,
+    "capacity_mw": 159,
+    "fueltech": "wind"
+  },
+  {
+    "code": "BAPS",
+    "name": "Banimboola",
+    "network_region": "VIC1",
+    "lat": -36.534342,
+    "lon": 147.45934,
+    "start_year": 2005,
+    "capacity_mw": 12.85,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "BANNSP",
+    "name": "Bannerton",
+    "network_region": "VIC1",
+    "lat": -34.687324,
+    "lon": 142.77895,
+    "start_year": 2018,
+    "capacity_mw": 100,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BARCALDN",
+    "name": "Barcaldine",
+    "network_region": "QLD1",
+    "lat": -23.552279,
+    "lon": 145.314856,
+    "start_year": 1994,
+    "capacity_mw": 37,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "BARCSF",
+    "name": "Barcaldine",
+    "network_region": "QLD1",
+    "lat": -23.547776,
+    "lon": 145.318817,
+    "start_year": 2016,
+    "capacity_mw": 20,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BARKIPS",
+    "name": "Barker Inlet",
+    "network_region": "SA1",
+    "lat": -34.803695,
+    "lon": 138.523864,
+    "start_year": 2019,
+    "capacity_mw": 211,
+    "fueltech": "gas_recip"
+  },
+  {
+    "code": "BARRON",
+    "name": "Barron Gorge",
+    "network_region": "QLD1",
+    "lat": -16.850852,
+    "lon": 145.646758,
+    "start_year": 1962,
+    "capacity_mw": 30,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "BASTYAN",
+    "name": "Bastyan",
+    "network_region": "TAS1",
+    "lat": -41.736045,
+    "lon": 145.532064,
+    "start_year": 1982,
+    "capacity_mw": 79.9,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "BAYSW",
+    "name": "Bayswater",
+    "network_region": "NSW1",
+    "lat": -32.394981,
+    "lon": 150.94949,
+    "start_year": 1984,
+    "capacity_mw": 660,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "BBP31",
+    "name": "Bell Bay Three",
+    "network_region": "TAS1",
+    "lat": -41.140419,
+    "lon": 146.905197,
+    "start_year": 2006,
+    "capacity_mw": 58,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "BLAIRFOX_BEROSRD_WF",
+    "name": "Beros Road",
+    "network_region": "WEM",
+    "lat": -29.957885,
+    "lon": 115.362947,
+    "start_year": 2018,
+    "capacity_mw": 9.5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "BRYB1WF1",
+    "name": "Berrybank",
+    "network_region": "VIC1",
+    "lat": -37.885519,
+    "lon": 143.453446,
+    "start_year": 2021,
+    "capacity_mw": 180.6,
+    "fueltech": "wind"
+  },
+  {
+    "code": "BERYLSF",
+    "name": "Beryl",
+    "network_region": "NSW1",
+    "lat": -32.356446,
+    "lon": 149.470517,
+    "start_year": 2019,
+    "capacity_mw": 98,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BIALAWF",
+    "name": "Biala",
+    "network_region": "NSW1",
+    "lat": -34.584149,
+    "lon": 149.347019,
+    "start_year": 2020,
+    "capacity_mw": 110,
+    "fueltech": "wind"
+  },
+  {
+    "code": "BLAYNEY",
+    "name": "Blayney",
+    "network_region": "NSW1",
+    "lat": -33.622867,
+    "lon": 149.200983,
+    "start_year": 2000,
+    "capacity_mw": 9.9,
+    "fueltech": "wind"
+  },
+  {
+    "code": "SNOWY6",
+    "name": "Blowering",
+    "network_region": "NSW1",
+    "lat": -35.398563,
+    "lon": 148.246201,
+    "start_year": 2001,
+    "capacity_mw": 80,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "BLUEGSF",
+    "name": "Blue Grass",
+    "network_region": "QLD1",
+    "lat": -26.682643,
+    "lon": 150.504537,
+    "start_year": 2022,
+    "capacity_mw": 183,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BLUEWATERS",
+    "name": "Bluewaters",
+    "network_region": "WEM",
+    "lat": -33.330601,
+    "lon": 116.227816,
+    "start_year": 2008,
+    "capacity_mw": 217,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "BLYTHB",
+    "name": "Blyth",
+    "network_region": "SA1",
+    "lat": -33.848475,
+    "lon": 138.403204,
+    "start_year": 2024,
+    "capacity_mw": 281,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "BOCOROCK",
+    "name": "Boco Rock",
+    "network_region": "NSW1",
+    "lat": -36.593627,
+    "lon": 149.101512,
+    "start_year": 2014,
+    "capacity_mw": 113.18,
+    "fueltech": "wind"
+  },
+  {
+    "code": "BODWF",
+    "name": "Bodangora",
+    "network_region": "NSW1",
+    "lat": -32.414669,
+    "lon": 149.099633,
+    "start_year": 2018,
+    "capacity_mw": 113.19,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MCKAY",
+    "name": "Bogong / Mackay",
+    "network_region": "VIC1",
+    "lat": -36.858282,
+    "lon": 147.234146,
+    "start_year": 1959,
+    "capacity_mw": 300,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "BOLIVAR",
+    "name": "Bolivar",
+    "network_region": "SA1",
+    "lat": -34.772402,
+    "lon": 138.579432,
+    "start_year": 2014,
+    "capacity_mw": 9.9,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "BOLIVPS",
+    "name": "Bolivar",
+    "network_region": "SA1",
+    "lat": -34.7772,
+    "lon": 138.5826,
+    "start_year": 2022,
+    "capacity_mw": 128,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "BOMENSF",
+    "name": "Bomen",
+    "network_region": "NSW1",
+    "lat": -35.046577,
+    "lon": 147.442585,
+    "start_year": 2020,
+    "capacity_mw": 121,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BBATTERY",
+    "name": "Bouldercombe",
+    "network_region": "QLD1",
+    "lat": -23.535251,
+    "lon": 150.489057,
+    "start_year": 2023,
+    "capacity_mw": 67,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "BRAEMARA",
+    "name": "Braemar",
+    "network_region": "QLD1",
+    "lat": -27.110488,
+    "lon": 150.905683,
+    "start_year": 2006,
+    "capacity_mw": 168,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "B2PS",
+    "name": "Braemar 2",
+    "network_region": "QLD1",
+    "lat": -27.112874,
+    "lon": 150.905442,
+    "start_year": 2009,
+    "capacity_mw": 173,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "BREMER_BAY",
+    "name": "Bremer Bay",
+    "network_region": "WEM",
+    "lat": -34.399033,
+    "lon": 119.389377,
+    "start_year": 2003,
+    "capacity_mw": 0.6,
+    "fueltech": "wind"
+  },
+  {
+    "code": "BRNDBES",
+    "name": "Brendale",
+    "network_region": "QLD1",
+    "lat": -27.329333,
+    "lon": 152.974384,
+    "start_year": 2025,
+    "capacity_mw": 215,
+    "fueltech": "battery"
+  },
+  {
+    "code": "BRDD",
+    "name": "Broadsound",
+    "network_region": "QLD1",
+    "lat": -22.810001,
+    "lon": 149.36302,
+    "start_year": 2025,
+    "capacity_mw": 368,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BWTR1",
+    "name": "Broadwater",
+    "network_region": "NSW1",
+    "lat": -29.016483,
+    "lon": 153.445756,
+    "start_year": 2008,
+    "capacity_mw": 38,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "BHILLGT",
+    "name": "Broken Hill",
+    "network_region": "NSW1",
+    "lat": -31.986313,
+    "lon": 141.42062,
+    "start_year": 1988,
+    "capacity_mw": 50,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "BROKENH",
+    "name": "Broken Hill",
+    "network_region": "NSW1",
+    "lat": -31.987538,
+    "lon": 141.391994,
+    "start_year": 2015,
+    "capacity_mw": 53,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BHB",
+    "name": "Broken Hill Battery",
+    "network_region": "NSW1",
+    "lat": -31.986306,
+    "lon": 141.422951,
+    "start_year": 2023,
+    "capacity_mw": 66,
+    "fueltech": "battery"
+  },
+  {
+    "code": "BROOKLYN",
+    "name": "Brooklyn",
+    "network_region": "VIC1",
+    "lat": -37.819005,
+    "lon": 144.831257,
+    "start_year": 2000,
+    "capacity_mw": 2.83,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "BROWNMT",
+    "name": "Brown Mountain",
+    "network_region": "NSW1",
+    "lat": -36.594993,
+    "lon": 149.473997,
+    "start_year": 1942,
+    "capacity_mw": 5,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "BPLANDF",
+    "name": "Browns Plains",
+    "network_region": "QLD1",
+    "lat": -27.672038,
+    "lon": 153.066312,
+    "start_year": 2011,
+    "capacity_mw": 2,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "BULGANA",
+    "name": "Bulgana Green Power Hub",
+    "network_region": "VIC1",
+    "lat": -37.038034,
+    "lon": 142.983474,
+    "start_year": 2020,
+    "capacity_mw": 204,
+    "fueltech": "wind"
+  },
+  {
+    "code": "BUSF",
+    "name": "Bundaberg",
+    "network_region": "QLD1",
+    "lat": -24.943515,
+    "lon": 152.020698,
+    "start_year": 2026,
+    "capacity_mw": 101,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BNGSF1",
+    "name": "Bungala One",
+    "network_region": "SA1",
+    "lat": -32.415846,
+    "lon": 137.841225,
+    "start_year": 2018,
+    "capacity_mw": 135,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BNGSF2",
+    "name": "Bungala Two",
+    "network_region": "SA1",
+    "lat": -32.415846,
+    "lon": 137.841225,
+    "start_year": 2018,
+    "capacity_mw": 135,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BUNGAMB",
+    "name": "Bungama",
+    "network_region": "SA1",
+    "lat": -33.191223,
+    "lon": 138.08733,
+    "start_year": 2025,
+    "capacity_mw": 217,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "BDONGHYD",
+    "name": "Burrendong",
+    "network_region": "NSW1",
+    "lat": -32.664624,
+    "lon": 149.107959,
+    "start_year": 1995,
+    "capacity_mw": 19,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "BURRIN",
+    "name": "Burrinjuck",
+    "network_region": "NSW1",
+    "lat": -35.003008,
+    "lon": 148.582864,
+    "start_year": 1926,
+    "capacity_mw": 34,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "BUTLERSG",
+    "name": "Butlers Gorge",
+    "network_region": "TAS1",
+    "lat": -42.266898,
+    "lon": 146.261823,
+    "start_year": 1950,
+    "capacity_mw": 14.4,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "CALL_B",
+    "name": "Callide B",
+    "network_region": "QLD1",
+    "lat": -24.346016,
+    "lon": 150.61856,
+    "start_year": 1987,
+    "capacity_mw": 350,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "CALLIDEC1",
+    "name": "Callide C",
+    "network_region": "QLD1",
+    "lat": -24.346016,
+    "lon": 150.61856,
+    "start_year": 2001,
+    "capacity_mw": 466,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "CANUNDA1",
+    "name": "Canunda",
+    "network_region": "SA1",
+    "lat": -37.691515,
+    "lon": 140.35514,
+    "start_year": 2005,
+    "capacity_mw": 46,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CAPBES",
+    "name": "Capital",
+    "network_region": "NSW1",
+    "lat": -35.338251,
+    "lon": 149.215529,
+    "start_year": 2023,
+    "capacity_mw": 125,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "CAPTL_WF",
+    "name": "Capital",
+    "network_region": "NSW1",
+    "lat": -35.136662,
+    "lon": 149.503302,
+    "start_year": 2009,
+    "capacity_mw": 140,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CESF",
+    "name": "Capital East",
+    "network_region": "NSW1",
+    "lat": -35.180684,
+    "lon": 149.546482,
+    "start_year": 2012,
+    "capacity_mw": 0.2,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "CRWARP",
+    "name": "Carwarp",
+    "network_region": "VIC1",
+    "lat": -34.399542,
+    "lon": 142.172804,
+    "start_year": 2025,
+    "capacity_mw": 186,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "LI_WY_CA",
+    "name": "Catagunya / Liapootah / Wayatinah",
+    "network_region": "TAS1",
+    "lat": -42.376279,
+    "lon": 146.510051,
+    "start_year": 1956,
+    "capacity_mw": 173.7,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "CATHROCK",
+    "name": "Cathedral Rocks",
+    "network_region": "SA1",
+    "lat": -34.854865,
+    "lon": 135.583318,
+    "start_year": 2005,
+    "capacity_mw": 66,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CTHLWF",
+    "name": "Cattle Hill",
+    "network_region": "TAS1",
+    "lat": -42.149661,
+    "lon": 146.724045,
+    "start_year": 2020,
+    "capacity_mw": 148,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CETHANA",
+    "name": "Cethana",
+    "network_region": "TAS1",
+    "lat": -41.480804,
+    "lon": 146.134511,
+    "start_year": 1970,
+    "capacity_mw": 85,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "CHALLWF",
+    "name": "Challicum Hills",
+    "network_region": "VIC1",
+    "lat": -37.388065,
+    "lon": 143.109502,
+    "start_year": 2003,
+    "capacity_mw": 52.5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CHPSTWF",
+    "name": "Chepstowe",
+    "network_region": "VIC1",
+    "lat": -37.596065,
+    "lon": 143.495467,
+    "start_year": 2015,
+    "capacity_mw": 6.15,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CHYTWF",
+    "name": "Cherry Tree",
+    "network_region": "VIC1",
+    "lat": -37.10249,
+    "lon": 145.2657,
+    "start_year": 2020,
+    "capacity_mw": 57.6,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CHILDSF",
+    "name": "Childers",
+    "network_region": "QLD1",
+    "lat": -25.305189,
+    "lon": 152.402663,
+    "start_year": 2019,
+    "capacity_mw": 64.38,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "CHBESS",
+    "name": "Chinchilla",
+    "network_region": "QLD1",
+    "lat": -26.918598,
+    "lon": 150.745396,
+    "start_year": 2023,
+    "capacity_mw": 134,
+    "fueltech": "battery"
+  },
+  {
+    "code": "CBWWBA",
+    "name": "Christies Beach",
+    "network_region": "SA1",
+    "lat": -35.125958,
+    "lon": 138.47135,
+    "start_year": 2021,
+    "capacity_mw": 2.75,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "CLARESF",
+    "name": "Clare",
+    "network_region": "QLD1",
+    "lat": -19.839817,
+    "lon": 147.204884,
+    "start_year": 2018,
+    "capacity_mw": 110.26,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "CLRKCWF",
+    "name": "Clarke Creek",
+    "network_region": "QLD1",
+    "lat": -22.850446,
+    "lon": 149.453252,
+    "start_year": 2024,
+    "capacity_mw": 345.5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CLAYTON",
+    "name": "Clayton",
+    "network_region": "VIC1",
+    "lat": -37.950618,
+    "lon": 145.119681,
+    "start_year": 1994,
+    "capacity_mw": 11,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "CLEMGPWF",
+    "name": "Clements Gap",
+    "network_region": "SA1",
+    "lat": -33.507311,
+    "lon": 138.115629,
+    "start_year": 2009,
+    "capacity_mw": 90.5,
+    "fueltech": "battery"
+  },
+  {
+    "code": "CLERMSF",
+    "name": "Clermont",
+    "network_region": "QLD1",
+    "lat": -22.837763,
+    "lon": 147.579322,
+    "start_year": 2019,
+    "capacity_mw": 92,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "CLOVER",
+    "name": "Clover",
+    "network_region": "VIC1",
+    "lat": -36.785257,
+    "lon": 147.220466,
+    "start_year": 2009,
+    "capacity_mw": 37.5,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "CLUNY",
+    "name": "Cluny",
+    "network_region": "TAS1",
+    "lat": -42.506442,
+    "lon": 146.68104,
+    "start_year": 1966,
+    "capacity_mw": 19,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "COCKBURN",
+    "name": "Cockburn",
+    "network_region": "WEM",
+    "lat": -32.200134,
+    "lon": 115.773988,
+    "start_year": 2002,
+    "capacity_mw": 249.7,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "CODRGTON",
+    "name": "Codrington",
+    "network_region": "VIC1",
+    "lat": -38.284935,
+    "lon": 141.961499,
+    "start_year": 2001,
+    "capacity_mw": 18.2,
+    "fueltech": "wind"
+  },
+  {
+    "code": "COHUNSF1",
+    "name": "Cohuna",
+    "network_region": "VIC1",
+    "lat": -35.886553,
+    "lon": 144.217421,
+    "start_year": 2021,
+    "capacity_mw": 31.1,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "COLEASF",
+    "name": "Coleambally",
+    "network_region": "NSW1",
+    "lat": -34.762456,
+    "lon": 145.928786,
+    "start_year": 2018,
+    "capacity_mw": 180,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "COLWF01",
+    "name": "Collector",
+    "network_region": "NSW1",
+    "lat": -34.862066,
+    "lon": 149.388245,
+    "start_year": 2020,
+    "capacity_mw": 226,
+    "fueltech": "wind"
+  },
+  {
+    "code": "INVESTEC_COLLGAR",
+    "name": "Collgar",
+    "network_region": "WEM",
+    "lat": -31.542533,
+    "lon": 118.456525,
+    "start_year": 2011,
+    "capacity_mw": 222,
+    "fueltech": "wind"
+  },
+  {
+    "code": "COLLIE",
+    "name": "Collie",
+    "network_region": "WEM",
+    "lat": -33.342097,
+    "lon": 116.261439,
+    "start_year": 1999,
+    "capacity_mw": 318.3,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "COLLIE_ESR4",
+    "name": "Collie",
+    "network_region": "WEM",
+    "lat": -33.336691,
+    "lon": 116.261109,
+    "start_year": 2025,
+    "capacity_mw": 250,
+    "fueltech": "battery"
+  },
+  {
+    "code": "COLLIE_ESR",
+    "name": "Collie 1",
+    "network_region": "WEM",
+    "lat": -33.336507,
+    "lon": 116.260662,
+    "start_year": 2024,
+    "capacity_mw": 219,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "COLLIE_BESS2",
+    "name": "Collie 2",
+    "network_region": "WEM",
+    "lat": -33.336507,
+    "lon": 116.260662,
+    "start_year": 2025,
+    "capacity_mw": 341,
+    "fueltech": "battery"
+  },
+  {
+    "code": "COLLIE_ESR5",
+    "name": "Collie 2",
+    "network_region": "WEM",
+    "lat": -33.336691,
+    "lon": 116.261109,
+    "start_year": 2025,
+    "capacity_mw": 250,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "CSPVPS",
+    "name": "Collinsville",
+    "network_region": "QLD1",
+    "lat": -20.541215,
+    "lon": 147.807432,
+    "start_year": 2018,
+    "capacity_mw": 42,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "COLONGRA",
+    "name": "Colongra",
+    "network_region": "NSW1",
+    "lat": -33.209801,
+    "lon": 151.544968,
+    "start_year": 2009,
+    "capacity_mw": 181,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "COLUMSF",
+    "name": "Columboola",
+    "network_region": "QLD1",
+    "lat": -26.633781,
+    "lon": 150.298894,
+    "start_year": 2022,
+    "capacity_mw": 217,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "CPSA",
+    "name": "Condamine A",
+    "network_region": "QLD1",
+    "lat": -26.668181,
+    "lon": 150.270023,
+    "start_year": 2009,
+    "capacity_mw": 143,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "CONDONG1",
+    "name": "Condong",
+    "network_region": "NSW1",
+    "lat": -28.314766,
+    "lon": 153.433808,
+    "start_year": 2007,
+    "capacity_mw": 30,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "CBWF",
+    "name": "Coonoer Bridge",
+    "network_region": "VIC1",
+    "lat": -36.415237,
+    "lon": 143.380189,
+    "start_year": 2016,
+    "capacity_mw": 19.8,
+    "fueltech": "wind"
+  },
+  {
+    "code": "COOPGWF",
+    "name": "Coopers Gap",
+    "network_region": "QLD1",
+    "lat": -26.733659,
+    "lon": 151.474795,
+    "start_year": 2019,
+    "capacity_mw": 452,
+    "fueltech": "wind"
+  },
+  {
+    "code": "COPTNHYD",
+    "name": "Copeton",
+    "network_region": "NSW1",
+    "lat": -29.910174,
+    "lon": 150.92348,
+    "start_year": 1996,
+    "capacity_mw": 22.5,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "CRWASF1",
+    "name": "Corowa",
+    "network_region": "NSW1",
+    "lat": -35.979325,
+    "lon": 146.359356,
+    "start_year": 2021,
+    "capacity_mw": 36,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "CROOKWEL",
+    "name": "Crookwell",
+    "network_region": "NSW1",
+    "lat": -34.517075,
+    "lon": 149.542648,
+    "start_year": 1997,
+    "capacity_mw": 4.8,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CROOKWF2",
+    "name": "Crookwell 2",
+    "network_region": "NSW1",
+    "lat": -34.556855,
+    "lon": 149.609565,
+    "start_year": 2024,
+    "capacity_mw": 96.04,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CROOKWF3",
+    "name": "Crookwell 3",
+    "network_region": "NSW1",
+    "lat": -34.517075,
+    "lon": 149.542648,
+    "start_year": 2024,
+    "capacity_mw": 57,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CROWLWF",
+    "name": "Crowlands",
+    "network_region": "VIC1",
+    "lat": -36.97615,
+    "lon": 143.097998,
+    "start_year": 2018,
+    "capacity_mw": 79.95,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CRURWF1",
+    "name": "Crudine Ridge",
+    "network_region": "NSW1",
+    "lat": -32.864748,
+    "lon": 149.81297,
+    "start_year": 2020,
+    "capacity_mw": 141,
+    "fueltech": "wind"
+  },
+  {
+    "code": "CULCSF",
+    "name": "Culcairn",
+    "network_region": "NSW1",
+    "lat": -35.702717,
+    "lon": 146.963901,
+    "start_year": 2025,
+    "capacity_mw": 466,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "CULLERIN",
+    "name": "Cullerin Range",
+    "network_region": "NSW1",
+    "lat": -34.809208,
+    "lon": 149.399185,
+    "start_year": 2009,
+    "capacity_mw": 30,
+    "fueltech": "wind"
+  },
+  {
+    "code": "SBSOLAR1_CUNDERDIN_PV",
+    "name": "Cunderdin",
+    "network_region": "WEM",
+    "lat": -31.656115,
+    "lon": 117.276303,
+    "start_year": 2024,
+    "capacity_mw": 128,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "DALNTH",
+    "name": "Dalrymple North",
+    "network_region": "SA1",
+    "lat": -34.933952,
+    "lon": 137.743532,
+    "start_year": 2018,
+    "capacity_mw": 30,
+    "fueltech": "battery"
+  },
+  {
+    "code": "DDPS1",
+    "name": "Darling Downs",
+    "network_region": "QLD1",
+    "lat": -27.116855,
+    "lon": 150.894761,
+    "start_year": 2009,
+    "capacity_mw": 644,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "DDSF",
+    "name": "Darling Downs",
+    "network_region": "QLD1",
+    "lat": -27.113797,
+    "lon": 150.879733,
+    "start_year": 2018,
+    "capacity_mw": 121,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "DARLSF",
+    "name": "Darlington Point",
+    "network_region": "NSW1",
+    "lat": -34.648971,
+    "lon": 146.061179,
+    "start_year": 2020,
+    "capacity_mw": 324,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "DPNTB",
+    "name": "Darlington Point",
+    "network_region": "NSW1",
+    "lat": -34.647016,
+    "lon": 146.035236,
+    "start_year": 2023,
+    "capacity_mw": 25,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "DARTM",
+    "name": "Dartmouth",
+    "network_region": "VIC1",
+    "lat": -36.556485,
+    "lon": 147.520456,
+    "start_year": 1980,
+    "capacity_mw": 185,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "DAYDSF",
+    "name": "Daydream",
+    "network_region": "QLD1",
+    "lat": -20.479752,
+    "lon": 147.763711,
+    "start_year": 2018,
+    "capacity_mw": 167,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "DCWL_DENMARK",
+    "name": "Denmark",
+    "network_region": "WEM",
+    "lat": -35.036189,
+    "lon": 117.319938,
+    "start_year": 2013,
+    "capacity_mw": 1.44,
+    "fueltech": "wind"
+  },
+  {
+    "code": "DEVILS_G",
+    "name": "Devils Gate",
+    "network_region": "TAS1",
+    "lat": -41.350513,
+    "lon": 146.263394,
+    "start_year": 1968,
+    "capacity_mw": 60,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "DIAPURWF",
+    "name": "Diapur 2",
+    "network_region": "VIC1",
+    "lat": -36.342581,
+    "lon": 141.434701,
+    "start_year": 2021,
+    "capacity_mw": 8,
+    "fueltech": "wind"
+  },
+  {
+    "code": "DRYCGT",
+    "name": "Dry Creek",
+    "network_region": "SA1",
+    "lat": -34.847703,
+    "lon": 138.5816,
+    "start_year": 1972,
+    "capacity_mw": 52,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "DULAWF",
+    "name": "Dulacca",
+    "network_region": "QLD1",
+    "lat": -26.631438,
+    "lon": 149.867554,
+    "start_year": 2023,
+    "capacity_mw": 180,
+    "fueltech": "wind"
+  },
+  {
+    "code": "DUNDWF",
+    "name": "Dundonnell",
+    "network_region": "VIC1",
+    "lat": -37.865682,
+    "lon": 142.951894,
+    "start_year": 2020,
+    "capacity_mw": 168,
+    "fueltech": "wind"
+  },
+  {
+    "code": "EASTCRK",
+    "name": "Eastern Creek",
+    "network_region": "NSW1",
+    "lat": -33.815468,
+    "lon": 150.854307,
+    "start_year": 2001,
+    "capacity_mw": 5.06,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "EASTCRK2",
+    "name": "Eastern Creek 2",
+    "network_region": "NSW1",
+    "lat": -33.815468,
+    "lon": 150.854307,
+    "start_year": 2007,
+    "capacity_mw": 6.74,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "EDENVSF",
+    "name": "Edenvale",
+    "network_region": "QLD1",
+    "lat": -26.931732,
+    "lon": 150.582727,
+    "start_year": 2023,
+    "capacity_mw": 180,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "EILDON",
+    "name": "Eildon",
+    "network_region": "VIC1",
+    "lat": -37.221982,
+    "lon": 145.921476,
+    "start_year": 1955,
+    "capacity_mw": 60,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "EILDONPD",
+    "name": "Eildon",
+    "network_region": "VIC1",
+    "lat": -37.243123,
+    "lon": 145.89735,
+    "start_year": 1993,
+    "capacity_mw": 4.5,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "ELAINEWF",
+    "name": "Elaine",
+    "network_region": "VIC1",
+    "lat": -37.627677,
+    "lon": 144.025313,
+    "start_year": 2020,
+    "capacity_mw": 83.6,
+    "fueltech": "wind"
+  },
+  {
+    "code": "EMERASF",
+    "name": "Emerald",
+    "network_region": "QLD1",
+    "lat": -23.507996,
+    "lon": 148.126404,
+    "start_year": 2018,
+    "capacity_mw": 88,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "EDWFMAN",
+    "name": "Emu Downs",
+    "network_region": "WEM",
+    "lat": -30.490991,
+    "lon": 115.359843,
+    "start_year": 2006,
+    "capacity_mw": 79.2,
+    "fueltech": "wind"
+  },
+  {
+    "code": "ERARING",
+    "name": "Eraring",
+    "network_region": "NSW1",
+    "lat": -33.061039,
+    "lon": 151.51984,
+    "start_year": 1981,
+    "capacity_mw": 720,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "ERB",
+    "name": "Eraring",
+    "network_region": "NSW1",
+    "lat": -33.060582,
+    "lon": 151.520047,
+    "start_year": 2025,
+    "capacity_mw": 614.6,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "ERGT01",
+    "name": "Eraring",
+    "network_region": "NSW1",
+    "lat": -33.062117,
+    "lon": 151.517224,
+    "start_year": 2007,
+    "capacity_mw": 41.5,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "ERB2",
+    "name": "Eraring 2",
+    "network_region": "NSW1",
+    "lat": -33.066837,
+    "lon": 151.515026,
+    "start_year": 2026,
+    "capacity_mw": 240,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "FWF",
+    "name": "Ferguson",
+    "network_region": "VIC1",
+    "lat": -38.609776,
+    "lon": 143.179314,
+    "start_year": 2019,
+    "capacity_mw": 8,
+    "fueltech": "wind"
+  },
+  {
+    "code": "FINLEYSF",
+    "name": "Finley",
+    "network_region": "NSW1",
+    "lat": -35.648941,
+    "lon": 145.50575,
+    "start_year": 2019,
+    "capacity_mw": 162.36,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "FISHER",
+    "name": "Fisher",
+    "network_region": "TAS1",
+    "lat": -41.673312,
+    "lon": 146.268511,
+    "start_year": 1972,
+    "capacity_mw": 43.2,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "FLATROCKS",
+    "name": "Flat Rocks",
+    "network_region": "WEM",
+    "lat": -33.992789,
+    "lon": 117.354335,
+    "start_year": 2023,
+    "capacity_mw": 75.6,
+    "fueltech": "wind"
+  },
+  {
+    "code": "FLYCRKWF",
+    "name": "Flyers Creek",
+    "network_region": "NSW1",
+    "lat": -33.517716,
+    "lon": 149.052949,
+    "start_year": 2023,
+    "capacity_mw": 145,
+    "fueltech": "wind"
+  },
+  {
+    "code": "GANGARR",
+    "name": "Gangarri",
+    "network_region": "QLD1",
+    "lat": -26.270557,
+    "lon": 149.758054,
+    "start_year": 2021,
+    "capacity_mw": 162,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "GANNBESS",
+    "name": "Gannawarra",
+    "network_region": "VIC1",
+    "lat": -35.734598,
+    "lon": 143.779894,
+    "start_year": 2018,
+    "capacity_mw": 30,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "GANNSF",
+    "name": "Gannawarra",
+    "network_region": "VIC1",
+    "lat": -35.729012,
+    "lon": 143.783189,
+    "start_year": 2018,
+    "capacity_mw": 55,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "TESLA_GERALDTON",
+    "name": "Geraldton",
+    "network_region": "WEM",
+    "lat": -28.790815,
+    "lon": 114.691831,
+    "start_year": 2011,
+    "capacity_mw": 10,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "GERMCRK",
+    "name": "German Creek",
+    "network_region": "QLD1",
+    "lat": -22.928526,
+    "lon": 148.549097,
+    "start_year": 2005,
+    "capacity_mw": 45,
+    "fueltech": "gas_wcmg"
+  },
+  {
+    "code": "GIRGSF",
+    "name": "Girgarre",
+    "network_region": "VIC1",
+    "lat": -36.424428,
+    "lon": 144.947305,
+    "start_year": 2024,
+    "capacity_mw": 93.31,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "GSTONE",
+    "name": "Gladstone",
+    "network_region": "QLD1",
+    "lat": -23.853641,
+    "lon": 151.217515,
+    "start_year": 1975,
+    "capacity_mw": 280,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "GLBWNHYD",
+    "name": "Glenbawn",
+    "network_region": "NSW1",
+    "lat": -32.107937,
+    "lon": 150.999481,
+    "start_year": 1994,
+    "capacity_mw": 5.5,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "GESF",
+    "name": "Glenellen",
+    "network_region": "NSW1",
+    "lat": -35.929882,
+    "lon": 146.909107,
+    "start_year": 2025,
+    "capacity_mw": 264,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "GLENMAGG",
+    "name": "Glenmaggie",
+    "network_region": "VIC1",
+    "lat": -37.904836,
+    "lon": 146.800388,
+    "start_year": 1993,
+    "capacity_mw": 3.8,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "GLENNCRK",
+    "name": "Glennies Creek",
+    "network_region": "NSW1",
+    "lat": -32.459876,
+    "lon": 151.128697,
+    "start_year": 2006,
+    "capacity_mw": 12.78,
+    "fueltech": "gas_wcmg"
+  },
+  {
+    "code": "GLENSF",
+    "name": "Glenrowan",
+    "network_region": "VIC1",
+    "lat": -36.490814,
+    "lon": 146.158762,
+    "start_year": 2023,
+    "capacity_mw": 126,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "GLRWNSF",
+    "name": "Glenrowan West",
+    "network_region": "VIC1",
+    "lat": -36.4907,
+    "lon": 146.157473,
+    "start_year": 2020,
+    "capacity_mw": 132,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "GPWFEST",
+    "name": "Golden Plains East",
+    "network_region": "VIC1",
+    "lat": -37.95728,
+    "lon": 143.769665,
+    "start_year": 2024,
+    "capacity_mw": 260.4,
+    "fueltech": "wind"
+  },
+  {
+    "code": "GPWFWST",
+    "name": "Golden Plains West",
+    "network_region": "VIC1",
+    "lat": -37.896786,
+    "lon": 143.648042,
+    "start_year": 2026,
+    "capacity_mw": 266,
+    "fueltech": "wind"
+  },
+  {
+    "code": "GOONUMSF",
+    "name": "Goonumbla",
+    "network_region": "NSW1",
+    "lat": -33.109212,
+    "lon": 148.092982,
+    "start_year": 2020,
+    "capacity_mw": 85,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "GOESF1",
+    "name": "Goorambat East",
+    "network_region": "VIC1",
+    "lat": -36.434304,
+    "lon": 145.923113,
+    "start_year": 2025,
+    "capacity_mw": 348.6,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "GORDON",
+    "name": "Gordon",
+    "network_region": "TAS1",
+    "lat": -42.740519,
+    "lon": 145.982796,
+    "start_year": 1976,
+    "capacity_mw": 432,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "GSWF",
+    "name": "Goyder South",
+    "network_region": "SA1",
+    "lat": -33.778423,
+    "lon": 138.97176,
+    "start_year": 2024,
+    "capacity_mw": 209,
+    "fueltech": "wind"
+  },
+  {
+    "code": "GRANGEAV",
+    "name": "Grange Avenue",
+    "network_region": "NSW1",
+    "lat": -33.713011,
+    "lon": 150.83316,
+    "start_year": 2005,
+    "capacity_mw": 2,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "GRANWF",
+    "name": "Granville Harbour",
+    "network_region": "TAS1",
+    "lat": -41.778439,
+    "lon": 145.065517,
+    "start_year": 2020,
+    "capacity_mw": 110,
+    "fueltech": "wind"
+  },
+  {
+    "code": "GRASMERE",
+    "name": "Grasmere",
+    "network_region": "WEM",
+    "lat": -35.055759,
+    "lon": 117.777048,
+    "start_year": 2010,
+    "capacity_mw": 13.8,
+    "fueltech": "wind"
+  },
+  {
+    "code": "GREENB",
+    "name": "Greenbank",
+    "network_region": "QLD1",
+    "lat": -27.733142,
+    "lon": 152.954374,
+    "start_year": 2025,
+    "capacity_mw": 259.2,
+    "fueltech": "battery"
+  },
+  {
+    "code": "GREENOUGH_RIVER",
+    "name": "Greenough River",
+    "network_region": "WEM",
+    "lat": -28.90381,
+    "lon": 115.10937,
+    "start_year": 2012,
+    "capacity_mw": 40,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "GRIFSF",
+    "name": "Griffith",
+    "network_region": "NSW1",
+    "lat": -34.317617,
+    "lon": 146.121416,
+    "start_year": 2018,
+    "capacity_mw": 27.2,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "GROSV1",
+    "name": "Grosvenor 1",
+    "network_region": "QLD1",
+    "lat": -21.929194,
+    "lon": 148.032416,
+    "start_year": 2015,
+    "capacity_mw": 21,
+    "fueltech": "gas_wcmg"
+  },
+  {
+    "code": "GROSV2",
+    "name": "Grosvenor 2",
+    "network_region": "QLD1",
+    "lat": -21.929194,
+    "lon": 148.032416,
+    "start_year": 2016,
+    "capacity_mw": 15.21,
+    "fueltech": "gas_wcmg"
+  },
+  {
+    "code": "GULLRGWF",
+    "name": "Gullen Range",
+    "network_region": "NSW1",
+    "lat": -34.615245,
+    "lon": 149.45808,
+    "start_year": 2013,
+    "capacity_mw": 165,
+    "fueltech": "wind"
+  },
+  {
+    "code": "GNNDHSF",
+    "name": "Gunnedah",
+    "network_region": "NSW1",
+    "lat": -30.937263,
+    "lon": 150.344174,
+    "start_year": 2021,
+    "capacity_mw": 144,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "GUNNING",
+    "name": "Gunning",
+    "network_region": "NSW1",
+    "lat": -34.691531,
+    "lon": 149.373013,
+    "start_year": 2011,
+    "capacity_mw": 46.5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "GUSF",
+    "name": "Gunsynd",
+    "network_region": "QLD1",
+    "lat": -28.408388,
+    "lon": 150.343437,
+    "start_year": 2025,
+    "capacity_mw": 122.78,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "SNOWY3",
+    "name": "Guthega",
+    "network_region": "NSW1",
+    "lat": -36.350097,
+    "lon": 148.413602,
+    "start_year": 2001,
+    "capacity_mw": 60,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "HLMSEW01",
+    "name": "Hallam",
+    "network_region": "VIC1",
+    "lat": -38.143332,
+    "lon": 145.119964,
+    "start_year": 2007,
+    "capacity_mw": 0.25,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "HALAMRD",
+    "name": "Hallam Road",
+    "network_region": "VIC1",
+    "lat": -38.052181,
+    "lon": 145.267798,
+    "start_year": 2006,
+    "capacity_mw": 8.98,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "AGLHAL",
+    "name": "Hallett",
+    "network_region": "SA1",
+    "lat": -33.349528,
+    "lon": 138.751607,
+    "start_year": 2002,
+    "capacity_mw": 217,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "HALLWF",
+    "name": "Hallett 1",
+    "network_region": "SA1",
+    "lat": -33.349308,
+    "lon": 138.750829,
+    "start_year": 2007,
+    "capacity_mw": 95,
+    "fueltech": "wind"
+  },
+  {
+    "code": "HALLWF2",
+    "name": "Hallett 2",
+    "network_region": "SA1",
+    "lat": -33.550778,
+    "lon": 138.863924,
+    "start_year": 2009,
+    "capacity_mw": 71.4,
+    "fueltech": "wind"
+  },
+  {
+    "code": "HAMISF",
+    "name": "Hamilton",
+    "network_region": "QLD1",
+    "lat": -20.496081,
+    "lon": 147.738803,
+    "start_year": 2018,
+    "capacity_mw": 57.5,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "HAMPTON",
+    "name": "Hampton",
+    "network_region": "NSW1",
+    "lat": -33.638759,
+    "lon": 150.049667,
+    "start_year": 2001,
+    "capacity_mw": 1.32,
+    "fueltech": "wind"
+  },
+  {
+    "code": "HVWW",
+    "name": "Happy Valley",
+    "network_region": "SA1",
+    "lat": -35.056156,
+    "lon": 138.564957,
+    "start_year": 2022,
+    "capacity_mw": 11,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "HASTING",
+    "name": "Hastings",
+    "network_region": "VIC1",
+    "lat": -38.295952,
+    "lon": 145.221926,
+    "start_year": 2023,
+    "capacity_mw": 14.82,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "HAUGHT1",
+    "name": "Haughton",
+    "network_region": "QLD1",
+    "lat": -19.750134,
+    "lon": 147.048103,
+    "start_year": 2019,
+    "capacity_mw": 132,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "HD1WF",
+    "name": "Hawkesdale",
+    "network_region": "VIC1",
+    "lat": -38.148008,
+    "lon": 142.360925,
+    "start_year": 2024,
+    "capacity_mw": 94.6,
+    "fueltech": "wind"
+  },
+  {
+    "code": "HAYMSF",
+    "name": "Hayman",
+    "network_region": "QLD1",
+    "lat": -20.510097,
+    "lon": 147.755711,
+    "start_year": 2019,
+    "capacity_mw": 57.75,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "HBESS",
+    "name": "Hazelwood BESS",
+    "network_region": "VIC1",
+    "lat": -38.267845,
+    "lon": 146.390293,
+    "start_year": 2023,
+    "capacity_mw": 200,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "HENDERSON_RENEWABLE",
+    "name": "Henderson",
+    "network_region": "WEM",
+    "lat": -32.202137,
+    "lon": 115.77391,
+    "start_year": 2005,
+    "capacity_mw": 3,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "HEPWIND",
+    "name": "Hepburn",
+    "network_region": "VIC1",
+    "lat": -37.427069,
+    "lon": 144.122158,
+    "start_year": 2011,
+    "capacity_mw": 4.1,
+    "fueltech": "wind"
+  },
+  {
+    "code": "HILLSTN",
+    "name": "Hillston Sun",
+    "network_region": "NSW1",
+    "lat": -33.531624,
+    "lon": 145.52242,
+    "start_year": 2021,
+    "capacity_mw": 110,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "HORNSDAL",
+    "name": "Hornsdale",
+    "network_region": "SA1",
+    "lat": -33.071721,
+    "lon": 138.556978,
+    "start_year": 2016,
+    "capacity_mw": 102.4,
+    "fueltech": "wind"
+  },
+  {
+    "code": "HORNSDAL2",
+    "name": "Hornsdale 2",
+    "network_region": "SA1",
+    "lat": -33.05982,
+    "lon": 138.537673,
+    "start_year": 2017,
+    "capacity_mw": 102.4,
+    "fueltech": "wind"
+  },
+  {
+    "code": "HORNSDAL3",
+    "name": "Hornsdale 3",
+    "network_region": "SA1",
+    "lat": -33.05982,
+    "lon": 138.537673,
+    "start_year": 2017,
+    "capacity_mw": 112,
+    "fueltech": "wind"
+  },
+  {
+    "code": "HORNSDPR",
+    "name": "Hornsdale Power Reserve",
+    "network_region": "SA1",
+    "lat": -33.086389,
+    "lon": 138.518659,
+    "start_year": 2017,
+    "capacity_mw": 150,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "HUGSF",
+    "name": "Hughenden",
+    "network_region": "QLD1",
+    "lat": -20.85484,
+    "lon": 144.186257,
+    "start_year": 2018,
+    "capacity_mw": 20.97,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "HUMENSW",
+    "name": "Hume",
+    "network_region": "NSW1",
+    "lat": -36.106639,
+    "lon": 147.032526,
+    "start_year": 1956,
+    "capacity_mw": 29,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "HUMEV",
+    "name": "Hume",
+    "network_region": "VIC1",
+    "lat": -36.106887,
+    "lon": 147.032572,
+    "start_year": 1956,
+    "capacity_mw": 29,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "HUNTER",
+    "name": "Hunter",
+    "network_region": "NSW1",
+    "lat": -32.836104,
+    "lon": 151.450523,
+    "start_year": 2025,
+    "capacity_mw": 375,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "HEZ",
+    "name": "Hunter Economic Zone",
+    "network_region": "NSW1",
+    "lat": -32.835481,
+    "lon": 151.451033,
+    "start_year": 2022,
+    "capacity_mw": 28,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "INVICTA",
+    "name": "Invicta Sugar Mill",
+    "network_region": "QLD1",
+    "lat": -19.520476,
+    "lon": 147.107439,
+    "start_year": 1996,
+    "capacity_mw": 50.3,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "ICSM",
+    "name": "Isis Central Sugar Mill",
+    "network_region": "QLD1",
+    "lat": -25.197619,
+    "lon": 152.206949,
+    "start_year": 2006,
+    "capacity_mw": 25,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "JACKSGUL",
+    "name": "Jacks Gully",
+    "network_region": "NSW1",
+    "lat": -34.072955,
+    "lon": 150.743691,
+    "start_year": 2000,
+    "capacity_mw": 2.3,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "JEERA",
+    "name": "Jeeralang A",
+    "network_region": "VIC1",
+    "lat": -38.275046,
+    "lon": 146.425572,
+    "start_year": 1978,
+    "capacity_mw": 51,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "JEERB",
+    "name": "Jeeralang B",
+    "network_region": "VIC1",
+    "lat": -38.275189,
+    "lon": 146.425555,
+    "start_year": 1979,
+    "capacity_mw": 76,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "JEMALNG1",
+    "name": "Jemalong",
+    "network_region": "NSW1",
+    "lat": -33.409099,
+    "lon": 147.655008,
+    "start_year": 2021,
+    "capacity_mw": 55,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "JNDSHPS",
+    "name": "Jindabyne",
+    "network_region": "NSW1",
+    "lat": -36.434918,
+    "lon": 148.63057,
+    "start_year": 2008,
+    "capacity_mw": 1.1,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "SNWYGJP2",
+    "name": "Jindabyne Pump At Guthega",
+    "network_region": "NSW1",
+    "lat": -36.434918,
+    "lon": 148.63057,
+    "start_year": 2017,
+    "capacity_mw": 70,
+    "fueltech": "pumps"
+  },
+  {
+    "code": "JBUTTERS",
+    "name": "John Butters",
+    "network_region": "TAS1",
+    "lat": -42.154894,
+    "lon": 145.534508,
+    "start_year": 1991,
+    "capacity_mw": 144,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "JOUNAMA",
+    "name": "Jounama",
+    "network_region": "NSW1",
+    "lat": -35.562015,
+    "lon": 148.305493,
+    "start_year": 2009,
+    "capacity_mw": 14,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "JUNEESF",
+    "name": "Junee",
+    "network_region": "NSW1",
+    "lat": -34.814929,
+    "lon": 147.572334,
+    "start_year": 2021,
+    "capacity_mw": 36,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "KABANWF",
+    "name": "Kaban",
+    "network_region": "QLD1",
+    "lat": -17.560606,
+    "lon": 145.413125,
+    "start_year": 2022,
+    "capacity_mw": 156,
+    "fueltech": "wind"
+  },
+  {
+    "code": "KALBARRI",
+    "name": "Kalbarri",
+    "network_region": "WEM",
+    "lat": -27.899626,
+    "lon": 114.194519,
+    "start_year": 2008,
+    "capacity_mw": 1.6,
+    "fueltech": "wind"
+  },
+  {
+    "code": "STHRNCRS",
+    "name": "Kambalda",
+    "network_region": "WEM",
+    "lat": -31.191281,
+    "lon": 121.673741,
+    "start_year": 1995,
+    "capacity_mw": 23,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "KARSF",
+    "name": "Karadoc",
+    "network_region": "VIC1",
+    "lat": -34.411851,
+    "lon": 142.250443,
+    "start_year": 2018,
+    "capacity_mw": 104,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BLAIRFOX_KARAKIN",
+    "name": "Karakin",
+    "network_region": "WEM",
+    "lat": -30.942242,
+    "lon": 115.366613,
+    "start_year": 2011,
+    "capacity_mw": 5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "KAREEYA",
+    "name": "Kareeya",
+    "network_region": "QLD1",
+    "lat": -17.767013,
+    "lon": 145.577993,
+    "start_year": 1955,
+    "capacity_mw": 21,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "KEEPIT",
+    "name": "Keepit",
+    "network_region": "NSW1",
+    "lat": -30.87868,
+    "lon": 150.491876,
+    "start_year": 1959,
+    "capacity_mw": 6,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "KEMERTON",
+    "name": "Kemerton",
+    "network_region": "WEM",
+    "lat": -33.163352,
+    "lon": 115.780966,
+    "start_year": 2004,
+    "capacity_mw": 154.7,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "TESLA_KEMERTON",
+    "name": "Kemerton",
+    "network_region": "WEM",
+    "lat": -33.211662,
+    "lon": 115.76057,
+    "start_year": 2011,
+    "capacity_mw": 10,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "KENNEDY",
+    "name": "Kennedy Energy Park",
+    "network_region": "QLD1",
+    "lat": -20.873828,
+    "lon": 144.412727,
+    "start_year": 2021,
+    "capacity_mw": 43.2,
+    "fueltech": "wind"
+  },
+  {
+    "code": "KERNGSP",
+    "name": "Kerang",
+    "network_region": "VIC1",
+    "lat": -35.779895,
+    "lon": 143.941051,
+    "start_year": 2025,
+    "capacity_mw": 37,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "KIAMSF1",
+    "name": "Kiamal",
+    "network_region": "VIC1",
+    "lat": -35.021508,
+    "lon": 142.297971,
+    "start_year": 2020,
+    "capacity_mw": 239,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "KIATAWF",
+    "name": "Kiata",
+    "network_region": "VIC1",
+    "lat": -36.397288,
+    "lon": 141.747394,
+    "start_year": 2017,
+    "capacity_mw": 31,
+    "fueltech": "wind"
+  },
+  {
+    "code": "KSP1",
+    "name": "Kidston",
+    "network_region": "QLD1",
+    "lat": -18.889381,
+    "lon": 144.14246,
+    "start_year": 2017,
+    "capacity_mw": 50,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "KINGASF",
+    "name": "Kingaroy",
+    "network_region": "QLD1",
+    "lat": -26.538639,
+    "lon": 151.881271,
+    "start_year": 2024,
+    "capacity_mw": 47,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "KOGANCK",
+    "name": "Kogan Creek",
+    "network_region": "QLD1",
+    "lat": -26.917925,
+    "lon": 150.749127,
+    "start_year": 2007,
+    "capacity_mw": 744,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "KESS1",
+    "name": "Koorangie",
+    "network_region": "VIC1",
+    "lat": -35.726424,
+    "lon": 143.752212,
+    "start_year": 2025,
+    "capacity_mw": 185,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "KWINANA",
+    "name": "Kwinana",
+    "network_region": "WEM",
+    "lat": -32.198281,
+    "lon": 115.77559,
+    "start_year": 2011,
+    "capacity_mw": 103.2,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "KWINANA_ESR",
+    "name": "Kwinana Battery",
+    "network_region": "WEM",
+    "lat": -32.19855,
+    "lon": 115.778521,
+    "start_year": 2023,
+    "capacity_mw": 100,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "KWINANA_ESR2",
+    "name": "Kwinana Battery 2",
+    "network_region": "WEM",
+    "lat": -32.202465,
+    "lon": 115.778452,
+    "start_year": 2024,
+    "capacity_mw": 225,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "TIWEST_COG1",
+    "name": "Kwinana Cogen",
+    "network_region": "WEM",
+    "lat": -32.22762,
+    "lon": 115.773435,
+    "start_year": 1998,
+    "capacity_mw": 42.1,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "PERTHENERGY_KWINANA",
+    "name": "Kwinana Swift",
+    "network_region": "WEM",
+    "lat": -32.224368,
+    "lon": 115.778586,
+    "start_year": 2011,
+    "capacity_mw": 116,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "LADBROKE",
+    "name": "Ladbroke Grove",
+    "network_region": "SA1",
+    "lat": -37.456341,
+    "lon": 140.782163,
+    "start_year": 2000,
+    "capacity_mw": 40,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "LBBESS",
+    "name": "Lake Bonney",
+    "network_region": "SA1",
+    "lat": -37.738979,
+    "lon": 140.38681,
+    "start_year": 2019,
+    "capacity_mw": 25,
+    "fueltech": "battery"
+  },
+  {
+    "code": "LKBONNY1",
+    "name": "Lake Bonney",
+    "network_region": "SA1",
+    "lat": -37.769885,
+    "lon": 140.406271,
+    "start_year": 2009,
+    "capacity_mw": 80.5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "LKBONNY_2",
+    "name": "Lake Bonney 2",
+    "network_region": "SA1",
+    "lat": -37.769885,
+    "lon": 140.406271,
+    "start_year": 2007,
+    "capacity_mw": 159,
+    "fueltech": "wind"
+  },
+  {
+    "code": "LKBONNY3",
+    "name": "Lake Bonney 3",
+    "network_region": "SA1",
+    "lat": -37.769885,
+    "lon": 140.406271,
+    "start_year": 2010,
+    "capacity_mw": 39,
+    "fueltech": "wind"
+  },
+  {
+    "code": "LK_ECHO",
+    "name": "Lake Echo",
+    "network_region": "TAS1",
+    "lat": -42.253643,
+    "lon": 146.620627,
+    "start_year": 1955,
+    "capacity_mw": 32.4,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "LANCSF",
+    "name": "Lancaster",
+    "network_region": "VIC1",
+    "lat": -36.290467,
+    "lon": 145.141535,
+    "start_year": 2026,
+    "capacity_mw": 106,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "LVES",
+    "name": "Latrobe Valley",
+    "network_region": "VIC1",
+    "lat": -38.258183,
+    "lon": 146.418614,
+    "start_year": 2025,
+    "capacity_mw": 140,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "LNGS",
+    "name": "Laverton North",
+    "network_region": "VIC1",
+    "lat": -37.841703,
+    "lon": 144.788796,
+    "start_year": 2015,
+    "capacity_mw": 156,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "LEM_WIL",
+    "name": "Lemonthyme / Wilmot",
+    "network_region": "TAS1",
+    "lat": -41.603738,
+    "lon": 146.13894,
+    "start_year": 1968,
+    "capacity_mw": 81.6,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "LDBESS",
+    "name": "Liddell",
+    "network_region": "NSW1",
+    "lat": -32.37564,
+    "lon": 150.978578,
+    "start_year": 2025,
+    "capacity_mw": 755.08,
+    "fueltech": "battery"
+  },
+  {
+    "code": "LILYVASF",
+    "name": "Lilyvale",
+    "network_region": "QLD1",
+    "lat": -23.084225,
+    "lon": 148.425994,
+    "start_year": 2019,
+    "capacity_mw": 118,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "LIMBESS",
+    "name": "Limondale",
+    "network_region": "NSW1",
+    "lat": -34.769354,
+    "lon": 143.559464,
+    "start_year": 2025,
+    "capacity_mw": 141,
+    "fueltech": "battery"
+  },
+  {
+    "code": "LIMOSF1",
+    "name": "Limondale",
+    "network_region": "NSW1",
+    "lat": -34.771747,
+    "lon": 143.500494,
+    "start_year": 2020,
+    "capacity_mw": 275,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "LIMOSF2",
+    "name": "Limondale 2",
+    "network_region": "NSW1",
+    "lat": -34.771747,
+    "lon": 143.500494,
+    "start_year": 2019,
+    "capacity_mw": 38,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "LGAPWF1",
+    "name": "Lincoln Gap",
+    "network_region": "SA1",
+    "lat": -32.564612,
+    "lon": 137.557203,
+    "start_year": 2019,
+    "capacity_mw": 126,
+    "fueltech": "wind"
+  },
+  {
+    "code": "LONGFORD",
+    "name": "Longford",
+    "network_region": "VIC1",
+    "lat": -38.223244,
+    "lon": 147.1631,
+    "start_year": 1968,
+    "capacity_mw": 46.4,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "LRSF",
+    "name": "Longreach",
+    "network_region": "QLD1",
+    "lat": -23.446178,
+    "lon": 144.35918,
+    "start_year": 2018,
+    "capacity_mw": 17,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "LONSDALE",
+    "name": "Lonsdale",
+    "network_region": "SA1",
+    "lat": -35.109703,
+    "lon": 138.490992,
+    "start_year": 2001,
+    "capacity_mw": 20,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "LOYYANGA",
+    "name": "Loy Yang A",
+    "network_region": "VIC1",
+    "lat": -38.253534,
+    "lon": 146.574459,
+    "start_year": 1983,
+    "capacity_mw": 560,
+    "fueltech": "coal_brown"
+  },
+  {
+    "code": "LOYYB",
+    "name": "Loy Yang B",
+    "network_region": "VIC1",
+    "lat": -38.256446,
+    "lon": 146.584982,
+    "start_year": 1992,
+    "capacity_mw": 500,
+    "fueltech": "coal_brown"
+  },
+  {
+    "code": "LUCASHGT",
+    "name": "Lucas Heights",
+    "network_region": "NSW1",
+    "lat": -34.04829,
+    "lon": 150.973916,
+    "start_year": 1998,
+    "capacity_mw": 12.65,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "LUCAS2S2",
+    "name": "Lucas Heights 2",
+    "network_region": "NSW1",
+    "lat": -34.044088,
+    "lon": 150.972475,
+    "start_year": 1994,
+    "capacity_mw": 4.6,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "MACARTH",
+    "name": "Macarthur",
+    "network_region": "VIC1",
+    "lat": -38.036376,
+    "lon": 142.181753,
+    "start_year": 2012,
+    "capacity_mw": 420,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MCINTYR",
+    "name": "MacIntyre",
+    "network_region": "QLD1",
+    "lat": -28.350769,
+    "lon": 151.635944,
+    "start_year": 2024,
+    "capacity_mw": 923,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MACKNTSH",
+    "name": "Mackintosh",
+    "network_region": "TAS1",
+    "lat": -41.69974,
+    "lon": 145.646154,
+    "start_year": 1981,
+    "capacity_mw": 79.9,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "MANSLR",
+    "name": "Manildra",
+    "network_region": "NSW1",
+    "lat": -33.172681,
+    "lon": 148.718175,
+    "start_year": 2018,
+    "capacity_mw": 50,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BRIDGETOWN_BIOMASS_PLANT",
+    "name": "Manjimup",
+    "network_region": "WEM",
+    "lat": -34.333151,
+    "lon": 116.108521,
+    "start_year": 2018,
+    "capacity_mw": 40,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "MANNUMB",
+    "name": "Mannum",
+    "network_region": "SA1",
+    "lat": -34.917537,
+    "lon": 139.262695,
+    "start_year": 2025,
+    "capacity_mw": 131.7,
+    "fueltech": "battery"
+  },
+  {
+    "code": "MANNSF",
+    "name": "Mannum 2",
+    "network_region": "SA1",
+    "lat": -34.914923,
+    "lon": 139.269268,
+    "start_year": 2024,
+    "capacity_mw": 37,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MAPS2",
+    "name": "Mannum Pumping Station",
+    "network_region": "SA1",
+    "lat": -34.854044,
+    "lon": 139.189749,
+    "start_year": 2021,
+    "capacity_mw": 16.5,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MAROOWF1",
+    "name": "Maroona",
+    "network_region": "VIC1",
+    "lat": -37.41875,
+    "lon": 142.82434,
+    "start_year": 2017,
+    "capacity_mw": 6.8,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MARYRSF",
+    "name": "Maryrorough",
+    "network_region": "QLD1",
+    "lat": -27.708611,
+    "lon": 151.546202,
+    "start_year": 2020,
+    "capacity_mw": 33,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MEADOWBK",
+    "name": "Meadowbank",
+    "network_region": "TAS1",
+    "lat": -42.611178,
+    "lon": 146.845687,
+    "start_year": 1966,
+    "capacity_mw": 40,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "MREH",
+    "name": "Melbourne A1",
+    "network_region": "VIC1",
+    "lat": -37.669178,
+    "lon": 144.733221,
+    "start_year": 2025,
+    "capacity_mw": 215.8,
+    "fueltech": "battery"
+  },
+  {
+    "code": "MREHA2",
+    "name": "Melbourne A2",
+    "network_region": "VIC1",
+    "lat": -37.669178,
+    "lon": 144.733221,
+    "start_year": 2025,
+    "capacity_mw": 215.8,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "MREHA3",
+    "name": "Melbourne A3",
+    "network_region": "VIC1",
+    "lat": -37.669178,
+    "lon": 144.733221,
+    "start_year": 2025,
+    "capacity_mw": 215.4,
+    "fueltech": "battery"
+  },
+  {
+    "code": "MERREDIN_ESR1",
+    "name": "Merredin",
+    "network_region": "WEM",
+    "lat": -31.539455,
+    "lon": 118.227167,
+    "start_year": 2026,
+    "capacity_mw": 100,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "MERSOLAR",
+    "name": "Merredin",
+    "network_region": "WEM",
+    "lat": -31.539824,
+    "lon": 118.238339,
+    "start_year": 2020,
+    "capacity_mw": 132,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "NAMKKN_MERR",
+    "name": "Merredin",
+    "network_region": "WEM",
+    "lat": -31.542681,
+    "lon": 118.22701,
+    "start_year": 2012,
+    "capacity_mw": 92.6,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "AMBRISOLAR",
+    "name": "Metro",
+    "network_region": "WEM",
+    "lat": -32.1224,
+    "lon": 115.84775,
+    "start_year": 2018,
+    "capacity_mw": 0.96,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "METZSF",
+    "name": "Metz N",
+    "network_region": "NSW1",
+    "lat": -30.515484,
+    "lon": 151.859815,
+    "start_year": 2022,
+    "capacity_mw": 135,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MIDDLSF1",
+    "name": "Middlemount",
+    "network_region": "QLD1",
+    "lat": -22.823243,
+    "lon": 148.718008,
+    "start_year": 2020,
+    "capacity_mw": 30,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MIDLDPS",
+    "name": "Midlands",
+    "network_region": "TAS1",
+    "lat": -42.085747,
+    "lon": 147.274558,
+    "start_year": 2014,
+    "capacity_mw": 6.08,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "MILLMERN",
+    "name": "Millmerran",
+    "network_region": "QLD1",
+    "lat": -27.961319,
+    "lon": 151.277699,
+    "start_year": 2001,
+    "capacity_mw": 426,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "MINTARO",
+    "name": "Mintaro",
+    "network_region": "SA1",
+    "lat": -33.903056,
+    "lon": 138.738162,
+    "start_year": 1989,
+    "capacity_mw": 90,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "MOKOSF",
+    "name": "Mokoan",
+    "network_region": "VIC1",
+    "lat": -36.489246,
+    "lon": 146.128325,
+    "start_year": 2025,
+    "capacity_mw": 58,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MOLNGSF1",
+    "name": "Molong",
+    "network_region": "NSW1",
+    "lat": -33.08981,
+    "lon": 148.912255,
+    "start_year": 2020,
+    "capacity_mw": 36,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MOORAWF1",
+    "name": "Moorabool",
+    "network_region": "VIC1",
+    "lat": -37.698975,
+    "lon": 144.173829,
+    "start_year": 2020,
+    "capacity_mw": 312,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MORANBAH",
+    "name": "Moranbah",
+    "network_region": "QLD1",
+    "lat": -21.962469,
+    "lon": 148.006004,
+    "start_year": 2003,
+    "capacity_mw": 12.56,
+    "fueltech": "gas_recip"
+  },
+  {
+    "code": "MBAHNTH",
+    "name": "Moranbah North",
+    "network_region": "QLD1",
+    "lat": -21.978481,
+    "lon": 148.004809,
+    "start_year": 2007,
+    "capacity_mw": 63.42,
+    "fueltech": "gas_wcmg"
+  },
+  {
+    "code": "MOREESF",
+    "name": "Moree",
+    "network_region": "NSW1",
+    "lat": -29.569066,
+    "lon": 149.866721,
+    "start_year": 2016,
+    "capacity_mw": 57,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MWPS",
+    "name": "Morganwhyalla Pipeline",
+    "network_region": "SA1",
+    "lat": -33.973387,
+    "lon": 139.191879,
+    "start_year": 2020,
+    "capacity_mw": 7,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MRNBESS",
+    "name": "Mornington",
+    "network_region": "VIC1",
+    "lat": -38.269239,
+    "lon": 145.204811,
+    "start_year": 2026,
+    "capacity_mw": 336,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "MLB",
+    "name": "Mortlake",
+    "network_region": "VIC1",
+    "lat": -38.06698,
+    "lon": 142.669466,
+    "start_year": 2026,
+    "capacity_mw": 440,
+    "fueltech": "battery"
+  },
+  {
+    "code": "MORTLK",
+    "name": "Mortlake",
+    "network_region": "VIC1",
+    "lat": -38.063237,
+    "lon": 142.668677,
+    "start_year": 2011,
+    "capacity_mw": 283,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "MRTLSWF",
+    "name": "Mortlake South",
+    "network_region": "VIC1",
+    "lat": -38.146832,
+    "lon": 142.853134,
+    "start_year": 2022,
+    "capacity_mw": 157.5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MLWF",
+    "name": "Mortons Lane",
+    "network_region": "VIC1",
+    "lat": -37.839273,
+    "lon": 142.464343,
+    "start_year": 2012,
+    "capacity_mw": 19.5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "SKYFRM_MTBARKER",
+    "name": "Mount Barker",
+    "network_region": "WEM",
+    "lat": -34.597501,
+    "lon": 117.64351,
+    "start_year": 2011,
+    "capacity_mw": 2.43,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MOUSF",
+    "name": "Moura",
+    "network_region": "QLD1",
+    "lat": -24.515007,
+    "lon": 150.087256,
+    "start_year": 2022,
+    "capacity_mw": 99,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MEWF",
+    "name": "Mt Emerald",
+    "network_region": "QLD1",
+    "lat": -17.170847,
+    "lon": 145.38046,
+    "start_year": 2018,
+    "capacity_mw": 180,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MTGELWF",
+    "name": "Mt Gellibrand",
+    "network_region": "VIC1",
+    "lat": -38.258519,
+    "lon": 143.802037,
+    "start_year": 2018,
+    "capacity_mw": 138,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MTMERCER",
+    "name": "Mt Mercer",
+    "network_region": "VIC1",
+    "lat": -37.831791,
+    "lon": 143.888681,
+    "start_year": 2013,
+    "capacity_mw": 131.2,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MTMILLAR",
+    "name": "Mt Millar",
+    "network_region": "SA1",
+    "lat": -33.62534,
+    "lon": 136.703771,
+    "start_year": 2006,
+    "capacity_mw": 70,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MP",
+    "name": "Mt Piper",
+    "network_region": "NSW1",
+    "lat": -33.358121,
+    "lon": 150.032642,
+    "start_year": 1991,
+    "capacity_mw": 700,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "MSTUART",
+    "name": "Mt Stuart",
+    "network_region": "QLD1",
+    "lat": -19.337807,
+    "lon": 146.850916,
+    "start_year": 1998,
+    "capacity_mw": 144,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "MLSP",
+    "name": "Mugga Lane",
+    "network_region": "NSW1",
+    "lat": -35.399485,
+    "lon": 149.1454,
+    "start_year": 2016,
+    "capacity_mw": 12,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MUJA",
+    "name": "Muja CD",
+    "network_region": "WEM",
+    "lat": -33.450246,
+    "lon": 116.30482,
+    "start_year": 1983,
+    "capacity_mw": 212.6,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "MULWASF",
+    "name": "Mulwala",
+    "network_region": "NSW1",
+    "lat": -35.958258,
+    "lon": 146.007893,
+    "start_year": 2026,
+    "capacity_mw": 31,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MWF_MUMBIDA",
+    "name": "Mumbida",
+    "network_region": "WEM",
+    "lat": -28.98915,
+    "lon": 114.958725,
+    "start_year": 2012,
+    "capacity_mw": 55,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MUNGARRA",
+    "name": "Mungarra",
+    "network_region": "WEM",
+    "lat": -28.889524,
+    "lon": 115.117946,
+    "start_year": 1989,
+    "capacity_mw": 39.5,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "MUCRKSF",
+    "name": "Munna Creek",
+    "network_region": "QLD1",
+    "lat": -25.875326,
+    "lon": 152.435409,
+    "start_year": 2025,
+    "capacity_mw": 154,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MUWAWF",
+    "name": "Murra Warra",
+    "network_region": "VIC1",
+    "lat": -36.434062,
+    "lon": 142.307969,
+    "start_year": 2019,
+    "capacity_mw": 231.8,
+    "fueltech": "wind"
+  },
+  {
+    "code": "MURRAY",
+    "name": "Murray",
+    "network_region": "VIC1",
+    "lat": -36.24683,
+    "lon": 148.1902,
+    "start_year": 1966,
+    "capacity_mw": 1500,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "MBPS2",
+    "name": "Murray Bridge-Onkaparinga",
+    "network_region": "SA1",
+    "lat": -35.096848,
+    "lon": 139.209527,
+    "start_year": 2022,
+    "capacity_mw": 13.75,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "MUSSELRO",
+    "name": "Musselroe",
+    "network_region": "TAS1",
+    "lat": -40.780012,
+    "lon": 148.010283,
+    "start_year": 2013,
+    "capacity_mw": 168,
+    "fueltech": "wind"
+  },
+  {
+    "code": "NASF",
+    "name": "Narromine",
+    "network_region": "NSW1",
+    "lat": -32.220895,
+    "lon": 148.255308,
+    "start_year": 2016,
+    "capacity_mw": 10,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "NEWGEN_NEERABUP",
+    "name": "Neerabup",
+    "network_region": "WEM",
+    "lat": -31.671138,
+    "lon": 115.802397,
+    "start_year": 2009,
+    "capacity_mw": 342,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "NEVERSF",
+    "name": "Nevertire",
+    "network_region": "NSW1",
+    "lat": -31.822603,
+    "lon": 147.703086,
+    "start_year": 2019,
+    "capacity_mw": 132,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "NEWENSF",
+    "name": "New England",
+    "network_region": "NSW1",
+    "lat": -30.613863,
+    "lon": 151.604209,
+    "start_year": 2022,
+    "capacity_mw": 235,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "NESBESS1",
+    "name": "New England 1",
+    "network_region": "NSW1",
+    "lat": -30.626481,
+    "lon": 151.616,
+    "start_year": 2026,
+    "capacity_mw": 126,
+    "fueltech": "battery"
+  },
+  {
+    "code": "NESBESS2",
+    "name": "New England 2",
+    "network_region": "NSW1",
+    "lat": -30.626481,
+    "lon": 151.616,
+    "start_year": 2026,
+    "capacity_mw": 126,
+    "fueltech": "battery"
+  },
+  {
+    "code": "NEWGEN_KWINANA",
+    "name": "Newgen Kwinana",
+    "network_region": "WEM",
+    "lat": -32.202009,
+    "lon": 115.773434,
+    "start_year": 2008,
+    "capacity_mw": 327.8,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "NEWPORT",
+    "name": "Newport",
+    "network_region": "VIC1",
+    "lat": -37.841423,
+    "lon": 144.894923,
+    "start_year": 1980,
+    "capacity_mw": 500,
+    "fueltech": "gas_steam"
+  },
+  {
+    "code": "NBHWF",
+    "name": "North Brown Hill",
+    "network_region": "SA1",
+    "lat": -33.291159,
+    "lon": 138.715508,
+    "start_year": 2010,
+    "capacity_mw": 132.3,
+    "fueltech": "wind"
+  },
+  {
+    "code": "NORTHAM_SF",
+    "name": "Northam",
+    "network_region": "WEM",
+    "lat": -31.65161,
+    "lon": 116.711541,
+    "start_year": 2018,
+    "capacity_mw": 10,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "TESLA_NORTHAM",
+    "name": "Northam",
+    "network_region": "WEM",
+    "lat": -31.642906,
+    "lon": 116.847503,
+    "start_year": 2011,
+    "capacity_mw": 10,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "NUMURKSF",
+    "name": "Numurkah",
+    "network_region": "VIC1",
+    "lat": -36.161038,
+    "lon": 145.476491,
+    "start_year": 2019,
+    "capacity_mw": 112,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "NYNGAN",
+    "name": "Nyngan",
+    "network_region": "NSW1",
+    "lat": -31.555475,
+    "lon": 147.08622,
+    "start_year": 2015,
+    "capacity_mw": 102.14,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "OAKEY",
+    "name": "Oakey",
+    "network_region": "QLD1",
+    "lat": -27.418268,
+    "lon": 151.680205,
+    "start_year": 1999,
+    "capacity_mw": 141,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "OAKEY2SF",
+    "name": "Oakey 2",
+    "network_region": "QLD1",
+    "lat": -27.410516,
+    "lon": 151.652849,
+    "start_year": 2019,
+    "capacity_mw": 65,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "OAKEY1SF",
+    "name": "Oakey Solar Farm",
+    "network_region": "QLD1",
+    "lat": -27.410516,
+    "lon": 151.652849,
+    "start_year": 2019,
+    "capacity_mw": 30,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "OAKLAND",
+    "name": "Oaklands Hill",
+    "network_region": "VIC1",
+    "lat": -37.681514,
+    "lon": 142.552322,
+    "start_year": 2011,
+    "capacity_mw": 67,
+    "fueltech": "wind"
+  },
+  {
+    "code": "OCPS",
+    "name": "Oaky Creek",
+    "network_region": "QLD1",
+    "lat": -23.048717,
+    "lon": 148.484462,
+    "start_year": 2006,
+    "capacity_mw": 20,
+    "fueltech": "gas_recip"
+  },
+  {
+    "code": "OAKY2",
+    "name": "Oaky Creek 2",
+    "network_region": "QLD1",
+    "lat": -23.048717,
+    "lon": 148.484462,
+    "start_year": 2016,
+    "capacity_mw": 15,
+    "fueltech": "gas_wcmg"
+  },
+  {
+    "code": "ORABESS",
+    "name": "Orana",
+    "network_region": "NSW1",
+    "lat": -32.530421,
+    "lon": 148.962923,
+    "start_year": 2026,
+    "capacity_mw": 439,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "OSBORNE",
+    "name": "Osborne",
+    "network_region": "SA1",
+    "lat": -34.797702,
+    "lon": 138.50779,
+    "start_year": 2000,
+    "capacity_mw": 180,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "PALOONA",
+    "name": "Paloona",
+    "network_region": "TAS1",
+    "lat": -41.282674,
+    "lon": 146.249036,
+    "start_year": 1971,
+    "capacity_mw": 28,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "PSF",
+    "name": "Parkes",
+    "network_region": "NSW1",
+    "lat": -33.117567,
+    "lon": 148.078825,
+    "start_year": 2018,
+    "capacity_mw": 55,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "PRK_AG",
+    "name": "Parkeston",
+    "network_region": "WEM",
+    "lat": -30.737642,
+    "lon": 121.50639,
+    "start_year": 1995,
+    "capacity_mw": 110,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "NPPPPS",
+    "name": "Pelican Point",
+    "network_region": "SA1",
+    "lat": -34.765325,
+    "lon": 138.505402,
+    "start_year": 2000,
+    "capacity_mw": 478,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "PIBESS",
+    "name": "Phillip Island",
+    "network_region": "VIC1",
+    "lat": -38.484903,
+    "lon": 145.238216,
+    "start_year": 2023,
+    "capacity_mw": 7,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "PHOENIX_KWINANA_WTE",
+    "name": "Phoenix",
+    "network_region": "WEM",
+    "lat": -32.202137,
+    "lon": 115.77391,
+    "start_year": 2025,
+    "capacity_mw": 38,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "TESLA_PICTON",
+    "name": "Picton",
+    "network_region": "WEM",
+    "lat": -33.356646,
+    "lon": 115.72098,
+    "start_year": 2010,
+    "capacity_mw": 10,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "PINDARI",
+    "name": "Pindari",
+    "network_region": "NSW1",
+    "lat": -29.388034,
+    "lon": 151.244774,
+    "start_year": 2002,
+    "capacity_mw": 6.7,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "PINJAR",
+    "name": "Pinjar",
+    "network_region": "WEM",
+    "lat": -31.557738,
+    "lon": 115.820469,
+    "start_year": 1988,
+    "capacity_mw": 130,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "ALINTA_PNJ",
+    "name": "Pinjarra",
+    "network_region": "WEM",
+    "lat": -32.647459,
+    "lon": 115.946592,
+    "start_year": 2005,
+    "capacity_mw": 143,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "PIONEER",
+    "name": "Pioneer Sugar Mill",
+    "network_region": "QLD1",
+    "lat": -19.557546,
+    "lon": 147.330825,
+    "start_year": 2009,
+    "capacity_mw": 67.78,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "PTINA",
+    "name": "Poatina",
+    "network_region": "TAS1",
+    "lat": -41.811531,
+    "lon": 146.919117,
+    "start_year": 1965,
+    "capacity_mw": 200,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "PAREPW",
+    "name": "Port Augusta Energy Park",
+    "network_region": "SA1",
+    "lat": -32.597785,
+    "lon": 137.895914,
+    "start_year": 2022,
+    "capacity_mw": 210,
+    "fueltech": "wind"
+  },
+  {
+    "code": "PORTLCN",
+    "name": "Port Lincoln",
+    "network_region": "SA1",
+    "lat": -34.700389,
+    "lon": 135.804384,
+    "start_year": 2000,
+    "capacity_mw": 50,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "STANVAC",
+    "name": "Port Stanvac",
+    "network_region": "SA1",
+    "lat": -35.110332,
+    "lon": 138.49135,
+    "start_year": 2016,
+    "capacity_mw": 57.6,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "PORTWF",
+    "name": "Portland",
+    "network_region": "VIC1",
+    "lat": -38.372199,
+    "lon": 141.37945,
+    "start_year": 2009,
+    "capacity_mw": 148,
+    "fueltech": "wind"
+  },
+  {
+    "code": "QUARANTN",
+    "name": "Quarantine",
+    "network_region": "SA1",
+    "lat": -34.779339,
+    "lon": 138.522883,
+    "start_year": 2001,
+    "capacity_mw": 128,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "QBYNB",
+    "name": "Queanbeyan",
+    "network_region": "NSW1",
+    "lat": -35.338148,
+    "lon": 149.215613,
+    "start_year": 2022,
+    "capacity_mw": 10,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "QP",
+    "name": "Quorn Park",
+    "network_region": "NSW1",
+    "lat": -33.079517,
+    "lon": 148.089521,
+    "start_year": 2026,
+    "capacity_mw": 96,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "RACOMIL",
+    "name": "Racecourse Mill",
+    "network_region": "QLD1",
+    "lat": -21.144611,
+    "lon": 149.15868,
+    "start_year": 2013,
+    "capacity_mw": 48.5,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "RANGEB",
+    "name": "Rangebank",
+    "network_region": "VIC1",
+    "lat": -38.085056,
+    "lon": 145.259936,
+    "start_year": 2024,
+    "capacity_mw": 260.8,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "RED_HILL",
+    "name": "Red Hill",
+    "network_region": "WEM",
+    "lat": -31.830628,
+    "lon": 116.100888,
+    "start_year": 1992,
+    "capacity_mw": 3.64,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "REECE",
+    "name": "Reece",
+    "network_region": "TAS1",
+    "lat": -41.723739,
+    "lon": 145.136012,
+    "start_year": 1985,
+    "capacity_mw": 115.6,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "REPULSE",
+    "name": "Repulse",
+    "network_region": "TAS1",
+    "lat": -42.507691,
+    "lon": 146.647,
+    "start_year": 1967,
+    "capacity_mw": 28,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "BIOGAS01",
+    "name": "Richgro",
+    "network_region": "WEM",
+    "lat": -32.103786,
+    "lon": 115.895771,
+    "start_year": 2015,
+    "capacity_mw": 2,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "RESS",
+    "name": "Riverina 1",
+    "network_region": "NSW1",
+    "lat": -34.646349,
+    "lon": 146.035015,
+    "start_year": 2023,
+    "capacity_mw": 80,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "RIVNB",
+    "name": "Riverina 2",
+    "network_region": "NSW1",
+    "lat": -34.646349,
+    "lon": 146.035015,
+    "start_year": 2023,
+    "capacity_mw": 65,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "ROCKINGHAM",
+    "name": "Rockingham",
+    "network_region": "WEM",
+    "lat": -32.224335,
+    "lon": 115.778298,
+    "start_year": 2002,
+    "capacity_mw": 4.2,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "RPCG",
+    "name": "Rocky Point Cogen",
+    "network_region": "QLD1",
+    "lat": -27.733342,
+    "lon": 153.327699,
+    "start_year": 2002,
+    "capacity_mw": 30,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "ROMA",
+    "name": "Roma",
+    "network_region": "QLD1",
+    "lat": -26.577126,
+    "lon": 148.84009,
+    "start_year": 1999,
+    "capacity_mw": 40,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "RRSF",
+    "name": "Ross River",
+    "network_region": "QLD1",
+    "lat": -19.42622,
+    "lon": 146.715299,
+    "start_year": 2018,
+    "capacity_mw": 128,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "ROWALLAN",
+    "name": "Rowallan",
+    "network_region": "TAS1",
+    "lat": -41.729547,
+    "lon": 146.217649,
+    "start_year": 1967,
+    "capacity_mw": 10.5,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "ROYALLA",
+    "name": "Royalla",
+    "network_region": "NSW1",
+    "lat": -35.489826,
+    "lon": 149.142704,
+    "start_year": 2014,
+    "capacity_mw": 20,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "RUBICON",
+    "name": "Rubicon",
+    "network_region": "VIC1",
+    "lat": -37.327154,
+    "lon": 145.860547,
+    "start_year": 1921,
+    "capacity_mw": 13,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "RUGBYR",
+    "name": "Rugby Run",
+    "network_region": "QLD1",
+    "lat": -22.142401,
+    "lon": 147.928736,
+    "start_year": 2019,
+    "capacity_mw": 83,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "RYANCWF",
+    "name": "Ryan Corner",
+    "network_region": "VIC1",
+    "lat": -38.271156,
+    "lon": 142.14003,
+    "start_year": 2024,
+    "capacity_mw": 218.4,
+    "fueltech": "wind"
+  },
+  {
+    "code": "RYEPARK",
+    "name": "Rye Park",
+    "network_region": "NSW1",
+    "lat": -34.550899,
+    "lon": 148.95544,
+    "start_year": 2023,
+    "capacity_mw": 396,
+    "fueltech": "wind"
+  },
+  {
+    "code": "SALTCRK",
+    "name": "Salt Creek",
+    "network_region": "VIC1",
+    "lat": -37.930719,
+    "lon": 142.773524,
+    "start_year": 2018,
+    "capacity_mw": 54,
+    "fueltech": "wind"
+  },
+  {
+    "code": "SAPHWF1",
+    "name": "Sapphire",
+    "network_region": "NSW1",
+    "lat": -29.699609,
+    "lon": 151.412417,
+    "start_year": 2018,
+    "capacity_mw": 270,
+    "fueltech": "wind"
+  },
+  {
+    "code": "SEBSF",
+    "name": "Sebastopol",
+    "network_region": "NSW1",
+    "lat": -34.609386,
+    "lon": 147.557888,
+    "start_year": 2021,
+    "capacity_mw": 110,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "SHEP1",
+    "name": "Shepparton",
+    "network_region": "VIC1",
+    "lat": -36.322223,
+    "lon": 145.379291,
+    "start_year": 2008,
+    "capacity_mw": 1.1,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "SHOALHAV",
+    "name": "Shoalhaven",
+    "network_region": "NSW1",
+    "lat": -34.723141,
+    "lon": 150.479632,
+    "start_year": 1976,
+    "capacity_mw": 240,
+    "fueltech": "pumps"
+  },
+  {
+    "code": "SHOAL",
+    "name": "Shoalhaven Starches",
+    "network_region": "NSW1",
+    "lat": -34.8547,
+    "lon": 150.6138,
+    "start_year": 2023,
+    "capacity_mw": 54,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "STWF",
+    "name": "Silverton",
+    "network_region": "NSW1",
+    "lat": -31.86095,
+    "lon": 141.296349,
+    "start_year": 2018,
+    "capacity_mw": 198.94,
+    "fueltech": "wind"
+  },
+  {
+    "code": "SITHE",
+    "name": "Smithfield",
+    "network_region": "NSW1",
+    "lat": -33.849945,
+    "lon": 150.94941,
+    "start_year": 1997,
+    "capacity_mw": 125,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "SMTHBES1",
+    "name": "Smithfield",
+    "network_region": "NSW1",
+    "lat": -33.849972,
+    "lon": 150.947448,
+    "start_year": 2025,
+    "capacity_mw": 69.4,
+    "fueltech": "battery"
+  },
+  {
+    "code": "SNAPPER",
+    "name": "Snapper Point",
+    "network_region": "SA1",
+    "lat": -34.764433,
+    "lon": 138.508149,
+    "start_year": 2022,
+    "capacity_mw": 154,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "SNOWTOWN",
+    "name": "Snowtown",
+    "network_region": "SA1",
+    "lat": -33.728666,
+    "lon": 138.148351,
+    "start_year": 2008,
+    "capacity_mw": 99,
+    "fueltech": "wind"
+  },
+  {
+    "code": "SNOWNTH",
+    "name": "Snowtown North",
+    "network_region": "SA1",
+    "lat": -33.728666,
+    "lon": 138.148351,
+    "start_year": 2014,
+    "capacity_mw": 144,
+    "fueltech": "wind"
+  },
+  {
+    "code": "SNOWSTH",
+    "name": "Snowtown South",
+    "network_region": "SA1",
+    "lat": -33.862624,
+    "lon": 138.130367,
+    "start_year": 2012,
+    "capacity_mw": 126,
+    "fueltech": "wind"
+  },
+  {
+    "code": "SNUG",
+    "name": "Snuggery",
+    "network_region": "SA1",
+    "lat": -37.664996,
+    "lon": 140.414686,
+    "start_year": 1977,
+    "capacity_mw": 63,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "AGLSOM",
+    "name": "Somerton",
+    "network_region": "VIC1",
+    "lat": -37.631692,
+    "lon": 144.952802,
+    "start_year": 2002,
+    "capacity_mw": 170,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "SOUTH_CARDUP",
+    "name": "South Cardup",
+    "network_region": "WEM",
+    "lat": -32.26642,
+    "lon": 116.019263,
+    "start_year": 2004,
+    "capacity_mw": 4.16,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "SKSF",
+    "name": "South Keswick",
+    "network_region": "NSW1",
+    "lat": -32.272801,
+    "lon": 148.659285,
+    "start_year": 2018,
+    "capacity_mw": 15,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "STABESS",
+    "name": "Stanwell",
+    "network_region": "QLD1",
+    "lat": -23.513568,
+    "lon": 150.31811,
+    "start_year": 2026,
+    "capacity_mw": 317,
+    "fueltech": "battery"
+  },
+  {
+    "code": "STANWELL",
+    "name": "Stanwell",
+    "network_region": "QLD1",
+    "lat": -23.507452,
+    "lon": 150.313355,
+    "start_year": 1992,
+    "capacity_mw": 365,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "STAPYLTON",
+    "name": "Stapylton",
+    "network_region": "QLD1",
+    "lat": -27.736111,
+    "lon": 153.245931,
+    "start_year": 2001,
+    "capacity_mw": 3,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "STARFHILL",
+    "name": "Starfish Hill",
+    "network_region": "SA1",
+    "lat": -35.567844,
+    "lon": 138.139148,
+    "start_year": 2003,
+    "capacity_mw": 34.5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "STOCKYD",
+    "name": "Stockyard Hill",
+    "network_region": "VIC1",
+    "lat": -37.552275,
+    "lon": 143.340126,
+    "start_year": 2021,
+    "capacity_mw": 531,
+    "fueltech": "wind"
+  },
+  {
+    "code": "STUBSF",
+    "name": "Stubbo",
+    "network_region": "NSW1",
+    "lat": -32.248099,
+    "lon": 149.580548,
+    "start_year": 2024,
+    "capacity_mw": 255,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "SMFBESS1",
+    "name": "Summerfield 1",
+    "network_region": "SA1",
+    "lat": -34.9538,
+    "lon": 139.21502,
+    "start_year": 2026,
+    "capacity_mw": 153.65,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "SMFBESS2",
+    "name": "Summerfield 2",
+    "network_region": "SA1",
+    "lat": -34.958457,
+    "lon": 139.2099,
+    "start_year": 2026,
+    "capacity_mw": 153.65,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "SMCSF",
+    "name": "Sun Metals",
+    "network_region": "QLD1",
+    "lat": -19.332335,
+    "lon": 146.875929,
+    "start_year": 2018,
+    "capacity_mw": 143,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "SUNRSF1",
+    "name": "Sunraysia",
+    "network_region": "NSW1",
+    "lat": -34.804891,
+    "lon": 143.491185,
+    "start_year": 2020,
+    "capacity_mw": 228,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "VALDORA",
+    "name": "Sunshine Coast",
+    "network_region": "QLD1",
+    "lat": -26.560094,
+    "lon": 153.02574,
+    "start_year": 2017,
+    "capacity_mw": 15,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "SUNTPSF",
+    "name": "Suntop",
+    "network_region": "NSW1",
+    "lat": -32.583514,
+    "lon": 148.826931,
+    "start_year": 2021,
+    "capacity_mw": 175,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "SNB1",
+    "name": "Supernode",
+    "network_region": "QLD1",
+    "lat": -27.318111,
+    "lon": 152.969309,
+    "start_year": 2025,
+    "capacity_mw": 337.4,
+    "fueltech": "battery"
+  },
+  {
+    "code": "SNB02",
+    "name": "Supernode 2",
+    "network_region": "QLD1",
+    "lat": -27.318697,
+    "lon": 152.968579,
+    "start_year": 2026,
+    "capacity_mw": 337.4,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "SRSF",
+    "name": "Susan River",
+    "network_region": "QLD1",
+    "lat": -25.419331,
+    "lon": 152.741687,
+    "start_year": 2018,
+    "capacity_mw": 85,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "SWANBBF",
+    "name": "Swanbank",
+    "network_region": "QLD1",
+    "lat": -27.65619,
+    "lon": 152.817139,
+    "start_year": 2025,
+    "capacity_mw": 331.2,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "SWAN_E",
+    "name": "Swanbank E",
+    "network_region": "QLD1",
+    "lat": -27.655138,
+    "lon": 152.817933,
+    "start_year": 2002,
+    "capacity_mw": 385,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "TABMILL2",
+    "name": "Tableland Mill",
+    "network_region": "QLD1",
+    "lat": -17.119813,
+    "lon": 145.34513,
+    "start_year": 2017,
+    "capacity_mw": 24,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "TAHMOOR",
+    "name": "Tahmoor",
+    "network_region": "NSW1",
+    "lat": -34.249117,
+    "lon": 150.577718,
+    "start_year": 1999,
+    "capacity_mw": 7.04,
+    "fueltech": "gas_wcmg"
+  },
+  {
+    "code": "TBSF",
+    "name": "Tailem Bend",
+    "network_region": "SA1",
+    "lat": -35.271346,
+    "lon": 139.488379,
+    "start_year": 2019,
+    "capacity_mw": 108,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "TB2SF",
+    "name": "Tailem Bend 2",
+    "network_region": "SA1",
+    "lat": -35.271346,
+    "lon": 139.488379,
+    "start_year": 2023,
+    "capacity_mw": 105,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "TALLAWAR",
+    "name": "Tallawarra",
+    "network_region": "NSW1",
+    "lat": -34.522808,
+    "lon": 150.807237,
+    "start_year": 2008,
+    "capacity_mw": 440,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "TALWB",
+    "name": "Tallawarra B",
+    "network_region": "NSW1",
+    "lat": -34.522808,
+    "lon": 150.807237,
+    "start_year": 2024,
+    "capacity_mw": 320,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "TAMALA_PARK",
+    "name": "Tamala Park",
+    "network_region": "WEM",
+    "lat": -31.706198,
+    "lon": 115.725734,
+    "start_year": 2003,
+    "capacity_mw": 6,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "TVCCPS",
+    "name": "Tamar Valley",
+    "network_region": "TAS1",
+    "lat": -41.140348,
+    "lon": 146.904872,
+    "start_year": 2009,
+    "capacity_mw": 208.6,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "TARALGA",
+    "name": "Taralga",
+    "network_region": "NSW1",
+    "lat": -34.431428,
+    "lon": 149.865258,
+    "start_year": 2014,
+    "capacity_mw": 106.8,
+    "fueltech": "wind"
+  },
+  {
+    "code": "TARBESS",
+    "name": "Tarong",
+    "network_region": "QLD1",
+    "lat": -26.780561,
+    "lon": 151.910086,
+    "start_year": 2025,
+    "capacity_mw": 393,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "TARONG",
+    "name": "Tarong",
+    "network_region": "QLD1",
+    "lat": -26.784086,
+    "lon": 151.914537,
+    "start_year": 1984,
+    "capacity_mw": 350,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "TARONGN",
+    "name": "Tarong North",
+    "network_region": "QLD1",
+    "lat": -26.774391,
+    "lon": 151.914007,
+    "start_year": 2002,
+    "capacity_mw": 443,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "TARRALEA",
+    "name": "Tarraleah",
+    "network_region": "TAS1",
+    "lat": -42.301224,
+    "lon": 146.457294,
+    "start_year": 1938,
+    "capacity_mw": 90,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "TATIARA",
+    "name": "Tataria",
+    "network_region": "SA1",
+    "lat": -36.326977,
+    "lon": 140.737035,
+    "start_year": 2010,
+    "capacity_mw": 0.5,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "TATURA",
+    "name": "Tatura",
+    "network_region": "VIC1",
+    "lat": -36.47915,
+    "lon": 145.235037,
+    "start_year": 2006,
+    "capacity_mw": 1.1,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "TEMPB",
+    "name": "Templers",
+    "network_region": "SA1",
+    "lat": -34.461503,
+    "lon": 138.772925,
+    "start_year": 2025,
+    "capacity_mw": 138,
+    "fueltech": "battery"
+  },
+  {
+    "code": "TRGBESS",
+    "name": "Terang",
+    "network_region": "VIC1",
+    "lat": -38.231839,
+    "lon": 142.933262,
+    "start_year": 2026,
+    "capacity_mw": 100,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "BLUFF",
+    "name": "The Bluff",
+    "network_region": "SA1",
+    "lat": -33.384301,
+    "lon": 138.794904,
+    "start_year": 2011,
+    "capacity_mw": 52.5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "THEDROP",
+    "name": "The Drop",
+    "network_region": "NSW1",
+    "lat": -36.009382,
+    "lon": 145.99946,
+    "start_year": 2001,
+    "capacity_mw": 2.5,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "TIMWEST",
+    "name": "Timboon West",
+    "network_region": "VIC1",
+    "lat": -38.532667,
+    "lon": 142.915224,
+    "start_year": 2018,
+    "capacity_mw": 7.2,
+    "fueltech": "wind"
+  },
+  {
+    "code": "TOORAWF",
+    "name": "Toora",
+    "network_region": "VIC1",
+    "lat": -38.653258,
+    "lon": 146.340154,
+    "start_year": 2001,
+    "capacity_mw": 21,
+    "fueltech": "wind"
+  },
+  {
+    "code": "TIB",
+    "name": "Torrens Island",
+    "network_region": "SA1",
+    "lat": -34.802305,
+    "lon": 138.520262,
+    "start_year": 2023,
+    "capacity_mw": 250,
+    "fueltech": "battery"
+  },
+  {
+    "code": "TORRIS",
+    "name": "Torrens Island",
+    "network_region": "SA1",
+    "lat": -34.80651,
+    "lon": 138.523127,
+    "start_year": 1975,
+    "capacity_mw": 200,
+    "fueltech": "gas_steam"
+  },
+  {
+    "code": "TOWER",
+    "name": "Tower",
+    "network_region": "NSW1",
+    "lat": -34.219461,
+    "lon": 150.718012,
+    "start_year": 1995,
+    "capacity_mw": 41.2,
+    "fueltech": "gas_wcmg"
+  },
+  {
+    "code": "YABULU",
+    "name": "Townsville",
+    "network_region": "QLD1",
+    "lat": -19.20127,
+    "lon": 146.618573,
+    "start_year": 1998,
+    "capacity_mw": 160,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "TGNSS",
+    "name": "Traralgon Network Support",
+    "network_region": "VIC1",
+    "lat": -37.841113,
+    "lon": 144.895001,
+    "start_year": 2013,
+    "capacity_mw": 10,
+    "fueltech": "gas_recip"
+  },
+  {
+    "code": "TREVALLN",
+    "name": "Trevallyn",
+    "network_region": "TAS1",
+    "lat": -41.42262,
+    "lon": 147.111785,
+    "start_year": 1954,
+    "capacity_mw": 93,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "TRIBUTE",
+    "name": "Tribute",
+    "network_region": "TAS1",
+    "lat": -41.815832,
+    "lon": 145.650178,
+    "start_year": 1993,
+    "capacity_mw": 82.8,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "TULLYSM",
+    "name": "Tully Sugar Mill",
+    "network_region": "QLD1",
+    "lat": -17.937329,
+    "lon": 145.92739,
+    "start_year": 1996,
+    "capacity_mw": 32,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "SNOWY2",
+    "name": "Tumut",
+    "network_region": "NSW1",
+    "lat": -35.952003,
+    "lon": 148.367255,
+    "start_year": 2001,
+    "capacity_mw": 616,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "TUMUT3",
+    "name": "Tumut 3",
+    "network_region": "NSW1",
+    "lat": -35.611138,
+    "lon": 148.29175,
+    "start_year": 1972,
+    "capacity_mw": 1500,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "TUNGATIN",
+    "name": "Tungatinah",
+    "network_region": "TAS1",
+    "lat": -42.296802,
+    "lon": 146.456568,
+    "start_year": 1954,
+    "capacity_mw": 125,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "ULBESS",
+    "name": "Ulinda Park",
+    "network_region": "QLD1",
+    "lat": -26.918598,
+    "lon": 150.745396,
+    "start_year": 2025,
+    "capacity_mw": 197,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "URANQ",
+    "name": "Uranquinty",
+    "network_region": "NSW1",
+    "lat": -35.180061,
+    "lon": 147.21567,
+    "start_year": 2008,
+    "capacity_mw": 166,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "VP",
+    "name": "Vales Point B",
+    "network_region": "NSW1",
+    "lat": -33.16078,
+    "lon": 151.543985,
+    "start_year": 1977,
+    "capacity_mw": 660,
+    "fueltech": "coal_black"
+  },
+  {
+    "code": "VPGS",
+    "name": "Valley Power Peaking",
+    "network_region": "VIC1",
+    "lat": -38.253709,
+    "lon": 146.588886,
+    "start_year": 2015,
+    "capacity_mw": 50,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "TITREE",
+    "name": "Veolia Ti Tree",
+    "network_region": "QLD1",
+    "lat": -27.695551,
+    "lon": 152.650313,
+    "start_year": 2013,
+    "capacity_mw": 2,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "VICMILL",
+    "name": "Victoria Mill",
+    "network_region": "QLD1",
+    "lat": -18.650208,
+    "lon": 146.200866,
+    "start_year": 2011,
+    "capacity_mw": 24,
+    "fueltech": "bioenergy_biomass"
+  },
+  {
+    "code": "VBB",
+    "name": "Victorian Big Battery",
+    "network_region": "VIC1",
+    "lat": -38.038278,
+    "lon": 144.290383,
+    "start_year": 2021,
+    "capacity_mw": 360,
+    "fueltech": "battery"
+  },
+  {
+    "code": "ALCOA_WGP",
+    "name": "Wagerup",
+    "network_region": "WEM",
+    "lat": -32.91546,
+    "lon": 115.917892,
+    "start_year": 2006,
+    "capacity_mw": 196.85,
+    "fueltech": "gas_ocgt"
+  },
+  {
+    "code": "ALINTA_WGP_ESR",
+    "name": "Wagerup",
+    "network_region": "WEM",
+    "lat": -32.918167,
+    "lon": 115.916584,
+    "start_year": 2026,
+    "capacity_mw": 100,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "WAGGNSF",
+    "name": "Wagga North",
+    "network_region": "NSW1",
+    "lat": -35.070575,
+    "lon": 147.438807,
+    "start_year": 2021,
+    "capacity_mw": 55,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "ALINTA_WWF",
+    "name": "Walkaway",
+    "network_region": "WEM",
+    "lat": -28.916734,
+    "lon": 114.914165,
+    "start_year": 2005,
+    "capacity_mw": 89.1,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WLWLSF",
+    "name": "Walla Walla",
+    "network_region": "NSW1",
+    "lat": -35.747397,
+    "lon": 146.96666,
+    "start_year": 2024,
+    "capacity_mw": 201.6,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WALGRV",
+    "name": "Wallgrove",
+    "network_region": "NSW1",
+    "lat": -33.813917,
+    "lon": 150.830827,
+    "start_year": 2021,
+    "capacity_mw": 50,
+    "fueltech": "battery"
+  },
+  {
+    "code": "PRDSO_WALPOLE",
+    "name": "Walpole",
+    "network_region": "WEM",
+    "lat": -34.92338,
+    "lon": 116.82121,
+    "start_year": 2023,
+    "capacity_mw": 1.5,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "WAMBOWF",
+    "name": "Wambo",
+    "network_region": "QLD1",
+    "lat": -26.612935,
+    "lon": 151.262523,
+    "start_year": 2025,
+    "capacity_mw": 254,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WANDSF",
+    "name": "Wandoan",
+    "network_region": "QLD1",
+    "lat": -26.248848,
+    "lon": 149.765988,
+    "start_year": 2023,
+    "capacity_mw": 159,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WANDBG",
+    "name": "Wandoan South",
+    "network_region": "QLD1",
+    "lat": -26.261526,
+    "lon": 149.765738,
+    "start_year": 2021,
+    "capacity_mw": 123,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "WNSF",
+    "name": "Wangaratta",
+    "network_region": "VIC1",
+    "lat": -36.323808,
+    "lon": 146.366,
+    "start_year": 2025,
+    "capacity_mw": 26.4,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WTAHB",
+    "name": "Waratah Super Battery",
+    "network_region": "NSW1",
+    "lat": -33.215276,
+    "lon": 151.543465,
+    "start_year": 2024,
+    "capacity_mw": 1095.84,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "WARRADARGE",
+    "name": "Warradarge",
+    "network_region": "WEM",
+    "lat": -29.942809,
+    "lon": 115.470459,
+    "start_year": 2020,
+    "capacity_mw": 180,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WARWSF",
+    "name": "Warwick",
+    "network_region": "QLD1",
+    "lat": -28.183037,
+    "lon": 152.071764,
+    "start_year": 2022,
+    "capacity_mw": 39,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WATERLWF",
+    "name": "Waterloo",
+    "network_region": "SA1",
+    "lat": -34.001298,
+    "lon": 138.91088,
+    "start_year": 2010,
+    "capacity_mw": 130.8,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WPWF",
+    "name": "Wattle Point",
+    "network_region": "SA1",
+    "lat": -35.110379,
+    "lon": 137.705789,
+    "start_year": 2005,
+    "capacity_mw": 91,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WAUBRAWF",
+    "name": "Waubra",
+    "network_region": "VIC1",
+    "lat": -37.357446,
+    "lon": 143.603659,
+    "start_year": 2009,
+    "capacity_mw": 192,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WELLSF1",
+    "name": "Wellington",
+    "network_region": "NSW1",
+    "lat": -32.513792,
+    "lon": 148.95829,
+    "start_year": 2020,
+    "capacity_mw": 216,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WELNSF",
+    "name": "Wellington North",
+    "network_region": "NSW1",
+    "lat": -32.496071,
+    "lon": 148.956507,
+    "start_year": 2024,
+    "capacity_mw": 436,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WEMENSF1",
+    "name": "Wemen",
+    "network_region": "VIC1",
+    "lat": -34.799853,
+    "lon": 142.547621,
+    "start_year": 2018,
+    "capacity_mw": 97,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "BLAIRFOX_WESTHILLS",
+    "name": "West Hills",
+    "network_region": "WEM",
+    "lat": -30.868556,
+    "lon": 115.392136,
+    "start_year": 2011,
+    "capacity_mw": 5,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WESTILLA",
+    "name": "West Illawarra Leagues Club",
+    "network_region": "NSW1",
+    "lat": -34.451645,
+    "lon": 150.843037,
+    "start_year": 2009,
+    "capacity_mw": 1,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "WEST_KALGOORLIE",
+    "name": "West Kalgoorlie",
+    "network_region": "WEM",
+    "lat": -30.781226,
+    "lon": 121.424464,
+    "start_year": 1983,
+    "capacity_mw": 41.2,
+    "fueltech": "distillate"
+  },
+  {
+    "code": "WKIEWA",
+    "name": "West Kiewa",
+    "network_region": "VIC1",
+    "lat": -36.759974,
+    "lon": 147.185812,
+    "start_year": 1954,
+    "capacity_mw": 31,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "WSTWYSF",
+    "name": "West Wyalong",
+    "network_region": "NSW1",
+    "lat": -33.809655,
+    "lon": 147.325015,
+    "start_year": 2022,
+    "capacity_mw": 105,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WDBESS",
+    "name": "Western Downs",
+    "network_region": "QLD1",
+    "lat": -26.952278,
+    "lon": 150.690528,
+    "start_year": 2024,
+    "capacity_mw": 272.48,
+    "fueltech": "battery_discharging"
+  },
+  {
+    "code": "WDGPH",
+    "name": "Western Downs",
+    "network_region": "QLD1",
+    "lat": -26.955534,
+    "lon": 150.67862,
+    "start_year": 2022,
+    "capacity_mw": 501,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WDBESS2",
+    "name": "Western Downs 2",
+    "network_region": "QLD1",
+    "lat": -26.952139,
+    "lon": 150.690787,
+    "start_year": 2025,
+    "capacity_mw": 269.8,
+    "fueltech": "battery"
+  },
+  {
+    "code": "WRSF1",
+    "name": "White Rock Solar Farm",
+    "network_region": "NSW1",
+    "lat": -29.764429,
+    "lon": 151.553007,
+    "start_year": 2018,
+    "capacity_mw": 22,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WRWF1",
+    "name": "White Rock Wind Farm",
+    "network_region": "NSW1",
+    "lat": -29.7718,
+    "lon": 151.5755,
+    "start_year": 2017,
+    "capacity_mw": 175,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WHITSF",
+    "name": "Whitsunday",
+    "network_region": "QLD1",
+    "lat": -20.492712,
+    "lon": 147.756358,
+    "start_year": 2018,
+    "capacity_mw": 57.5,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WHIT1",
+    "name": "Whitwood Road",
+    "network_region": "QLD1",
+    "lat": -27.654899,
+    "lon": 152.817672,
+    "start_year": 2003,
+    "capacity_mw": 1,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "WILGAPK",
+    "name": "Wilga Park",
+    "network_region": "NSW1",
+    "lat": -30.363284,
+    "lon": 149.677422,
+    "start_year": 2003,
+    "capacity_mw": 10,
+    "fueltech": "gas_recip"
+  },
+  {
+    "code": "WILGAPKB",
+    "name": "Wilga Park B",
+    "network_region": "NSW1",
+    "lat": -30.363284,
+    "lon": 149.677422,
+    "start_year": 2009,
+    "capacity_mw": 12,
+    "fueltech": "gas_recip"
+  },
+  {
+    "code": "WILLHOV",
+    "name": "William Hovel",
+    "network_region": "VIC1",
+    "lat": -36.912899,
+    "lon": 146.392181,
+    "start_year": 1992,
+    "capacity_mw": 1.5,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "WILLBES",
+    "name": "Williamsdale",
+    "network_region": "NSW1",
+    "lat": -35.57458,
+    "lon": 149.131993,
+    "start_year": 2026,
+    "capacity_mw": 262,
+    "fueltech": "battery_charging"
+  },
+  {
+    "code": "WGWF",
+    "name": "Willogoleche",
+    "network_region": "SA1",
+    "lat": -33.413128,
+    "lon": 138.845663,
+    "start_year": 2018,
+    "capacity_mw": 119,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WINDHILL",
+    "name": "Windy Hill",
+    "network_region": "QLD1",
+    "lat": -17.592083,
+    "lon": 145.532115,
+    "start_year": 2000,
+    "capacity_mw": 12,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WINGF1",
+    "name": "Wingfield",
+    "network_region": "SA1",
+    "lat": -34.779749,
+    "lon": 138.522379,
+    "start_year": 1998,
+    "capacity_mw": 4.12,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "WINGF2",
+    "name": "Wingfield 2",
+    "network_region": "SA1",
+    "lat": -34.779749,
+    "lon": 138.522379,
+    "start_year": 1990,
+    "capacity_mw": 4.12,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "WINTSF1",
+    "name": "Winton",
+    "network_region": "VIC1",
+    "lat": -36.503538,
+    "lon": 146.124102,
+    "start_year": 2021,
+    "capacity_mw": 107,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WIVENHOE",
+    "name": "Wivenhoe",
+    "network_region": "QLD1",
+    "lat": -27.372417,
+    "lon": 152.63203,
+    "start_year": 1983,
+    "capacity_mw": 285,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "WOLARSF",
+    "name": "Wollar",
+    "network_region": "NSW1",
+    "lat": -32.416988,
+    "lon": 149.935347,
+    "start_year": 2024,
+    "capacity_mw": 324,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WOLLERT",
+    "name": "Wollert",
+    "network_region": "VIC1",
+    "lat": -37.583073,
+    "lon": 145.048357,
+    "start_year": 2005,
+    "capacity_mw": 7,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "WONWP",
+    "name": "Wonthaggi",
+    "network_region": "VIC1",
+    "lat": -38.604079,
+    "lon": 145.545379,
+    "start_year": 2005,
+    "capacity_mw": 12,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WDLNGN",
+    "name": "Woodlawn",
+    "network_region": "NSW1",
+    "lat": -35.06298,
+    "lon": 149.570198,
+    "start_year": 2007,
+    "capacity_mw": 7,
+    "fueltech": "bioenergy_biogas"
+  },
+  {
+    "code": "WOODLWN",
+    "name": "Woodlawn",
+    "network_region": "NSW1",
+    "lat": -35.091982,
+    "lon": 149.572021,
+    "start_year": 2011,
+    "capacity_mw": 48.3,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WOOLNTH1",
+    "name": "Woolnorth",
+    "network_region": "TAS1",
+    "lat": -40.786606,
+    "lon": 144.738536,
+    "start_year": 2001,
+    "capacity_mw": 140,
+    "fueltech": "wind"
+  },
+  {
+    "code": "WOOLGSF",
+    "name": "Woolooga",
+    "network_region": "QLD1",
+    "lat": -26.075843,
+    "lon": 152.437448,
+    "start_year": 2022,
+    "capacity_mw": 280,
+    "fueltech": "battery"
+  },
+  {
+    "code": "WUNUSF",
+    "name": "Wunghnu",
+    "network_region": "VIC1",
+    "lat": -36.164639,
+    "lon": 145.394245,
+    "start_year": 2024,
+    "capacity_mw": 93.5,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WYASF",
+    "name": "Wyalong",
+    "network_region": "NSW1",
+    "lat": -33.887269,
+    "lon": 147.315314,
+    "start_year": 2023,
+    "capacity_mw": 62.32,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "WYANGALA",
+    "name": "Wyangala A",
+    "network_region": "NSW1",
+    "lat": -33.968824,
+    "lon": 148.948823,
+    "start_year": 1991,
+    "capacity_mw": 20,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "WYANGALB",
+    "name": "Wyangala B",
+    "network_region": "NSW1",
+    "lat": -33.968824,
+    "lon": 148.948823,
+    "start_year": 1946,
+    "capacity_mw": 4,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "YALLOURN",
+    "name": "Yallourn W",
+    "network_region": "VIC1",
+    "lat": -38.177589,
+    "lon": 146.342556,
+    "start_year": 1972,
+    "capacity_mw": 380,
+    "fueltech": "coal_brown"
+  },
+  {
+    "code": "YSWF",
+    "name": "Yaloak South",
+    "network_region": "VIC1",
+    "lat": -37.726107,
+    "lon": 144.255041,
+    "start_year": 2017,
+    "capacity_mw": 28.7,
+    "fueltech": "wind"
+  },
+  {
+    "code": "YAMBUK",
+    "name": "Yambuk",
+    "network_region": "VIC1",
+    "lat": -38.310953,
+    "lon": 142.014788,
+    "start_year": 2004,
+    "capacity_mw": 30,
+    "fueltech": "wind"
+  },
+  {
+    "code": "YANDIN",
+    "name": "Yandin",
+    "network_region": "WEM",
+    "lat": -30.680971,
+    "lon": 115.694249,
+    "start_year": 2020,
+    "capacity_mw": 214,
+    "fueltech": "wind"
+  },
+  {
+    "code": "YARANSF",
+    "name": "Yarranlea",
+    "network_region": "QLD1",
+    "lat": -27.709261,
+    "lon": 151.533038,
+    "start_year": 2020,
+    "capacity_mw": 121,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "YWNGAHYD",
+    "name": "Yarrawonga",
+    "network_region": "VIC1",
+    "lat": -36.009466,
+    "lon": 145.999568,
+    "start_year": 1994,
+    "capacity_mw": 9,
+    "fueltech": "hydro"
+  },
+  {
+    "code": "YARWUN",
+    "name": "Yarwun",
+    "network_region": "QLD1",
+    "lat": -23.8309,
+    "lon": 151.151136,
+    "start_year": 2010,
+    "capacity_mw": 154,
+    "fueltech": "gas_ccgt"
+  },
+  {
+    "code": "YATSF1",
+    "name": "Yatpool",
+    "network_region": "VIC1",
+    "lat": -34.396363,
+    "lon": 142.173809,
+    "start_year": 2020,
+    "capacity_mw": 94,
+    "fueltech": "solar_utility"
+  },
+  {
+    "code": "YAWWF",
+    "name": "Yawong",
+    "network_region": "VIC1",
+    "lat": -36.481161,
+    "lon": 143.366605,
+    "start_year": 2018,
+    "capacity_mw": 7.2,
+    "fueltech": "wind"
+  },
+  {
+    "code": "YENDONWF",
+    "name": "Yendon",
+    "network_region": "VIC1",
+    "lat": -37.630407,
+    "lon": 144.023136,
+    "start_year": 2019,
+    "capacity_mw": 144.4,
+    "fueltech": "wind"
+  }
+]
