@@ -1,7 +1,7 @@
 import http.server
 import socketserver
 
-PORT = 8000
+PORT = 8889
 
 class NoCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
@@ -11,7 +11,7 @@ class NoCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         super().end_headers()
 
 if __name__ == '__main__':
-    socketserver.TCPServer.allow_reuse_address = True
-    with socketserver.TCPServer(('0.0.0.0', PORT), NoCacheHTTPRequestHandler) as httpd:
-        print(f"Serving HTTP on 0.0.0.0 port {PORT} with no-cache headers...")
+    socketserver.ThreadingTCPServer.allow_reuse_address = True
+    with socketserver.ThreadingTCPServer(('', PORT), NoCacheHTTPRequestHandler) as httpd:
+        print(f"Serving HTTP on port {PORT} with no-cache headers...")
         httpd.serve_forever()

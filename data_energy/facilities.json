@@ -1,0 +1,273 @@
+[
+  {
+    "id": 1,
+    "oe_id": "LYA",
+    "name": "Loy Yang A",
+    "lat": -38.25,
+    "lon": 146.57,
+    "type": "coal",
+    "capacity_mw": 2210
+  },
+  {
+    "id": 2,
+    "oe_id": "LYB",
+    "name": "Loy Yang B",
+    "lat": -38.25,
+    "lon": 146.58,
+    "type": "coal",
+    "capacity_mw": 1050
+  },
+  {
+    "id": 3,
+    "oe_id": "YWPS",
+    "name": "Yallourn",
+    "lat": -38.17,
+    "lon": 146.33,
+    "type": "coal",
+    "capacity_mw": 1450
+  },
+  {
+    "id": 4,
+    "oe_id": "LIDDELL",
+    "name": "Liddell",
+    "lat": -32.37,
+    "lon": 150.97,
+    "type": "coal",
+    "capacity_mw": 2000,
+    "closure_year": 2023
+  },
+  {
+    "id": 5,
+    "oe_id": "BWPS",
+    "name": "Bayswater",
+    "lat": -32.39,
+    "lon": 150.98,
+    "type": "coal",
+    "capacity_mw": 2640
+  },
+  {
+    "id": 6,
+    "oe_id": "ERARING",
+    "name": "Eraring",
+    "lat": -33.06,
+    "lon": 151.52,
+    "type": "coal",
+    "capacity_mw": 2880
+  },
+  {
+    "id": 7,
+    "oe_id": "GLADSTONE",
+    "name": "Gladstone",
+    "lat": -23.82,
+    "lon": 151.21,
+    "type": "coal",
+    "capacity_mw": 1680
+  },
+  {
+    "id": 8,
+    "oe_id": "TARONG",
+    "name": "Tarong",
+    "lat": -26.77,
+    "lon": 151.91,
+    "type": "coal",
+    "capacity_mw": 1400
+  },
+  {
+    "id": 9,
+    "oe_id": "PELICAN",
+    "name": "Pelican Point",
+    "lat": -34.78,
+    "lon": 138.49,
+    "type": "gas",
+    "capacity_mw": 478
+  },
+  {
+    "id": 10,
+    "oe_id": "TALLAWARRA",
+    "name": "Tallawarra",
+    "lat": -34.55,
+    "lon": 150.78,
+    "type": "gas",
+    "capacity_mw": 435
+  },
+  {
+    "id": 11,
+    "oe_id": "MORTLAKE",
+    "name": "Mortlake",
+    "lat": -38.08,
+    "lon": 142.79,
+    "type": "gas",
+    "capacity_mw": 566
+  },
+  {
+    "id": 12,
+    "oe_id": "TUMUT3",
+    "name": "Tumut 3 (Snowy)",
+    "lat": -35.61,
+    "lon": 148.22,
+    "type": "hydro",
+    "capacity_mw": 1800
+  },
+  {
+    "id": 13,
+    "oe_id": "MURRAY",
+    "name": "Murray 1 (Snowy)",
+    "lat": -36.23,
+    "lon": 148.04,
+    "type": "hydro",
+    "capacity_mw": 950
+  },
+  {
+    "id": 14,
+    "oe_id": "GORDON",
+    "name": "Gordon (Tas)",
+    "lat": -42.73,
+    "lon": 145.97,
+    "type": "hydro",
+    "capacity_mw": 432
+  },
+  {
+    "id": 15,
+    "oe_id": "POATINA",
+    "name": "Poatina (Tas)",
+    "lat": -41.79,
+    "lon": 146.88,
+    "type": "hydro",
+    "capacity_mw": 300
+  },
+  {
+    "id": 16,
+    "oe_id": "MACARTH",
+    "name": "Macarthur Wind",
+    "lat": -38.05,
+    "lon": 142.02,
+    "type": "wind",
+    "capacity_mw": 420,
+    "start_year": 2013
+  },
+  {
+    "id": 17,
+    "oe_id": "SNOWTWN",
+    "name": "Snowtown",
+    "lat": -33.78,
+    "lon": 138.19,
+    "type": "wind",
+    "capacity_mw": 369,
+    "start_year": 2008
+  },
+  {
+    "id": 18,
+    "oe_id": "HALLETT",
+    "name": "Hallett",
+    "lat": -33.37,
+    "lon": 138.74,
+    "type": "wind",
+    "capacity_mw": 350,
+    "start_year": 2009
+  },
+  {
+    "id": 19,
+    "oe_id": "SAPPHIRE",
+    "name": "Sapphire",
+    "lat": -29.77,
+    "lon": 151.58,
+    "type": "wind",
+    "capacity_mw": 270,
+    "start_year": 2018
+  },
+  {
+    "id": 20,
+    "oe_id": "COOPERS",
+    "name": "Coopers Gap",
+    "lat": -26.72,
+    "lon": 151.27,
+    "type": "wind",
+    "capacity_mw": 453,
+    "start_year": 2020
+  },
+  {
+    "id": 21,
+    "oe_id": "NYNGAN",
+    "name": "Nyngan Solar",
+    "lat": -31.55,
+    "lon": 147.11,
+    "type": "commercial_solar",
+    "capacity_mw": 102,
+    "start_year": 2015
+  },
+  {
+    "id": 22,
+    "oe_id": "COLEAMBLY",
+    "name": "Coleambally Solar",
+    "lat": -34.78,
+    "lon": 145.95,
+    "type": "commercial_solar",
+    "capacity_mw": 150,
+    "start_year": 2018
+  },
+  {
+    "id": 23,
+    "oe_id": "LIMONDALE",
+    "name": "Limondale Solar",
+    "lat": -34.78,
+    "lon": 143.46,
+    "type": "commercial_solar",
+    "capacity_mw": 349,
+    "start_year": 2020
+  },
+  {
+    "id": 24,
+    "oe_id": "DARLINGTON",
+    "name": "Darlington Point",
+    "lat": -34.61,
+    "lon": 145.98,
+    "type": "commercial_solar",
+    "capacity_mw": 275,
+    "start_year": 2020
+  },
+  {
+    "id": 101,
+    "name": "Sydney Metro Rooftop",
+    "lat": -33.86,
+    "lon": 151.2,
+    "type": "rooftop_solar",
+    "capacity_mw": 2500,
+    "start_year": 2010
+  },
+  {
+    "id": 102,
+    "name": "Melbourne Metro Rooftop",
+    "lat": -37.81,
+    "lon": 144.96,
+    "type": "rooftop_solar",
+    "capacity_mw": 2000,
+    "start_year": 2010
+  },
+  {
+    "id": 103,
+    "name": "Brisbane Metro Rooftop",
+    "lat": -27.47,
+    "lon": 153.02,
+    "type": "rooftop_solar",
+    "capacity_mw": 1800,
+    "start_year": 2010
+  },
+  {
+    "id": 104,
+    "name": "Adelaide Metro Rooftop",
+    "lat": -34.92,
+    "lon": 138.6,
+    "type": "rooftop_solar",
+    "capacity_mw": 1200,
+    "start_year": 2010
+  },
+  {
+    "id": 105,
+    "name": "Perth Metro Rooftop",
+    "lat": -31.95,
+    "lon": 115.86,
+    "type": "rooftop_solar",
+    "capacity_mw": 1500,
+    "start_year": 2010
+  }
+]

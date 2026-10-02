@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Australian Energy Visualiser</title>
+  <meta name="description" content="Interactive animated map showing Australian power generation over time">
+  <link rel="icon" type="image/svg+xml" href="favicon-moth.svg">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="styles.css?v=17">
+  <style>
+    /* Energy SVG styling */
+    .energy-icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.125em;
+      fill: currentColor;
+    }
+    .loading-icon .energy-icon {
+      width: 64px;
+      height: 64px;
+      color: #F59E0B;
+    }
+    .stat-label .energy-icon {
+      color: #F59E0B;
+      margin-right: 4px;
+    }
+    .attribution {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      text-align: right;
+      margin-top: 4px;
+      padding-right: 4px;
+    }
+    .attribution a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+    .attribution a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Map ─── -->
+  <div id="map-container"></div>
+
+  <!-- ─── Loading ─── -->
+  <div id="loading-overlay">
+    <div class="loading-card">
+      <div class="loading-icon">
+        <svg class="energy-icon" viewBox="0 0 24 24" stroke="none">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"/>
+        </svg>
+      </div>
+      <h1 class="loading-title">Australian Energy Tracker</h1>
+      <p class="loading-subtitle">Power generation over time</p>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <p class="loading-status" id="loading-status">Initializing...</p>
+    </div>
+  </div>
+
+  <!-- ─── Top-Left Panel: Controls + Stats ─── -->
+  <div id="top-left-panel">
+    <!-- Playback Controls -->
+    <footer id="controls" class="glass hidden">
+      <div class="controls-row">
+        <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
+        <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
+        <input type="range" id="scrubber" class="scrubber" min="0" max="100" value="0" aria-label="Timeline">
+        <label class="fade-toggle" title="Fade old recordings">
+          <input type="checkbox" id="fade-toggle" checked>
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="fade-label">Fade</span>
+        </label>
+        <div id="map-style-selector" class="style-selector-inline">
+          <button class="style-btn active" data-style="dark" title="Dark">🌙</button>
+          <button class="style-btn" data-style="streets" title="Streets">🗺️</button>
+          <button class="style-btn" data-style="satellite" title="Satellite">🛰️</button>
+        </div>
+      </div>
+      <div class="controls-info-row">
+        <span id="day-info" class="info-chip">Day 1 of 100</span>
+        <div class="speed-ctrl">
+          <span>Speed</span>
+          <input type="range" id="speed" min="1" max="10" value="10" step="1" aria-label="Speed">
+          <span id="speed-val">10×</span>
+        </div>
+        <span id="today-info" class="info-chip">0 today</span>
+      </div>
+    </footer>
+
+    <!-- Stats Bar -->
+    <header id="stats-bar" class="glass hidden">
+      <div class="stat">
+        <span class="stat-label">📅 DATE</span>
+        <span class="stat-value" id="stat-date">—</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-label">
+          <svg class="energy-icon" viewBox="0 0 24 24" stroke="none">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"/>
+          </svg> ACTIVE FACILITIES
+        </span>
+        <span class="stat-value" id="stat-records">0</span>
+      </div>
+    </header>
+    
+    <div class="attribution">
+      Data simulated for testing purposes
+    </div>
+  </div>
+
+  <!-- ─── Right Panel Column ─── -->
+  <div id="right-panels">
+    <div id="hover-panel" class="species-panel glass hidden">
+      <button class="panel-close" title="Close panel">✕</button>
+      <div class="panel-header">
+        <div class="panel-names">
+          <div class="panel-common" id="hover-name">Facility Name</div>
+          <div class="panel-sci" id="hover-type">Fuel Type</div>
+          <div class="panel-family" id="hover-gen">0 MWh</div>
+        </div>
+      </div>
+      <a class="panel-link" id="hover-link" href="#" target="_blank" rel="noopener">View OpenElectricity details ↗</a>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
+  <script type="module" src="js/energy_app.js?v=3"></script>
+</body>
+</html>
