@@ -1,20 +1,19 @@
 import json
 import struct
-import math
 import asyncio
 import aiohttp
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 API_KEY = os.environ.get("OPENELECTRICITY_API_KEY", "REMOVED_API_KEY")
 
-async def fetch_facility(session, semaphore, fac_id):
+async def fetch_facility(session, semaphore, fac_id, start_str, end_str):
     url = "https://api.openelectricity.org.au/v4/data/network/NEM"
     params = {
         "metrics": "energy",
         "interval": "1M",
-        "date_start": "2024-01-01T00:00:00",
-        "date_end": "2026-10-01T00:00:00",
+        "date_start": start_str,
+        "date_end": end_str,
         "facility_code": fac_id
     }
     
@@ -40,26 +39,26 @@ async def main():
     with open('oe_full_stations.json', 'r') as f:
         source_data = json.load(f)
 
-    # 1. Filter out batteries
     stations = []
     for s in source_data:
         fuel = s.get('fueltech', '').lower()
         if 'battery' in fuel or 'storage' in fuel:
             continue
         stations.append(s)
-        
-    print(f"Total non-battery stations to process: {len(stations)}")
 
-    # 2. Fetch real data for 2024-2026
-    print("Fetching real generation data for 2024-2026...")
+    # 730 days ago is ~2024-10-02
+    start_date = datetime(2024, 11, 1)
+    end_date = datetime(2026, 10, 1)
+    start_str = start_date.strftime("%Y-%m-%dT%H:%M:%S")
+    end_str = end_date.strftime("%Y-%m-%dT%H:%M:%S")
+
+    print(f"Fetching real generation data for {len(stations)} facilities from {start_str} to {end_str}...")
     headers = {"Authorization": f"Bearer {API_KEY}"}
     facility_data = {}
     semaphore = asyncio.Semaphore(15)
     
-    # We must bypass proxy or use sandbox if we are in BypassSandbox!
-    # I will run this via python3 generate_from_oe.py later
     async with aiohttp.ClientSession(headers=headers) as session:
-        tasks = [fetch_facility(session, semaphore, s['code']) for s in stations]
+        tasks = [fetch_facility(session, semaphore, s['code'], start_str, end_str) for s in stations]
         results = await asyncio.gather(*tasks)
         
         for fac_id, res in results:
@@ -68,7 +67,6 @@ async def main():
             else:
                 facility_data[fac_id] = {}
 
-    # 3. Create map data mapping
     fuel_tech_map = {
         "coal_black": "coal",
         "coal_brown": "coal",
@@ -89,7 +87,6 @@ async def main():
     facilities = []
     for idx, s in enumerate(stations):
         mapped_type = fuel_tech_map.get(s.get('fueltech'), 'other')
-        
         f = {
             "id": idx + 1,
             "oe_id": s['code'],
@@ -105,21 +102,25 @@ async def main():
     with open('data_energy/facilities.json', 'w') as f:
         json.dump(facilities, f, indent=2)
 
-    # 4. Generate energy.bin with real data for 2024+
     fuel_types = ["coal", "gas", "hydro", "wind", "commercial_solar", "rooftop_solar"]
     fuel_type_to_id = {f: i for i, f in enumerate(fuel_types)}
 
-    start_date = datetime(2000, 1, 1)
-    end_date = datetime(2026, 12, 31)
     num_months = (end_date.year - start_date.year) * 12 + (end_date.month - start_date.month) + 1
 
     records = []
-    
+    day_offsets = []
+
+    current_offset = 0
+
     for month_idx in range(num_months):
-        y = 2000 + (month_idx // 12)
-        m = 1 + (month_idx % 12)
+        day_offsets.append(len(records))
+        
+        y = start_date.year + (start_date.month - 1 + month_idx) // 12
+        m = 1 + (start_date.month - 1 + month_idx) % 12
         date_str = f"{y:04d}-{m:02d}"
         
+        current_offset += 1 
+
         for idx, s in enumerate(facilities):
             if y < s['start_year']:
                 continue
@@ -127,32 +128,35 @@ async def main():
             fac_id = s['oe_id']
             energy = 0
             
-            # Use real data if we have it for this month
-            if y >= 2024:
-                if fac_id in facility_data and date_str in facility_data[fac_id]:
-                    val = facility_data[fac_id][date_str]
-                    if val is not None:
-                        energy = val
-            else:
-                # Simulated for < 2024 (as user said "focus on last few years worst case")
-                # Just so it's not totally empty before 2024
-                capacity = s['capacity_mw']
-                f_type = s['type']
-                cf = 0.6 if f_type == 'coal' else 0.3 if f_type == 'wind' else 0.2 if 'solar' in f_type else 0.1
-                base_gen = capacity * cf * 730 
-                import random
-                noise = random.uniform(0.8, 1.2)
-                energy = base_gen * noise
-
+            if fac_id in facility_data and date_str in facility_data[fac_id]:
+                val = facility_data[fac_id][date_str]
+                if val is not None:
+                    energy = val
+            
             if energy > 0:
-                fid = fuel_type_to_id.get(s['type'], 1)
-                records.append(struct.pack('<IffH', idx, energy, energy, fid))
+                fid = fuel_type_to_id.get(s['type'], 1) 
                 
-        records.append(struct.pack('<IffH', 0xFFFFFFFF, 0, 0, 0))
+                records.append({
+                    "facility_id": idx + 1,
+                    "lon": s['lon'],
+                    "lat": s['lat'],
+                    "cat_idx": fid,
+                    "generation": energy
+                })
 
-    with open("data_energy/energy.bin", "wb") as f:
+    with open('data_energy/energy.bin', 'wb') as f:
         for r in records:
-            f.write(r)
+            f.write(struct.pack('<HffBf', r['facility_id'], r['lon'], r['lat'], r['cat_idx'], r['generation']))
+
+    metadata = {
+        "startDate": f"{start_date.year:04d}-{start_date.month:02d}-01",
+        "totalDays": num_months,
+        "recordCount": len(records),
+        "dayOffsets": day_offsets,
+        "fuelTypes": fuel_types
+    }
+    with open('data_energy/metadata.json', 'w') as f:
+        json.dump(metadata, f, indent=2)
 
     print("Generation complete.")
 
