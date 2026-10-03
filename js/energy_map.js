@@ -195,10 +195,11 @@ export class EngineMap {
     this._filteredCategoryIndices = new Uint8Array(fn);
     this._filteredGeneration    = new Float32Array(fn);
 
+    const sourcePositions = this.data.filteredPositions || positions;
     for (let j = 0; j < fn; j++) {
       const i = filtered[j];
-      this._filteredPositions[j*2]   = positions[i*2];
-      this._filteredPositions[j*2+1] = positions[i*2+1];
+      this._filteredPositions[j*2]   = sourcePositions[i*2];
+      this._filteredPositions[j*2+1] = sourcePositions[i*2+1];
       for (let c = 0; c < 4; c++) {
         this._filteredColors[j*4+c]      = colors[i*4+c];
         this._filteredPulseColors[j*4+c] = pulseColors[i*4+c];
@@ -280,7 +281,7 @@ let dayStart = offsets[day] ?? 0;
         data: {
           length: todayCount,
           attributes: {
-            getPosition: { value: active.positions.subarray(dayStart*2, dayEnd*2), size: 2 },
+            getPosition: { value: (active.filteredPositions || active.positions).subarray(dayStart*2, dayEnd*2), size: 2 },
             getRadius:   { value: active.filteredGeneration.subarray(dayStart, dayEnd),    size: 1 },
           },
         },
@@ -295,7 +296,7 @@ let dayStart = offsets[day] ?? 0;
         data: {
           length: todayCount,
           attributes: {
-            getPosition: { value: active.positions.subarray(dayStart*2, dayEnd*2), size: 2 },
+            getPosition: { value: (active.filteredPositions || active.positions).subarray(dayStart*2, dayEnd*2), size: 2 },
             getFillColor:{ value: active.colors.subarray(dayStart*4, dayEnd*4), size: 4 },
             getRadius:   { value: active.filteredGeneration.subarray(dayStart, dayEnd),    size: 1 },
           },
