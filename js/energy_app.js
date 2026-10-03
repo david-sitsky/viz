@@ -16,9 +16,9 @@ class EngineApp {
     this._cacheDom();
     try {
       this.data = await loadData(
-        'data_energy/metadata.json?v=19',
-        'data_energy/energy.bin?v=19',
-        'energy-v19',
+        'data_energy/metadata.json?v=20',
+        'data_energy/energy.bin?v=20',
+        'energy-v20',
         [
           [17, 17, 17],    // 0: coal
           [244, 142, 27],  // 1: gas
@@ -30,7 +30,7 @@ class EngineApp {
         (phase, pct) => this._updateLoading(phase, pct),
       );
       
-      this.facilities = await fetch('data_energy/facilities.json?v=19').then(r => r.json());
+      this.facilities = await fetch('data_energy/facilities.json?v=20').then(r => r.json());
       this.facilityMap = new Map();
       for(let f of this.facilities) this.facilityMap.set(f.id, f);
 
@@ -94,6 +94,10 @@ class EngineApp {
       this.dom.hoverLink.style.display = 'none';
     }
     
+    this.dom.hoverPanel.style.position = 'fixed';
+    this.dom.hoverPanel.style.left = (x + 15) + 'px';
+    this.dom.hoverPanel.style.top = (y + 15) + 'px';
+    this.dom.hoverPanel.style.right = 'auto';
     this.dom.hoverPanel.classList.remove('hidden');
   }
 
@@ -153,6 +157,19 @@ class EngineApp {
   }
 
   _setupControls() {
+    this.chartMode = 'cumulative';
+    const radios = document.querySelectorAll('input[name="chartMode"]');
+    const chartTitle = document.getElementById('chart-title');
+    radios.forEach(r => {
+      r.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          this.chartMode = e.target.value;
+          if (chartTitle) chartTitle.textContent = this.chartMode === 'cumulative' ? 'Cumulative Generation by Source' : 'Daily Generation by Source';
+          this._updateUI();
+        }
+      });
+    });
+
     this.dom.btnRewind.addEventListener('click', () => {
       this._pause();
       this._setDay(0);
@@ -265,12 +282,24 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
     
     // Accumulate power by category up to current day
     const catTotals = new Array(metadata.fuelTypes.length).fill(0);
-    for (let i = 0; i < endIdx; i++) {
-        const catIdx = categoryIndices[i];
-        if (catIdx >= 0 && catIdx < catTotals.length) {
-            catTotals[catIdx] += generation[i];
+    
+    if (this.chartMode === 'cumulative') {
+        for (let i = 0; i < endIdx; i++) {
+            const catIdx = categoryIndices[i];
+            if (catIdx >= 0 && catIdx < catTotals.length) {
+                catTotals[catIdx] += generation[i];
+            }
+        }
+    } else {
+        // Daily Snapshot
+        for (let i = dayStart; i < endIdx; i++) {
+            const catIdx = categoryIndices[i];
+            if (catIdx >= 0 && catIdx < catTotals.length) {
+                catTotals[catIdx] += generation[i];
+            }
         }
     }
+
     
     // Build array of objects for sorting
     let chartData = [];
@@ -290,7 +319,11 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
     if (this.dom.barChart) {
         let html = '';
         for (const item of chartData) {
-            const pct = this._absoluteMaxTotal > 0 ? (item.total / this._absoluteMaxTotal) * 100 : 0;
+            let currentMax = this._absoluteMaxTotal;
+            if (this.chartMode === 'snapshot') {
+                currentMax = Math.max(...catTotals);
+            }
+            const pct = currentMax > 0 ? (item.total / currentMax) * 100 : 0;
             const colorStr = `rgb(${item.color[0]}, ${item.color[1]}, ${item.color[2]})`;
             const label = item.name.replace('_', ' ');
             const valStr = Math.round(item.total).toLocaleString() + ' MWh';

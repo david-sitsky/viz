@@ -1,67 +1,115 @@
-"""
-Data Pipeline script for historical generation values.
-
-This script relies on the official `openelectricity` Python SDK to fetch
-monthly generation aggregates for each facility from the OpenElectricity API.
-It requires an OPENELECTRICITY_API_KEY environment variable to be set.
-
-Usage in GitHub Actions:
-  env:
-    OPENELECTRICITY_API_KEY: ${{ secrets.OPENELECTRICITY_API_KEY }}
-  run: python update_historical.py
-"""
-
 import os
 import json
 import struct
 import asyncio
+import aiohttp
 from datetime import datetime
-from openelectricity.client import AsyncOEClient
+
+API_KEY = os.environ.get("OPENELECTRICITY_API_KEY", "REMOVED_API_KEY")
+
+async def fetch_facility(session, semaphore, s):
+    fac_id = s['oe_id']
+    url = "https://api.openelectricity.org.au/v4/data/network/NEM"
+    params = {
+        "metrics": "energy",
+        "interval": "1M",
+        "date_start": "2024-09-01T00:00:00",
+        "date_end": "2026-09-01T00:00:00",
+        "facility_code": fac_id
+    }
+    
+    async with semaphore:
+        async with session.get(url, params=params) as resp:
+            if resp.status == 200:
+                data = await resp.json()
+                results = []
+                for item in data.get("data", []):
+                    for r in item.get("results", []):
+                        for row in r.get("data", []):
+                            # row is ["2024-09-01T00:00:00+10:00", 12345.6]
+                            date_str = row[0][:7] # YYYY-MM
+                            val = row[1]
+                            results.append((date_str, val))
+                return fac_id, results
+            else:
+                return fac_id, None
 
 async def update_energy_bin():
-    if not os.environ.get("OPENELECTRICITY_API_KEY"):
-        print("ERROR: OPENELECTRICITY_API_KEY environment variable is missing.")
-        print("Please provision an API key at https://openelectricity.org.au and run again.")
-        return
-
-    # Load our 436 mapped facilities
     with open('data_energy/facilities.json', 'r') as f:
         stations = json.load(f)
 
-    print(f"Loaded {len(stations)} facilities for updating.")
+    # Temporary slice for testing 20 items first!
+    # stations = stations[:20]
 
+    print(f"Fetching real generation data for {len(stations)} facilities for 2024-2026...")
+    headers = {"Authorization": f"Bearer {API_KEY}"}
+    
+    facility_data = {}
+    
+    semaphore = asyncio.Semaphore(10) # 10 concurrent requests
+    
+    async with aiohttp.ClientSession(headers=headers) as session:
+        tasks = [fetch_facility(session, semaphore, s) for s in stations]
+        results = await asyncio.gather(*tasks)
+        
+        for fac_id, res in results:
+            if res:
+                facility_data[fac_id] = { k:v for k,v in res }
+            else:
+                facility_data[fac_id] = {}
+
+    # Now rewrite energy.bin!
+    # Our original script generated 26 * 12 = 312 months (2000 to 2026).
+    # Since we only fetched 2024-2026, we will set all other months to 0 or simulated.
+    # The user asked: "If we can't for now, we can focus on the last few years worst case."
+    # We will 0 out everything before 2024-09, and use real data for 2024-09 onwards.
+    
     start_date = datetime(2000, 1, 1)
     end_date = datetime(2026, 12, 31)
     num_months = (end_date.year - start_date.year) * 12 + (end_date.month - start_date.month) + 1
 
     fuel_types = ["coal", "gas", "hydro", "wind", "commercial_solar", "rooftop_solar"]
     fuel_type_to_id = {f: i for i, f in enumerate(fuel_types)}
-
+    
     records = []
-    day_offsets = []
-
-    # Initialize async client
-    async with AsyncOEClient() as client:
-        # NOTE: Fetching 436 facilities iteratively.
-        # In a real Github action, we could parallelize this using asyncio.gather with rate-limiting.
-        for s in stations:
+    
+    for month_idx in range(num_months):
+        y = 2000 + (month_idx // 12)
+        m = 1 + (month_idx % 12)
+        date_str = f"{y:04d}-{m:02d}"
+        
+        for idx, s in enumerate(stations):
             fac_id = s['oe_id']
-            try:
-                # Fetch historical monthly generation
-                # This depends on the exact openelectricity model structure
-                # Typically, client.facility_generation(facility_code=fac_id, interval='month')
-                print(f"Fetching historical data for {fac_id}...")
+            capacity = s.get('max_capacity', 0)
+            start_year = s['start_year']
+            
+            if y < start_year:
+                continue
                 
-                # Mock integration (replace with actual client call once SDK docs are consulted)
-                # response = await client.get_facility_energy(fac_id, interval='month')
-                
-                # ... parse response into monthly aggregates ...
-                
-            except Exception as e:
-                print(f"Failed to fetch {fac_id}: {e}")
-                
-    # ... Build energy.bin structurally ...
-    # This script will replace the simulated values with actual API responses.
+            # If it's a battery, skip it
+            is_battery = any(tag in s['fuel_tech'].lower() for tag in ['battery', 'storage'])
+            if is_battery:
+                continue
+
+            energy = 0
+            if fac_id in facility_data and date_str in facility_data[fac_id]:
+                # Real data! It's MWh. 
+                val = facility_data[fac_id][date_str]
+                if val is not None:
+                    # Sometimes val might be None?
+                    energy = val
+            
+            if energy > 0:
+                fid = fuel_type_to_id.get(s['fuel_tech'], 1)
+                records.append(struct.pack('<IffH', idx, energy, energy, fid))
+        
+        records.append(struct.pack('<IffH', 0xFFFFFFFF, 0, 0, 0)) # End of month marker
+        
+    with open("data_energy/energy.bin", "wb") as f:
+        for r in records:
+            f.write(r)
+            
+    print("Successfully compiled real energy data to data_energy/energy.bin!")
 
 if __name__ == "__main__":
     asyncio.run(update_energy_bin())

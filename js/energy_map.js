@@ -283,7 +283,7 @@ let dayStart = offsets[day] ?? 0;
             getRadius:   { value: active.generation.subarray(dayStart, dayEnd),    size: 1 },
           },
         },
-        radiusUnits: 'pixels', radiusScale: 0.00003, radiusMinPixels: 2, radiusMaxPixels: 40,
+        radiusUnits: 'pixels', radiusScale: 0.001, radiusMinPixels: 2, radiusMaxPixels: 40,
         opacity: 0.95, pickable: true, parameters: { depthTest: false },
         _dayStart: dayStart,
       }));

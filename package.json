@@ -7,10 +7,28 @@
     "test:ui": "playwright test --ui"
   },
   "dependencies": {
+    "jsdom": "^30.1.1",
     "puppeteer": "^25.12.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",
     "@types/node": "^20.11.24"
-  }
+  },
+  "description": "An interactive, client-side web visualisation mapping **1,183,011 frog recording events** across Australia from the **FrogID v7 dataset** (covering 2017 to 2024). Built with **deck.gl v9**, **MapLibre GL JS**, and **HTML5/ES Modules**.",
+  "main": "download_aemo.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/david-sitsky/nature.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/david-sitsky/nature/issues"
+  },
+  "homepage": "https://github.com/david-sitsky/nature#readme"
 }

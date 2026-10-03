@@ -477,3 +477,24 @@ input[type="range"]::-moz-range-thumb { height: 14px; width: 14px; border-radius
   font-variant-numeric: tabular-nums;
   text-align: left;
 }
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.chart-header h3 {
+  margin: 0;
+}
+.chart-toggle {
+  display: flex;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+.chart-toggle label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
