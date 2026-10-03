@@ -64,7 +64,7 @@ async def fetch_rooftop(network_code, start_dt, end_dt):
                 "interval": "1d",
                 "date_start": c_start,
                 "date_end": c_end,
-                "fuel_tech": "solar_rooftop"
+                "fueltech": "solar_rooftop"
             }
             try:
                 async with session.get(url, params=params) as resp:
@@ -157,8 +157,8 @@ async def main():
         "id": len(facilities) + 1,
         "oe_id": "ROOFTOP_NEM",
         "name": "NEM Rooftop Solar",
-        "lat": -32.0,
-        "lon": 145.0,
+        "lat": -90.0,
+        "lon": 0.0,
         "type": "rooftop_solar",
         "capacity_mw": 0,
         "start_year": 2000
@@ -167,8 +167,8 @@ async def main():
         "id": len(facilities) + 1,
         "oe_id": "ROOFTOP_WEM",
         "name": "WEM Rooftop Solar",
-        "lat": -30.0,
-        "lon": 118.0,
+        "lat": -90.0,
+        "lon": 0.0,
         "type": "rooftop_solar",
         "capacity_mw": 0,
         "start_year": 2000
