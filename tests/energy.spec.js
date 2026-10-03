@@ -38,7 +38,7 @@ test.describe('Energy Visualiser UI', () => {
     // Check that there is still data in the bar chart
     const bars = page.locator('.bar-row');
     const firstVal = await bars.first().locator('.bar-value').textContent();
-    expect(firstVal).not.toBe('0 MWh');
+    expect(firstVal).not.toBe('0 GWh');
   });
 
   test('should display correct metadata on hover for specific production entities', async ({ page }) => {

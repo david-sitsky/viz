@@ -81,7 +81,7 @@ class EngineApp {
 
     this.dom.hoverName.textContent = fac.name;
     this.dom.hoverType.textContent = fac.type.replace('_', ' ').toUpperCase();
-    this.dom.hoverGen.textContent = Math.round(gen).toLocaleString() + ' MWh this month';
+    this.dom.hoverGen.textContent = Math.round(gen / 1000).toLocaleString() + ' GWh this day';
     
     // Set border color
     const c = this.data.palette[catIdx];
@@ -341,7 +341,7 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
             const pct = currentMax > 0 ? (item.total / currentMax) * 100 : 0;
             const colorStr = `rgb(${item.color[0]}, ${item.color[1]}, ${item.color[2]})`;
             const label = item.name.replace('_', ' ').toUpperCase();
-            const valStr = Math.round(item.total).toLocaleString() + ' MWh';
+            const valStr = Math.round(item.total / 1000).toLocaleString() + ' GWh';
             
             html += `
               <div class="bar-row">
@@ -364,7 +364,7 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
             <div class="bar-track">
               <div class="bar-fill" style="width: ${fossilPct}%; background: #666;"></div>
             </div>
-            <div class="bar-value" style="font-weight: bold;">${Math.round(fossilTotal).toLocaleString()} MWh</div>
+            <div class="bar-value" style="font-weight: bold;">${Math.round(fossilTotal / 1000).toLocaleString()} GWh</div>
           </div>
         `;
 
@@ -375,7 +375,7 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
             <div class="bar-track">
               <div class="bar-fill" style="width: ${renPct}%; background: #4CAF50;"></div>
             </div>
-            <div class="bar-value" style="font-weight: bold;">${Math.round(renewableTotal).toLocaleString()} MWh</div>
+            <div class="bar-value" style="font-weight: bold;">${Math.round(renewableTotal / 1000).toLocaleString()} GWh</div>
           </div>
         `;
 
