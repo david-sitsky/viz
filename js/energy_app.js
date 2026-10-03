@@ -410,6 +410,7 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
             currentMax = Math.max(...catTotals, fossilTotal, renewableTotal);
         }
         for (const item of chartData) {
+            if (item.total === 0) continue;
             const pct = currentMax > 0 ? (item.total / currentMax) * 100 : 0;
             const colorStr = `rgb(${item.color[0]}, ${item.color[1]}, ${item.color[2]})`;
             const label = item.name.replace('_', ' ').toUpperCase();
@@ -429,27 +430,38 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         // Add aggregates
         html += '<hr style="border: 1px solid #444; margin: 10px 0;">';
         
-        const fossilPct = currentMax > 0 ? (fossilTotal / currentMax) * 100 : 0;
-        html += `
-          <div class="bar-row">
-            <div class="bar-label" style="font-weight: bold;">FOSSIL FUELS</div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width: ${fossilPct}%; background: #666;"></div>
-            </div>
-            <div class="bar-value" style="font-weight: bold;">${Math.round(fossilTotal / 1000).toLocaleString()} GWh</div>
-          </div>
-        `;
+        let aggMax = this._absoluteAggregateMaxTotal;
+        if (this.chartMode === 'snapshot') {
+            aggMax = Math.max(fossilTotal, renewableTotal);
+        }
+        
+        if (fossilTotal > 0 || renewableTotal > 0) {
+            if (fossilTotal > 0) {
+                const fossilPct = aggMax > 0 ? (fossilTotal / aggMax) * 100 : 0;
+                html += `
+                  <div class="bar-row">
+                    <div class="bar-label" style="font-weight: bold;">FOSSIL FUELS</div>
+                    <div class="bar-track">
+                      <div class="bar-fill" style="width: ${fossilPct}%; background: #666;"></div>
+                    </div>
+                    <div class="bar-value" style="font-weight: bold;">${Math.round(fossilTotal / 1000).toLocaleString()} GWh</div>
+                  </div>
+                `;
+            }
 
-        const renPct = currentMax > 0 ? (renewableTotal / currentMax) * 100 : 0;
-        html += `
-          <div class="bar-row">
-            <div class="bar-label" style="font-weight: bold;">RENEWABLES</div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width: ${renPct}%; background: #4CAF50;"></div>
-            </div>
-            <div class="bar-value" style="font-weight: bold;">${Math.round(renewableTotal / 1000).toLocaleString()} GWh</div>
-          </div>
-        `;
+            if (renewableTotal > 0) {
+                const renPct = aggMax > 0 ? (renewableTotal / aggMax) * 100 : 0;
+                html += `
+                  <div class="bar-row">
+                    <div class="bar-label" style="font-weight: bold;">RENEWABLES</div>
+                    <div class="bar-track">
+                      <div class="bar-fill" style="width: ${renPct}%; background: #4CAF50;"></div>
+                    </div>
+                    <div class="bar-value" style="font-weight: bold;">${Math.round(renewableTotal / 1000).toLocaleString()} GWh</div>
+                  </div>
+                `;
+            }
+        }
 
         this.dom.barChart.innerHTML = html;
         document.getElementById('bottom-panel').classList.remove('hidden');
