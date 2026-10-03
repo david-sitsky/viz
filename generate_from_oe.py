@@ -143,8 +143,6 @@ async def main():
         }
         facilities.append(f)
 
-    with open('data_energy/facilities.json', 'w') as f:
-        json.dump(facilities, f, indent=2)
 
     # Append rooftop solar data
     rooftop_nem = await fetch_rooftop("NEM", start_date, end_date)
@@ -174,6 +172,13 @@ async def main():
         "start_year": 2000
     })
     
+    for i, f in enumerate(facilities):
+        f['id'] = i + 1
+
+    with open('data_energy/facilities.json', 'w') as f:
+
+        json.dump(facilities, f, indent=2)
+
     fuel_types = ["coal", "gas", "hydro", "wind", "commercial_solar", "rooftop_solar"]
     fuel_type_to_id = {f: i for i, f in enumerate(fuel_types)}
 
@@ -204,7 +209,7 @@ async def main():
                 fid = fuel_type_to_id.get(s['type'], 1) 
                 
                 records.append({
-                    "facility_id": idx + 1,
+                    "facility_id": s['id'],
                     "lon": s['lon'],
                     "lat": s['lat'],
                     "cat_idx": fid,

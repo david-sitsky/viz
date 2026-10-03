@@ -16,9 +16,9 @@ class EngineApp {
     this._cacheDom();
     try {
       this.data = await loadData(
-        'data_energy/metadata.json?v=20',
-        'data_energy/energy.bin?v=20',
-        'energy-v20',
+        'data_energy/metadata.json?v=21',
+        'data_energy/energy.bin?v=21',
+        'energy-v21',
         [
           [17, 17, 17],    // 0: coal
           [244, 142, 27],  // 1: gas
@@ -30,7 +30,7 @@ class EngineApp {
         (phase, pct) => this._updateLoading(phase, pct),
       );
       
-      this.facilities = await fetch('data_energy/facilities.json?v=20').then(r => r.json());
+      this.facilities = await fetch('data_energy/facilities.json?v=21').then(r => r.json());
       this.facilityMap = new Map();
       for(let f of this.facilities) this.facilityMap.set(f.id, f);
 
