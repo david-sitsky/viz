@@ -362,4 +362,5 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
 }
 
 const app = new EngineApp();
+  window.energyApp = app;
 app.init();
