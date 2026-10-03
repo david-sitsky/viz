@@ -55,6 +55,7 @@ class EngineApp {
       this.selectedStates = new Set();
       const states = new Set();
       for (const fac of this.facilityMap.values()) {
+          if (fac.state === 'NEM (Multi-state)') fac.state = 'NEM (Grid)';
           if (fac.state) states.add(fac.state);
       }
       
@@ -70,20 +71,38 @@ class EngineApp {
               html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
           });
           filterContent.innerHTML = html;
-          
           filterContent.addEventListener('change', (e) => {
               if (e.target.type === 'checkbox') {
                   if (e.target.checked) this.selectedStates.add(e.target.value);
                   else this.selectedStates.delete(e.target.value);
                   
-                  this._absoluteMaxTotal = undefined;
+                  
                   if (this.map && this.map.applyStateFilter) {
                       this.map.applyStateFilter(this.facilityMap, this.selectedStates);
                   }
                   this._updateUI();
               }
           });
-      }
+          
+          const updateAllStates = (checked) => {
+              const checkboxes = filterContent.querySelectorAll('input[type="checkbox"]');
+              checkboxes.forEach(cb => {
+                  cb.checked = checked;
+                  if (checked) this.selectedStates.add(cb.value);
+                  else this.selectedStates.delete(cb.value);
+              });
+              
+              if (this.map && this.map.applyStateFilter) {
+                  this.map.applyStateFilter(this.facilityMap, this.selectedStates);
+              }
+              this._updateUI();
+          };
+          
+          const btnAll = document.getElementById('btn-select-all');
+          const btnNone = document.getElementById('btn-deselect-all');
+          if (btnAll) btnAll.addEventListener('click', () => updateAllStates(true));
+          if (btnNone) btnNone.addEventListener('click', () => updateAllStates(false));
+}
       if (this.map && this.map.applyStateFilter) {
           this.map.applyStateFilter(this.facilityMap, this.selectedStates);
       }
@@ -212,42 +231,6 @@ class EngineApp {
     this.dom.btnRewind.addEventListener('click', () => {
       this._pause();
       
-      // Setup state filter
-      this.selectedStates = new Set();
-      const states = new Set();
-      for (const fac of this.facilityMap.values()) {
-          if (fac.state) states.add(fac.state);
-      }
-      
-      const sortedStates = Array.from(states).sort();
-      sortedStates.forEach(s => this.selectedStates.add(s));
-      
-      
-      const filterContent = document.getElementById('filter-content');
-      
-      if (filterContent) {
-          let html = '';
-          sortedStates.forEach(s => {
-              html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
-          });
-          filterContent.innerHTML = html;
-          
-          filterContent.addEventListener('change', (e) => {
-              if (e.target.type === 'checkbox') {
-                  if (e.target.checked) this.selectedStates.add(e.target.value);
-                  else this.selectedStates.delete(e.target.value);
-                  
-                  this._absoluteMaxTotal = undefined;
-                  if (this.map && this.map.applyStateFilter) {
-                      this.map.applyStateFilter(this.facilityMap, this.selectedStates);
-                  }
-                  this._updateUI();
-              }
-          });
-      }
-      if (this.map && this.map.applyStateFilter) {
-          this.map.applyStateFilter(this.facilityMap, this.selectedStates);
-      }
       this._setDay(0);
 
     });
@@ -276,42 +259,6 @@ class EngineApp {
         case 'ArrowLeft':  e.preventDefault(); this._pause(); this._setDay(Math.max(0,   this.currentDay - (e.shiftKey?7:1))); break;
         case 'ArrowRight': e.preventDefault(); this._pause(); this._setDay(Math.min(max, this.currentDay + (e.shiftKey?7:1))); break;
         case 'Home':       e.preventDefault(); this._pause(); 
-      // Setup state filter
-      this.selectedStates = new Set();
-      const states = new Set();
-      for (const fac of this.facilityMap.values()) {
-          if (fac.state) states.add(fac.state);
-      }
-      
-      const sortedStates = Array.from(states).sort();
-      sortedStates.forEach(s => this.selectedStates.add(s));
-      
-      
-      const filterContent = document.getElementById('filter-content');
-      
-      if (filterContent) {
-          let html = '';
-          sortedStates.forEach(s => {
-              html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
-          });
-          filterContent.innerHTML = html;
-          
-          filterContent.addEventListener('change', (e) => {
-              if (e.target.type === 'checkbox') {
-                  if (e.target.checked) this.selectedStates.add(e.target.value);
-                  else this.selectedStates.delete(e.target.value);
-                  
-                  this._absoluteMaxTotal = undefined;
-                  if (this.map && this.map.applyStateFilter) {
-                      this.map.applyStateFilter(this.facilityMap, this.selectedStates);
-                  }
-                  this._updateUI();
-              }
-          });
-      }
-      if (this.map && this.map.applyStateFilter) {
-          this.map.applyStateFilter(this.facilityMap, this.selectedStates);
-      }
       this._setDay(0);
  break;
         case 'End':        e.preventDefault(); this._pause(); this._setDay(max); break;
@@ -332,42 +279,6 @@ class EngineApp {
   _togglePlay() { this.playing ? this._pause() : this._play(); }
   _play() {
     if (this.currentDay >= this.data.metadata.totalDays - 1) 
-      // Setup state filter
-      this.selectedStates = new Set();
-      const states = new Set();
-      for (const fac of this.facilityMap.values()) {
-          if (fac.state) states.add(fac.state);
-      }
-      
-      const sortedStates = Array.from(states).sort();
-      sortedStates.forEach(s => this.selectedStates.add(s));
-      
-      
-      const filterContent = document.getElementById('filter-content');
-      
-      if (filterContent) {
-          let html = '';
-          sortedStates.forEach(s => {
-              html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
-          });
-          filterContent.innerHTML = html;
-          
-          filterContent.addEventListener('change', (e) => {
-              if (e.target.type === 'checkbox') {
-                  if (e.target.checked) this.selectedStates.add(e.target.value);
-                  else this.selectedStates.delete(e.target.value);
-                  
-                  this._absoluteMaxTotal = undefined;
-                  if (this.map && this.map.applyStateFilter) {
-                      this.map.applyStateFilter(this.facilityMap, this.selectedStates);
-                  }
-                  this._updateUI();
-              }
-          });
-      }
-      if (this.map && this.map.applyStateFilter) {
-          this.map.applyStateFilter(this.facilityMap, this.selectedStates);
-      }
       this._setDay(0);
 
     this.playing = true;
@@ -426,7 +337,7 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         let absCatTotals = new Array(metadata.fuelTypes.length).fill(0);
         for (let i = 0; i < metadata.recordCount; i++) {
             const fac = this.facilityMap.get(this.data.facilityIds[i]);
-            if (!fac || !this.selectedStates.has(fac.state)) continue;
+            // Calculate absolute max using ALL states so the scale remains fixed and bars visually shrink when states are deselected
             
             const cIdx = categoryIndices[i];
             if (cIdx >= 0 && cIdx < absCatTotals.length) {
