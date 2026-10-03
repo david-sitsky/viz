@@ -76,6 +76,7 @@ class EngineApp {
                   else this.selectedStates.delete(e.target.value);
                   
                   
+                  this._absoluteMaxTotal = undefined;
                   if (this.map && this.map.applyStateFilter) {
                       this.map.applyStateFilter(this.facilityMap, this.selectedStates);
                   }
@@ -336,7 +337,7 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         let absCatTotals = new Array(metadata.fuelTypes.length).fill(0);
         for (let i = 0; i < metadata.recordCount; i++) {
             const fac = this.facilityMap.get(this.data.facilityIds[i]);
-            // Calculate absolute max using ALL states so the scale remains fixed and bars visually shrink when states are deselected
+            if (!fac || !this.selectedStates.has(fac.state)) continue;
             
             const cIdx = categoryIndices[i];
             if (cIdx >= 0 && cIdx < absCatTotals.length) {
@@ -349,7 +350,8 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
             if (fType === 'coal' || fType === 'gas') fossilMax += absCatTotals[i];
             else if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) renMax += absCatTotals[i];
         }
-        this._absoluteMaxTotal = Math.max(...absCatTotals, fossilMax, renMax);
+        this._absoluteMaxTotal = Math.max(...absCatTotals);
+        this._absoluteAggregateMaxTotal = Math.max(fossilMax, renMax);
     }
     
     // Accumulate power by category up to current day
