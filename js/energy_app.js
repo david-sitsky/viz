@@ -50,7 +50,49 @@ class EngineApp {
         if(this.dom[k]) this.dom[k].classList.remove('hidden');
       });
 
+      
+      // Setup state filter
+      this.selectedStates = new Set();
+      const states = new Set();
+      for (const fac of this.facilityMap.values()) {
+          if (fac.state) states.add(fac.state);
+      }
+      
+      const sortedStates = Array.from(states).sort();
+      sortedStates.forEach(s => this.selectedStates.add(s));
+      
+      const filterBtn = document.getElementById('filter-btn');
+      const filterContent = document.getElementById('filter-content');
+      
+      if (filterBtn && filterContent) {
+          let html = '';
+          sortedStates.forEach(s => {
+              html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
+          });
+          filterContent.innerHTML = html;
+          
+          filterBtn.addEventListener('click', () => {
+              filterContent.classList.toggle('hidden');
+          });
+          
+          filterContent.addEventListener('change', (e) => {
+              if (e.target.type === 'checkbox') {
+                  if (e.target.checked) this.selectedStates.add(e.target.value);
+                  else this.selectedStates.delete(e.target.value);
+                  
+                  this._absoluteMaxTotal = undefined;
+                  if (this.map && this.map.applyStateFilter) {
+                      this.map.applyStateFilter(this.facilityMap, this.selectedStates);
+                  }
+                  this._updateUI();
+              }
+          });
+      }
+      if (this.map && this.map.applyStateFilter) {
+          this.map.applyStateFilter(this.facilityMap, this.selectedStates);
+      }
       this._setDay(0);
+
 
     } catch (err) {
       console.error('Init failed:', err);
@@ -172,7 +214,49 @@ class EngineApp {
 
     this.dom.btnRewind.addEventListener('click', () => {
       this._pause();
+      
+      // Setup state filter
+      this.selectedStates = new Set();
+      const states = new Set();
+      for (const fac of this.facilityMap.values()) {
+          if (fac.state) states.add(fac.state);
+      }
+      
+      const sortedStates = Array.from(states).sort();
+      sortedStates.forEach(s => this.selectedStates.add(s));
+      
+      const filterBtn = document.getElementById('filter-btn');
+      const filterContent = document.getElementById('filter-content');
+      
+      if (filterBtn && filterContent) {
+          let html = '';
+          sortedStates.forEach(s => {
+              html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
+          });
+          filterContent.innerHTML = html;
+          
+          filterBtn.addEventListener('click', () => {
+              filterContent.classList.toggle('hidden');
+          });
+          
+          filterContent.addEventListener('change', (e) => {
+              if (e.target.type === 'checkbox') {
+                  if (e.target.checked) this.selectedStates.add(e.target.value);
+                  else this.selectedStates.delete(e.target.value);
+                  
+                  this._absoluteMaxTotal = undefined;
+                  if (this.map && this.map.applyStateFilter) {
+                      this.map.applyStateFilter(this.facilityMap, this.selectedStates);
+                  }
+                  this._updateUI();
+              }
+          });
+      }
+      if (this.map && this.map.applyStateFilter) {
+          this.map.applyStateFilter(this.facilityMap, this.selectedStates);
+      }
       this._setDay(0);
+
     });
     this.dom.btnPlay.addEventListener('click', () => this._togglePlay());
 
@@ -198,7 +282,49 @@ class EngineApp {
         case 'Space':      e.preventDefault(); this._togglePlay(); break;
         case 'ArrowLeft':  e.preventDefault(); this._pause(); this._setDay(Math.max(0,   this.currentDay - (e.shiftKey?7:1))); break;
         case 'ArrowRight': e.preventDefault(); this._pause(); this._setDay(Math.min(max, this.currentDay + (e.shiftKey?7:1))); break;
-        case 'Home':       e.preventDefault(); this._pause(); this._setDay(0); break;
+        case 'Home':       e.preventDefault(); this._pause(); 
+      // Setup state filter
+      this.selectedStates = new Set();
+      const states = new Set();
+      for (const fac of this.facilityMap.values()) {
+          if (fac.state) states.add(fac.state);
+      }
+      
+      const sortedStates = Array.from(states).sort();
+      sortedStates.forEach(s => this.selectedStates.add(s));
+      
+      const filterBtn = document.getElementById('filter-btn');
+      const filterContent = document.getElementById('filter-content');
+      
+      if (filterBtn && filterContent) {
+          let html = '';
+          sortedStates.forEach(s => {
+              html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
+          });
+          filterContent.innerHTML = html;
+          
+          filterBtn.addEventListener('click', () => {
+              filterContent.classList.toggle('hidden');
+          });
+          
+          filterContent.addEventListener('change', (e) => {
+              if (e.target.type === 'checkbox') {
+                  if (e.target.checked) this.selectedStates.add(e.target.value);
+                  else this.selectedStates.delete(e.target.value);
+                  
+                  this._absoluteMaxTotal = undefined;
+                  if (this.map && this.map.applyStateFilter) {
+                      this.map.applyStateFilter(this.facilityMap, this.selectedStates);
+                  }
+                  this._updateUI();
+              }
+          });
+      }
+      if (this.map && this.map.applyStateFilter) {
+          this.map.applyStateFilter(this.facilityMap, this.selectedStates);
+      }
+      this._setDay(0);
+ break;
         case 'End':        e.preventDefault(); this._pause(); this._setDay(max); break;
         case 'ArrowUp':    e.preventDefault(); this.speed = Math.min(10, this.speed+1); this.dom.speedSlider.value=this.speed; this.dom.speedVal.textContent=`${this.speed}×`; break;
         case 'ArrowDown':  e.preventDefault(); this.speed = Math.max(1,  this.speed-1); this.dom.speedSlider.value=this.speed; this.dom.speedVal.textContent=`${this.speed}×`; break;
@@ -216,7 +342,49 @@ class EngineApp {
 
   _togglePlay() { this.playing ? this._pause() : this._play(); }
   _play() {
-    if (this.currentDay >= this.data.metadata.totalDays - 1) this._setDay(0);
+    if (this.currentDay >= this.data.metadata.totalDays - 1) 
+      // Setup state filter
+      this.selectedStates = new Set();
+      const states = new Set();
+      for (const fac of this.facilityMap.values()) {
+          if (fac.state) states.add(fac.state);
+      }
+      
+      const sortedStates = Array.from(states).sort();
+      sortedStates.forEach(s => this.selectedStates.add(s));
+      
+      const filterBtn = document.getElementById('filter-btn');
+      const filterContent = document.getElementById('filter-content');
+      
+      if (filterBtn && filterContent) {
+          let html = '';
+          sortedStates.forEach(s => {
+              html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
+          });
+          filterContent.innerHTML = html;
+          
+          filterBtn.addEventListener('click', () => {
+              filterContent.classList.toggle('hidden');
+          });
+          
+          filterContent.addEventListener('change', (e) => {
+              if (e.target.type === 'checkbox') {
+                  if (e.target.checked) this.selectedStates.add(e.target.value);
+                  else this.selectedStates.delete(e.target.value);
+                  
+                  this._absoluteMaxTotal = undefined;
+                  if (this.map && this.map.applyStateFilter) {
+                      this.map.applyStateFilter(this.facilityMap, this.selectedStates);
+                  }
+                  this._updateUI();
+              }
+          });
+      }
+      if (this.map && this.map.applyStateFilter) {
+          this.map.applyStateFilter(this.facilityMap, this.selectedStates);
+      }
+      this._setDay(0);
+
     this.playing = true;
     this.dom.btnPlay.textContent = '⏸';
     this._scheduleTick();
@@ -272,6 +440,9 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
     if (this._absoluteMaxTotal === undefined) {
         let absCatTotals = new Array(metadata.fuelTypes.length).fill(0);
         for (let i = 0; i < metadata.recordCount; i++) {
+            const fac = this.facilityMap.get(this.data.facilityIds[i]);
+            if (!fac || !this.selectedStates.has(fac.state)) continue;
+            
             const cIdx = categoryIndices[i];
             if (cIdx >= 0 && cIdx < absCatTotals.length) {
                 absCatTotals[cIdx] += generation[i];
@@ -291,6 +462,9 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
     
     if (this.chartMode === 'cumulative') {
         for (let i = 0; i < endIdx; i++) {
+            const fac = this.facilityMap.get(this.data.facilityIds[i]);
+            if (!fac || !this.selectedStates.has(fac.state)) continue;
+            
             const catIdx = categoryIndices[i];
             if (catIdx >= 0 && catIdx < catTotals.length) {
                 catTotals[catIdx] += generation[i];
@@ -299,6 +473,9 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
     } else {
         // Daily Snapshot
         for (let i = dayStart; i < endIdx; i++) {
+            const fac = this.facilityMap.get(this.data.facilityIds[i]);
+            if (!fac || !this.selectedStates.has(fac.state)) continue;
+            
             const catIdx = categoryIndices[i];
             if (catIdx >= 0 && catIdx < catTotals.length) {
                 catTotals[catIdx] += generation[i];

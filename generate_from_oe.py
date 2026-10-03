@@ -131,6 +131,17 @@ async def main():
         mapped_type = fuel_tech_map.get(s.get('fueltech'), 'other')
         if mapped_type == 'other':
             continue
+            
+        region = s.get('network_region', '')
+        state = 'Other'
+        if 'NSW' in region: state = 'NSW/ACT'
+        elif 'QLD' in region: state = 'QLD'
+        elif 'SA' in region: state = 'SA'
+        elif 'TAS' in region: state = 'TAS'
+        elif 'VIC' in region: state = 'VIC'
+        elif 'WA' in region or 'WEM' in region: state = 'WA'
+        elif 'NT' in region: state = 'NT'
+
         f = {
             "id": idx + 1,
             "oe_id": s['code'],
@@ -138,6 +149,7 @@ async def main():
             "lat": s['lat'],
             "lon": s['lon'],
             "type": mapped_type,
+            "state": state,
             "capacity_mw": s['capacity_mw'],
             "start_year": s['start_year']
         }
@@ -158,6 +170,7 @@ async def main():
         "lat": -90.0,
         "lon": 0.0,
         "type": "rooftop_solar",
+        "state": "NEM (Multi-state)",
         "capacity_mw": 0,
         "start_year": 2000
     })
@@ -168,6 +181,7 @@ async def main():
         "lat": -90.0,
         "lon": 0.0,
         "type": "rooftop_solar",
+        "state": "WA",
         "capacity_mw": 0,
         "start_year": 2000
     })

@@ -29,6 +29,7 @@ function calculateOptimalAustraliaViewport() {
 export class EngineMap {
   constructor(containerId, data, onRecord = null) {
     this.data = data;
+    this.data.filteredGeneration = new Float32Array(this.data.generation);
     this.onRecord = onRecord;
     this.currentDay = 0;
     this.fadeMode = true;
@@ -114,8 +115,22 @@ export class EngineMap {
     const active = this._getActiveData();
     const day = this.currentDay;
     const offsets = active.dayOffsets;
-    const endIdx = (day + 1 < offsets.length) ? offsets[day + 1] : active.recordCount;
-    return { total: endIdx, today: endIdx - (offsets[day] ?? 0) };
+    const dayStart = offsets[day] || 0;
+    const dayEnd = (day + 1 < offsets.length) ? offsets[day + 1] : active.facilityIds.length;
+    
+    let today = 0;
+    if (this.delegate && this.delegate.selectedStates) {
+        for (let i = dayStart; i < dayEnd; i++) {
+            const fac = this.delegate.facilityMap.get(active.facilityIds[i]);
+            if (fac && this.delegate.selectedStates.has(fac.state)) {
+                today++;
+            }
+        }
+    } else {
+        today = dayEnd - dayStart;
+    }
+    
+    return { total: dayEnd, today };
   }
 
   _handleHover(info) {
@@ -211,6 +226,7 @@ export class EngineMap {
         facilityIds:     this._filteredFacilityIds,
         categoryIndices: this._filteredCategoryIndices,
         generation:      this._filteredGeneration,
+        filteredGeneration: this._filteredFilteredGeneration,
         dayOffsets:      this._filteredDayOffsets,
         recordCount:     this._filteredIndices.length,
         originalIndices: this._filteredIndices,
@@ -223,6 +239,7 @@ export class EngineMap {
       pulseColors:     this.data.pulseColors,
       categoryIndices: this.data.categoryIndices,
       generation:      this.data.generation,
+      filteredGeneration: this.data.filteredGeneration || this.data.generation,
       dayOffsets:      this.data.metadata.dayOffsets,
       recordCount:     this.data.metadata.recordCount,
       originalIndices: null,
@@ -264,7 +281,7 @@ let dayStart = offsets[day] ?? 0;
           length: todayCount,
           attributes: {
             getPosition: { value: active.positions.subarray(dayStart*2, dayEnd*2), size: 2 },
-            getRadius:   { value: active.generation.subarray(dayStart, dayEnd),    size: 1 },
+            getRadius:   { value: active.filteredGeneration.subarray(dayStart, dayEnd),    size: 1 },
           },
         },
         radiusUnits: 'pixels', radiusScale: 0.00004, radiusMinPixels: 2, radiusMaxPixels: 50,
@@ -280,7 +297,7 @@ let dayStart = offsets[day] ?? 0;
           attributes: {
             getPosition: { value: active.positions.subarray(dayStart*2, dayEnd*2), size: 2 },
             getFillColor:{ value: active.colors.subarray(dayStart*4, dayEnd*4), size: 4 },
-            getRadius:   { value: active.generation.subarray(dayStart, dayEnd),    size: 1 },
+            getRadius:   { value: active.filteredGeneration.subarray(dayStart, dayEnd),    size: 1 },
           },
         },
         radiusUnits: 'pixels', radiusScale: 0.001, radiusMinPixels: 2, radiusMaxPixels: 40,
