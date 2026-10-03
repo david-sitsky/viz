@@ -45,7 +45,7 @@ async def fetch_facility(session, semaphore, fac_id, start_str, end_str):
                 pass
     return fac_id, day_sums
 
-async def fetch_rooftop(network_code, start_dt, end_dt):
+async def fetch_rooftop(network_code, start_dt, end_dt, network_region=None):
     url = f"https://api.openelectricity.org.au/v4/data/network/{network_code}"
     
     chunks = []
@@ -66,6 +66,8 @@ async def fetch_rooftop(network_code, start_dt, end_dt):
                 "date_end": c_end,
                 "fueltech": "solar_rooftop"
             }
+            if network_region:
+                params["network_region"] = network_region
             try:
                 async with session.get(url, params=params) as resp:
                     if resp.status == 200:
@@ -157,27 +159,37 @@ async def main():
 
 
     # Append rooftop solar data
-    rooftop_nem = await fetch_rooftop("NEM", start_date, end_date)
+    nem_regions = [
+        ("NSW1", "NSW/ACT Rooftop Solar", "NSW/ACT"),
+        ("QLD1", "QLD Rooftop Solar", "QLD"),
+        ("SA1", "SA Rooftop Solar", "SA"),
+        ("TAS1", "TAS Rooftop Solar", "TAS"),
+        ("VIC1", "VIC Rooftop Solar", "VIC")
+    ]
+    
+    for reg_code, reg_name, reg_state in nem_regions:
+        rooftop_data = await fetch_rooftop("NEM", start_date, end_date, network_region=reg_code)
+        fac_id = f"ROOFTOP_{reg_code}"
+        facility_data[fac_id] = rooftop_data
+        
+        facilities.append({
+            "id": 0,
+            "oe_id": fac_id,
+            "name": reg_name,
+            "lat": -90.0,
+            "lon": 0.0,
+            "type": "rooftop_solar",
+            "state": reg_state,
+            "capacity_mw": 0,
+            "start_year": 2000
+        })
+
     rooftop_wem = await fetch_rooftop("WEM", start_date, end_date)
-    
-    facility_data["ROOFTOP_NEM"] = rooftop_nem
     facility_data["ROOFTOP_WEM"] = rooftop_wem
-    
     facilities.append({
-        "id": len(facilities) + 1,
-        "oe_id": "ROOFTOP_NEM",
-        "name": "NEM Rooftop Solar",
-        "lat": -90.0,
-        "lon": 0.0,
-        "type": "rooftop_solar",
-        "state": "NEM (Multi-state)",
-        "capacity_mw": 0,
-        "start_year": 2000
-    })
-    facilities.append({
-        "id": len(facilities) + 1,
+        "id": 0,
         "oe_id": "ROOFTOP_WEM",
-        "name": "WEM Rooftop Solar",
+        "name": "WA Rooftop Solar",
         "lat": -90.0,
         "lon": 0.0,
         "type": "rooftop_solar",

@@ -55,7 +55,6 @@ class EngineApp {
       this.selectedStates = new Set();
       const states = new Set();
       for (const fac of this.facilityMap.values()) {
-          if (fac.state === 'NEM (Multi-state)') fac.state = 'NEM (Grid)';
           if (fac.state) states.add(fac.state);
       }
       
