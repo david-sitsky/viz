@@ -538,3 +538,22 @@ input[type="range"]::-moz-range-thumb { height: 14px; width: 14px; border-radius
   gap: 8px;
   cursor: pointer;
 }
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.filter-grid label {
+  color: #e4e4e7;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.filter-grid input[type="checkbox"] {
+  margin: 0;
+  accent-color: #F59E0B;
+}

@@ -46,7 +46,7 @@ class EngineApp {
       this._setupHoverPanelClose();
 
       this._hideLoading();
-      ['statsBar','controls','mapStyleSelector'].forEach(k => {
+      ['statsBar','controls','mapStyleSelector','filterPanel'].forEach(k => {
         if(this.dom[k]) this.dom[k].classList.remove('hidden');
       });
 
@@ -61,19 +61,15 @@ class EngineApp {
       const sortedStates = Array.from(states).sort();
       sortedStates.forEach(s => this.selectedStates.add(s));
       
-      const filterBtn = document.getElementById('filter-btn');
+      
       const filterContent = document.getElementById('filter-content');
       
-      if (filterBtn && filterContent) {
+      if (filterContent) {
           let html = '';
           sortedStates.forEach(s => {
               html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
           });
           filterContent.innerHTML = html;
-          
-          filterBtn.addEventListener('click', () => {
-              filterContent.classList.toggle('hidden');
-          });
           
           filterContent.addEventListener('change', (e) => {
               if (e.target.type === 'checkbox') {
@@ -150,6 +146,7 @@ class EngineApp {
       loadingStatus:    $('loading-status'),
       progressFill:     $('progress-fill'),
       statsBar:         $('stats-bar'),
+      filterPanel:      $('filter-panel'),
       statDate:         $('stat-date'),
       statRecords:      $('stat-records'),
       controls:         $('controls'),
@@ -225,19 +222,15 @@ class EngineApp {
       const sortedStates = Array.from(states).sort();
       sortedStates.forEach(s => this.selectedStates.add(s));
       
-      const filterBtn = document.getElementById('filter-btn');
+      
       const filterContent = document.getElementById('filter-content');
       
-      if (filterBtn && filterContent) {
+      if (filterContent) {
           let html = '';
           sortedStates.forEach(s => {
               html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
           });
           filterContent.innerHTML = html;
-          
-          filterBtn.addEventListener('click', () => {
-              filterContent.classList.toggle('hidden');
-          });
           
           filterContent.addEventListener('change', (e) => {
               if (e.target.type === 'checkbox') {
@@ -293,19 +286,15 @@ class EngineApp {
       const sortedStates = Array.from(states).sort();
       sortedStates.forEach(s => this.selectedStates.add(s));
       
-      const filterBtn = document.getElementById('filter-btn');
+      
       const filterContent = document.getElementById('filter-content');
       
-      if (filterBtn && filterContent) {
+      if (filterContent) {
           let html = '';
           sortedStates.forEach(s => {
               html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
           });
           filterContent.innerHTML = html;
-          
-          filterBtn.addEventListener('click', () => {
-              filterContent.classList.toggle('hidden');
-          });
           
           filterContent.addEventListener('change', (e) => {
               if (e.target.type === 'checkbox') {
@@ -353,19 +342,15 @@ class EngineApp {
       const sortedStates = Array.from(states).sort();
       sortedStates.forEach(s => this.selectedStates.add(s));
       
-      const filterBtn = document.getElementById('filter-btn');
+      
       const filterContent = document.getElementById('filter-content');
       
-      if (filterBtn && filterContent) {
+      if (filterContent) {
           let html = '';
           sortedStates.forEach(s => {
               html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
           });
           filterContent.innerHTML = html;
-          
-          filterBtn.addEventListener('click', () => {
-              filterContent.classList.toggle('hidden');
-          });
           
           filterContent.addEventListener('change', (e) => {
               if (e.target.type === 'checkbox') {

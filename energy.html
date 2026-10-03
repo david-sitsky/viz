@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive animated map showing Australian power generation over time">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=25">
+  <link rel="stylesheet" href="styles.css?v=26">
   <style>
     /* Energy SVG styling */
     .energy-icon {
@@ -70,12 +70,6 @@
         <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
         <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
         <input type="range" id="scrubber" class="scrubber" min="0" max="100" value="0" aria-label="Timeline">
-        
-        <div class="filter-dropdown">
-          <button id="filter-btn" class="filter-btn">Filter States ▾</button>
-          <div id="filter-content" class="filter-content hidden">
-          </div>
-        </div>
         <label class="fade-toggle" title="Fade old recordings">
           <input type="checkbox" id="fade-toggle" checked>
           <span class="toggle-track"><span class="toggle-thumb"></span></span>
@@ -113,7 +107,14 @@
         </span>
         <span class="stat-value" id="stat-records">0</span>
       </div>
-    </header>
+        </header>
+    
+    <!-- State Filter Panel -->
+    <div id="filter-panel" class="glass hidden" style="margin-top: 10px; padding: 12px 15px;">
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.5px; color: rgba(255,255,255,0.65); margin-bottom: 10px;">FILTER BY STATE</div>
+      <div id="filter-content" class="filter-grid">
+      </div>
+    </div>
     
     <div class="attribution">
       Facility metadata sourced from OpenElectricity. All generation values are real (via OpenElectricity) starting from Nov 2024.
@@ -137,7 +138,7 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/energy_app.js?v=25"></script>
+  <script type="module" src="js/energy_app.js?v=26"></script>
   <!-- ─── Bottom Panel: Bar Chart ─── -->
   <div id="bottom-panel" class="glass hidden">
         <div class="chart-header">
