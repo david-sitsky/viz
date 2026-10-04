@@ -185,7 +185,9 @@ class EngineApp {
         this.dom.hoverType.style.display = 'block';
         this.dom.hoverCap.style.display = 'block';
       }
-    }\n    \n    this.dom.hoverPanel.style.position = 'fixed';
+    }
+
+    this.dom.hoverPanel.style.position = 'fixed';
     this.dom.hoverPanel.style.left = (x + 15) + 'px';
     this.dom.hoverPanel.style.top = (y + 15) + 'px';
     this.dom.hoverPanel.style.right = 'auto';
