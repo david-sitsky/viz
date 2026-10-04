@@ -164,6 +164,9 @@ class EngineApp {
     if (fac.type === 'rooftop_solar') {
       this.dom.hoverLink.style.display = 'none';
       if (this.dom.hoverImg) this.dom.hoverImg.classList.add('hidden');
+      this.dom.hoverName.style.display = 'block';
+      this.dom.hoverType.style.display = 'block';
+      this.dom.hoverCap.style.display = 'block';
     } else {
       if (fac.oe_id) {
         this.dom.hoverLink.href = `https://openelectricity.org.au/facility/${fac.oe_id}`;
@@ -172,13 +175,17 @@ class EngineApp {
           this.dom.hoverImg.src = `https://openelectricity.org.au/og/facility/${fac.oe_id}.jpg`;
           this.dom.hoverImg.classList.remove('hidden');
         }
+        this.dom.hoverName.style.display = 'none';
+        this.dom.hoverType.style.display = 'none';
+        this.dom.hoverCap.style.display = 'none';
       } else {
         this.dom.hoverLink.style.display = 'none';
         if (this.dom.hoverImg) this.dom.hoverImg.classList.add('hidden');
+        this.dom.hoverName.style.display = 'block';
+        this.dom.hoverType.style.display = 'block';
+        this.dom.hoverCap.style.display = 'block';
       }
-    }
-    
-    this.dom.hoverPanel.style.position = 'fixed';
+    }\n    \n    this.dom.hoverPanel.style.position = 'fixed';
     this.dom.hoverPanel.style.left = (x + 15) + 'px';
     this.dom.hoverPanel.style.top = (y + 15) + 'px';
     this.dom.hoverPanel.style.right = 'auto';
