@@ -62,6 +62,7 @@ function parseBinary(buffer, metadata, palette) {
   const positions = new Float32Array(recordCount * 2);
   const categoryIndices = new Uint8Array(recordCount);
   const generation = new Float32Array(recordCount);
+  const generationRadii = new Float32Array(recordCount);
 
   for (let i = 0; i < recordCount; i++) {
     const offset = i * RECORD_SIZE;
@@ -70,6 +71,7 @@ function parseBinary(buffer, metadata, palette) {
     positions[i * 2 + 1] = view.getFloat32(offset + 6, true);
     categoryIndices[i]   = view.getUint8(offset + 10);
     generation[i]        = view.getFloat32(offset + 11, true);
+    generationRadii[i]   = Math.sqrt(generation[i]);
   }
 
   const colors = new Uint8Array(recordCount * 4);
@@ -91,7 +93,7 @@ function parseBinary(buffer, metadata, palette) {
     pulseColors[i * 4 + 3] = 255;
   }
 
-  return { metadata, facilityIds, positions, categoryIndices, generation, colors, pulseColors, palette };
+  return { metadata, facilityIds, positions, categoryIndices, generation, generationRadii, colors, pulseColors, palette };
 }
 
 function openDB() {

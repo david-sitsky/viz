@@ -16,9 +16,9 @@ class EngineApp {
     this._cacheDom();
     try {
       this.data = await loadData(
-        'data_energy/metadata.json?v=22',
-        'data_energy/energy.bin?v=22',
-        'energy-v21',
+        'data_energy/metadata.json?v=23',
+        'data_energy/energy.bin?v=23',
+        'energy-v23',
         [
           [17, 17, 17],    // 0: coal
           [244, 142, 27],  // 1: gas
@@ -30,18 +30,21 @@ class EngineApp {
         (phase, pct) => this._updateLoading(phase, pct),
       );
       
-      this.facilities = await fetch('data_energy/facilities.json?v=22').then(r => r.json());
+      this.facilities = await fetch('data_energy/facilities.json?v=23').then(r => r.json());
       this.facilityMap = new Map();
       for(let f of this.facilities) this.facilityMap.set(f.id, f);
+      
+      this.statesGeojson = await fetch('data_energy/states.geojson?v=1').then(r => r.json());
 
       this.map = new EngineMap(
         'map-container',
         this.data,
-        (recordIdx, x, y) => this._onHover(recordIdx, x, y)
+        (recordIdx, x, y) => this._onHover(recordIdx, x, y),
+        this.statesGeojson
       );
 
+      this.map.delegate = this;
       this._setupControls();
-      this._setupMapStyleSwitcher();
       this._setupGesturePrevention();
       this._setupHoverPanelClose();
 
@@ -95,6 +98,7 @@ class EngineApp {
               if (this.map && this.map.applyStateFilter) {
                   this.map.applyStateFilter(this.facilityMap, this.selectedStates);
               }
+              this._absoluteMaxTotal = undefined;
               this._updateUI();
           };
           
@@ -102,7 +106,18 @@ class EngineApp {
           const btnNone = document.getElementById('btn-deselect-all');
           if (btnAll) btnAll.addEventListener('click', () => updateAllStates(true));
           if (btnNone) btnNone.addEventListener('click', () => updateAllStates(false));
-}
+          
+          }
+          this.rooftopMode = 'centroid';
+          const rooftopSelect = document.getElementById('rooftop-mode');
+          if (rooftopSelect) {
+              rooftopSelect.addEventListener('change', (e) => {
+                  this.rooftopMode = e.target.value;
+                  if (this.map && this.map.applyStateFilter) {
+                      this.map.applyStateFilter(this.facilityMap, this.selectedStates);
+                  }
+              });
+          }
       if (this.map && this.map.applyStateFilter) {
           this.map.applyStateFilter(this.facilityMap, this.selectedStates);
       }
@@ -123,11 +138,12 @@ class EngineApp {
     }
     
     if (recordIdx < 0) {
+      if (this._isHoveringPopup) return;
       this._hideTooltipTimeout = setTimeout(() => {
-        if (this.dom && this.dom.tooltip) {
-          this.dom.tooltip.classList.add('hidden');
+        if (this.dom && this.dom.hoverPanel) {
+          this.dom.hoverPanel.classList.add('faded');
         }
-      }, 250);
+      }, 1500);
       return;
     }
     const fId = this.data.facilityIds[recordIdx];
@@ -144,18 +160,28 @@ class EngineApp {
     const c = this.data.palette[catIdx];
     this.dom.hoverPanel.style.borderLeftColor = `rgb(${c[0]},${c[1]},${c[2]})`;
     
-    if (fac.oe_id) {
-      this.dom.hoverLink.href = `https://openelectricity.org.au/facility/${fac.oe_id}`;
-      this.dom.hoverLink.style.display = 'block';
-    } else {
+    if (fac.type === 'rooftop_solar') {
       this.dom.hoverLink.style.display = 'none';
+      if (this.dom.hoverImg) this.dom.hoverImg.classList.add('hidden');
+    } else {
+      if (fac.oe_id) {
+        this.dom.hoverLink.href = `https://openelectricity.org.au/facility/${fac.oe_id}`;
+        this.dom.hoverLink.style.display = 'block';
+        if (this.dom.hoverImg) {
+          this.dom.hoverImg.src = `https://openelectricity.org.au/og/facility/${fac.oe_id}.jpg`;
+          this.dom.hoverImg.classList.remove('hidden');
+        }
+      } else {
+        this.dom.hoverLink.style.display = 'none';
+        if (this.dom.hoverImg) this.dom.hoverImg.classList.add('hidden');
+      }
     }
     
     this.dom.hoverPanel.style.position = 'fixed';
     this.dom.hoverPanel.style.left = (x + 15) + 'px';
     this.dom.hoverPanel.style.top = (y + 15) + 'px';
     this.dom.hoverPanel.style.right = 'auto';
-    this.dom.hoverPanel.classList.remove('hidden');
+    this.dom.hoverPanel.classList.remove('hidden', 'faded');
   }
 
   _cacheDom() {
@@ -167,21 +193,18 @@ class EngineApp {
       statsBar:         $('stats-bar'),
       filterPanel:      $('filter-panel'),
       statDate:         $('stat-date'),
-      statRecords:      $('stat-records'),
       controls:         $('controls'),
       btnRewind:        $('btn-rewind'),
       btnPlay:          $('btn-play'),
       scrubber:         $('scrubber'),
       speedSlider:      $('speed'),
       speedVal:         $('speed-val'),
-      dayInfo:          $('day-info'),
-      todayInfo:        $('today-info'),
-      fadeToggle:       $('fade-toggle'),
-      mapStyleSelector: $('map-style-selector'),
       hoverPanel:       $('hover-panel'),
+      hoverImg:         $('hover-img'),
       hoverName:        $('hover-name'),
       hoverType:        $('hover-type'),
       hoverGen:         $('hover-gen'),
+      chartViewMode:    $('chart-view-mode'),
       hoverLink:        $('hover-link'),
     };
   }
@@ -190,6 +213,17 @@ class EngineApp {
     this.dom.hoverPanel.querySelector('.panel-close').addEventListener('click', () => {
       this.dom.hoverPanel.classList.add('hidden');
       this.map._lastHoveredRecord = -1;
+    });
+    this.dom.hoverPanel.addEventListener('mouseenter', () => {
+      this._isHoveringPopup = true;
+      if (this._hideTooltipTimeout) {
+        clearTimeout(this._hideTooltipTimeout);
+        this._hideTooltipTimeout = null;
+      }
+    });
+    this.dom.hoverPanel.addEventListener('mouseleave', () => {
+      this._isHoveringPopup = false;
+      this._onHover(-1, 0, 0); // Start fade timer if we aren't hovering a dot
     });
   }
 
@@ -203,30 +237,48 @@ class EngineApp {
     }
   }
 
-  _hideLoading() {
+_hideLoading() {
     this.dom.loadingOverlay.classList.add('fade-out');
     setTimeout(() => {
       this.dom.loadingOverlay.classList.add('hidden');
-      if (this.map && this.map.map) {
-        this.map.map.resize();
-        this.map._updateLayers();
+      
+      if (!localStorage.getItem('hasSeenTour') && window.driver && window.driver.js) {
+          localStorage.setItem('hasSeenTour', 'true');
+          const d = window.driver.js.driver({
+              showProgress: false,
+              popoverClass: 'driverjs-theme',
+              steps: [
+                  { element: '#btn-play', popover: { title: 'Play Animation', description: 'Click play to start the timeline animation.', side: 'bottom', align: 'start' } },
+                  { element: '#btn-settings', popover: { title: 'Settings & Filters', description: 'Click here for extra options and state filtering.', side: 'bottom', align: 'end' } },
+                  { element: '#chart-view-mode', popover: { title: 'Cumulative Generation', description: 'Use this dropdown to compare specific fuel sources across states.', side: 'top', align: 'end' } }
+              ]
+          });
+          setTimeout(() => d.drive(), 500);
       }
     }, 500);
   }
 
   _setupControls() {
     this.chartMode = 'cumulative';
-    const radios = document.querySelectorAll('input[name="chartMode"]');
-    const chartTitle = document.getElementById('chart-title');
-    radios.forEach(r => {
-      r.addEventListener('change', (e) => {
-        if (e.target.checked) {
-          this.chartMode = e.target.value;
-          if (chartTitle) chartTitle.textContent = this.chartMode === 'cumulative' ? 'Cumulative Generation by Source' : 'Daily Generation by Source';
-          this._updateUI();
-        }
-      });
-    });
+    this.chartViewMode = 'all_sources';
+    
+    if (this.dom.chartViewMode) {
+        this.dom.chartViewMode.addEventListener('change', (e) => {
+            this.chartViewMode = e.target.value;
+            this._updateUI();
+            
+            // Update map filters
+            if (this.map && this.map.setFilter) {
+                if (this.chartViewMode === 'all_sources') {
+                    this.map.setFilter(new Set());
+                } else {
+                    const targetType = this.chartViewMode.replace('state_', '');
+                    const targetCatIdx = this.data.metadata.fuelTypes.indexOf(targetType);
+                    this.map.setFilter(new Set([targetCatIdx]));
+                }
+            }
+        });
+    }
 
     this.dom.btnRewind.addEventListener('click', () => {
       this._pause();
@@ -248,8 +300,6 @@ class EngineApp {
       if (this.playing) { clearTimeout(this.tickTimer); this._scheduleTick(); }
     });
 
-    this.dom.fadeToggle.addEventListener('change', () =>
-      this.map.setFadeMode(this.dom.fadeToggle.checked));
 
     document.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT') return;
@@ -310,7 +360,7 @@ class EngineApp {
     const { metadata } = this.data;
     const d = new Date(metadata.startDate + 'T00:00:00');
     d.setDate(d.getDate() + this.currentDay);
-    this.dom.statDate.textContent   = d.toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' });
+    this.dom.statDate.textContent   = d.toLocaleDateString('en-AU', { day:'2-digit', month:'short', year:'numeric' });
 
     const { generation, categoryIndices, palette } = this.data;
     const dayOffsets = metadata.dayOffsets;
@@ -332,9 +382,13 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         }
     }
     
-// 1. Calculate absolute max total for the entire timeline
-    if (this._absoluteMaxTotal === undefined) {
+// 1. Calculate absolute max totals for the entire timeline (to prevent bouncing scales)
+    if (this._absoluteMaxTotals === undefined) {
+        this._absoluteMaxTotals = { all_sources: 0 };
         let absCatTotals = new Array(metadata.fuelTypes.length).fill(0);
+        let absStateTotals = new Map();
+        for (let i = 0; i < metadata.fuelTypes.length; i++) absStateTotals.set(i, new Map());
+        
         for (let i = 0; i < metadata.recordCount; i++) {
             const fac = this.facilityMap.get(this.data.facilityIds[i]);
             if (!fac || !this.selectedStates.has(fac.state)) continue;
@@ -342,95 +396,63 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
             const cIdx = categoryIndices[i];
             if (cIdx >= 0 && cIdx < absCatTotals.length) {
                 absCatTotals[cIdx] += generation[i];
+                let st = fac.state;
+                if (st === 'NSW/ACT') st = 'NSW';
+                const sMap = absStateTotals.get(cIdx);
+                sMap.set(st, (sMap.get(st) || 0) + generation[i]);
             }
         }
+        
         let fossilMax = 0, renMax = 0;
         for (let i = 0; i < metadata.fuelTypes.length; i++) {
             const fType = metadata.fuelTypes[i];
             if (fType === 'coal' || fType === 'gas') fossilMax += absCatTotals[i];
             else if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) renMax += absCatTotals[i];
+            
+            const maxForCat = Math.max(0, ...Array.from(absStateTotals.get(i).values()));
+            this._absoluteMaxTotals['state_' + fType] = maxForCat;
         }
-        this._absoluteMaxTotal = Math.max(...absCatTotals);
+        this._absoluteMaxTotals['all_sources'] = Math.max(...absCatTotals);
         this._absoluteAggregateMaxTotal = Math.max(fossilMax, renMax);
     }
     
-    // Accumulate power by category up to current day
-    const catTotals = new Array(metadata.fuelTypes.length).fill(0);
-    
-    if (this.chartMode === 'cumulative') {
-        for (let i = 0; i < endIdx; i++) {
-            const fac = this.facilityMap.get(this.data.facilityIds[i]);
-            if (!fac || !this.selectedStates.has(fac.state)) continue;
-            
-            const catIdx = categoryIndices[i];
-            if (catIdx >= 0 && catIdx < catTotals.length) {
-                catTotals[catIdx] += generation[i];
-            }
-        }
-    } else {
-        // Daily Snapshot
-        for (let i = dayStart; i < endIdx; i++) {
-            const fac = this.facilityMap.get(this.data.facilityIds[i]);
-            if (!fac || !this.selectedStates.has(fac.state)) continue;
-            
-            const catIdx = categoryIndices[i];
-            if (catIdx >= 0 && catIdx < catTotals.length) {
-                catTotals[catIdx] += generation[i];
-            }
-        }
-    }
-
-    
-    // Calculate aggregates
-    let fossilTotal = 0;
-    let renewableTotal = 0;
-    for (let i = 0; i < metadata.fuelTypes.length; i++) {
-        const fType = metadata.fuelTypes[i];
-        if (fType === 'coal' || fType === 'gas') fossilTotal += catTotals[i];
-        else if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) renewableTotal += catTotals[i];
-    }
-
-    // Build array of objects for sorting
+    // Accumulate power up to current day
+    const mode = this.chartViewMode || 'all_sources';
     let chartData = [];
-    for (let i = 0; i < metadata.fuelTypes.length; i++) {
-        chartData.push({
-            name: metadata.fuelTypes[i],
-            total: catTotals[i],
-            color: palette[i]
-        });
-    }
+    let aggregatesHtml = '';
     
-    // Sort highest to lowest
-    chartData.sort((a, b) => b.total - a.total);
-    
-    // Render HTML
-    if (!this.dom.barChart) this.dom.barChart = document.getElementById('bar-chart');
-    if (this.dom.barChart) {
-        let html = '';
-        let currentMax = this._absoluteMaxTotal;
+    let currentMax = this._absoluteMaxTotals[mode] || 0;
+
+    if (mode === 'all_sources') {
+        const catTotals = new Array(metadata.fuelTypes.length).fill(0);
+        
+        let targetStart = this.chartMode === 'cumulative' ? 0 : dayStart;
+        for (let i = targetStart; i < endIdx; i++) {
+            const fac = this.facilityMap.get(this.data.facilityIds[i]);
+            if (!fac || !this.selectedStates.has(fac.state)) continue;
+            
+            const catIdx = categoryIndices[i];
+            if (catIdx >= 0 && catIdx < catTotals.length) {
+                catTotals[catIdx] += generation[i];
+            }
+        }
+        
+        let fossilTotal = 0, renewableTotal = 0;
+        for (let i = 0; i < metadata.fuelTypes.length; i++) {
+            const fType = metadata.fuelTypes[i];
+            if (fType === 'coal' || fType === 'gas') fossilTotal += catTotals[i];
+            else if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) renewableTotal += catTotals[i];
+            
+            chartData.push({
+                name: fType,
+                total: catTotals[i],
+                color: palette[i]
+            });
+        }
+        
         if (this.chartMode === 'snapshot') {
             currentMax = Math.max(...catTotals, fossilTotal, renewableTotal);
         }
-        for (const item of chartData) {
-            if (item.total === 0) continue;
-            const pct = currentMax > 0 ? (item.total / currentMax) * 100 : 0;
-            const colorStr = `rgb(${item.color[0]}, ${item.color[1]}, ${item.color[2]})`;
-            const label = item.name.replace('_', ' ').toUpperCase();
-            const valStr = Math.round(item.total / 1000).toLocaleString() + ' GWh';
-            
-            html += `
-              <div class="bar-row">
-                <div class="bar-label">${label}</div>
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: ${pct}%; background: ${colorStr};"></div>
-                </div>
-                <div class="bar-value">${valStr}</div>
-              </div>
-            `;
-        }
-
-        // Add aggregates
-        html += '<hr style="border: 1px solid #444; margin: 10px 0;">';
         
         let aggMax = this._absoluteAggregateMaxTotal;
         if (this.chartMode === 'snapshot') {
@@ -438,9 +460,10 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         }
         
         if (fossilTotal > 0 || renewableTotal > 0) {
+            aggregatesHtml += '<hr style="border: 1px solid #444; margin: 10px 0;">';
             if (fossilTotal > 0) {
                 const fossilPct = aggMax > 0 ? (fossilTotal / aggMax) * 100 : 0;
-                html += `
+                aggregatesHtml += `
                   <div class="bar-row">
                     <div class="bar-label" style="font-weight: bold;">FOSSIL FUELS</div>
                     <div class="bar-track">
@@ -450,10 +473,9 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
                   </div>
                 `;
             }
-
             if (renewableTotal > 0) {
                 const renPct = aggMax > 0 ? (renewableTotal / aggMax) * 100 : 0;
-                html += `
+                aggregatesHtml += `
                   <div class="bar-row">
                     <div class="bar-label" style="font-weight: bold;">RENEWABLES</div>
                     <div class="bar-track">
@@ -464,28 +486,84 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
                 `;
             }
         }
+    } else {
+        const targetType = mode.replace('state_', '');
+        const targetCatIdx = metadata.fuelTypes.indexOf(targetType);
+        
+        const stateTotals = new Map();
+        
+        let targetStart = this.chartMode === 'cumulative' ? 0 : dayStart;
+        for (let i = targetStart; i < endIdx; i++) {
+            if (categoryIndices[i] === targetCatIdx) {
+                const fac = this.facilityMap.get(this.data.facilityIds[i]);
+                if (!fac || !this.selectedStates.has(fac.state)) continue;
+                
+                let st = fac.state;
+                if (st === 'NSW/ACT') st = 'NSW';
+                
+                stateTotals.set(st, (stateTotals.get(st) || 0) + generation[i]);
+            }
+        }
+        
+        if (this.chartMode === 'snapshot') {
+            currentMax = Math.max(0, ...Array.from(stateTotals.values()));
+        }
+        
+        const targetColor = palette[targetCatIdx];
+        for (const [state, total] of stateTotals.entries()) {
+            chartData.push({
+                name: state,
+                total: total,
+                color: targetColor
+            });
+        }
+    }
+    
+    // Sort highest to lowest
+    chartData.sort((a, b) => b.total - a.total);
+    
+    // Render HTML
+    if (!this.dom.barChart) this.dom.barChart = document.getElementById('bar-chart');
+    if (this.dom.barChart) {
+        let html = '';
+        
+        for (const item of chartData) {
+            if (item.total === 0) continue;
+            const pct = currentMax > 0 ? (item.total / currentMax) * 100 : 0;
+            const colorStr = `rgb(${item.color[0]}, ${item.color[1]}, ${item.color[2]})`;
+            let label = item.name.replace('_', ' ').toUpperCase();
+            if (window.innerWidth <= 768) {
+                if (label === 'COMMERCIAL SOLAR') label = 'COMM SOLAR';
+                if (label === 'ROOFTOP SOLAR') label = 'ROOF SOLAR';
+            }
+            const valStr = Math.round(item.total / 1000).toLocaleString() + ' GWh';
+            
+            let extraLabelStyle = '';
+            if (this.chartViewMode !== 'all_sources' && window.innerWidth <= 768) {
+                extraLabelStyle = 'width: 35px !important; text-align: left;';
+            }
+            
+            html += `
+              <div class="bar-row">
+                <div class="bar-label" style="${extraLabelStyle}">${label}</div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width: ${pct}%; background: ${colorStr};"></div>
+                </div>
+                <div class="bar-value">${valStr}</div>
+              </div>
+            `;
+        }
+
+        html += aggregatesHtml;
 
         this.dom.barChart.innerHTML = html;
         document.getElementById('bottom-panel').classList.remove('hidden');
     }
 
     const counts = this.map.getVisibleCounts();
-    this.dom.statRecords.textContent = counts.total.toLocaleString() + ' records';
-    this.dom.todayInfo.textContent   = `${counts.today.toLocaleString()} facilities`;
-    this.dom.dayInfo.textContent     = `Month ${(this.currentDay+1).toLocaleString()} of ${metadata.totalDays.toLocaleString()}`;
     this.dom.scrubber.value          = this.currentDay;
   }
 
-  _setupMapStyleSwitcher() {
-    if (!this.dom.mapStyleSelector) return;
-    this.dom.mapStyleSelector.querySelectorAll('.style-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        this.dom.mapStyleSelector.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        this.map.setMapStyle(btn.dataset.style);
-      });
-    });
-  }
 }
 
 const app = new EngineApp();

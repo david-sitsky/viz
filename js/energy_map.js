@@ -1,6 +1,7 @@
 const maplibregl = globalThis.maplibregl;
 const MapboxOverlay = globalThis.deck.MapboxOverlay || globalThis.deck.MapLibreOverlay;
 const ScatterplotLayer = globalThis.deck.ScatterplotLayer;
+const GeoJsonLayer = globalThis.deck.GeoJsonLayer;
 
 const MAP_STYLES = {
   dark:      'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
@@ -15,7 +16,7 @@ function calculateOptimalAustraliaViewport() {
   const h = window.innerHeight;
   const isMobilePortrait = (w <= 600 && h > w);
   const centerLng = 133.5;
-  const centerLat = isMobilePortrait ? -10.0 : -28.8;
+  const centerLat = isMobilePortrait ? -38.0 : -32.0;
   let zoom;
   if (w <= 450) zoom = 2.15;
   else if (w <= 650) zoom = 2.45;
@@ -27,9 +28,10 @@ function calculateOptimalAustraliaViewport() {
 }
 
 export class EngineMap {
-  constructor(containerId, data, onRecord = null) {
+  constructor(containerId, data, onRecord = null, statesGeojson = null) {
+    this.statesGeojson = statesGeojson;
     this.data = data;
-    this.data.filteredGeneration = new Float32Array(this.data.generation);
+    this.data.filteredGeneration = new Float32Array(this.data.generationRadii || this.data.generation);
     this.onRecord = onRecord;
     this.currentDay = 0;
     this.fadeMode = true;
@@ -121,12 +123,32 @@ export class EngineMap {
         this.data.filteredGeneration = new Float32Array(this.data.generation.length);
     }
     
+    const ROOFTOP_CENTROIDS = {
+        'NSW/ACT': [-32.0, 145.0],
+        'VIC': [-36.5, 143.0],
+        'QLD': [-22.0, 144.0],
+        'SA': [-30.0, 135.0],
+        'WA': [-25.0, 122.0],
+        'TAS': [-42.0, 146.0]
+    };
+    
+    const rooftopMode = this.delegate ? this.delegate.rooftopMode : 'polygon';
+
     for (let i = 0; i < this.data.metadata.recordCount; i++) {
         const fac = facilityMap.get(this.data.facilityIds[i]);
         if (fac && selectedStates.has(fac.state)) {
-            this.data.filteredGeneration[i] = this.data.generation[i];
-            this.data.filteredPositions[i*2] = this.data.positions[i*2];
-            this.data.filteredPositions[i*2+1] = this.data.positions[i*2+1];
+            this.data.filteredGeneration[i] = this.data.generationRadii ? this.data.generationRadii[i] : this.data.generation[i];
+            
+            if (fac.type === 'rooftop_solar' && rooftopMode === 'centroid' && ROOFTOP_CENTROIDS[fac.state]) {
+                this.data.filteredPositions[i*2] = ROOFTOP_CENTROIDS[fac.state][1]; // lon
+                this.data.filteredPositions[i*2+1] = ROOFTOP_CENTROIDS[fac.state][0]; // lat
+            } else if (fac.type === 'rooftop_solar' && rooftopMode === 'polygon') {
+                this.data.filteredPositions[i*2] = 0;
+                this.data.filteredPositions[i*2+1] = -90;
+            } else {
+                this.data.filteredPositions[i*2] = this.data.positions[i*2];
+                this.data.filteredPositions[i*2+1] = this.data.positions[i*2+1];
+            }
         } else {
             this.data.filteredGeneration[i] = 0;
             // Move off-map so it doesn't render as a 2px circle due to radiusMinPixels
@@ -186,6 +208,11 @@ export class EngineMap {
     const container = document.getElementById('map-container');
     if (!info || info.index < 0 || !info.layer || info.layer.id === 'glow') {
       if (container) container.style.cursor = '';
+      if (this._hoverDelayTimer) clearTimeout(this._hoverDelayTimer);
+      if (this._lastHoveredRecord !== -1) {
+          this._lastHoveredRecord = -1;
+          if (this.onRecord) this.onRecord(-1, 0, 0);
+      }
       return;
     }
 
@@ -195,8 +222,13 @@ export class EngineMap {
 
     if (recordIdx === this._lastHoveredRecord) return;
     this._lastHoveredRecord = recordIdx;
-
-    if (this.onRecord) this.onRecord(recordIdx, info.x, info.y);
+    
+    if (this._hoverDelayTimer) clearTimeout(this._hoverDelayTimer);
+    this._hoverDelayTimer = setTimeout(() => {
+        if (this.onRecord && this._lastHoveredRecord === recordIdx) {
+            this.onRecord(recordIdx, info.x, info.y);
+        }
+    }, 500);
   }
 
   _handleClick(info) {
@@ -206,6 +238,7 @@ export class EngineMap {
     const recordIdx = this._resolveRecordIndex(info);
     if (recordIdx < 0) return;
 
+    if (this._hoverDelayTimer) clearTimeout(this._hoverDelayTimer);
     this._lastHoveredRecord = recordIdx;
     if (this.onRecord) this.onRecord(recordIdx, info.x, info.y);
   }
@@ -217,6 +250,7 @@ export class EngineMap {
       this._filteredColors = null;
       this._filteredPulseColors = null;
       this._filteredCategoryIndices = null;
+      this._filteredFilteredGeneration = null;
       this._filteredDayOffsets = null;
       return;
     }
@@ -236,6 +270,7 @@ export class EngineMap {
     this._filteredPulseColors   = new Uint8Array(fn * 4);
     this._filteredCategoryIndices = new Uint8Array(fn);
     this._filteredGeneration    = new Float32Array(fn);
+    this._filteredFilteredGeneration = new Float32Array(fn);
 
     const sourcePositions = this.data.filteredPositions || positions;
     for (let j = 0; j < fn; j++) {
@@ -249,6 +284,7 @@ export class EngineMap {
       this._filteredFacilityIds[j]     = this.data.facilityIds[i];
       this._filteredCategoryIndices[j] = categoryIndices[i];
       this._filteredGeneration[j]      = this.data.generation[i];
+      this._filteredFilteredGeneration[j] = this.data.filteredGeneration[i];
     }
 
     this._filteredDayOffsets = new Array(metadata.dayOffsets.length);
@@ -317,6 +353,49 @@ let dayStart = offsets[day] ?? 0;
     const dayEnd = endIdx;
 
     let layers = [];
+
+    let stateRooftopGen = { 'NSW': 0, 'VIC': 0, 'QLD': 0, 'SA': 0, 'WA': 0, 'TAS': 0, 'NT': 0 };
+    if (this.delegate && this.delegate.facilityMap && this.statesGeojson && this.delegate.rooftopMode === "polygon") {
+        for (let i = dayStart; i < dayEnd; i++) {
+            if (active.categoryIndices[i] === 5) {
+                const facId = active.facilityIds[i];
+                const fac = this.delegate.facilityMap.get(facId);
+                if (fac && fac.state) {
+                    let state = fac.state;
+                    if (state === 'NSW/ACT') state = 'NSW';
+                    stateRooftopGen[state] = (stateRooftopGen[state] || 0) + active.generation[i];
+                }
+            }
+        }
+        
+        const STATE_ABBR = {
+            'New South Wales': 'NSW', 'Australian Capital Territory': 'NSW',
+            'Victoria': 'VIC', 'Queensland': 'QLD', 'South Australia': 'SA',
+            'Western Australia': 'WA', 'Tasmania': 'TAS', 'Northern Territory': 'NT'
+        };
+
+        layers.push(new GeoJsonLayer({
+            id: 'state-rooftop',
+            data: this.statesGeojson,
+            getFillColor: d => {
+                const abbr = STATE_ABBR[d.properties.STATE_NAME];
+                if (!abbr) return [0,0,0,0];
+                if (this.delegate.selectedStates && !this.delegate.selectedStates.has(abbr === 'NSW' ? 'NSW/ACT' : abbr)) {
+                    return [0,0,0,0];
+                }
+                const gen = stateRooftopGen[abbr] || 0;
+                let intensity = Math.min(255, (gen / 30000) * 255);
+                return [255, 200, 0, intensity * 0.4];
+            },
+            getLineColor: [255, 255, 255, 60],
+            lineWidthMinPixels: 1,
+            pickable: false,
+            updateTriggers: {
+                getFillColor: [stateRooftopGen, this.delegate.selectedStates]
+            }
+        }));
+    }
+
     if (todayCount > 0) {
       // Glow layer for active generation
       layers.push(new ScatterplotLayer({
@@ -328,7 +407,7 @@ let dayStart = offsets[day] ?? 0;
             getRadius:   { value: active.filteredGeneration.subarray(dayStart, dayEnd),    size: 1 },
           },
         },
-        radiusUnits: 'pixels', radiusScale: 0.00004, radiusMinPixels: 2, radiusMaxPixels: 50,
+        radiusUnits: 'pixels', radiusScale: (window.innerWidth <= 600 ? 0.15 : 0.25), radiusMinPixels: 2, radiusMaxPixels: 50,
         getFillColor: [255, 255, 255, 40], opacity: 0.5,
         pickable: false, parameters: { depthTest: false },
       }));
@@ -344,7 +423,7 @@ let dayStart = offsets[day] ?? 0;
             getRadius:   { value: active.filteredGeneration.subarray(dayStart, dayEnd),    size: 1 },
           },
         },
-        radiusUnits: 'pixels', radiusScale: 0.001, radiusMinPixels: 2, radiusMaxPixels: 40,
+        radiusUnits: 'pixels', radiusScale: (window.innerWidth <= 600 ? 0.12 : 0.2), radiusMinPixels: 2, radiusMaxPixels: 40,
         opacity: 0.95, pickable: true, parameters: { depthTest: false },
         _dayStart: dayStart,
       }));

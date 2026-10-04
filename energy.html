@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive animated map showing Australian power generation over time">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=30">
+  <link rel="stylesheet" href="styles.css?v=8">
   <style>
     /* Energy SVG styling */
     .energy-icon {
@@ -28,10 +28,14 @@
     }
     .attribution {
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.9);
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 3px 8px;
+      border-radius: 4px;
       text-align: right;
       margin-top: 4px;
-      padding-right: 4px;
+      display: inline-block;
+      align-self: flex-end;
     }
     .attribution a {
       color: rgba(255,255,255,0.7);
@@ -41,8 +45,11 @@
       text-decoration: underline;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
 </head>
 <body>
+  <input type="checkbox" id="mobile-toggle" style="display: none;">
 
   <!-- ─── Map ─── -->
   <div id="map-container"></div>
@@ -64,53 +71,49 @@
 
   <!-- ─── Top-Left Panel: Controls + Stats ─── -->
   <div id="top-left-panel">
-    <!-- Playback Controls -->
-    <footer id="controls" class="glass hidden">
-      <div class="controls-row">
-        <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
-        <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
-        <input type="range" id="scrubber" class="scrubber" min="0" max="100" value="0" aria-label="Timeline">
-        <label class="fade-toggle" title="Fade old recordings">
-          <input type="checkbox" id="fade-toggle" checked>
-          <span class="toggle-track"><span class="toggle-thumb"></span></span>
-          <span class="fade-label">Fade</span>
-        </label>
-        <div id="map-style-selector" class="style-selector-inline">
-          <button class="style-btn" data-style="dark" title="Dark">🌙</button>
-          <button class="style-btn active" data-style="streets" title="Streets">🗺️</button>
-          <button class="style-btn" data-style="satellite" title="Satellite">🛰️</button>
-        </div>
-      </div>
-      <div class="controls-info-row">
-        <span id="day-info" class="info-chip">Day 1 of 100</span>
-        <div class="speed-ctrl">
-          <span>Speed</span>
-          <input type="range" id="speed" min="1" max="10" value="10" step="1" aria-label="Speed">
-          <span id="speed-val">10×</span>
-        </div>
-        <span id="today-info" class="info-chip">0 today</span>
-      </div>
-    </footer>
+
 
     <!-- Stats Bar -->
-    <header id="stats-bar" class="glass hidden">
-      <div class="stat">
-        <span class="stat-label">📅 DATE</span>
-        <span class="stat-value" id="stat-date">—</span>
+    <header id="stats-bar" class="glass hidden" style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div class="stat">
+            <span class="stat-label">📅 DATE</span>
+            <span class="stat-value" id="stat-date">—</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
+            <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
+          </div>
+        </div>
+        <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings">⚙️ Settings</label>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-label">
-          <svg class="energy-icon" viewBox="0 0 24 24" stroke="none">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"/>
-          </svg> ACTIVE FACILITIES
-        </span>
-        <span class="stat-value" id="stat-records">0</span>
+      <div class="controls-row" style="margin-bottom: 2px;">
+        <input type="range" id="scrubber" class="scrubber" min="0" max="100" value="0" aria-label="Timeline">
       </div>
-        </header>
+    </header>
+
+    <!-- Playback Controls -->
+    <footer id="controls" class="glass hidden" style="margin-top: 10px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 4px;">
+        <div class="speed-ctrl" style="margin: 0;">
+          <span style="font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.65);">SPEED</span>
+          <input type="range" id="speed" min="1" max="10" value="10" step="1" aria-label="Speed" style="width: 70px;">
+          <span id="speed-val" style="font-size: 11px;">10×</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.5px; color: rgba(255,255,255,0.65);">ROOFTOP MODE</div>
+          <select id="rooftop-mode" style="background: rgba(0,0,0,0.5); color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 2px 5px; font-size: 11px; outline: none;">
+              <option value="centroid" selected>State Bubbles</option>
+              <option value="polygon">State Glow</option>
+          </select>
+        </div>
+      </div>
+    </footer>
     
     <!-- State Filter Panel -->
-    <div id="filter-panel" class="glass hidden" style="margin-top: 10px; padding: 12px 15px;">
+    <div id="filter-panel" class="glass hidden" style="margin-top: 10px; border-radius: 12px; padding: 12px 15px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
         <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.5px; color: rgba(255,255,255,0.65);">FILTER BY STATE</div>
         <div>
@@ -118,12 +121,11 @@
           <button id="btn-deselect-all" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 3px; font-size: 10px; padding: 2px 6px; cursor: pointer;">None</button>
         </div>
       </div>
-      <div id="filter-content" class="filter-grid">
-      </div>
+      <div id="filter-content" class="filter-grid"></div>
     </div>
     
     <div class="attribution">
-      Facility metadata sourced from OpenElectricity. All generation values are real (via OpenElectricity) starting from Nov 2024.
+      Data sourced from OpenElectricity.
     </div>
   </div>
 
@@ -132,6 +134,7 @@
     <div id="hover-panel" class="species-panel glass hidden">
       <button class="panel-close" title="Close panel">✕</button>
       <div class="panel-header">
+        <img id="hover-img" class="hidden" style="width: 100%; border-radius: 4px; margin-bottom: 8px;" alt="Facility Photo" src="">
         <div class="panel-names">
           <div class="panel-common" id="hover-name">Facility Name</div>
           <div class="panel-sci" id="hover-type">Fuel Type</div>
@@ -144,12 +147,20 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/energy_app.js?v=30"></script>
+  <script type="module" src="js/energy_app.js?v=35"></script>
   <!-- ─── Bottom Panel: Bar Chart ─── -->
   <div id="bottom-panel" class="glass hidden">
-        <div class="chart-header">
-      <div class="chart-title" id="chart-title">Cumulative Generation by Source</div>
-      
+    <div class="chart-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <div class="chart-title" id="chart-title" style="margin-bottom: 0;">Cumulative Generation</div>
+      <select id="chart-view-mode" style="background: #222; color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 2px 5px; font-size: 11px; outline: none; margin-left: 10px;">
+        <option value="all_sources">Compare All Sources</option>
+        <option value="state_coal">Compare States: Coal</option>
+        <option value="state_gas">Compare States: Gas</option>
+        <option value="state_hydro">Compare States: Hydro</option>
+        <option value="state_wind">Compare States: Wind</option>
+        <option value="state_commercial_solar">Compare States: Commercial Solar</option>
+        <option value="state_rooftop_solar">Compare States: Rooftop Solar</option>
+      </select>
     </div>
     <div class="bar-chart" id="bar-chart"></div>
   </div>
