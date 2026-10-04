@@ -1,5 +1,5 @@
-import { loadData } from './engine_data.js?v=1';
-import { EngineMap } from './engine_map.js?v=1';
+import { loadData } from '../../common/js/engine_data.js?v=1';
+import { EngineMap } from '../../common/js/engine_map.js?v=1';
 
 class EngineApp {
   constructor() {
@@ -16,8 +16,8 @@ class EngineApp {
     this._cacheDom();
     try {
       this.data = await loadData(
-        'data/bogong/metadata.json',
-        'data/bogong/data.bin',
+        'data/metadata.json',
+        'data/data.bin',
         'bogong-v2',
         [[240, 140, 50]],
         (phase, pct) => this._updateLoading(phase, pct),

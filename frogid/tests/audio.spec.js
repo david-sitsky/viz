@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('FrogID Audio Bug', () => {
   test('orchestra stops when filter applied and sound stops when paused', async ({ page }) => {
     await page.addInitScript(() => window.localStorage.setItem('hasSeenFrogTour', 'true'));
-    await page.goto('/frogid.html');
+    await page.goto('/frogid/');
     await page.waitForSelector('#loading-overlay.hidden', { state: 'attached', timeout: 15000 });
     
     // Evaluate in page to inspect audio elements

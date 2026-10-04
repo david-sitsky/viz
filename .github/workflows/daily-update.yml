@@ -35,19 +35,19 @@ jobs:
       - name: Fetch Latest OpenElectricity Data
         env:
           OPENELECTRICITY_API_KEY: ${{ secrets.OPENELECTRICITY_API_KEY }}
-        run: python3 scripts/update_data.py
+        run: cd energy && python3 scripts/update_data.py
         
       - name: Compile Binary Data Blob
-        run: python3 scripts/build_blob.py
+        run: cd energy && python3 scripts/build_blob.py
         
       - name: Bust Browser Cache
-        run: python3 scripts/update_html_version.py
+        run: python3 common/scripts/update_html_version.py
         
       - name: Commit Source Updates to Main
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/energy/raw_events.csv *.html
+          git add energy/data/raw_events.csv energy/index.html frogid/index.html bogong/index.html index.html
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: automated daily data update"
           git pull --rebase origin main && git push origin main
           

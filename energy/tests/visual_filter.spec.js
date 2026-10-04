@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('FrogID Visual Filter Tests', () => {
   test('applying a filter updates the map rendering', async ({ page }) => {
     await page.addInitScript(() => window.localStorage.setItem('hasSeenFrogTour', 'true'));
-    await page.goto('/frogid.html');
+    await page.goto('/frogid/');
     
     // Wait for the loading overlay to disappear
     await page.waitForSelector('#loading-overlay.hidden', { state: 'attached', timeout: 15000 });

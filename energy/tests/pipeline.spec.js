@@ -6,10 +6,10 @@ test('test daily update pipeline scripts execute without errors', async () => {
   // We skip update_data.py to avoid spamming the OpenElectricity API during tests.
   
   expect(() => {
-    execSync('python3 scripts/build_blob.py');
+    execSync('cd energy && python3 scripts/build_blob.py');
   }).not.toThrow();
 
   expect(() => {
-    execSync('python3 scripts/update_html_version.py');
+    execSync('python3 common/scripts/update_html_version.py');
   }).not.toThrow();
 });

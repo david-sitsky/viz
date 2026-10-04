@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test('test chart calculation for NSW/ACT at end of timeline', async ({ page }) => {
   await page.addInitScript(() => window.localStorage.setItem('hasSeenTour', 'true'));
-  await page.goto('http://127.0.0.1:8889/energy.html');
+  await page.goto('http://127.0.0.1:8889/energy/');
   await page.waitForLoadState('networkidle');
   await page.waitForSelector('.bar-row');
   

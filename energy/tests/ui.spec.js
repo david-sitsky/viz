@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('FrogID UI Controls', () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => window.localStorage.setItem('hasSeenFrogTour', 'true'));
-    await page.goto('/frogid.html');
+    await page.goto('/frogid/');
     // Wait for the loading overlay to disappear
     await expect(page.locator('#loading-overlay')).toHaveClass(/hidden/, { timeout: 15000 });
   });

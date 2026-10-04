@@ -6,7 +6,7 @@ const GeoJsonLayer = globalThis.deck.GeoJsonLayer;
 const MAP_STYLES = {
   dark:      'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
   streets:   'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
-  satellite: 'data/satellite-style.json',
+  satellite: '../common/data/satellite-style.json',
 };
 
 const FADE_WINDOW = 60; // days

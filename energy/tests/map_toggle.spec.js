@@ -6,7 +6,7 @@ test('test map rendering with both rooftop modes', async ({ page }) => {
   page.on('console', msg => { if(msg.type() === 'error') errors.push(msg.text()); });
   
   await page.addInitScript(() => window.localStorage.setItem('hasSeenTour', 'true'));
-  await page.goto('http://127.0.0.1:8889/energy.html');
+  await page.goto('http://127.0.0.1:8889/energy/');
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(2000);
   

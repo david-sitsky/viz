@@ -5,7 +5,7 @@ test.describe('Bogong Moth Visualiser', () => {
     const errors = [];
     page.on('pageerror', err => errors.push(err.message));
     
-    await page.goto('/bogong.html');
+    await page.goto('/bogong/');
     
     // Wait for the loading overlay to disappear
     await page.waitForSelector('#loading-overlay.hidden', { state: 'attached', timeout: 15000 });

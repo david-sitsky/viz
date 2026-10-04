@@ -10,7 +10,7 @@ test('test chart view mode dropdown and map filtering', async ({ page }) => {
   });
 
   await page.addInitScript(() => window.localStorage.setItem('hasSeenTour', 'true'));
-  await page.goto('http://localhost:8889/energy.html');
+  await page.goto('http://localhost:8889/energy/');
 
   // Wait for loading to finish
   await page.waitForSelector('#loading-overlay', { state: 'hidden', timeout: 30000 });
