@@ -14,5 +14,3 @@ oe_facilities.html
 oe_script.js
 oe_api_*.json
 next_f_extracted.txt
-data_energy/*.bin
-data_energy/metadata.json
