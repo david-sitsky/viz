@@ -37,18 +37,18 @@ class FrogApp {
     this._cacheDom();
     try {
       this._updateLoading('download', 0);
-      const speciesInfo = await fetch('data/species_info.json').then(r => r.json());
+      const speciesInfo = await fetch('data/frogid/species_info.json').then(r => r.json());
       
       let pendingMetadata = null;
       // We need to fetch metadata first to map species string array
-      pendingMetadata = await fetch('data/metadata.json').then(r => r.json());
+      pendingMetadata = await fetch('data/frogid/metadata.json').then(r => r.json());
 
       const speciesData = buildSpeciesData(pendingMetadata.species, speciesInfo);
       const palette = generateFamilyPalette(speciesData);
 
       this.data = await loadData(
-        'data/metadata.json',
-        'data/frogid7.bin',
+        'data/frogid/metadata.json',
+        'data/frogid/frogid7.bin',
         'frogid7-v6',
         palette,
         (phase, pct) => this._updateLoading(phase, pct),

@@ -84,8 +84,8 @@ async def main():
     latest_date_str = "2024-11-01"
     
     print("Reading existing raw_events.csv...")
-    if os.path.exists('data_energy/raw_events.csv'):
-        with open('data_energy/raw_events.csv', 'r') as f:
+    if os.path.exists('data/energy/raw_events.csv'):
+        with open('data/energy/raw_events.csv', 'r') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 d = row['date']
@@ -101,7 +101,7 @@ async def main():
     print(f"Fetching data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}...")
 
     # Load facilities list to know what to query
-    with open('data_energy/facilities.json', 'r') as f:
+    with open('data/energy/facilities.json', 'r') as f:
         facilities = json.load(f)
         
     fac_lookup = {f['oe_id']: f['id'] for f in facilities}
@@ -160,7 +160,7 @@ async def main():
     # Save back to CSV sorted by date then facility
     print("Writing updated raw_events.csv...")
     sorted_keys = sorted(existing_records.keys())
-    with open('data_energy/raw_events.csv', 'w') as f:
+    with open('data/energy/raw_events.csv', 'w') as f:
         f.write("date,facility_id,generation\n")
         for k in sorted_keys:
             f.write(f"{k[0]},{k[1]},{existing_records[k]:.3f}\n")

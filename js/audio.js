@@ -2,7 +2,7 @@
  * FrogID v7 — Audio Manager Module
  *
  * Manages audio playback for timeline animation:
- *  - Orchestra Mode (no filters): plays data/frog_orchestra.mp3 on loop.
+ *  - Orchestra Mode (no filters): plays data/frogid/frog_orchestra.mp3 on loop.
  *  - Filtered Mode (filters active): plays audio for active filter species on loop (up to 5 max).
  *  - Syncs play/pause/stop with timeline state.
  */
@@ -15,7 +15,7 @@ export class AudioManager {
     this.activeFilterIndices = [];
 
     // Orchestra Audio (single mp3 loop)
-    this.orchestraAudio = new Audio('data/frog_orchestra.mp3');
+    this.orchestraAudio = new Audio('data/frogid/frog_orchestra.mp3');
     this.orchestraAudio.loop = true;
     this.orchestraAudio.volume = 0.85;
 

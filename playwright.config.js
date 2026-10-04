@@ -20,7 +20,7 @@ module.exports = defineConfig({
     },
   ],
   webServer: {
-    command: 'python3 server.py',
+    command: 'python3 scripts/server.py',
     url: 'http://127.0.0.1:8889',
     reuseExistingServer: !process.env.CI,
     stdout: 'ignore',

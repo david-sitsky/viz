@@ -4,7 +4,7 @@ import csv
 from datetime import datetime, timedelta
 
 def main():
-    with open('data_energy/facilities.json', 'r') as f:
+    with open('data/energy/facilities.json', 'r') as f:
         facilities = json.load(f)
         
     fac_map = {}
@@ -20,7 +20,7 @@ def main():
     start_date = None
     end_date = None
     
-    with open('data_energy/raw_events.csv', 'r') as f:
+    with open('data/energy/raw_events.csv', 'r') as f:
         reader = csv.DictReader(f)
         for row in reader:
             d_str = row['date']
@@ -63,7 +63,7 @@ def main():
                 "generation": r['generation']
             })
             
-    with open('data_energy/energy.bin', 'wb') as f:
+    with open('data/energy/energy.bin', 'wb') as f:
         for r in records:
             f.write(struct.pack('<HffBf', r['facility_id'], r['lon'], r['lat'], r['cat_idx'], r['generation']))
 
@@ -74,7 +74,7 @@ def main():
         "dayOffsets": day_offsets,
         "fuelTypes": fuel_types
     }
-    with open('data_energy/metadata.json', 'w') as f:
+    with open('data/energy/metadata.json', 'w') as f:
         json.dump(metadata, f, indent=2)
 
     print("Generation complete.")

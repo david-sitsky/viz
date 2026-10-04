@@ -16,8 +16,8 @@ class EngineApp {
     this._cacheDom();
     try {
       this.data = await loadData(
-        'data_bogong/metadata.json',
-        'data_bogong/data.bin',
+        'data/bogong/metadata.json',
+        'data/bogong/data.bin',
         'bogong-v2',
         [[240, 140, 50]],
         (phase, pct) => this._updateLoading(phase, pct),
