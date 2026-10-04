@@ -39,6 +39,24 @@ class EngineApp {
 
       this._setDay(0);
 
+      // Initialize Bogong Moth Tour
+      if (window.driver && window.driver.js && !localStorage.getItem('hasSeenBogongTour')) {
+        const d = window.driver.js.driver({
+          showProgress: true,
+          popoverClass: 'driverjs-theme',
+          steps: [
+            { element: '#btn-play', popover: { title: 'Play the Timeline', description: 'Click play to start animating through the Bogong Moth sightings.', side: 'bottom', align: 'start' } },
+            { element: '#speed', popover: { title: 'Adjust Speed', description: 'Control how fast the timeline progresses using this slider.', side: 'top', align: 'start' } }
+          ],
+          onDestroyStarted: () => {
+            localStorage.setItem('hasSeenBogongTour', 'true');
+            d.destroy();
+          }
+        });
+        d.drive();
+      }
+
+
     } catch (err) {
       console.error('Init failed:', err);
       this.dom.loadingStatus.textContent = `Error: ${err.message}`;

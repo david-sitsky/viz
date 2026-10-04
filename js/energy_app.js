@@ -154,7 +154,8 @@ class EngineApp {
 
     this.dom.hoverName.textContent = fac.name;
     this.dom.hoverType.textContent = fac.type.replace('_', ' ').toUpperCase();
-    this.dom.hoverGen.textContent = Math.round(gen / 1000).toLocaleString() + ' GWh this day';
+    this.dom.hoverCap.textContent = fac.capacity_mw > 0 ? ('Capacity: ' + fac.capacity_mw + ' MW') : 'Capacity: N/A';
+    this.dom.hoverGen.textContent = 'Produced: ' + Math.round(gen / 1000).toLocaleString() + ' GWh this day';
     
     // Set border color
     const c = this.data.palette[catIdx];
