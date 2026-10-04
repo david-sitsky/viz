@@ -39,6 +39,12 @@ jobs:
         
       - name: Compile Binary Data Blob
         run: cd energy && python3 scripts/build_blob.py
+
+      - name: Fetch Latest ALA Bogong Data
+        run: cd bogong && python3 scripts/update_data.py
+        
+      - name: Compile Bogong Binary Data Blob
+        run: cd bogong && python3 scripts/build_blob.py
         
       - name: Bust Browser Cache
         run: python3 common/scripts/update_html_version.py
@@ -47,7 +53,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add energy/data/raw_events.csv energy/index.html frogid/index.html bogong/index.html index.html
+          git add energy/data/raw_events.csv bogong/data/raw_events.csv energy/index.html frogid/index.html bogong/index.html index.html
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: automated daily data update"
           git pull --rebase origin main && git push origin main
           
