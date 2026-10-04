@@ -205,6 +205,7 @@ class EngineApp {
       hoverName:        $('hover-name'),
       hoverType:        $('hover-type'),
       hoverGen:         $('hover-gen'),
+      hoverCap:         $('hover-cap'),
       chartViewMode:    $('chart-view-mode'),
       hoverLink:        $('hover-link'),
     };
