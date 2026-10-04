@@ -1,0 +1,51 @@
+name: Daily Energy Data Update
+
+on:
+  schedule:
+    - cron: '0 16 * * *' # Runs at midnight AWST (16:00 UTC)
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: pip install aiohttp
+          
+      - name: Fetch Latest OpenElectricity Data
+        env:
+          OPENELECTRICITY_API_KEY: ${{ secrets.OPENELECTRICITY_API_KEY }}
+        run: python3 update_data.py
+        
+      - name: Compile Binary Data Blob
+        run: python3 build_blob.py
+        
+      - name: Bust Browser Cache
+        run: python3 update_html_version.py
+        
+      - name: Commit Source Updates to Main
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data_energy/raw_events.csv energy.html
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: automated daily data update"
+          git push origin main
+          
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          force_orphan: true
+          commit_message: "deploy: automated daily data update"
