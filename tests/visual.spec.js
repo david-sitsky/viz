@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('FrogID Visual Tests', () => {
   test('base map renders correctly', async ({ page }) => {
+    await page.addInitScript(() => window.localStorage.setItem('hasSeenFrogTour', 'true'));
     await page.goto('/frogid.html');
     
     // Wait for the loading overlay to disappear

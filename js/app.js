@@ -77,6 +77,25 @@ class FrogApp {
 
       this._setDay(0);
 
+      // Initialize FrogID Tour
+      if (window.driver && window.driver.js && !localStorage.getItem('hasSeenFrogTour')) {
+        const d = window.driver.js.driver({
+          showProgress: true, popoverClass: 'driverjs-theme',
+          steps: [
+            { element: '#btn-sound', popover: { title: 'Listen to the Frogs', description: 'Enable sound to hear the distinct croaks and calls of the frogs currently animating on the map.', side: 'bottom', align: 'start' } },
+            { element: '#btn-play', popover: { title: 'Play the Timeline', description: 'Click play to start animating through 7 years of expert-verified acoustic recordings.', side: 'bottom', align: 'start' } },
+            { element: '#speed', popover: { title: 'Adjust Speed', description: 'Control how fast the timeline progresses using this slider.', side: 'top', align: 'start' } },
+            { element: '#filter-input', popover: { title: 'Filter by Species', description: 'Search and select specific frog species by common or scientific name to isolate their calls and sightings.', side: 'right', align: 'start' } }
+          ],
+          onDestroyStarted: () => {
+            localStorage.setItem('hasSeenFrogTour', 'true');
+            d.destroy();
+          }
+        });
+        d.drive();
+      }
+
+
     } catch (err) {
       console.error('Init failed:', err);
       this.dom.loadingStatus.textContent = `Error: ${err.message}`;
@@ -154,7 +173,7 @@ class FrogApp {
     } catch (_) {}
 
     setTimeout(() => {
-      if (this.audio && !this.audio.soundEnabled && this.dom.soundHint) {
+      if (false) {
         try {
           sessionStorage.setItem('frogid_sound_hint_shown', 'true');
         } catch (_) {}

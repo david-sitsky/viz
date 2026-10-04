@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('FrogID UI Controls', () => {
   test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => window.localStorage.setItem('hasSeenFrogTour', 'true'));
     await page.goto('/frogid.html');
     // Wait for the loading overlay to disappear
     await expect(page.locator('#loading-overlay')).toHaveClass(/hidden/, { timeout: 15000 });
@@ -55,14 +56,4 @@ test.describe('FrogID UI Controls', () => {
     expect(count).toBeLessThan(1000000); // Because total without filter is ~1.18M
   });
 
-  test('sound hint appears and is dismissible', async ({ page }) => {
-    // Wait for the hint to appear (1s timeout in code)
-    const hint = page.locator('#sound-hint');
-    await expect(hint).not.toHaveClass(/hidden/, { timeout: 3000 });
-    
-    // Dismiss it. The hint has an infinite pulse animation, so we must force click
-    // because Playwright will wait forever for it to become "stable".
-    await page.locator('#sound-hint-close').click({ force: true });
-    await expect(hint).toHaveClass(/hidden/);
-  });
 });
