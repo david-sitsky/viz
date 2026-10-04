@@ -71,14 +71,10 @@
 
   <!-- ─── Top-Left Panel: Controls + Stats ─── -->
   <div id="top-left-panel">
-    <!-- ─── Home Navigation ─── -->
-    <a href="../" class="home-nav">
-      <span class="home-nav-icon">←</span>
-      <span>All Visualisations</span>
-    </a>
     <!-- Playback Controls -->
     <footer id="controls" class="glass hidden">
       <div class="controls-row">
+        <a href="../" class="ctrl-btn home-nav-inline" title="Back to Visualisations" style="text-decoration: none;">🏠</a>
         <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
         <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
         <input type="range" id="scrubber" class="scrubber" min="0" max="100" value="0" aria-label="Timeline">

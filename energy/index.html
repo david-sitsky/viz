@@ -72,11 +72,6 @@
 
   <!-- ─── Top-Left Panel: Controls + Stats ─── -->
   <div id="top-left-panel">
-    <!-- ─── Home Navigation ─── -->
-    <a href="../" class="home-nav">
-      <span class="home-nav-icon">←</span>
-      <span>All Visualisations</span>
-    </a>
 
 
     <!-- Stats Bar -->
@@ -89,7 +84,8 @@
           </div>
           <div class="stat-divider"></div>
           <div style="display: flex; gap: 8px; align-items: center;">
-            <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
+            <a href="../" class="ctrl-btn home-nav-inline" title="Back to Visualisations" style="text-decoration: none;">🏠</a>
+        <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
             <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
           </div>
         </div>
