@@ -5,7 +5,7 @@ import aiohttp
 import os
 from datetime import datetime, timedelta
 
-API_KEY = os.environ.get("OPENELECTRICITY_API_KEY", "REMOVED_API_KEY")
+API_KEY = os.environ.get("OPENELECTRICITY_API_KEY")
 
 async def fetch_facility(session, semaphore, fac_id, start_str, end_str):
     url = "https://api.openelectricity.org.au/v4/data/facilities/AU"

@@ -5,7 +5,7 @@ import csv
 import os
 from datetime import datetime, timedelta
 
-API_KEY = os.environ.get("OPENELECTRICITY_API_KEY", "REMOVED_API_KEY")
+API_KEY = os.environ.get("OPENELECTRICITY_API_KEY")
 
 async def fetch_facility(session, semaphore, fac_id, start_dt, end_dt):
     url = f"https://api.openelectricity.org.au/v4/data/facility/{fac_id}"
