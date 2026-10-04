@@ -1,15 +1,24 @@
-name: Daily Energy Data Update
+name: Daily Energy Data Update & Deploy
 
 on:
   schedule:
     - cron: '0 16 * * *' # Runs at midnight AWST (16:00 UTC)
   workflow_dispatch: # Allows manual triggering
+  push:
+    branches:
+      - main # Automatically deploy when code is pushed to main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  update-data:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
       
     steps:
       - name: Checkout repository
@@ -38,7 +47,18 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          # We must commit the binaries to main because GitHub Pages is configured to serve from main!
-          git add data_energy/raw_events.csv data_energy/energy.bin data_energy/metadata.json energy.html
+          git add data_energy/raw_events.csv energy.html
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: automated daily data update"
           git push origin main
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
