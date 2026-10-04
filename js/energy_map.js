@@ -336,12 +336,12 @@ let dayStart = offsets[day] ?? 0;
     
     // If there is no data for this day (e.g. at the very end of the timeline),
     // fallback to the last day that actually had data so we don't blank out.
-    if (todayCount === 0) {
+    if (todayCount < 100) {
         let fallbackDay = day - 1;
         while (fallbackDay >= 0) {
             let s = offsets[fallbackDay] ?? 0;
             let e = (fallbackDay + 1 < offsets.length) ? offsets[fallbackDay + 1] : active.recordCount;
-            if (e - s > 0) {
+            if (e - s >= 100) {
                 dayStart = s;
                 endIdx = e;
                 todayCount = endIdx - dayStart;
