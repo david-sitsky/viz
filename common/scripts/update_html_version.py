@@ -5,7 +5,7 @@ from datetime import datetime
 new_v = datetime.now().strftime("%Y%m%d%H%M")
 root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-for filename in ['energy/index.html', 'frogid/index.html', 'bogong/index.html', 'index.html']:
+for filename in ['energy/index.html', 'frogid/index.html', 'bogong/index.html', 'christmas-beetle/index.html', 'index.html']:
     filepath = os.path.join(root_dir, filename)
     if not os.path.exists(filepath):
         continue
