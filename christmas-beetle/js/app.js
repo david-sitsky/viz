@@ -94,8 +94,8 @@ class App {
       scrubber:         $('scrubber'),
       speedSlider:      $('speed'),
       speedVal:         $('speed-val'),
-      dayInfo:          $('day-info'),
-      todayInfo:        $('today-info'),
+
+
       fadeToggle:       $('fade-toggle'),
       mapStyleSelector: $('map-style-selector'),
       
@@ -106,6 +106,8 @@ class App {
       hoverDate:        $('hover-date'),
       hoverLink:        $('hover-link'),
       
+      filterPreview:    $('filter-preview'),
+      filterPreviewImg: $('filter-preview-img'),
       speciesFilter:    $('species-filter'),
       speciesList:      $('species-list'),
     };
@@ -262,6 +264,18 @@ class App {
         img.style.height = '30px';
         img.style.objectFit = 'cover';
         img.style.borderRadius = '4px';
+        
+        img.addEventListener('mouseenter', (e) => {
+          this.dom.filterPreviewImg.src = sp.image.replace('square', 'medium');
+          this.dom.filterPreview.classList.remove('hidden');
+          const rect = img.getBoundingClientRect();
+          this.dom.filterPreview.style.left = (rect.right + 15) + 'px';
+          this.dom.filterPreview.style.top = (rect.top - 50) + 'px';
+        });
+        img.addEventListener('mouseleave', () => {
+          this.dom.filterPreview.classList.add('hidden');
+        });
+        
         row.appendChild(img);
       } else {
         const img = document.createElement('div');
@@ -364,8 +378,6 @@ class App {
     
     const counts = this.map.getVisibleCounts();
     if(this.dom.statRecords) this.dom.statRecords.textContent = counts.total.toLocaleString();
-    if(this.dom.todayInfo) this.dom.todayInfo.textContent = `${counts.today.toLocaleString()} today`;
-    if(this.dom.dayInfo) this.dom.dayInfo.textContent = `Day ${(this.currentDay+1).toLocaleString()} of ${metadata.totalDays.toLocaleString()}`;
     
     this.dom.scrubber.value = this.currentDay;
   }
