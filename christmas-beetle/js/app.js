@@ -12,20 +12,16 @@ class App {
     this.tickTimer = null;
     this.dom = {};
     
-    // Auto-assigned colors for species
     this.palette = [];
   }
 
   async init() {
     this._cacheDom();
     try {
-      // 1. Fetch species info
       const speciesRes = await fetch('data/species_info.json');
       this.speciesInfo = await speciesRes.json();
       
-      // Build palette dynamically
       for (let i = 0; i < this.speciesInfo.length; i++) {
-        // HSL to RGB basic distinct colors
         const hue = (i * 137.508) % 360; 
         this.palette.push(this._hslToRgb(hue / 360, 0.7, 0.6));
       }
@@ -41,7 +37,7 @@ class App {
       this.map = new EngineMap(
         'map-container',
         this.data,
-        (recordIdx) => this._showHoverPopup(recordIdx)
+        (recordIdx, info) => this._showHoverPopup(recordIdx, info)
       );
 
       this._setupControls();
@@ -100,20 +96,18 @@ class App {
       speedVal:         $('speed-val'),
       dayInfo:          $('day-info'),
       todayInfo:        $('today-info'),
+      fadeToggle:       $('fade-toggle'),
+      mapStyleSelector: $('map-style-selector'),
       
-      // Hover Panel
       hoverPanel:       $('hover-panel'),
       hoverImg:         $('hover-img'),
       hoverCommon:      $('hover-common'),
       hoverSci:         $('hover-sci'),
+      hoverDate:        $('hover-date'),
       hoverLink:        $('hover-link'),
       
-      // Filter
       speciesFilter:    $('species-filter'),
-      filterInput:      $('filter-input'),
-      filterDropdown:   $('filter-dropdown'),
-      filterPills:      $('filter-pills'),
-      filterClear:      $('filter-clear'),
+      speciesList:      $('species-list'),
     };
   }
 
@@ -139,14 +133,27 @@ class App {
     }, 500);
   }
   
-  _showHoverPopup(recordIdx) {
-    if (recordIdx < 0) return;
+  _showHoverPopup(recordIdx, info) {
+    if (recordIdx < 0 || !info) {
+      this.dom.hoverPanel.classList.add('hidden');
+      return;
+    }
     const catIdx = this.data.categoryIndices[recordIdx];
     const sp = this.speciesInfo[catIdx];
     if (!sp) return;
 
     this.dom.hoverCommon.textContent = sp.common_name || sp.scientific_name;
     if (this.dom.hoverSci) this.dom.hoverSci.textContent = sp.scientific_name;
+    
+    // Find Date
+    let d = new Date(this.data.metadata.startDate + 'T00:00:00');
+    let dayOff = 0;
+    for (let i = 0; i < this.data.metadata.dayOffsets.length; i++) {
+      if (recordIdx < this.data.metadata.dayOffsets[i]) break;
+      dayOff = i;
+    }
+    d.setDate(d.getDate() + dayOff);
+    if (this.dom.hoverDate) this.dom.hoverDate.textContent = d.toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' });
     
     if (sp.image) {
       this.dom.hoverImg.src = sp.image;
@@ -156,6 +163,15 @@ class App {
     }
     
     this.dom.hoverLink.href = `https://bie.ala.org.au/species/${encodeURIComponent(sp.scientific_name)}`;
+    
+    // Position absolute near cursor
+    this.dom.hoverPanel.style.position = 'absolute';
+    this.dom.hoverPanel.style.top = (info.y + 15) + 'px';
+    this.dom.hoverPanel.style.left = (info.x + 15) + 'px';
+    this.dom.hoverPanel.style.transform = 'none';
+    this.dom.hoverPanel.style.right = 'auto';
+    this.dom.hoverPanel.style.bottom = 'auto';
+    
     this.dom.hoverPanel.classList.remove('hidden');
   }
 
@@ -170,77 +186,56 @@ class App {
       this._updateUI();
     };
 
-    const addFilter = (sp) => {
-      activeFilters.add(sp.id);
-      this.dom.filterInput.value = '';
-      this.dom.filterDropdown.classList.add('hidden');
-      renderPills();
-      updateMapFilter();
-    };
-
-    const removeFilter = (id) => {
-      activeFilters.delete(id);
-      renderPills();
-      updateMapFilter();
-    };
-
-    const renderPills = () => {
-      this.dom.filterPills.innerHTML = '';
-      if (activeFilters.size > 0) this.dom.filterClear.classList.remove('hidden');
-      else this.dom.filterClear.classList.add('hidden');
-
-      for (const id of activeFilters) {
-        const sp = this.speciesInfo[id];
-        const pill = document.createElement('div');
-        pill.className = 'filter-pill';
-        pill.innerHTML = `<span>${sp.common_name || sp.scientific_name}</span><button class="remove" title="Remove filter">✕</button>`;
-        pill.querySelector('.remove').addEventListener('click', () => removeFilter(id));
-        this.dom.filterPills.appendChild(pill);
-      }
-    };
-
-    this.dom.filterClear.addEventListener('click', () => {
-      activeFilters.clear();
-      renderPills();
-      updateMapFilter();
-    });
-
-    this.dom.filterInput.addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase();
-      if (!q) {
-        this.dom.filterDropdown.classList.add('hidden');
-        return;
-      }
-      const matches = this.speciesInfo.filter(s => 
-        s && !activeFilters.has(s.id) && 
-        ((s.common_name && s.common_name.toLowerCase().includes(q)) || 
-         (s.scientific_name && s.scientific_name.toLowerCase().includes(q)))
-      ).slice(0, 10);
-
-      if (matches.length > 0) {
-        this.dom.filterDropdown.innerHTML = '';
-        matches.forEach(m => {
-          const div = document.createElement('div');
-          div.className = 'filter-dropdown-item';
-          div.innerHTML = `<strong>${m.common_name || m.scientific_name}</strong> <em>${m.scientific_name}</em>`;
-          div.addEventListener('click', () => addFilter(m));
-          this.dom.filterDropdown.appendChild(div);
-        });
-        this.dom.filterDropdown.classList.remove('hidden');
+    // Build Checklist UI
+    this.dom.speciesList.innerHTML = '';
+    
+    // Sort by count descending
+    const sorted = [...this.speciesInfo].filter(s => s).sort((a,b) => (b.count || 0) - (a.count || 0));
+    
+    for (const sp of sorted) {
+      if (!sp || sp.scientific_name === 'Unknown') continue;
+      const row = document.createElement('label');
+      row.style.display = 'flex';
+      row.style.alignItems = 'center';
+      row.style.gap = '10px';
+      row.style.cursor = 'pointer';
+      
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.value = sp.id;
+      cb.addEventListener('change', (e) => {
+        if (e.target.checked) activeFilters.add(sp.id);
+        else activeFilters.delete(sp.id);
+        updateMapFilter();
+      });
+      row.appendChild(cb);
+      
+      if (sp.image) {
+        const img = document.createElement('img');
+        img.src = sp.image;
+        img.style.width = '30px';
+        img.style.height = '30px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '4px';
+        row.appendChild(img);
       } else {
-        this.dom.filterDropdown.classList.add('hidden');
+        const img = document.createElement('div');
+        img.style.width = '30px';
+        img.style.height = '30px';
+        img.style.backgroundColor = 'rgba(255,255,255,0.1)';
+        img.style.borderRadius = '4px';
+        row.appendChild(img);
       }
-    });
-
-    // Close on click outside
-    document.addEventListener('click', (e) => {
-      if (!this.dom.speciesFilter.contains(e.target) && e.target.id !== 'hover-panel' && !this.dom.hoverPanel.contains(e.target)) {
-        this.dom.filterDropdown.classList.add('hidden');
-        if (e.target.dataset.action === 'close-hover') {
-          this.dom.hoverPanel.classList.add('hidden');
-        }
-      }
-    });
+      
+      const text = document.createElement('div');
+      text.style.flex = '1';
+      text.style.lineHeight = '1.2';
+      text.innerHTML = `<div style="font-size:12px; font-weight:bold;">${sp.common_name || sp.scientific_name}</div>
+                        <div style="font-size:10px; opacity:0.7;">${sp.scientific_name} • ${sp.count || 0} obs</div>`;
+      row.appendChild(text);
+      
+      this.dom.speciesList.appendChild(row);
+    }
   }
 
   _setupControls() {
@@ -261,6 +256,22 @@ class App {
       this.dom.speedVal.textContent = `${this.speed}×`;
       if (this.playing) { clearTimeout(this.tickTimer); this._scheduleTick(); }
     });
+    
+    if (this.dom.fadeToggle) {
+      this.dom.fadeToggle.addEventListener('change', () => {
+        if (this.map) this.map.setFadeMode(this.dom.fadeToggle.checked);
+      });
+    }
+
+    if (this.dom.mapStyleSelector) {
+      this.dom.mapStyleSelector.querySelectorAll('.style-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          this.dom.mapStyleSelector.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (this.map) this.map.setMapStyle(btn.dataset.style);
+        });
+      });
+    }
   }
 
   _togglePlay() { this.playing ? this._pause() : this._play(); }
@@ -288,7 +299,7 @@ class App {
   }
   _setDay(day) {
     this.currentDay = day;
-    this.map.setDay(day);
+    if (this.map) this.map.setDay(day);
     this._updateUI();
   }
   _updateUI() {

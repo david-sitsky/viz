@@ -136,10 +136,13 @@ export class EngineMap {
     const recordIdx = this._resolveRecordIndex(info);
     if (recordIdx < 0) return;
 
-    if (recordIdx === this._lastHoveredRecord) return;
+    if (recordIdx === this._lastHoveredRecord) {
+      if (this.onRecord) this.onRecord(recordIdx, info);
+      return;
+    }
     this._lastHoveredRecord = recordIdx;
 
-    if (this.onRecord) this.onRecord(recordIdx);
+    if (this.onRecord) this.onRecord(recordIdx, info);
   }
 
   _handleClick(info) {
@@ -150,7 +153,7 @@ export class EngineMap {
     if (recordIdx < 0) return;
 
     this._lastHoveredRecord = recordIdx;
-    if (this.onRecord) this.onRecord(recordIdx);
+    if (this.onRecord) this.onRecord(recordIdx, info);
   }
 
   _rebuildFilteredData() {

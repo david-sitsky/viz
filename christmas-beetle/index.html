@@ -45,14 +45,6 @@
         <a href="../" class="ctrl-btn home-nav-inline" title="Back to Visualisations" style="text-decoration: none;">🏠</a>
         <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
         <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
-        <div class="sound-btn-container">
-          <button id="btn-sound" class="ctrl-btn sound-btn" title="Toggle Sound (M)">🔇</button>
-          <div id="sound-hint" class="sound-hint hidden">
-            <div class="sound-hint-arrow"></div>
-            <span>Let the frogs croak! 🔊</span>
-            <button id="sound-hint-close" class="sound-hint-close" title="Dismiss">✕</button>
-          </div>
-        </div>
         <input type="range" id="scrubber" class="scrubber" min="0" max="2556" value="0" aria-label="Timeline">
         <label class="fade-toggle" title="Fade old recordings">
           <input type="checkbox" id="fade-toggle" checked>
@@ -90,15 +82,12 @@
       </div>
     </header>
 
-    <!-- Species Filter -->
-    <div id="species-filter" class="glass hidden">
-      <div class="filter-input-wrap">
-        <span class="filter-icon">🔍</span>
-        <input type="text" id="filter-input" placeholder="Filter by species..." autocomplete="off" spellcheck="false">
-        <button id="filter-clear" class="filter-clear hidden" title="Clear filter">✕</button>
+    <!-- Species List -->
+    <div id="species-filter" class="glass hidden" style="max-height: 400px; overflow-y: auto; padding: 10px; margin-top: 10px; border-radius: 8px;">
+      <h3 style="margin: 0 0 10px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px;">Filter Species</h3>
+      <div id="species-list" style="display: flex; flex-direction: column; gap: 8px;">
+        <!-- Species items injected here by JS -->
       </div>
-      <div id="filter-pills" class="filter-pills"></div>
-      <div id="filter-dropdown" class="filter-dropdown hidden"></div>
     </div>
   </div>
 
@@ -112,7 +101,7 @@
         <div class="panel-names">
           <div class="panel-common"  id="hover-common">—</div>
           <div class="panel-sci"     id="hover-sci">—</div>
-          <div class="panel-family"  id="hover-family">—</div>
+          <div class="panel-family"  id="hover-date" style="font-size:11px; opacity:0.8;">—</div>
         </div>
       </div>
       <a id="hover-link" class="panel-link" href="#" target="_blank" rel="noopener">View profile ↗</a>

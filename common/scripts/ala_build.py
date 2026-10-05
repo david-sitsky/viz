@@ -7,18 +7,17 @@ import argparse
 import urllib.request
 
 def fetch_species_image(species_name):
-    # Try Wikipedia for an image thumbnail
     if not species_name or species_name == "Unknown":
         return None
-    url = f"https://en.wikipedia.org/w/api.php?action=query&titles={urllib.parse.quote(species_name)}&prop=pageimages&format=json&pithumbsize=400"
+    url = f"https://api.inaturalist.org/v1/taxa?q={urllib.parse.quote(species_name)}&per_page=1"
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=5) as response:
             data = json.loads(response.read().decode())
-            pages = data.get("query", {}).get("pages", {})
-            for page_id, page_data in pages.items():
-                if "thumbnail" in page_data:
-                    return page_data["thumbnail"]["source"]
+            if data.get("results") and len(data["results"]) > 0:
+                photo = data["results"][0].get("default_photo")
+                if photo:
+                    return photo.get("medium_url") or photo.get("square_url")
     except Exception as e:
         pass
     return None
@@ -49,9 +48,12 @@ def main():
                     "id": next_species_id,
                     "scientific_name": species_name,
                     "common_name": row.get('common_name', ''),
-                    "image": None
+                    "image": None,
+                    "count": 0
                 }
                 next_species_id += 1
+            
+            species_map[species_name]["count"] += 1
                 
             records.append({
                 "date_ms": row['date_ms'],

@@ -28,36 +28,23 @@ test.describe('Christmas Beetle Visualiser', () => {
     expect(errors.length).toBe(0);
   });
 
-  test('species filter dropdown shows correctly', async ({ page }) => {
+  test('species list works correctly', async ({ page }) => {
     await page.goto('/christmas-beetle/');
     await page.waitForSelector('#loading-overlay.hidden', { state: 'attached', timeout: 15000 });
 
-    const filterInput = page.locator('#filter-input');
-    await expect(filterInput).toBeVisible();
+    const speciesList = page.locator('#species-list');
+    await expect(speciesList).toBeVisible();
 
-    // Type into the filter
-    await filterInput.fill('porosus');
+    // Find the first checkbox and check it
+    const firstCheckbox = speciesList.locator('input[type="checkbox"]').first();
+    await expect(firstCheckbox).toBeVisible();
+    await firstCheckbox.check();
 
-    // Dropdown should appear
-    const dropdown = page.locator('#filter-dropdown');
-    await expect(dropdown).toBeVisible();
+    // Ensure it checked successfully
+    await expect(firstCheckbox).toBeChecked();
 
-    // Should contain the species
-    await expect(dropdown).toContainText('Anoplognathus porosus');
-
-    // Click it to add a pill
-    await dropdown.locator('.filter-dropdown-item').first().click();
-
-    // Pill should be visible
-    const pills = page.locator('#filter-pills .filter-pill');
-    await expect(pills).toHaveCount(1);
-    await expect(pills.first()).toContainText('Anoplognathus porosus');
-
-    // Clear filter
-    const clearBtn = page.locator('#filter-clear');
-    await expect(clearBtn).toBeVisible();
-    await clearBtn.click();
-
-    await expect(pills).toHaveCount(0);
+    // Uncheck it
+    await firstCheckbox.uncheck();
+    await expect(firstCheckbox).not.toBeChecked();
   });
 });
