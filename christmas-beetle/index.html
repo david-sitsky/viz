@@ -3,13 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>FrogID v7 — Australia's Frogs Over Time</title>
-  <meta name="description" content="Interactive animated map showing 1.18 million frog recordings across Australia from 2017–2024">
+  <title>Australian Christmas Beetle Occurrences</title>
+  <meta name="description" content="Interactive animated map showing Christmas Beetle recordings across Australia">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610051342">
+  <link rel="stylesheet" href="../common/styles.css?v=202610051015">
   <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
+  <style>
+    /* Override brand color for beetles */
+    :root {
+      --brand-color: #f59e0b; 
+      --brand-color-light: #fcd34d;
+      --bg-glass: rgba(15, 23, 42, 0.85);
+    }
+  </style>
 </head>
 <body>
 
@@ -20,12 +28,12 @@
   <!-- ─── Loading ─── -->
   <div id="loading-overlay">
     <div class="loading-card">
-      <div class="loading-icon">🐸</div>
-      <h1 class="loading-title">FrogID v7</h1>
-      <p class="loading-subtitle">Australia's Frogs Over Time</p>
+      <div class="loading-icon">🪲</div>
+      <h1 class="loading-title">Christmas Beetles</h1>
+      <p class="loading-subtitle">Australian Occurrences Over Time</p>
       <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
       <p class="loading-status" id="loading-status">Initializing...</p>
-      <p class="loading-detail">1,183,011 expert-verified recordings · 218 species · 7 years</p>
+      <p class="loading-detail">Data provided by the Atlas of Living Australia</p>
     </div>
   </div>
 
@@ -76,7 +84,7 @@
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-label">🐸 FROGID v7</span>
+        <span class="stat-label">🪲 OCCURRENCES</span>
         <span class="stat-value" id="stat-records">0</span>
         <span class="stat-sub">recordings</span>
       </div>
@@ -86,7 +94,7 @@
     <div id="species-filter" class="glass hidden">
       <div class="filter-input-wrap">
         <span class="filter-icon">🔍</span>
-        <input type="text" id="filter-input" placeholder="Filter by frog name..." autocomplete="off" spellcheck="false">
+        <input type="text" id="filter-input" placeholder="Filter by species..." autocomplete="off" spellcheck="false">
         <button id="filter-clear" class="filter-clear hidden" title="Clear filter">✕</button>
       </div>
       <div id="filter-pills" class="filter-pills"></div>
@@ -107,14 +115,13 @@
           <div class="panel-family"  id="hover-family">—</div>
         </div>
       </div>
-      <audio id="hover-audio" class="panel-audio hidden" controls preload="none"></audio>
-      <a id="hover-link" class="panel-link" href="#" target="_blank" rel="noopener">View frog profile ↗</a>
+      <a id="hover-link" class="panel-link" href="#" target="_blank" rel="noopener">View profile ↗</a>
     </div>
     <!-- Filter species popups injected here by JS -->
   </div>
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/app.js?v=202610051342"></script>
+  <script type="module" src="js/app.js?v=2"></script>
 </body>
 </html>

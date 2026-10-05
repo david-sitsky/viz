@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-const PAGES = ['/', '/energy/index.html', '/bogong/index.html', '/frogid/index.html'];
+const PAGES = ['/', '/energy/index.html', '/bogong/index.html', '/frogid/index.html', '/christmas-beetle/index.html'];
 
 test.describe('Smoke Tests - No 404s', () => {
   for (const p of PAGES) {
