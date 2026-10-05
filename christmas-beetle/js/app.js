@@ -142,8 +142,18 @@ class App {
     const sp = this.speciesInfo[catIdx];
     if (!sp) return;
 
-    this.dom.hoverCommon.textContent = sp.common_name || sp.scientific_name;
-    if (this.dom.hoverSci) this.dom.hoverSci.textContent = sp.scientific_name;
+    if (sp.common_name && sp.common_name.trim() !== "") {
+      this.dom.hoverCommon.textContent = sp.common_name;
+      this.dom.hoverSci.textContent = sp.scientific_name;
+      this.dom.hoverSci.style.display = 'block';
+    } else {
+      this.dom.hoverCommon.textContent = sp.scientific_name;
+      this.dom.hoverSci.style.display = 'none';
+    }
+    
+    // Add colour accent
+    const col = this.palette[catIdx];
+    this.dom.hoverPanel.style.borderLeft = `4px solid rgb(${col[0]},${col[1]},${col[2]})`;
     
     // Find Date
     let d = new Date(this.data.metadata.startDate + 'T00:00:00');
@@ -186,12 +196,46 @@ class App {
       this._updateUI();
     };
 
-    // Build Checklist UI
     this.dom.speciesList.innerHTML = '';
     
-    // Sort by count descending
+    // Add Select All / None buttons
+    const btnRow = document.createElement('div');
+    btnRow.style.display = 'flex';
+    btnRow.style.gap = '10px';
+    btnRow.style.marginBottom = '10px';
+    
+    const btnAll = document.createElement('button');
+    btnAll.textContent = 'Select All';
+    btnAll.className = 'ctrl-btn';
+    btnAll.style.flex = '1';
+    btnAll.style.fontSize = '12px';
+    
+    const btnNone = document.createElement('button');
+    btnNone.textContent = 'Select None';
+    btnNone.className = 'ctrl-btn';
+    btnNone.style.flex = '1';
+    btnNone.style.fontSize = '12px';
+    
+    btnRow.appendChild(btnAll);
+    btnRow.appendChild(btnNone);
+    this.dom.speciesList.appendChild(btnRow);
+
     const sorted = [...this.speciesInfo].filter(s => s).sort((a,b) => (b.count || 0) - (a.count || 0));
     
+    const checkboxes = [];
+    
+    btnAll.addEventListener('click', () => {
+      activeFilters = new Set(sorted.map(s => s.id));
+      checkboxes.forEach(cb => cb.checked = true);
+      updateMapFilter();
+    });
+    
+    btnNone.addEventListener('click', () => {
+      activeFilters.clear();
+      checkboxes.forEach(cb => cb.checked = false);
+      updateMapFilter();
+    });
+
     for (const sp of sorted) {
       if (!sp || sp.scientific_name === 'Unknown') continue;
       const row = document.createElement('label');
@@ -208,6 +252,7 @@ class App {
         else activeFilters.delete(sp.id);
         updateMapFilter();
       });
+      checkboxes.push(cb);
       row.appendChild(cb);
       
       if (sp.image) {
@@ -230,8 +275,17 @@ class App {
       const text = document.createElement('div');
       text.style.flex = '1';
       text.style.lineHeight = '1.2';
-      text.innerHTML = `<div style="font-size:12px; font-weight:bold;">${sp.common_name || sp.scientific_name}</div>
-                        <div style="font-size:10px; opacity:0.7;">${sp.scientific_name} • ${sp.count || 0} obs</div>`;
+      
+      const col = this.palette[sp.id];
+      const colorDot = `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:rgb(${col[0]},${col[1]},${col[2]});margin-right:4px;"></span>`;
+      
+      if (sp.common_name && sp.common_name.trim() !== "") {
+        text.innerHTML = `<div style="font-size:12px; font-weight:bold;">${colorDot}${sp.common_name}</div>
+                          <div style="font-size:10px; opacity:0.7;">${sp.scientific_name} • ${sp.count || 0} obs</div>`;
+      } else {
+        text.innerHTML = `<div style="font-size:12px; font-weight:bold;">${colorDot}${sp.scientific_name}</div>
+                          <div style="font-size:10px; opacity:0.7;">${sp.count || 0} obs</div>`;
+      }
       row.appendChild(text);
       
       this.dom.speciesList.appendChild(row);
@@ -318,4 +372,5 @@ class App {
 }
 
 const app = new App();
+window.app = app;
 app.init();

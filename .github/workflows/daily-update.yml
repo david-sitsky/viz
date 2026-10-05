@@ -47,7 +47,7 @@ jobs:
         run: python3 common/scripts/ala_build.py --input-csv bogong/data/raw_events.csv --output-bin bogong/data/data.bin --output-meta bogong/data/metadata.json --output-species bogong/data/species_info.json
 
       - name: Fetch Latest ALA Christmas Beetle Data
-        run: python3 common/scripts/ala_sync.py --query "genus:Anoplognathus" --start-date "2018-08-01T00:00:00Z" --output christmas-beetle/data/raw_events.csv
+        run: python3 common/scripts/ala_sync.py --query "genus:Anoplognathus" --start-date "2020-08-01T00:00:00Z" --output christmas-beetle/data/raw_events.csv
         
       - name: Compile Christmas Beetle Binary Data Blob
         run: python3 common/scripts/ala_build.py --input-csv christmas-beetle/data/raw_events.csv --output-bin christmas-beetle/data/data.bin --output-meta christmas-beetle/data/metadata.json --output-species christmas-beetle/data/species_info.json

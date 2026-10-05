@@ -28,23 +28,45 @@ test.describe('Christmas Beetle Visualiser', () => {
     expect(errors.length).toBe(0);
   });
 
-  test('species list works correctly', async ({ page }) => {
+  test('species list works correctly with select all/none', async ({ page }) => {
     await page.goto('/christmas-beetle/');
     await page.waitForSelector('#loading-overlay.hidden', { state: 'attached', timeout: 15000 });
 
     const speciesList = page.locator('#species-list');
     await expect(speciesList).toBeVisible();
 
-    // Find the first checkbox and check it
-    const firstCheckbox = speciesList.locator('input[type="checkbox"]').first();
-    await expect(firstCheckbox).toBeVisible();
-    await firstCheckbox.check();
+    const selectAll = page.locator('button:has-text("Select All")');
+    const selectNone = page.locator('button:has-text("Select None")');
+    await expect(selectAll).toBeVisible();
+    
+    const checkboxes = speciesList.locator('input[type="checkbox"]');
+    
+    // Click Select None
+    await selectNone.click();
+    await expect(checkboxes.first()).not.toBeChecked();
 
-    // Ensure it checked successfully
-    await expect(firstCheckbox).toBeChecked();
-
-    // Uncheck it
-    await firstCheckbox.uncheck();
-    await expect(firstCheckbox).not.toBeChecked();
+    // Click Select All
+    await selectAll.click();
+    await expect(checkboxes.first()).toBeChecked();
+  });
+  
+  test('hover popup appears on map hover', async ({ page }) => {
+    await page.goto('/christmas-beetle/');
+    await page.waitForSelector('#loading-overlay.hidden', { state: 'attached', timeout: 15000 });
+    
+    // Wait for map to settle
+    await page.waitForTimeout(1000);
+    
+    // Evaluate JS to manually trigger a fake hover via EngineMap
+    await page.evaluate(() => {
+      if (window.app && window.app.map) {
+        // Trigger onRecord directly to simulate a deck.gl hover
+        window.app._showHoverPopup(0, {x: 500, y: 500});
+      }
+    });
+    
+    const hoverPanel = page.locator('#hover-panel');
+    await expect(hoverPanel).not.toHaveClass(/hidden/);
+    await expect(hoverPanel).toHaveCSS('pointer-events', 'none');
   });
 });

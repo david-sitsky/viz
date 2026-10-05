@@ -623,17 +623,20 @@ input[type="range"]::-moz-range-thumb { height: 14px; width: 14px; border-radius
     max-width: none !important;
     padding: 10px 12px !important;
   }
-}
 
-/* Hide the controls and filters by default */
-.energy-viz #controls, .energy-viz #filter-panel {
-  display: none !important;
-}
+  /* Hide the controls and filters by default on mobile */
+  .energy-viz #controls, .energy-viz #filter-panel,
+  .beetle-viz #controls, .beetle-viz #species-filter {
+    display: none !important;
+  }
 
-/* Show them when toggle is checked */
-.energy-viz #mobile-toggle:checked ~ #top-left-panel #controls,
-.energy-viz #mobile-toggle:checked ~ #top-left-panel #filter-panel {
-  display: block !important;
+  /* Show them when toggle is checked */
+  .energy-viz #mobile-toggle:checked ~ #top-left-panel #controls,
+  .energy-viz #mobile-toggle:checked ~ #top-left-panel #filter-panel,
+  .beetle-viz #mobile-toggle:checked ~ #top-left-panel #controls,
+  .beetle-viz #mobile-toggle:checked ~ #top-left-panel #species-filter {
+    display: block !important;
+  }
 }
 
 /* Driver.js Custom Theme */

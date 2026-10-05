@@ -19,7 +19,8 @@
     }
   </style>
 </head>
-<body>
+<body class="beetle-viz">
+  <input type="checkbox" id="mobile-toggle" style="display: none;">
 
   <!-- ─── Map ─── -->
 
@@ -56,6 +57,7 @@
           <button class="style-btn" data-style="streets" title="Streets">🗺️</button>
           <button class="style-btn" data-style="satellite" title="Satellite">🛰️</button>
         </div>
+        <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings">⚙️ Settings</label>
       </div>
       <div class="controls-info-row">
         <span id="day-info" class="info-chip">Day 1 of 2,557</span>
@@ -94,7 +96,7 @@
   <!-- ─── Right Panel Column: hover popup + filter species popups ─── -->
   <div id="right-panels">
     <!-- Hover popup (single, updates when hovering different species) -->
-    <div id="hover-panel" class="species-panel glass hidden">
+    <div id="hover-panel" class="species-panel glass hidden" style="pointer-events: none; z-index: 9999;">
       <button class="panel-close" data-action="close-hover" title="Close">✕</button>
       <div class="panel-header">
         <img class="panel-img" id="hover-img" src="" alt="" loading="lazy">
