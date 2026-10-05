@@ -42,6 +42,13 @@ class App {
 
       this._setupControls();
       this._setupFilter();
+      
+      const closeBtn = this.dom.hoverPanel.querySelector('.panel-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          this.dom.hoverPanel.classList.add('hidden');
+        });
+      }
 
       this._hideLoading();
       ['statsBar','controls','topPanel'].forEach(k => {
@@ -137,8 +144,7 @@ class App {
   
   _showHoverPopup(recordIdx, info) {
     if (recordIdx < 0 || !info) {
-      this.dom.hoverPanel.classList.add('hidden');
-      return;
+      return; // Keep pinned until dismissed or new record hovered
     }
     const catIdx = this.data.categoryIndices[recordIdx];
     const sp = this.speciesInfo[catIdx];

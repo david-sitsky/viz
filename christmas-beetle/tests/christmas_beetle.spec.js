@@ -67,6 +67,5 @@ test.describe('Christmas Beetle Visualiser', () => {
     
     const hoverPanel = page.locator('#hover-panel');
     await expect(hoverPanel).not.toHaveClass(/hidden/);
-    await expect(hoverPanel).toHaveCSS('pointer-events', 'none');
   });
 });

@@ -40,7 +40,24 @@
 
   <!-- ─── Top-Left Panel: Controls + Stats + Filter ─── -->
   <div id="top-left-panel">
-    <!-- Playback Controls -->
+<!-- Stats Bar -->
+        <header id="stats-bar" class="glass hidden" style="display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <div class="stat">
+          <span class="stat-label">📅 DATE</span>
+          <span class="stat-value" id="stat-date">—</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-label">🪲 OCCURRENCES</span>
+          <span class="stat-value" id="stat-records">0</span>
+          <span class="stat-sub">recordings</span>
+        </div>
+      </div>
+      <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings">⚙️ Settings</label>
+    </header>
+
+<!-- Playback Controls -->
     <footer id="controls" class="glass hidden">
       <div class="controls-row">
         <a href="../" class="ctrl-btn home-nav-inline" title="Back to Visualisations" style="text-decoration: none;">🏠</a>
@@ -70,23 +87,9 @@
         
       </div>
     </footer>
+    
 
-    <!-- Stats Bar -->
-        <header id="stats-bar" class="glass hidden" style="display: flex; align-items: center; justify-content: space-between;">
-      <div style="display: flex; align-items: center; gap: 15px;">
-        <div class="stat">
-          <span class="stat-label">📅 DATE</span>
-          <span class="stat-value" id="stat-date">—</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-label">🪲 OCCURRENCES</span>
-          <span class="stat-value" id="stat-records">0</span>
-          <span class="stat-sub">recordings</span>
-        </div>
-      </div>
-      <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings">⚙️ Settings</label>
-    </header>
+    
 
     <!-- Species List -->
     <div id="species-filter" class="glass hidden" style="max-height: 450px; overflow-y: auto; padding: 10px; margin-top: 10px; border-radius: 8px;">
@@ -107,7 +110,7 @@
       <img id="filter-preview-img" src="" style="max-width: 300px; max-height: 300px; display: block; border-radius: 4px;">
     </div>
     <!-- Hover popup (single, updates when hovering different species) -->
-    <div id="hover-panel" class="species-panel glass hidden" style="pointer-events: none; z-index: 9999;">
+    <div id="hover-panel" class="species-panel glass hidden" style="z-index: 9999;">
       <button class="panel-close" data-action="close-hover" title="Close">✕</button>
       <div class="panel-header">
         <img class="panel-img" id="hover-img" src="" alt="" loading="lazy">
