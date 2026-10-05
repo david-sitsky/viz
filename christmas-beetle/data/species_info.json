@@ -2,7 +2,7 @@
   {
     "id": 0,
     "scientific_name": "Anoplognathus pallidicollis",
-    "common_name": "Christmas Beetle",
+    "common_name": "Cashew beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/334032092/medium.jpeg",
     "count": 335
   },
@@ -23,14 +23,14 @@
   {
     "id": 3,
     "scientific_name": "Anoplognathus concolor",
-    "common_name": "",
+    "common_name": "Campfire Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/169525841/medium.jpg",
     "count": 225
   },
   {
     "id": 4,
     "scientific_name": "Anoplognathus flavipennis",
-    "common_name": "",
+    "common_name": "Brown-winged Christmas Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/108202926/medium.jpg",
     "count": 79
   },
@@ -44,28 +44,28 @@
   {
     "id": 6,
     "scientific_name": "Anoplognathus porosus",
-    "common_name": "",
+    "common_name": "Washerwoman",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/29026403/medium.jpg",
     "count": 1250
   },
   {
     "id": 7,
     "scientific_name": "Anoplognathus montanus",
-    "common_name": "",
+    "common_name": "Duck Billed Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/169958250/medium.jpeg",
     "count": 555
   },
   {
     "id": 8,
     "scientific_name": "Anoplognathus velutinus",
-    "common_name": "",
+    "common_name": "Hairy Spotted Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/4989589/medium.jpeg",
     "count": 139
   },
   {
     "id": 9,
     "scientific_name": "Anoplognathus prasinus",
-    "common_name": "",
+    "common_name": "Granny Smith Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/106958233/medium.jpg",
     "count": 57
   },
@@ -93,7 +93,7 @@
   {
     "id": 13,
     "scientific_name": "Anoplognathus brunnipennis",
-    "common_name": "",
+    "common_name": "Emerald Tip Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/251688357/medium.jpg",
     "count": 456
   },
@@ -128,7 +128,7 @@
   {
     "id": 18,
     "scientific_name": "Anoplognathus chloropyrus",
-    "common_name": "",
+    "common_name": "Emerald Tip Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/251688357/medium.jpg",
     "count": 1
   },
