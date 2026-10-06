@@ -39,7 +39,7 @@
     "lat": -34.210868,
     "lon": 150.792711,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 55.6,
     "start_year": 1995
   },
@@ -61,7 +61,7 @@
     "lat": -34.913826,
     "lon": 146.590545,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 254.1,
     "start_year": 2023
   },
@@ -116,7 +116,7 @@
     "lat": -34.767208,
     "lon": 148.921499,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 159,
     "start_year": 2021
   },
@@ -204,7 +204,7 @@
     "lat": -32.394981,
     "lon": 150.94949,
     "type": "coal",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 660,
     "start_year": 1984
   },
@@ -248,7 +248,7 @@
     "lat": -32.356446,
     "lon": 149.470517,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 98,
     "start_year": 2019
   },
@@ -259,7 +259,7 @@
     "lat": -34.584149,
     "lon": 149.347019,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 110,
     "start_year": 2020
   },
@@ -270,7 +270,7 @@
     "lat": -33.622867,
     "lon": 149.200983,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 9.9,
     "start_year": 2000
   },
@@ -281,7 +281,7 @@
     "lat": -35.398563,
     "lon": 148.246201,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 80,
     "start_year": 2001
   },
@@ -314,7 +314,7 @@
     "lat": -36.593627,
     "lon": 149.101512,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 113.18,
     "start_year": 2014
   },
@@ -325,7 +325,7 @@
     "lat": -32.414669,
     "lon": 149.099633,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 113.19,
     "start_year": 2018
   },
@@ -358,7 +358,7 @@
     "lat": -35.046577,
     "lon": 147.442585,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 121,
     "start_year": 2020
   },
@@ -413,7 +413,7 @@
     "lat": -31.987538,
     "lon": 141.391994,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 53,
     "start_year": 2015
   },
@@ -424,7 +424,7 @@
     "lat": -36.594993,
     "lon": 149.473997,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 5,
     "start_year": 1942
   },
@@ -479,7 +479,7 @@
     "lat": -32.664624,
     "lon": 149.107959,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 19,
     "start_year": 1995
   },
@@ -490,7 +490,7 @@
     "lat": -35.003008,
     "lon": 148.582864,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 34,
     "start_year": 1926
   },
@@ -545,7 +545,7 @@
     "lat": -35.136662,
     "lon": 149.503302,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 140,
     "start_year": 2009
   },
@@ -556,7 +556,7 @@
     "lat": -35.180684,
     "lon": 149.546482,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 0.2,
     "start_year": 2012
   },
@@ -765,7 +765,7 @@
     "lat": -34.762456,
     "lon": 145.928786,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 180,
     "start_year": 2018
   },
@@ -776,7 +776,7 @@
     "lat": -34.862066,
     "lon": 149.388245,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 226,
     "start_year": 2020
   },
@@ -820,7 +820,7 @@
     "lat": -33.209801,
     "lon": 151.544968,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 181,
     "start_year": 2009
   },
@@ -875,7 +875,7 @@
     "lat": -29.910174,
     "lon": 150.92348,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 22.5,
     "start_year": 1996
   },
@@ -886,7 +886,7 @@
     "lat": -35.979325,
     "lon": 146.359356,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 36,
     "start_year": 2021
   },
@@ -897,7 +897,7 @@
     "lat": -34.517075,
     "lon": 149.542648,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 4.8,
     "start_year": 1997
   },
@@ -908,7 +908,7 @@
     "lat": -34.556855,
     "lon": 149.609565,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 96.04,
     "start_year": 2024
   },
@@ -919,7 +919,7 @@
     "lat": -34.517075,
     "lon": 149.542648,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 57,
     "start_year": 2024
   },
@@ -941,7 +941,7 @@
     "lat": -32.864748,
     "lon": 149.81297,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 141,
     "start_year": 2020
   },
@@ -952,7 +952,7 @@
     "lat": -35.702717,
     "lon": 146.963901,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 466,
     "start_year": 2025
   },
@@ -963,7 +963,7 @@
     "lat": -34.809208,
     "lon": 149.399185,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 30,
     "start_year": 2009
   },
@@ -1007,7 +1007,7 @@
     "lat": -34.648971,
     "lon": 146.061179,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 324,
     "start_year": 2020
   },
@@ -1172,7 +1172,7 @@
     "lat": -33.061039,
     "lon": 151.51984,
     "type": "coal",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 720,
     "start_year": 1981
   },
@@ -1194,7 +1194,7 @@
     "lat": -35.648941,
     "lon": 145.50575,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 162.36,
     "start_year": 2019
   },
@@ -1227,7 +1227,7 @@
     "lat": -33.517716,
     "lon": 149.052949,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 145,
     "start_year": 2023
   },
@@ -1293,7 +1293,7 @@
     "lat": -32.107937,
     "lon": 150.999481,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 5.5,
     "start_year": 1994
   },
@@ -1304,7 +1304,7 @@
     "lat": -35.929882,
     "lon": 146.909107,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 264,
     "start_year": 2025
   },
@@ -1326,7 +1326,7 @@
     "lat": -32.459876,
     "lon": 151.128697,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 12.78,
     "start_year": 2006
   },
@@ -1381,7 +1381,7 @@
     "lat": -33.109212,
     "lon": 148.092982,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 85,
     "start_year": 2020
   },
@@ -1458,7 +1458,7 @@
     "lat": -34.317617,
     "lon": 146.121416,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 27.2,
     "start_year": 2018
   },
@@ -1491,7 +1491,7 @@
     "lat": -34.615245,
     "lon": 149.45808,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 165,
     "start_year": 2013
   },
@@ -1502,7 +1502,7 @@
     "lat": -30.937263,
     "lon": 150.344174,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 144,
     "start_year": 2021
   },
@@ -1513,7 +1513,7 @@
     "lat": -34.691531,
     "lon": 149.373013,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 46.5,
     "start_year": 2011
   },
@@ -1535,7 +1535,7 @@
     "lat": -36.350097,
     "lon": 148.413602,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 60,
     "start_year": 2001
   },
@@ -1601,7 +1601,7 @@
     "lat": -33.638759,
     "lon": 150.049667,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 1.32,
     "start_year": 2001
   },
@@ -1678,7 +1678,7 @@
     "lat": -33.531624,
     "lon": 145.52242,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 110,
     "start_year": 2021
   },
@@ -1733,7 +1733,7 @@
     "lat": -36.106639,
     "lon": 147.032526,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 29,
     "start_year": 1956
   },
@@ -1755,7 +1755,7 @@
     "lat": -32.836104,
     "lon": 151.450523,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 375,
     "start_year": 2025
   },
@@ -1788,7 +1788,7 @@
     "lat": -33.409099,
     "lon": 147.655008,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 55,
     "start_year": 2021
   },
@@ -1799,7 +1799,7 @@
     "lat": -36.434918,
     "lon": 148.63057,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 1.1,
     "start_year": 2008
   },
@@ -1821,7 +1821,7 @@
     "lat": -35.562015,
     "lon": 148.305493,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 14,
     "start_year": 2009
   },
@@ -1832,7 +1832,7 @@
     "lat": -34.814929,
     "lon": 147.572334,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 36,
     "start_year": 2021
   },
@@ -1909,7 +1909,7 @@
     "lat": -30.87868,
     "lon": 150.491876,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 6,
     "start_year": 1959
   },
@@ -2140,7 +2140,7 @@
     "lat": -34.771747,
     "lon": 143.500494,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 275,
     "start_year": 2020
   },
@@ -2151,7 +2151,7 @@
     "lat": -34.771747,
     "lon": 143.500494,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 38,
     "start_year": 2019
   },
@@ -2250,7 +2250,7 @@
     "lat": -33.172681,
     "lon": 148.718175,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 50,
     "start_year": 2018
   },
@@ -2349,7 +2349,7 @@
     "lat": -30.515484,
     "lon": 151.859815,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 135,
     "start_year": 2022
   },
@@ -2415,7 +2415,7 @@
     "lat": -33.08981,
     "lon": 148.912255,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 36,
     "start_year": 2020
   },
@@ -2459,7 +2459,7 @@
     "lat": -29.569066,
     "lon": 149.866721,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 57,
     "start_year": 2016
   },
@@ -2580,7 +2580,7 @@
     "lat": -33.358121,
     "lon": 150.032642,
     "type": "coal",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 700,
     "start_year": 1991
   },
@@ -2591,7 +2591,7 @@
     "lat": -35.399485,
     "lon": 149.1454,
     "type": "commercial_solar",
-    "state": "ACT",
+    "state": "NSW/ACT",
     "capacity_mw": 12,
     "start_year": 2016
   },
@@ -2613,7 +2613,7 @@
     "lat": -35.958258,
     "lon": 146.007893,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 31,
     "start_year": 2026
   },
@@ -2701,7 +2701,7 @@
     "lat": -32.220895,
     "lon": 148.255308,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 10,
     "start_year": 2016
   },
@@ -2723,7 +2723,7 @@
     "lat": -31.822603,
     "lon": 147.703086,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 132,
     "start_year": 2019
   },
@@ -2734,7 +2734,7 @@
     "lat": -30.613863,
     "lon": 151.604209,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 235,
     "start_year": 2022
   },
@@ -2800,7 +2800,7 @@
     "lat": -31.555475,
     "lon": 147.08622,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 102.14,
     "start_year": 2015
   },
@@ -2899,7 +2899,7 @@
     "lat": -33.117567,
     "lon": 148.078825,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 55,
     "start_year": 2018
   },
@@ -2932,7 +2932,7 @@
     "lat": -29.388034,
     "lon": 151.244774,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 6.7,
     "start_year": 2002
   },
@@ -3009,7 +3009,7 @@
     "lat": -33.079517,
     "lon": 148.089521,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 96,
     "start_year": 2026
   },
@@ -3075,7 +3075,7 @@
     "lat": -35.489826,
     "lon": 149.142704,
     "type": "commercial_solar",
-    "state": "ACT",
+    "state": "NSW/ACT",
     "capacity_mw": 20,
     "start_year": 2014
   },
@@ -3119,7 +3119,7 @@
     "lat": -34.550899,
     "lon": 148.95544,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 396,
     "start_year": 2023
   },
@@ -3141,7 +3141,7 @@
     "lat": -29.699609,
     "lon": 151.412417,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 270,
     "start_year": 2018
   },
@@ -3152,7 +3152,7 @@
     "lat": -34.609386,
     "lon": 147.557888,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 110,
     "start_year": 2021
   },
@@ -3163,7 +3163,7 @@
     "lat": -34.8547,
     "lon": 150.6138,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 54,
     "start_year": 2023
   },
@@ -3174,7 +3174,7 @@
     "lat": -31.86095,
     "lon": 141.296349,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 198.94,
     "start_year": 2018
   },
@@ -3185,7 +3185,7 @@
     "lat": -33.849945,
     "lon": 150.94941,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 125,
     "start_year": 1997
   },
@@ -3251,7 +3251,7 @@
     "lat": -32.272801,
     "lon": 148.659285,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 15,
     "start_year": 2018
   },
@@ -3295,7 +3295,7 @@
     "lat": -32.248099,
     "lon": 149.580548,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 255,
     "start_year": 2024
   },
@@ -3317,7 +3317,7 @@
     "lat": -34.804891,
     "lon": 143.491185,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 228,
     "start_year": 2020
   },
@@ -3339,7 +3339,7 @@
     "lat": -32.583514,
     "lon": 148.826931,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 175,
     "start_year": 2021
   },
@@ -3372,7 +3372,7 @@
     "lat": -34.249117,
     "lon": 150.577718,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 7.04,
     "start_year": 1999
   },
@@ -3405,7 +3405,7 @@
     "lat": -34.522808,
     "lon": 150.807237,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 440,
     "start_year": 2008
   },
@@ -3416,7 +3416,7 @@
     "lat": -34.522808,
     "lon": 150.807237,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 320,
     "start_year": 2024
   },
@@ -3438,7 +3438,7 @@
     "lat": -34.431428,
     "lon": 149.865258,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 106.8,
     "start_year": 2014
   },
@@ -3493,7 +3493,7 @@
     "lat": -36.009382,
     "lon": 145.99946,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 2.5,
     "start_year": 2001
   },
@@ -3537,7 +3537,7 @@
     "lat": -34.219461,
     "lon": 150.718012,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 41.2,
     "start_year": 1995
   },
@@ -3592,7 +3592,7 @@
     "lat": -35.952003,
     "lon": 148.367255,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 616,
     "start_year": 2001
   },
@@ -3603,7 +3603,7 @@
     "lat": -35.611138,
     "lon": 148.29175,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 1500,
     "start_year": 1972
   },
@@ -3625,7 +3625,7 @@
     "lat": -35.180061,
     "lon": 147.21567,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 166,
     "start_year": 2008
   },
@@ -3636,7 +3636,7 @@
     "lat": -33.16078,
     "lon": 151.543985,
     "type": "coal",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 660,
     "start_year": 1977
   },
@@ -3669,7 +3669,7 @@
     "lat": -35.070575,
     "lon": 147.438807,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 55,
     "start_year": 2021
   },
@@ -3691,7 +3691,7 @@
     "lat": -35.747397,
     "lon": 146.96666,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 201.6,
     "start_year": 2024
   },
@@ -3801,7 +3801,7 @@
     "lat": -32.513792,
     "lon": 148.95829,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 216,
     "start_year": 2020
   },
@@ -3812,7 +3812,7 @@
     "lat": -32.496071,
     "lon": 148.956507,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 436,
     "start_year": 2024
   },
@@ -3856,7 +3856,7 @@
     "lat": -33.809655,
     "lon": 147.325015,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 105,
     "start_year": 2022
   },
@@ -3878,7 +3878,7 @@
     "lat": -29.764429,
     "lon": 151.553007,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 22,
     "start_year": 2018
   },
@@ -3889,7 +3889,7 @@
     "lat": -29.7718,
     "lon": 151.5755,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 175,
     "start_year": 2017
   },
@@ -3911,7 +3911,7 @@
     "lat": -30.363284,
     "lon": 149.677422,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 10,
     "start_year": 2003
   },
@@ -3922,7 +3922,7 @@
     "lat": -30.363284,
     "lon": 149.677422,
     "type": "gas",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 12,
     "start_year": 2009
   },
@@ -3988,7 +3988,7 @@
     "lat": -32.416988,
     "lon": 149.935347,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 324,
     "start_year": 2024
   },
@@ -4010,7 +4010,7 @@
     "lat": -35.091982,
     "lon": 149.572021,
     "type": "wind",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 48.3,
     "start_year": 2011
   },
@@ -4043,7 +4043,7 @@
     "lat": -33.887269,
     "lon": 147.315314,
     "type": "commercial_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 62.32,
     "start_year": 2023
   },
@@ -4054,7 +4054,7 @@
     "lat": -33.968824,
     "lon": 148.948823,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 20,
     "start_year": 1991
   },
@@ -4065,7 +4065,7 @@
     "lat": -33.968824,
     "lon": 148.948823,
     "type": "hydro",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 4,
     "start_year": 1946
   },
@@ -4182,11 +4182,11 @@
   {
     "id": 381,
     "oe_id": "ROOFTOP_NSW1",
-    "name": "NSW Rooftop Solar",
+    "name": "NSW/ACT Rooftop Solar",
     "lat": -90.0,
     "lon": 0.0,
     "type": "rooftop_solar",
-    "state": "NSW",
+    "state": "NSW/ACT",
     "capacity_mw": 0,
     "start_year": 2000
   },

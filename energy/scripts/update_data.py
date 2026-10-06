@@ -124,7 +124,7 @@ async def main():
 
     # Fetch rooftop
     nem_regions = [
-        ("NSW1", "NSW Rooftop Solar", "NSW"),
+        ("NSW1", "NSW/ACT Rooftop Solar", "NSW/ACT"),
         ("QLD1", "QLD Rooftop Solar", "QLD"),
         ("SA1", "SA Rooftop Solar", "SA"),
         ("TAS1", "TAS Rooftop Solar", "TAS"),

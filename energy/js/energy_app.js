@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610071044';
-import { EngineMap } from './energy_map.js?v=202610071044';
+import { loadData } from './energy_data.js?v=202610062336';
+import { EngineMap } from './energy_map.js?v=202610062336';
 
 class EngineApp {
   constructor() {
@@ -435,6 +435,7 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
             if (cIdx >= 0 && cIdx < absCatTotals.length) {
                 absCatTotals[cIdx] += generation[i];
                 let st = fac.state;
+                if (st === 'NSW/ACT') st = 'NSW';
                 const sMap = absStateTotals.get(cIdx);
                 sMap.set(st, (sMap.get(st) || 0) + generation[i]);
             }
@@ -535,6 +536,7 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
             if (!fac || !this.selectedStates.has(fac.state)) continue;
             
             let st = fac.state;
+            if (st === 'NSW/ACT') st = 'NSW';
             
             const catIdx = categoryIndices[i];
             const fType = metadata.fuelTypes[catIdx];
@@ -572,6 +574,7 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
                 if (!fac || !this.selectedStates.has(fac.state)) continue;
                 
                 let st = fac.state;
+                if (st === 'NSW/ACT') st = 'NSW';
                 
                 stateTotals.set(st, (stateTotals.get(st) || 0) + generation[i]);
             }
