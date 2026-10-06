@@ -15,7 +15,7 @@ function calculateOptimalAustraliaViewport() {
   const h = window.innerHeight;
   const isMobilePortrait = (w <= 600 && h > w);
   const centerLng = 133.5;
-  const centerLat = isMobilePortrait ? -35.0 : -28.8;
+  const centerLat = isMobilePortrait ? -23.0 : -28.8;
   let zoom;
   if (w <= 450) zoom = 2.15;
   else if (w <= 650) zoom = 2.45;

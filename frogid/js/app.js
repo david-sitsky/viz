@@ -218,9 +218,20 @@ class FrogApp {
   // If the species is ALREADY showing in filter popups, we do not show a duplicate popup.
 
   _onHover(recordIdx, info) {
+    if (this._hideTooltipTimeout) {
+      clearTimeout(this._hideTooltipTimeout);
+      this._hideTooltipTimeout = null;
+    }
+
     if (recordIdx < 0) {
-      // Mouse left the dot, but we don't hide the frogID panel automatically
-      // so we just do nothing.
+      if (this._isHoveringPopup || this._isPopupDragged) return;
+      this._hideTooltipTimeout = setTimeout(() => {
+        if (this.dom && this.dom.hoverPanel) {
+          this.dom.hoverPanel.classList.add('hidden');
+          this._stopAudio(this.dom.hoverAudio);
+          this.map._lastHoveredRecord = -1;
+        }
+      }, 1500);
       return;
     }
     const { speciesData, categoryIndices } = this.data;
@@ -286,6 +297,17 @@ class FrogApp {
     });
     
     makeDraggable(this.dom.hoverPanel, this.dom.hoverPanel, () => { this._isPopupDragged = true; });
+    this.dom.hoverPanel.addEventListener('mouseenter', () => {
+      this._isHoveringPopup = true;
+      if (this._hideTooltipTimeout) {
+        clearTimeout(this._hideTooltipTimeout);
+        this._hideTooltipTimeout = null;
+      }
+    });
+    this.dom.hoverPanel.addEventListener('mouseleave', () => {
+      this._isHoveringPopup = false;
+      this._onHover(-1, null);
+    });
   }
 
   _stopAudio(el) {
