@@ -11,126 +11,126 @@
     "scientific_name": "Anoplognathus macleayi aurora",
     "common_name": "",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/251769781/medium.jpg",
-    "count": 12
+    "count": 13
   },
   {
     "id": 2,
     "scientific_name": "Anoplognathus olivieri",
     "common_name": "Christmas Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/45672391/medium.jpg",
-    "count": 650
+    "count": 653
   },
   {
     "id": 3,
     "scientific_name": "Anoplognathus concolor",
     "common_name": "Campfire Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/169525841/medium.jpg",
-    "count": 225
+    "count": 228
   },
   {
     "id": 4,
     "scientific_name": "Anoplognathus flavipennis",
     "common_name": "Brown-winged Christmas Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/108202926/medium.jpg",
-    "count": 79
+    "count": 81
   },
   {
     "id": 5,
     "scientific_name": "Anoplognathus boisduvalii",
     "common_name": "",
     "image": "https://static.inaturalist.org/photos/161979264/medium.jpeg",
-    "count": 324
+    "count": 327
   },
   {
     "id": 6,
     "scientific_name": "Anoplognathus porosus",
     "common_name": "Washerwoman",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/29026403/medium.jpg",
-    "count": 1250
+    "count": 1249
   },
   {
     "id": 7,
     "scientific_name": "Anoplognathus montanus",
     "common_name": "Duck Billed Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/169958250/medium.jpeg",
-    "count": 555
+    "count": 553
   },
   {
     "id": 8,
     "scientific_name": "Anoplognathus velutinus",
     "common_name": "Hairy Spotted Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/4989589/medium.jpeg",
-    "count": 139
+    "count": 138
   },
   {
     "id": 9,
     "scientific_name": "Anoplognathus prasinus",
     "common_name": "Granny Smith Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/106958233/medium.jpg",
-    "count": 57
+    "count": 53
   },
   {
     "id": 10,
     "scientific_name": "Anoplognathus abnormis",
     "common_name": "",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/12064895/medium.jpg",
-    "count": 67
+    "count": 66
   },
   {
     "id": 11,
     "scientific_name": "Anoplognathus viriditarsis",
     "common_name": "",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/345542753/medium.jpg",
-    "count": 346
+    "count": 348
   },
   {
     "id": 12,
     "scientific_name": "Anoplognathus hirsutus",
     "common_name": "",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/456843996/medium.jpg",
-    "count": 63
+    "count": 62
   },
   {
     "id": 13,
     "scientific_name": "Anoplognathus brunnipennis",
     "common_name": "Emerald Tip Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/251688357/medium.jpg",
-    "count": 456
+    "count": 462
   },
   {
     "id": 14,
     "scientific_name": "Anoplognathus viridiaeneus",
     "common_name": "King Christmas Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/153255822/medium.jpg",
-    "count": 81
+    "count": 80
   },
   {
     "id": 15,
     "scientific_name": "Anoplognathus suturalis",
     "common_name": "",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/12391305/medium.jpg",
-    "count": 84
+    "count": 80
   },
   {
     "id": 16,
-    "scientific_name": "Anoplognathus punctulatus",
-    "common_name": "",
-    "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/242674210/medium.jpeg",
-    "count": 62
-  },
-  {
-    "id": 17,
-    "scientific_name": "Anoplognathus rugosus",
-    "common_name": "",
-    "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/349139025/medium.jpg",
-    "count": 6
-  },
-  {
-    "id": 18,
     "scientific_name": "Anoplognathus chloropyrus",
     "common_name": "Emerald Tip Beetle",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/251688357/medium.jpg",
     "count": 1
+  },
+  {
+    "id": 17,
+    "scientific_name": "Anoplognathus punctulatus",
+    "common_name": "",
+    "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/242674210/medium.jpeg",
+    "count": 58
+  },
+  {
+    "id": 18,
+    "scientific_name": "Anoplognathus rugosus",
+    "common_name": "",
+    "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/349139025/medium.jpg",
+    "count": 7
   },
   {
     "id": 19,
@@ -172,7 +172,7 @@
     "scientific_name": "Anoplognathus parvulus",
     "common_name": "",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/603895015/medium.jpg",
-    "count": 42
+    "count": 40
   },
   {
     "id": 25,
@@ -186,7 +186,7 @@
     "scientific_name": "Anoplognathus nebulosus",
     "common_name": "",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/378016843/medium.jpeg",
-    "count": 20
+    "count": 21
   },
   {
     "id": 27,
@@ -200,7 +200,7 @@
     "scientific_name": "Anoplognathus vietor",
     "common_name": "",
     "image": "https://inaturalist-open-data.s3.amazonaws.com/photos/252880639/medium.jpg",
-    "count": 6
+    "count": 5
   },
   {
     "id": 29,
