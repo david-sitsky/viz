@@ -125,6 +125,20 @@ class EngineApp {
     });
     this.dom.btnPlay.addEventListener('click', () => this._togglePlay());
 
+    if (this.dom.bogongPanel) {
+      makeDraggable(this.dom.bogongPanel);
+    }
+    if (this.dom.bogongPanelClose && this.dom.bogongPanel) {
+      this.dom.bogongPanelClose.addEventListener('click', () => {
+        this.dom.bogongPanel.classList.add('hidden');
+      });
+    }
+    if (this.dom.btnInfo && this.dom.bogongPanel) {
+      this.dom.btnInfo.addEventListener('click', () => {
+        this.dom.bogongPanel.classList.toggle('hidden');
+      });
+    }
+
     this.dom.scrubber.max = this.data.metadata.totalDays - 1;
     this.dom.scrubber.addEventListener('input', () => {
       this._pause();
