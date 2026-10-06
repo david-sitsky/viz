@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610061810';
-import { EngineMap } from './energy_map.js?v=202610061810';
+import { loadData } from './energy_data.js?v=202610061825';
+import { EngineMap } from './energy_map.js?v=202610061825';
 
 class EngineApp {
   constructor() {
@@ -314,6 +314,7 @@ _hideLoading() {
 
     this.dom.scrubber.max = this.data.metadata.totalDays - 1;
     this.dom.scrubber.addEventListener('input', () => {
+      this.hasStarted = true;
       this._pause();
       this._setDay(parseInt(this.dom.scrubber.value, 10));
     });
@@ -356,6 +357,7 @@ _hideLoading() {
       this._setDay(0);
 
     this.playing = true;
+    this.hasStarted = true;
     this.dom.btnPlay.textContent = '⏸';
     this._scheduleTick();
   }
@@ -486,26 +488,28 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         if (fossilTotal > 0 || renewableTotal > 0) {
             aggregatesHtml += '<hr style="border: 1px solid #444; margin: 10px 0;">';
             if (fossilTotal > 0) {
-                const fossilPct = aggMax > 0 ? (fossilTotal / aggMax) * 100 : 0;
+                const fossilPct = this.hasStarted && aggMax > 0 ? (fossilTotal / aggMax) * 100 : 0;
+                const fVal = this.hasStarted ? Math.round(fossilTotal / 1000).toLocaleString() + ' GWh' : '';
                 aggregatesHtml += `
                   <div class="bar-row">
                     <div class="bar-label" style="font-weight: bold;">FOSSIL FUELS</div>
                     <div class="bar-track">
                       <div class="bar-fill" style="width: ${fossilPct}%; background: #666;"></div>
                     </div>
-                    <div class="bar-value" style="font-weight: bold;">${Math.round(fossilTotal / 1000).toLocaleString()} GWh</div>
+                    <div class="bar-value" style="font-weight: bold;">${fVal}</div>
                   </div>
                 `;
             }
             if (renewableTotal > 0) {
-                const renPct = aggMax > 0 ? (renewableTotal / aggMax) * 100 : 0;
+                const renPct = this.hasStarted && aggMax > 0 ? (renewableTotal / aggMax) * 100 : 0;
+                const rVal = this.hasStarted ? Math.round(renewableTotal / 1000).toLocaleString() + ' GWh' : '';
                 aggregatesHtml += `
                   <div class="bar-row">
                     <div class="bar-label" style="font-weight: bold;">RENEWABLES</div>
                     <div class="bar-track">
                       <div class="bar-fill" style="width: ${renPct}%; background: #4CAF50;"></div>
                     </div>
-                    <div class="bar-value" style="font-weight: bold;">${Math.round(renewableTotal / 1000).toLocaleString()} GWh</div>
+                    <div class="bar-value" style="font-weight: bold;">${rVal}</div>
                   </div>
                 `;
             }
@@ -587,19 +591,22 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         let html = '';
         
         for (const item of chartData) {
-            if (item.total === 0) continue;
-            const pct = currentMax > 0 ? (item.total / currentMax) * 100 : 0;
+            if (item.total === 0 && this.hasStarted) continue;
+            
+            const pct = this.hasStarted && currentMax > 0 ? (item.total / currentMax) * 100 : 0;
             const colorStr = `rgb(${item.color[0]}, ${item.color[1]}, ${item.color[2]})`;
             let label = item.name.replace('_', ' ').toUpperCase();
             if (window.innerWidth <= 768) {
                 if (label === 'COMMERCIAL SOLAR') label = 'COMM SOLAR';
                 if (label === 'ROOFTOP SOLAR') label = 'ROOF SOLAR';
             }
-            let valStr;
-            if (this.chartViewMode === 'state_renewables_pct') {
-                valStr = item.total.toFixed(1) + '%';
-            } else {
-                valStr = Math.round(item.total / 1000).toLocaleString() + ' GWh';
+            let valStr = '';
+            if (this.hasStarted) {
+                if (this.chartViewMode === 'state_renewables_pct') {
+                    valStr = item.total.toFixed(1) + '%';
+                } else {
+                    valStr = Math.round(item.total / 1000).toLocaleString() + ' GWh';
+                }
             }
             
             let extraLabelStyle = '';
