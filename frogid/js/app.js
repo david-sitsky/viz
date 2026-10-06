@@ -1,3 +1,4 @@
+import { makeDraggable } from '../../common/js/draggable.js';
 /**
  * FrogID v7 — Main Application Controller
  *
@@ -10,8 +11,8 @@
  *  - Both types live in the #right-panels flex column.
  */
 
-import { loadData } from '../../common/js/engine_data.js?v=202610061350';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061350';
+import { loadData } from '../../common/js/engine_data.js?v=202610061738';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061738';
 import { AudioManager } from './audio.js?v=12';
 
 class FrogApp {

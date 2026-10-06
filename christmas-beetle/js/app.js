@@ -1,5 +1,6 @@
-import { loadData } from '../../common/js/engine_data.js?v=202610061350';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061350';
+import { makeDraggable } from '../../common/js/draggable.js';
+import { loadData } from '../../common/js/engine_data.js?v=202610061738';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061738';
 
 class App {
   constructor() {
@@ -46,9 +47,11 @@ class App {
       const closeBtn = this.dom.hoverPanel.querySelector('.panel-close');
       if (closeBtn) {
         closeBtn.addEventListener('click', () => {
+          this._isPopupDragged = false;
           this.dom.hoverPanel.classList.add('hidden');
         });
       }
+      makeDraggable(this.dom.hoverPanel, this.dom.hoverPanel, () => { this._isPopupDragged = true; });
       
       this.dom.hoverPanel.addEventListener('mouseenter', () => {
         this._isHoveringPopup = true;
@@ -212,7 +215,8 @@ class App {
     
     this.dom.hoverLink.href = `https://bie.ala.org.au/species/${encodeURIComponent(sp.scientific_name)}`;
     
-    if (this._lastPopupRecordIdx !== recordIdx) {
+    if (!this._isPopupDragged) {
+      if (this._lastPopupRecordIdx !== recordIdx) {
       this.dom.hoverPanel.style.position = 'absolute';
       this.dom.hoverPanel.style.top = (info.y + 15) + 'px';
       this.dom.hoverPanel.style.left = (info.x + 15) + 'px';
@@ -220,6 +224,7 @@ class App {
       this.dom.hoverPanel.style.right = 'auto';
       this.dom.hoverPanel.style.bottom = 'auto';
       this._lastPopupRecordIdx = recordIdx;
+    }
     }
     
     // Clear inline pointerEvents if any was left from old code
