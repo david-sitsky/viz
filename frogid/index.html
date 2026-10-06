@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive animated map showing 1.18 million frog recordings across Australia from 2017–2024">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610061225">
+  <link rel="stylesheet" href="../common/styles.css?v=202610061336">
   <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
 </head>
@@ -45,9 +45,18 @@
             <a href="../" class="ctrl-btn home-nav-inline" title="Back to Visualisations" style="text-decoration: none;">🏠</a>
             <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
             <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
+            <div class="sound-btn-container" style="margin: 0;">
+              <button id="btn-sound" class="ctrl-btn sound-btn" title="Toggle Sound (M)">🔇</button>
+              <div id="sound-hint" class="sound-hint hidden">
+                <div class="sound-hint-arrow"></div>
+                <span>Let the frogs croak! 🔊</span>
+                <button id="sound-hint-close" class="sound-hint-close" title="Dismiss">✕</button>
+              </div>
+            </div>
+
           </div>
         </div>
-        <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings">⚙️ Settings</label>
+        <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings" style="font-size: 16px; padding: 4px; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px;" title="Settings">⚙️</label>
       </div>
       <div class="controls-row" style="display: flex; gap: 15px; align-items: center; margin-bottom: 2px;">
         <div class="stat">
@@ -68,14 +77,6 @@
           <span id="speed-val" style="font-size: 11px;">10×</span>
         </div>
         <div style="display: flex; gap: 12px; align-items: center;">
-          <div class="sound-btn-container" style="margin: 0;">
-            <button id="btn-sound" class="ctrl-btn sound-btn" title="Toggle Sound (M)">🔇</button>
-            <div id="sound-hint" class="sound-hint hidden">
-              <div class="sound-hint-arrow"></div>
-              <span>Let the frogs croak! 🔊</span>
-              <button id="sound-hint-close" class="sound-hint-close" title="Dismiss">✕</button>
-            </div>
-          </div>
           <label class="fade-toggle" title="Fade old recordings">
             <input type="checkbox" id="fade-toggle" checked>
             <span class="toggle-track"><span class="toggle-thumb"></span></span>
@@ -125,6 +126,6 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/app.js?v=202610061225"></script>
+  <script type="module" src="js/app.js?v=202610061336"></script>
 </body>
 </html>
