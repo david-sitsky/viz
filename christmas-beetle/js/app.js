@@ -1,5 +1,5 @@
-import { loadData } from '../../common/js/engine_data.js?v=202610061147';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061147';
+import { loadData } from '../../common/js/engine_data.js?v=202610061159';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061159';
 
 class App {
   constructor() {
@@ -49,6 +49,18 @@ class App {
           this.dom.hoverPanel.classList.add('hidden');
         });
       }
+      
+      this.dom.hoverPanel.addEventListener('mouseenter', () => {
+        this._isHoveringPopup = true;
+        if (this._hideTooltipTimeout) {
+          clearTimeout(this._hideTooltipTimeout);
+          this._hideTooltipTimeout = null;
+        }
+      });
+      this.dom.hoverPanel.addEventListener('mouseleave', () => {
+        this._isHoveringPopup = false;
+        this._showHoverPopup(-1, null);
+      });
 
       this._hideLoading();
       ['statsBar','controls','topPanel'].forEach(k => {
@@ -144,8 +156,26 @@ class App {
   
   _showHoverPopup(recordIdx, info) {
     if (recordIdx < 0 || !info) {
-      return; // Keep pinned until dismissed or new record hovered
+      if (this._isHoveringPopup) return;
+      if (this._hideTooltipTimeout) clearTimeout(this._hideTooltipTimeout);
+      this._hideTooltipTimeout = setTimeout(() => {
+        if (this.dom && this.dom.hoverPanel) {
+          this.dom.hoverPanel.classList.add('faded');
+          setTimeout(() => {
+            if (this.dom.hoverPanel.classList.contains('faded')) {
+              this.dom.hoverPanel.classList.add('hidden');
+            }
+          }, 500); // Wait for CSS transition
+        }
+      }, 500);
+      return;
     }
+
+    if (this._hideTooltipTimeout) {
+      clearTimeout(this._hideTooltipTimeout);
+      this._hideTooltipTimeout = null;
+    }
+
     const catIdx = this.data.categoryIndices[recordIdx];
     const sp = this.speciesInfo[catIdx];
     if (!sp) return;
@@ -182,22 +212,26 @@ class App {
     
     this.dom.hoverLink.href = `https://bie.ala.org.au/species/${encodeURIComponent(sp.scientific_name)}`;
     
-    // Position absolute near cursor
-    this.dom.hoverPanel.style.position = 'absolute';
-    this.dom.hoverPanel.style.top = (info.y + 15) + 'px';
-    this.dom.hoverPanel.style.left = (info.x + 15) + 'px';
-    this.dom.hoverPanel.style.transform = 'none';
-    this.dom.hoverPanel.style.right = 'auto';
-    this.dom.hoverPanel.style.bottom = 'auto';
+    if (this._lastPopupRecordIdx !== recordIdx) {
+      this.dom.hoverPanel.style.position = 'absolute';
+      this.dom.hoverPanel.style.top = (info.y + 15) + 'px';
+      this.dom.hoverPanel.style.left = (info.x + 15) + 'px';
+      this.dom.hoverPanel.style.transform = 'none';
+      this.dom.hoverPanel.style.right = 'auto';
+      this.dom.hoverPanel.style.bottom = 'auto';
+      this._lastPopupRecordIdx = recordIdx;
+    }
     
-    this.dom.hoverPanel.classList.remove('hidden');
+    // Clear inline pointerEvents if any was left from old code
+    this.dom.hoverPanel.style.pointerEvents = '';
+    this.dom.hoverPanel.classList.remove('hidden', 'faded');
   }
 
   _setupFilter() {
     let activeFilters = new Set();
     const updateMapFilter = () => {
       if (activeFilters.size === 0) {
-        this.map.setFilter(new Set()); // all
+        this.map.setFilter(new Set([-1])); // none
       } else {
         this.map.setFilter(activeFilters);
       }
@@ -233,7 +267,7 @@ class App {
     const checkboxes = [];
     
     btnAll.addEventListener('click', () => {
-      activeFilters = new Set(sorted.map(s => s.id));
+      activeFilters = new Set(sorted.filter(s => s && s.scientific_name !== 'Unknown').map(s => s.id));
       checkboxes.forEach(cb => cb.checked = true);
       updateMapFilter();
     });
@@ -255,6 +289,8 @@ class App {
       const cb = document.createElement('input');
       cb.type = 'checkbox';
       cb.value = sp.id;
+      cb.checked = true;
+      activeFilters.add(sp.id);
       cb.addEventListener('change', (e) => {
         if (e.target.checked) activeFilters.add(sp.id);
         else activeFilters.delete(sp.id);

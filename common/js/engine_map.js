@@ -129,6 +129,8 @@ export class EngineMap {
     const container = document.getElementById('map-container');
     if (!info || info.index < 0 || !info.layer || info.layer.id === 'glow') {
       if (container) container.style.cursor = '';
+      this._lastHoveredRecord = -1;
+      if (this.onRecord) this.onRecord(-1, null, false);
       return;
     }
 
@@ -137,12 +139,12 @@ export class EngineMap {
     if (recordIdx < 0) return;
 
     if (recordIdx === this._lastHoveredRecord) {
-      if (this.onRecord) this.onRecord(recordIdx, info);
+      if (this.onRecord) this.onRecord(recordIdx, info, false);
       return;
     }
     this._lastHoveredRecord = recordIdx;
 
-    if (this.onRecord) this.onRecord(recordIdx, info);
+    if (this.onRecord) this.onRecord(recordIdx, info, false);
   }
 
   _handleClick(info) {
@@ -153,7 +155,7 @@ export class EngineMap {
     if (recordIdx < 0) return;
 
     this._lastHoveredRecord = recordIdx;
-    if (this.onRecord) this.onRecord(recordIdx, info);
+    if (this.onRecord) this.onRecord(recordIdx, info, true);
   }
 
   _rebuildFilteredData() {
