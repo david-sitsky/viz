@@ -227,7 +227,7 @@ class FrogApp {
       if (this._isHoveringPopup || this._isPopupDragged) return;
       this._hideTooltipTimeout = setTimeout(() => {
         if (this.dom && this.dom.hoverPanel) {
-          this.dom.hoverPanel.classList.add('hidden');
+          this.dom.hoverPanel.classList.add('faded');
           this._stopAudio(this.dom.hoverAudio);
           this.map._lastHoveredRecord = -1;
         }
@@ -283,7 +283,7 @@ class FrogApp {
       this.dom.hoverPanel.style.bottom = 'auto';
       this.dom.hoverPanel.style.margin = '0';
     }
-    this.dom.hoverPanel.classList.remove('hidden');
+    this.dom.hoverPanel.classList.remove('hidden', 'faded');
   }
 
   _setupHoverPanelClose() {
