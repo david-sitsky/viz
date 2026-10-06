@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive animated map showing Australian power generation over time">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610062336">
+  <link rel="stylesheet" href="../common/styles.css?v=202610071051">
   <style>
     /* Energy SVG styling */
     .energy-icon {
@@ -76,6 +76,7 @@
 
     <!-- Stats Bar -->
     <header id="stats-bar" class="glass hidden" style="display: flex; flex-direction: column; gap: 8px;">
+      <h1 class="viz-title" style="margin: 0; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.5px;">Energy Production</h1>
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
         <div style="display: flex; align-items: center; gap: 16px;">
           <div class="stat">
@@ -150,7 +151,7 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/energy_app.js?v=202610062336"></script>
+  <script type="module" src="js/energy_app.js?v=202610071051"></script>
   <!-- ─── Bottom Panel: Bar Chart ─── -->
   <div id="bottom-panel" class="glass hidden">
     <div class="chart-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
