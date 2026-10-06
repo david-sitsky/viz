@@ -124,7 +124,8 @@ export class EngineMap {
     }
     
     const ROOFTOP_CENTROIDS = {
-        'NSW/ACT': [-32.0, 145.0],
+        'NSW': [-32.0, 145.0],
+        'ACT': [-35.3, 149.1],
         'VIC': [-36.5, 143.0],
         'QLD': [-22.0, 144.0],
         'SA': [-30.0, 135.0],
@@ -362,7 +363,6 @@ let dayStart = offsets[day] ?? 0;
                 const fac = this.delegate.facilityMap.get(facId);
                 if (fac && fac.state) {
                     let state = fac.state;
-                    if (state === 'NSW/ACT') state = 'NSW';
                     stateRooftopGen[state] = (stateRooftopGen[state] || 0) + active.generation[i];
                 }
             }
@@ -380,7 +380,7 @@ let dayStart = offsets[day] ?? 0;
             getFillColor: d => {
                 const abbr = STATE_ABBR[d.properties.STATE_NAME];
                 if (!abbr) return [0,0,0,0];
-                if (this.delegate.selectedStates && !this.delegate.selectedStates.has(abbr === 'NSW' ? 'NSW/ACT' : abbr)) {
+                if (this.delegate.selectedStates && !this.delegate.selectedStates.has(abbr)) {
                     return [0,0,0,0];
                 }
                 const gen = stateRooftopGen[abbr] || 0;
