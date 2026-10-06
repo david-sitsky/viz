@@ -14,5 +14,9 @@ oe_facilities.html
 oe_script.js
 oe_api_*.json
 next_f_extracted.txt
-data/energy/*.bin
-data/energy/metadata.json
+energy/data/*.bin
+energy/data/metadata.json
+bogong/data/*.bin
+bogong/data/metadata.json
+christmas-beetle/data/*.bin
+christmas-beetle/data/metadata.json

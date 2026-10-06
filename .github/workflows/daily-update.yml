@@ -39,6 +39,18 @@ jobs:
         
       - name: Compile Binary Data Blob
         run: cd energy && python3 scripts/build_blob.py
+
+      - name: Fetch Latest ALA Bogong Data
+        run: python3 common/scripts/ala_sync.py --query "Agrotis infusa" --start-date "2020-08-01T00:00:00Z" --output bogong/data/raw_events.csv
+        
+      - name: Compile Bogong Binary Data Blob
+        run: python3 common/scripts/ala_build.py --start-date "2020-08-01T00:00:00Z" --input-csv bogong/data/raw_events.csv --output-bin bogong/data/data.bin --output-meta bogong/data/metadata.json --output-species bogong/data/species_info.json
+
+      - name: Fetch Latest ALA Christmas Beetle Data
+        run: python3 common/scripts/ala_sync.py --query "genus:Anoplognathus" --start-date "2020-08-01T00:00:00Z" --output christmas-beetle/data/raw_events.csv
+        
+      - name: Compile Christmas Beetle Binary Data Blob
+        run: python3 common/scripts/ala_build.py --start-date "2020-08-01T00:00:00Z" --input-csv christmas-beetle/data/raw_events.csv --output-bin christmas-beetle/data/data.bin --output-meta christmas-beetle/data/metadata.json --output-species christmas-beetle/data/species_info.json
         
       - name: Bust Browser Cache
         run: python3 common/scripts/update_html_version.py
@@ -47,7 +59,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add energy/data/raw_events.csv energy/index.html frogid/index.html bogong/index.html index.html
+          git add energy/data/raw_events.csv bogong/data/raw_events.csv christmas-beetle/data/raw_events.csv energy/index.html frogid/index.html bogong/index.html christmas-beetle/index.html index.html
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: automated daily data update"
           git pull --rebase origin main && git push origin main
           

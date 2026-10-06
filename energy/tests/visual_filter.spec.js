@@ -7,6 +7,12 @@ test.describe('FrogID Visual Filter Tests', () => {
     
     // Wait for the loading overlay to disappear
     await page.waitForSelector('#loading-overlay.hidden', { state: 'attached', timeout: 15000 });
+    const settingsBtn = page.locator('#btn-settings');
+    if (await settingsBtn.count() > 0) {
+      const isChecked = await page.locator('#mobile-toggle').evaluate(el => el.checked);
+      if (!isChecked) await settingsBtn.click({ force: true });
+    }
+    
     
     // Give the map a moment to fully render tiles
     await page.waitForTimeout(3000);

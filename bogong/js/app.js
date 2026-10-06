@@ -1,5 +1,6 @@
-import { loadData } from '../../common/js/engine_data.js?v=1';
-import { EngineMap } from '../../common/js/engine_map.js?v=1';
+import { makeDraggable } from '../../common/js/draggable.js';
+import { loadData } from '../../common/js/engine_data.js?v=202610061749';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061749';
 
 class EngineApp {
   constructor() {
@@ -18,7 +19,7 @@ class EngineApp {
       this.data = await loadData(
         'data/metadata.json',
         'data/data.bin',
-        'bogong-v2',
+        'bogong-v3',
         [[240, 140, 50]],
         (phase, pct) => this._updateLoading(phase, pct),
       );
@@ -68,6 +69,9 @@ class EngineApp {
     const $ = id => document.getElementById(id);
     this.dom = {
       loadingOverlay:   $('loading-overlay'),
+      bogongPanel: $('bogong-panel'),
+      btnInfo: $('btn-info'),
+      bogongPanelClose: $('bogong-panel-close'),
       loadingStatus:    $('loading-status'),
       progressFill:     $('progress-fill'),
       statsBar:         $('stats-bar'),
@@ -79,8 +83,6 @@ class EngineApp {
       scrubber:         $('scrubber'),
       speedSlider:      $('speed'),
       speedVal:         $('speed-val'),
-      dayInfo:          $('day-info'),
-      todayInfo:        $('today-info'),
       fadeToggle:       $('fade-toggle'),
       mapStyleSelector: $('map-style-selector'),
     };
@@ -184,11 +186,9 @@ class EngineApp {
     const { metadata } = this.data;
     const d = new Date(metadata.startDate + 'T00:00:00');
     d.setDate(d.getDate() + this.currentDay);
-    this.dom.statDate.textContent   = d.toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' });
+    this.dom.statDate.textContent   = d.toLocaleDateString('en-AU', { day:'2-digit', month:'short', year:'numeric' });
     const counts = this.map.getVisibleCounts();
     this.dom.statRecords.textContent = counts.total.toLocaleString();
-    this.dom.todayInfo.textContent   = `${counts.today.toLocaleString()} today`;
-    this.dom.dayInfo.textContent     = `Day ${(this.currentDay+1).toLocaleString()} of ${metadata.totalDays.toLocaleString()}`;
     this.dom.scrubber.value          = this.currentDay;
   }
 

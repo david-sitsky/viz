@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive animated map showing Australian power generation over time">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610052220">
+  <link rel="stylesheet" href="../common/styles.css?v=202610061757">
   <style>
     /* Energy SVG styling */
     .energy-icon {
@@ -76,7 +76,7 @@
 
     <!-- Stats Bar -->
     <header id="stats-bar" class="glass hidden" style="display: flex; flex-direction: column; gap: 8px;">
-      <div style="display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
         <div style="display: flex; align-items: center; gap: 16px;">
           <div class="stat">
             <span class="stat-label">📅 DATE</span>
@@ -89,7 +89,7 @@
             <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
           </div>
         </div>
-        <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings">⚙️ Settings</label>
+        <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings" style="font-size: 16px; padding: 0; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%;" title="Settings">⚙️</label>
       </div>
       <div class="controls-row" style="margin-bottom: 2px;">
         <input type="range" id="scrubber" class="scrubber" min="0" max="100" value="0" aria-label="Timeline">
@@ -98,7 +98,7 @@
 
     <!-- Playback Controls -->
     <footer id="controls" class="glass hidden" style="margin-top: 10px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 4px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 4px;">
         <div class="speed-ctrl" style="margin: 0;">
           <span style="font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.65);">SPEED</span>
           <input type="range" id="speed" min="1" max="10" value="10" step="1" aria-label="Speed" style="width: 70px;">
@@ -150,7 +150,7 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/energy_app.js?v=202610052220"></script>
+  <script type="module" src="js/energy_app.js?v=202610061757"></script>
   <!-- ─── Bottom Panel: Bar Chart ─── -->
   <div id="bottom-panel" class="glass hidden">
     <div class="chart-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">

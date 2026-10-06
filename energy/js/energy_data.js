@@ -4,22 +4,30 @@ const STORE_NAME = 'cache';
 const RECORD_SIZE = 15;
 
 export async function loadData(metaUrl, binUrl, cacheKey, palette, onProgress) {
-  onProgress('cache-check', 0);
+  onProgress('download', 0);
+  
+  // 1. Fetch fresh metadata
+  const cacheBuster = metaUrl.includes('?') ? `&_t=${Date.now()}` : `?_t=${Date.now()}`;
+  const metadata = await fetch(metaUrl + cacheBuster).then(r => r.json());
+
+  // 2. Check cache
+  onProgress('cache-check', 0.05);
   try {
     const cached = await getFromCache(cacheKey);
     if (cached) {
-      onProgress('cache-hit', 1);
-      return parseBinary(cached.buffer, cached.metadata, palette);
+      if (JSON.stringify(cached.metadata) === JSON.stringify(metadata)) {
+        onProgress('cache-hit', 1);
+        return parseBinary(cached.buffer, cached.metadata, palette);
+      }
     }
   } catch (e) {
     console.warn('Cache read failed:', e);
   }
 
-  onProgress('download', 0);
-  const metadata = await fetch(metaUrl).then(r => r.json());
-
-  onProgress('download', 0.05);
-  const buffer = await fetchWithProgress(binUrl, (p) => onProgress('download', 0.05 + p * 0.9));
+  // 3. Download binary
+  onProgress('download', 0.1);
+  const binCacheBuster = binUrl.includes('?') ? `&_t=${Date.now()}` : `?_t=${Date.now()}`;
+  const buffer = await fetchWithProgress(binUrl + binCacheBuster, (p) => onProgress('download', 0.1 + p * 0.85));
 
   onProgress('parse', 0.95);
   const data = parseBinary(buffer, metadata, palette);

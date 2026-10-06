@@ -1,5 +1,6 @@
-import { loadData } from './energy_data.js?v=3';
-import { EngineMap } from './energy_map.js?v=3';
+import { makeDraggable } from '../../common/js/draggable.js';
+import { loadData } from './energy_data.js?v=202610061749';
+import { EngineMap } from './energy_map.js?v=202610061749';
 
 class EngineApp {
   constructor() {
@@ -187,10 +188,12 @@ class EngineApp {
       }
     }
 
-    this.dom.hoverPanel.style.position = 'fixed';
+    if (!this._isPopupDragged) {
+      this.dom.hoverPanel.style.position = 'fixed';
     this.dom.hoverPanel.style.left = (x + 15) + 'px';
     this.dom.hoverPanel.style.top = (y + 15) + 'px';
     this.dom.hoverPanel.style.right = 'auto';
+    }
     this.dom.hoverPanel.classList.remove('hidden', 'faded');
   }
 
@@ -221,7 +224,9 @@ class EngineApp {
   }
 
   _setupHoverPanelClose() {
+    makeDraggable(this.dom.hoverPanel, this.dom.hoverPanel, () => { this._isPopupDragged = true; });
     this.dom.hoverPanel.querySelector('.panel-close').addEventListener('click', () => {
+      this._isPopupDragged = false;
       this.dom.hoverPanel.classList.add('hidden');
       this.map._lastHoveredRecord = -1;
     });

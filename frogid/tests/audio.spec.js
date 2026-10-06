@@ -5,6 +5,12 @@ test.describe('FrogID Audio Bug', () => {
     await page.addInitScript(() => window.localStorage.setItem('hasSeenFrogTour', 'true'));
     await page.goto('/frogid/');
     await page.waitForSelector('#loading-overlay.hidden', { state: 'attached', timeout: 15000 });
+    const settingsBtn = page.locator('#btn-settings');
+    if (await settingsBtn.count() > 0) {
+      const isChecked = await page.locator('#mobile-toggle').evaluate(el => el.checked);
+      if (!isChecked) await settingsBtn.click({ force: true });
+    }
+    
     
     // Evaluate in page to inspect audio elements
     await page.evaluate(() => {
