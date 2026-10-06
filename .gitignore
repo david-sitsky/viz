@@ -18,3 +18,5 @@ energy/data/*.bin
 energy/data/metadata.json
 bogong/data/*.bin
 bogong/data/metadata.json
+christmas-beetle/data/*.bin
+christmas-beetle/data/metadata.json
