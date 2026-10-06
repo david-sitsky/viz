@@ -29,7 +29,7 @@ class App {
       this.data = await loadData(
         'data/metadata.json',
         'data/data.bin',
-        'ala-v1',
+        'ala-v2',
         this.palette,
         (phase, pct) => this._updateLoading(phase, pct),
       );
