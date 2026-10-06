@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610061830';
-import { EngineMap } from './energy_map.js?v=202610061830';
+import { loadData } from './energy_data.js?v=202610061834';
+import { EngineMap } from './energy_map.js?v=202610061834';
 
 class EngineApp {
   constructor() {
@@ -270,6 +270,11 @@ _hideLoading() {
               if (toggle && !toggle.checked) toggle.checked = true;
             }
           },
+              onDestroyStarted: () => {
+                  const toggle = document.getElementById('mobile-toggle');
+                  if (toggle && toggle.checked) toggle.checked = false;
+                  d.destroy();
+              },
               steps: [
                   { element: '#btn-play', popover: { title: 'Play Animation', description: 'Click play to start the timeline animation.', side: 'bottom', align: 'start' } },
                   { element: '#btn-settings', popover: { title: 'Settings & Filters', description: 'Click here for extra options and state filtering.', side: 'bottom', align: 'end' } },
