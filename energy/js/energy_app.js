@@ -1,5 +1,5 @@
-import { loadData } from './energy_data.js?v=202610061336';
-import { EngineMap } from './energy_map.js?v=202610061336';
+import { loadData } from './energy_data.js?v=202610061347';
+import { EngineMap } from './energy_map.js?v=202610061347';
 
 class EngineApp {
   constructor() {

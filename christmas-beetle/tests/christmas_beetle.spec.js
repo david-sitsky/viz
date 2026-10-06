@@ -23,7 +23,7 @@ test.describe('Christmas Beetle Visualiser', () => {
     // Stats bar should be visible
     const statsBar = page.locator('#stats-bar');
     await expect(statsBar).toBeVisible();
-    await expect(statsBar).toContainText('OCCURRENCES');
+    await expect(statsBar).toContainText('recordings');
 
     // Controls should be visible
     const controls = page.locator('#controls');
