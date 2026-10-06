@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Australian Christmas Beetle Occurrences</title>
+  <meta name="description" content="Interactive animated map showing Christmas Beetle recordings across Australia">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="../common/styles.css?v=202610061830">
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
+  <style>
+    /* Override brand color for beetles */
+    :root {
+      --brand-color: #f59e0b; 
+      --brand-color-light: #fcd34d;
+      --bg-glass: rgba(15, 23, 42, 0.85);
+    }
+  </style>
+</head>
+<body class="beetle-viz">
+  <input type="checkbox" id="mobile-toggle" style="display: none;">
+
+  <!-- ─── Map ─── -->
+
+  <div id="map-container"></div>
+
+  <!-- ─── Loading ─── -->
+  <div id="loading-overlay">
+    <div class="loading-card">
+      <div class="loading-icon">🪲</div>
+      <h1 class="loading-title">Christmas Beetles</h1>
+      <p class="loading-subtitle">Australian Occurrences Over Time</p>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <p class="loading-status" id="loading-status">Initializing...</p>
+      <p class="loading-detail">Data provided by the Atlas of Living Australia</p>
+    </div>
+  </div>
+
+  <!-- ─── Top-Left Panel: Controls + Stats + Filter ─── -->
+  <div id="top-left-panel">
+<!-- Stats Bar -->
+    <header id="stats-bar" class="glass hidden" style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div class="stat">
+            <span class="stat-label">📅 DATE</span>
+            <span class="stat-value" id="stat-date">—</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <a href="../" class="ctrl-btn home-nav-inline" title="Back to Visualisations" style="text-decoration: none;">🏠</a>
+            <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
+            <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
+          </div>
+        </div>
+        <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings" style="font-size: 16px; padding: 0; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%;" title="Settings">⚙️</label>
+      </div>
+      <div class="controls-row" style="display: flex; gap: 15px; align-items: center; margin-bottom: 2px;">
+        <div class="stat" style="flex-direction: row; align-items: center; gap: 6px;">
+            <span class="stat-label" style="font-size: 16px;">🪲</span>
+            <span class="stat-value" id="stat-records">0</span>
+            <span class="stat-sub">recordings</span>
+          </div>
+        <input type="range" id="scrubber" style="flex: 1;" class="scrubber" min="0" max="2556" value="0" aria-label="Timeline">
+      </div>
+    </header>
+
+    <!-- Playback Controls -->
+    <footer id="controls" class="glass hidden" style="margin-top: 10px; display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <div class="speed-ctrl" style="margin: 0;">
+          <span style="font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.65);">SPEED</span>
+          <input type="range" id="speed" min="1" max="10" value="10" step="1" aria-label="Speed" style="width: 70px;">
+          <span id="speed-val" style="font-size: 11px;">10×</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <label class="fade-toggle" title="Fade old recordings">
+            <input type="checkbox" id="fade-toggle" checked>
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span class="fade-label">Fade</span>
+          </label>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; align-items: center;">
+        <div id="map-style-selector" class="style-selector-inline">
+          <button class="style-btn active" data-style="dark" title="Dark">🌙</button>
+          <button class="style-btn" data-style="streets" title="Streets">🗺️</button>
+          <button class="style-btn" data-style="satellite" title="Satellite">🛰️</button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Species List -->
+    <div id="species-filter" class="glass hidden" style="max-height: 450px; overflow-y: auto; padding: 10px; margin-top: 10px; border-radius: 8px;">
+      <h3 style="margin: 0 0 10px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px;">Filter Species</h3>
+      <div id="species-list" style="display: flex; flex-direction: column; gap: 8px;">
+        <!-- Species items injected here by JS -->
+      </div>
+      <div style="font-size: 11px; margin-top: 15px; opacity: 0.8; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px; line-height: 1.4;">
+        <a href="https://invertebratesaustralia.org/christmas-beetles" target="_blank" style="color:#fcd34d; text-decoration:none;">Christmas Beetle Count</a><br/>
+        Photos via <a href="https://www.inaturalist.org/projects/christmas-beetle-count?tab=species" target="_blank" style="color:#fcd34d; text-decoration:none;">iNaturalist</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Right Panel Column: hover popup + filter species popups ─── -->
+  
+    <div id="filter-preview" class="glass hidden" style="position: absolute; z-index: 10000; pointer-events: none; border-radius: 8px; padding: 5px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+      <img id="filter-preview-img" src="" style="max-width: 300px; max-height: 300px; display: block; border-radius: 4px;">
+    </div>
+    <!-- Hover popup (single, updates when hovering different species) -->
+    <div id="hover-panel" class="species-panel glass hidden" style="z-index: 9999;">
+      <button class="panel-close" data-action="close-hover" title="Close">✕</button>
+      <div class="panel-header">
+        <img class="panel-img" id="hover-img" src="" alt="" loading="lazy">
+        <div class="panel-names">
+          <div class="panel-common"  id="hover-common">—</div>
+          <div class="panel-sci"     id="hover-sci">—</div>
+          <div class="panel-family"  id="hover-date" style="font-size:11px; opacity:0.8;">—</div>
+        </div>
+      </div>
+      <a id="hover-link" class="panel-link" href="#" target="_blank" rel="noopener">View profile ↗</a>
+    </div>
+
+  <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
+  <script type="module" src="js/app.js?v=202610061830"></script>
+</body>
+</html>

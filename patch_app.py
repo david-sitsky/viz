@@ -1,133 +1,50 @@
-import re
+import sys
 
-with open('js/energy_app.js', 'r') as f:
-    js = f.read()
+js_file = 'christmas-beetle/js/app.js'
+with open(js_file, 'r') as f:
+    content = f.read()
 
-# 1. Initialize states and UI
-init_ui_code = """
-    this._bindEvents();
-    
-    // Setup state filter
-    this.selectedStates = new Set();
-    const states = new Set();
-    for (const fac of this.facilityMap.values()) {
-        if (fac.state) states.add(fac.state);
-    }
-    
-    const sortedStates = Array.from(states).sort();
-    sortedStates.forEach(s => this.selectedStates.add(s)); // All on by default
-    
-    const filterBtn = document.getElementById('filter-btn');
-    const filterContent = document.getElementById('filter-content');
-    
-    if (filterBtn && filterContent) {
-        let html = '';
-        sortedStates.forEach(s => {
-            html += `<label><input type="checkbox" value="${s}" checked> ${s}</label>`;
-        });
-        filterContent.innerHTML = html;
+# Remove dayInfo and todayInfo references since they are deleted from HTML
+content = content.replace("      dayInfo:          $('day-info'),", "")
+content = content.replace("      todayInfo:        $('today-info'),", "")
+content = content.replace("    if(this.dom.todayInfo) this.dom.todayInfo.textContent = `${counts.today.toLocaleString()} today`;\n", "")
+content = content.replace("    if(this.dom.dayInfo) this.dom.dayInfo.textContent = `Day ${(this.currentDay+1).toLocaleString()} of ${metadata.totalDays.toLocaleString()}`;\n", "")
+
+# Add preview elements to dom cache
+cache_dom = "      speciesFilter:    $('species-filter'),"
+new_cache_dom = "      filterPreview:    $('filter-preview'),\n      filterPreviewImg: $('filter-preview-img'),\n      speciesFilter:    $('species-filter'),"
+content = content.replace(cache_dom, new_cache_dom)
+
+# Find where img is created in _setupFilter
+img_creation = '''        const img = document.createElement('img');
+        img.src = sp.image;
+        img.style.width = '30px';
+        img.style.height = '30px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '4px';
+        row.appendChild(img);'''
+
+img_creation_new = '''        const img = document.createElement('img');
+        img.src = sp.image;
+        img.style.width = '30px';
+        img.style.height = '30px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '4px';
         
-        filterBtn.addEventListener('click', () => {
-            filterContent.classList.toggle('hidden');
+        img.addEventListener('mouseenter', (e) => {
+          this.dom.filterPreviewImg.src = sp.image.replace('square', 'medium');
+          this.dom.filterPreview.classList.remove('hidden');
+          const rect = img.getBoundingClientRect();
+          this.dom.filterPreview.style.left = (rect.right + 15) + 'px';
+          this.dom.filterPreview.style.top = (rect.top - 50) + 'px';
+        });
+        img.addEventListener('mouseleave', () => {
+          this.dom.filterPreview.classList.add('hidden');
         });
         
-        filterContent.addEventListener('change', (e) => {
-            if (e.target.type === 'checkbox') {
-                if (e.target.checked) this.selectedStates.add(e.target.value);
-                else this.selectedStates.delete(e.target.value);
-                
-                // Recalculate max total
-                this._absoluteMaxTotal = undefined;
-                this.map.applyStateFilter(this.facilityMap, this.selectedStates);
-                this._updateUI();
-            }
-        });
-    }
+        row.appendChild(img);'''
 
-    this.map.applyStateFilter(this.facilityMap, this.selectedStates);
-    this._updateUI();
-"""
-js = js.replace('this._bindEvents();\n    this._updateUI();', init_ui_code)
+content = content.replace(img_creation, img_creation_new)
 
-# 2. Update _absoluteMaxTotal logic
-old_max = """    if (this._absoluteMaxTotal === undefined) {
-        let absCatTotals = new Array(metadata.fuelTypes.length).fill(0);
-        for (let i = 0; i < metadata.recordCount; i++) {
-            const cIdx = categoryIndices[i];
-            if (cIdx >= 0 && cIdx < absCatTotals.length) {
-                absCatTotals[cIdx] += generation[i];
-            }
-        }
-        let fossilMax = 0, renMax = 0;
-        for (let i = 0; i < metadata.fuelTypes.length; i++) {
-            const fType = metadata.fuelTypes[i];
-            if (fType === 'coal' || fType === 'gas') fossilMax += absCatTotals[i];
-            else if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) renMax += absCatTotals[i];
-        }
-        this._absoluteMaxTotal = Math.max(...absCatTotals, fossilMax, renMax);
-    }"""
-new_max = """    if (this._absoluteMaxTotal === undefined) {
-        let absCatTotals = new Array(metadata.fuelTypes.length).fill(0);
-        for (let i = 0; i < metadata.recordCount; i++) {
-            const fac = this.facilityMap.get(this.data.facilityIds[i]);
-            if (!fac || !this.selectedStates.has(fac.state)) continue;
-            
-            const cIdx = categoryIndices[i];
-            if (cIdx >= 0 && cIdx < absCatTotals.length) {
-                absCatTotals[cIdx] += generation[i];
-            }
-        }
-        let fossilMax = 0, renMax = 0;
-        for (let i = 0; i < metadata.fuelTypes.length; i++) {
-            const fType = metadata.fuelTypes[i];
-            if (fType === 'coal' || fType === 'gas') fossilMax += absCatTotals[i];
-            else if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) renMax += absCatTotals[i];
-        }
-        this._absoluteMaxTotal = Math.max(...absCatTotals, fossilMax, renMax);
-    }"""
-js = js.replace(old_max, new_max)
-
-
-# 3. Update catTotals loop logic
-old_loop_cumul = """    if (this.chartMode === 'cumulative') {
-        for (let i = 0; i < endIdx; i++) {
-            const catIdx = categoryIndices[i];
-            if (catIdx >= 0 && catIdx < catTotals.length) {
-                catTotals[catIdx] += generation[i];
-            }
-        }
-    }"""
-new_loop_cumul = """    if (this.chartMode === 'cumulative') {
-        for (let i = 0; i < endIdx; i++) {
-            const fac = this.facilityMap.get(this.data.facilityIds[i]);
-            if (!fac || !this.selectedStates.has(fac.state)) continue;
-            
-            const catIdx = categoryIndices[i];
-            if (catIdx >= 0 && catIdx < catTotals.length) {
-                catTotals[catIdx] += generation[i];
-            }
-        }
-    }"""
-js = js.replace(old_loop_cumul, new_loop_cumul)
-
-old_loop_snap = """        // Daily Snapshot
-        for (let i = dayStart; i < endIdx; i++) {
-            const catIdx = categoryIndices[i];
-            if (catIdx >= 0 && catIdx < catTotals.length) {
-                catTotals[catIdx] += generation[i];
-            }
-        }"""
-new_loop_snap = """        // Daily Snapshot
-        for (let i = dayStart; i < endIdx; i++) {
-            const fac = this.facilityMap.get(this.data.facilityIds[i]);
-            if (!fac || !this.selectedStates.has(fac.state)) continue;
-            
-            const catIdx = categoryIndices[i];
-            if (catIdx >= 0 && catIdx < catTotals.length) {
-                catTotals[catIdx] += generation[i];
-            }
-        }"""
-js = js.replace(old_loop_snap, new_loop_snap)
-
-with open('js/energy_app.js', 'w') as f:
-    f.write(js)
+with open(js_file, 'w') as f:
+    f.write(content)

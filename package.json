@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/david-sitsky/nature.git"
+    "url": "git+https://github.com/david-sitsky/viz.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/david-sitsky/nature/issues"
+    "url": "https://github.com/david-sitsky/viz/issues"
   },
-  "homepage": "https://github.com/david-sitsky/nature#readme"
+  "homepage": "https://github.com/david-sitsky/viz#readme"
 }

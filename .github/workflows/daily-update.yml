@@ -1,22 +1,31 @@
-name: Daily Energy Data Update
+name: Daily Energy Data Update & Deploy
 
 on:
   schedule:
     - cron: '0 16 * * *' # Runs at midnight AWST (16:00 UTC)
   workflow_dispatch: # Allows manual triggering
+  push:
+    branches:
+      - main # Automatically deploy when code is pushed to main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  update-data:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
       
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
           
@@ -26,26 +35,42 @@ jobs:
       - name: Fetch Latest OpenElectricity Data
         env:
           OPENELECTRICITY_API_KEY: ${{ secrets.OPENELECTRICITY_API_KEY }}
-        run: python3 update_data.py
+        run: cd energy && python3 scripts/update_data.py
         
       - name: Compile Binary Data Blob
-        run: python3 build_blob.py
+        run: cd energy && python3 scripts/build_blob.py
+
+      - name: Fetch Latest ALA Bogong Data
+        run: python3 common/scripts/ala_sync.py --query "Agrotis infusa" --start-date "2020-08-01T00:00:00Z" --output bogong/data/raw_events.csv
+        
+      - name: Compile Bogong Binary Data Blob
+        run: python3 common/scripts/ala_build.py --start-date "2020-08-01T00:00:00Z" --input-csv bogong/data/raw_events.csv --output-bin bogong/data/data.bin --output-meta bogong/data/metadata.json --output-species bogong/data/species_info.json
+
+      - name: Fetch Latest ALA Christmas Beetle Data
+        run: python3 common/scripts/ala_sync.py --query "genus:Anoplognathus" --start-date "2020-08-01T00:00:00Z" --output christmas-beetle/data/raw_events.csv
+        
+      - name: Compile Christmas Beetle Binary Data Blob
+        run: python3 common/scripts/ala_build.py --start-date "2020-08-01T00:00:00Z" --input-csv christmas-beetle/data/raw_events.csv --output-bin christmas-beetle/data/data.bin --output-meta christmas-beetle/data/metadata.json --output-species christmas-beetle/data/species_info.json
         
       - name: Bust Browser Cache
-        run: python3 update_html_version.py
+        run: python3 common/scripts/update_html_version.py
         
       - name: Commit Source Updates to Main
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data_energy/raw_events.csv energy.html
+          git add energy/data/raw_events.csv bogong/data/raw_events.csv christmas-beetle/data/raw_events.csv energy/index.html frogid/index.html bogong/index.html christmas-beetle/index.html index.html
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: automated daily data update"
-          git push origin main
+          git pull --rebase origin main && git push origin main
           
-      - name: Deploy to GitHub Pages (gh-pages branch)
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          force_orphan: true
-          commit_message: "deploy: automated daily data update"
+          path: '.'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
