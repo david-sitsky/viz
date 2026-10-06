@@ -11,8 +11,8 @@ import { makeDraggable } from '../../common/js/draggable.js';
  *  - Both types live in the #right-panels flex column.
  */
 
-import { loadData } from '../../common/js/engine_data.js?v=202610061749';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061749';
+import { loadData } from '../../common/js/engine_data.js?v=202610061830';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061830';
 import { AudioManager } from './audio.js?v=12';
 
 class FrogApp {
@@ -82,6 +82,13 @@ class FrogApp {
       if (window.driver && window.driver.js && !localStorage.getItem('hasSeenFrogTour')) {
         const d = window.driver.js.driver({
           showProgress: true, popoverClass: 'driverjs-theme',
+          onHighlightStarted: (element, step, options) => {
+            const hiddenEls = ['#chart-view-mode', '#speed', '#filter-input'];
+            if (hiddenEls.includes(step.element)) {
+              const toggle = document.getElementById('mobile-toggle');
+              if (toggle && !toggle.checked) toggle.checked = true;
+            }
+          },
           steps: [
             { element: '#btn-sound', popover: { title: 'Listen to the Frogs', description: 'Enable sound to hear the distinct croaks and calls of the frogs currently animating on the map.', side: 'bottom', align: 'start' } },
             { element: '#btn-play', popover: { title: 'Play the Timeline', description: 'Click play to start animating through 7 years of expert-verified acoustic recordings.', side: 'bottom', align: 'start' } },

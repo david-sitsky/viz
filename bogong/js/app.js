@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from '../../common/js/engine_data.js?v=202610061749';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061749';
+import { loadData } from '../../common/js/engine_data.js?v=202610061830';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061830';
 
 class EngineApp {
   constructor() {
@@ -45,6 +45,13 @@ class EngineApp {
         const d = window.driver.js.driver({
           showProgress: true,
           popoverClass: 'driverjs-theme',
+          onHighlightStarted: (element, step, options) => {
+            const hiddenEls = ['#chart-view-mode', '#speed', '#filter-input'];
+            if (hiddenEls.includes(step.element)) {
+              const toggle = document.getElementById('mobile-toggle');
+              if (toggle && !toggle.checked) toggle.checked = true;
+            }
+          },
           steps: [
             { element: '#btn-play', popover: { title: 'Play the Timeline', description: 'Click play to start animating through the Bogong Moth sightings.', side: 'bottom', align: 'start' } },
             { element: '#speed', popover: { title: 'Adjust Speed', description: 'Control how fast the timeline progresses using this slider.', side: 'top', align: 'start' } }

@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610061825';
-import { EngineMap } from './energy_map.js?v=202610061825';
+import { loadData } from './energy_data.js?v=202610061830';
+import { EngineMap } from './energy_map.js?v=202610061830';
 
 class EngineApp {
   constructor() {
@@ -263,6 +263,13 @@ _hideLoading() {
           const d = window.driver.js.driver({
               showProgress: false,
               popoverClass: 'driverjs-theme',
+          onHighlightStarted: (element, step, options) => {
+            const hiddenEls = ['#chart-view-mode', '#speed', '#filter-input'];
+            if (hiddenEls.includes(step.element)) {
+              const toggle = document.getElementById('mobile-toggle');
+              if (toggle && !toggle.checked) toggle.checked = true;
+            }
+          },
               steps: [
                   { element: '#btn-play', popover: { title: 'Play Animation', description: 'Click play to start the timeline animation.', side: 'bottom', align: 'start' } },
                   { element: '#btn-settings', popover: { title: 'Settings & Filters', description: 'Click here for extra options and state filtering.', side: 'bottom', align: 'end' } },
