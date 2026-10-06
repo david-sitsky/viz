@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive animated map showing Bogong moth sightings over time">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610061208">
+  <link rel="stylesheet" href="../common/styles.css?v=202610061213">
   <style>
     /* Moth SVG styling */
     .moth-icon {
@@ -80,7 +80,16 @@
             <span class="stat-value" id="stat-date">—</span>
           </div>
           <div class="stat-divider"></div>
-          <div class="stat">
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <a href="../" class="ctrl-btn home-nav-inline" title="Back to Visualisations" style="text-decoration: none;">🏠</a>
+            <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
+            <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
+          </div>
+        </div>
+        <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings">⚙️ Settings</label>
+      </div>
+      <div class="controls-row" style="display: flex; gap: 15px; align-items: center; margin-bottom: 2px;">
+        <div class="stat">
             <span class="stat-label">
               <svg class="moth-icon" viewBox="0 0 24 24" stroke="none">
                 <path d="M12 4c-1-2-4-2-4-2s1 1 2 2" stroke="currentColor" stroke-width="1.5" fill="none"/>
@@ -93,17 +102,7 @@
             <span class="stat-value" id="stat-records">0</span>
             <span class="stat-sub">sightings</span>
           </div>
-          <div class="stat-divider"></div>
-          <div style="display: flex; gap: 8px; align-items: center;">
-            <a href="../" class="ctrl-btn home-nav-inline" title="Back to Visualisations" style="text-decoration: none;">🏠</a>
-            <button id="btn-rewind" class="ctrl-btn" title="Restart (Home)">⏮</button>
-            <button id="btn-play" class="ctrl-btn play-btn" title="Play / Pause (Space)">▶</button>
-          </div>
-        </div>
-        <label for="mobile-toggle" class="mobile-toggle-btn" id="btn-settings">⚙️ Settings</label>
-      </div>
-      <div class="controls-row" style="margin-bottom: 2px;">
-        <input type="range" id="scrubber" class="scrubber" min="0" max="100" value="0" aria-label="Timeline">
+        <input type="range" id="scrubber" style="flex: 1;" class="scrubber" min="0" max="100" value="0" aria-label="Timeline">
       </div>
     </header>
 
@@ -148,6 +147,6 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/app.js?v=202610061208"></script>
+  <script type="module" src="js/app.js?v=202610061213"></script>
 </body>
 </html>
