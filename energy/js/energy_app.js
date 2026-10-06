@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610061749';
-import { EngineMap } from './energy_map.js?v=202610061749';
+import { loadData } from './energy_data.js?v=202610061810';
+import { EngineMap } from './energy_map.js?v=202610061810';
 
 class EngineApp {
   constructor() {
@@ -287,6 +287,14 @@ _hideLoading() {
             if (this.map && this.map.setFilter) {
                 if (this.chartViewMode === 'all_sources') {
                     this.map.setFilter(new Set());
+                } else if (this.chartViewMode === 'state_renewables_pct') {
+                    const renIndices = [];
+                    this.data.metadata.fuelTypes.forEach((fType, idx) => {
+                        if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) {
+                            renIndices.push(idx);
+                        }
+                    });
+                    this.map.setFilter(new Set(renIndices));
                 } else {
                     const targetType = this.chartViewMode.replace('state_', '');
                     const targetCatIdx = this.data.metadata.fuelTypes.indexOf(targetType);
@@ -502,6 +510,41 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
                 `;
             }
         }
+    } else if (mode === 'state_renewables_pct') {
+        const stateRen = new Map();
+        const stateAll = new Map();
+        
+        let targetStart = this.chartMode === 'cumulative' ? 0 : dayStart;
+        for (let i = targetStart; i < endIdx; i++) {
+            const fac = this.facilityMap.get(this.data.facilityIds[i]);
+            if (!fac || !this.selectedStates.has(fac.state)) continue;
+            
+            let st = fac.state;
+            if (st === 'NSW/ACT') st = 'NSW';
+            
+            const catIdx = categoryIndices[i];
+            const fType = metadata.fuelTypes[catIdx];
+            
+            if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) {
+                stateRen.set(st, (stateRen.get(st) || 0) + generation[i]);
+            }
+            if (fType) {
+                stateAll.set(st, (stateAll.get(st) || 0) + generation[i]);
+            }
+        }
+        
+        currentMax = 100;
+        
+        for (const [state, totalAll] of stateAll.entries()) {
+            if (totalAll === 0) continue;
+            const ren = stateRen.get(state) || 0;
+            const pct = (ren / totalAll) * 100;
+            chartData.push({
+                name: state,
+                total: pct, // We store the percentage in total to sort it
+                color: [76, 175, 80] // Green
+            });
+        }
     } else {
         const targetType = mode.replace('state_', '');
         const targetCatIdx = metadata.fuelTypes.indexOf(targetType);
@@ -552,7 +595,12 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
                 if (label === 'COMMERCIAL SOLAR') label = 'COMM SOLAR';
                 if (label === 'ROOFTOP SOLAR') label = 'ROOF SOLAR';
             }
-            const valStr = Math.round(item.total / 1000).toLocaleString() + ' GWh';
+            let valStr;
+            if (this.chartViewMode === 'state_renewables_pct') {
+                valStr = item.total.toFixed(1) + '%';
+            } else {
+                valStr = Math.round(item.total / 1000).toLocaleString() + ' GWh';
+            }
             
             let extraLabelStyle = '';
             if (this.chartViewMode !== 'all_sources' && window.innerWidth <= 768) {
