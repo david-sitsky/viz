@@ -31,6 +31,7 @@ def main():
     parser.add_argument('--output-bin', required=True, help="Output bin path")
     parser.add_argument('--output-meta', required=True, help="Output metadata path")
     parser.add_argument('--output-species', help="Optional output species JSON path")
+    parser.add_argument('--start-date', help="Optional fixed start date (ISO string) to override the first record date")
     args = parser.parse_args()
 
     if not os.path.exists(args.input_csv):
@@ -81,7 +82,10 @@ def main():
         except ValueError:
             return datetime.datetime.fromisoformat(date_str.replace('Z', '+00:00'))
 
-    start_date = parse_date(records[0]['date_ms'])
+    if args.start_date:
+        start_date = parse_date(args.start_date)
+    else:
+        start_date = parse_date(records[0]['date_ms'])
     start_date = start_date.replace(hour=0, minute=0, second=0, microsecond=0)
     current_day = 0
     day_offsets.append(0)
