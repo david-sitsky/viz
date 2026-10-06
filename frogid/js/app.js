@@ -11,8 +11,8 @@ import { makeDraggable } from '../../common/js/draggable.js';
  *  - Both types live in the #right-panels flex column.
  */
 
-import { loadData } from '../../common/js/engine_data.js?v=202610061738';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061738';
+import { loadData } from '../../common/js/engine_data.js?v=202610061745';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061745';
 import { AudioManager } from './audio.js?v=12';
 
 class FrogApp {
@@ -61,7 +61,7 @@ class FrogApp {
       this.map = new EngineMap(
         'map-container',
         this.data,
-        (recordIdx) => this._onHover(recordIdx),
+        (recordIdx, info) => this._onHover(recordIdx, info),
       );
 
       this.audio = new AudioManager(this.data.speciesData);
@@ -208,7 +208,7 @@ class FrogApp {
   // The popup stays visible; ✕ is the only way to close it.
   // If the species is ALREADY showing in filter popups, we do not show a duplicate popup.
 
-  _onHover(recordIdx) {
+  _onHover(recordIdx, info) {
     const { speciesData, categoryIndices } = this.data;
     const spIdx = categoryIndices[recordIdx];
 
@@ -250,6 +250,14 @@ class FrogApp {
     this.dom.hoverLink.href = sp.profileUrl;
 
     // Show the panel (no-op if already visible)
+    if (!this._isPopupDragged && info) {
+      this.dom.hoverPanel.style.position = 'fixed';
+      this.dom.hoverPanel.style.left = (info.x + 15) + 'px';
+      this.dom.hoverPanel.style.top = (info.y + 15) + 'px';
+      this.dom.hoverPanel.style.right = 'auto';
+      this.dom.hoverPanel.style.bottom = 'auto';
+      this.dom.hoverPanel.style.margin = '0';
+    }
     this.dom.hoverPanel.classList.remove('hidden');
   }
 
@@ -260,7 +268,10 @@ class FrogApp {
       this._stopAudio(this.dom.hoverAudio);
       // Reset so next hover re-fires even if same record
       this.map._lastHoveredRecord = -1;
+      this._isPopupDragged = false;
     });
+    
+    makeDraggable(this.dom.hoverPanel, this.dom.hoverPanel, () => { this._isPopupDragged = true; });
   }
 
   _stopAudio(el) {

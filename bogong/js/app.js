@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from '../../common/js/engine_data.js?v=202610061738';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061738';
+import { loadData } from '../../common/js/engine_data.js?v=202610061745';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061745';
 
 class EngineApp {
   constructor() {
@@ -69,6 +69,9 @@ class EngineApp {
     const $ = id => document.getElementById(id);
     this.dom = {
       loadingOverlay:   $('loading-overlay'),
+      bogongPanel: $('bogong-panel'),
+      btnInfo: $('btn-info'),
+      bogongPanelClose: $('bogong-panel-close'),
       loadingStatus:    $('loading-status'),
       progressFill:     $('progress-fill'),
       statsBar:         $('stats-bar'),
