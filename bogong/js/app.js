@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from '../../common/js/engine_data.js?v=202610061830';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061830';
+import { loadData } from '../../common/js/engine_data.js?v=202610061834';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061834';
 
 class EngineApp {
   constructor() {
@@ -58,6 +58,8 @@ class EngineApp {
           ],
           onDestroyStarted: () => {
             localStorage.setItem('hasSeenBogongTour', 'true');
+            const toggle = document.getElementById('mobile-toggle');
+            if (toggle && toggle.checked) toggle.checked = false;
             d.destroy();
           }
         });

@@ -11,8 +11,8 @@ import { makeDraggable } from '../../common/js/draggable.js';
  *  - Both types live in the #right-panels flex column.
  */
 
-import { loadData } from '../../common/js/engine_data.js?v=202610061830';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061830';
+import { loadData } from '../../common/js/engine_data.js?v=202610061834';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061834';
 import { AudioManager } from './audio.js?v=12';
 
 class FrogApp {
@@ -97,6 +97,8 @@ class FrogApp {
           ],
           onDestroyStarted: () => {
             localStorage.setItem('hasSeenFrogTour', 'true');
+            const toggle = document.getElementById('mobile-toggle');
+            if (toggle && toggle.checked) toggle.checked = false;
             d.destroy();
           }
         });
