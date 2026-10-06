@@ -1,5 +1,5 @@
-import { loadData } from '../../common/js/engine_data.js?v=202610061347';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061347';
+import { loadData } from '../../common/js/engine_data.js?v=202610061350';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061350';
 
 class EngineApp {
   constructor() {
@@ -182,7 +182,7 @@ class EngineApp {
     const { metadata } = this.data;
     const d = new Date(metadata.startDate + 'T00:00:00');
     d.setDate(d.getDate() + this.currentDay);
-    this.dom.statDate.textContent   = d.toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' });
+    this.dom.statDate.textContent   = d.toLocaleDateString('en-AU', { day:'2-digit', month:'short', year:'numeric' });
     const counts = this.map.getVisibleCounts();
     this.dom.statRecords.textContent = counts.total.toLocaleString();
     this.dom.scrubber.value          = this.currentDay;
