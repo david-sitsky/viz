@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive animated map showing Bogong moth sightings over time">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610061213">
+  <link rel="stylesheet" href="../common/styles.css?v=202610061225">
   <style>
     /* Moth SVG styling */
     .moth-icon {
@@ -45,6 +45,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
 </head>
 <body>
+  <input type="checkbox" id="mobile-toggle" style="display: none;">
 
   <!-- ─── Map ─── -->
 
@@ -73,7 +74,7 @@
   <div id="top-left-panel">
     <!-- Stats Bar -->
     <header id="stats-bar" class="glass hidden" style="display: flex; flex-direction: column; gap: 8px;">
-      <div style="display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
         <div style="display: flex; align-items: center; gap: 16px;">
           <div class="stat">
             <span class="stat-label">📅 DATE</span>
@@ -108,7 +109,7 @@
 
     <!-- Playback Controls -->
     <footer id="controls" class="glass hidden" style="margin-top: 10px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 4px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 4px;">
         <div class="speed-ctrl" style="margin: 0;">
           <span style="font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.65);">SPEED</span>
           <input type="range" id="speed" min="1" max="10" value="10" step="1" aria-label="Speed" style="width: 70px;">
@@ -147,6 +148,6 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/app.js?v=202610061213"></script>
+  <script type="module" src="js/app.js?v=202610061225"></script>
 </body>
 </html>

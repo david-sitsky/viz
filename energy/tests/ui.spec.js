@@ -6,6 +6,12 @@ test.describe('FrogID UI Controls', () => {
     await page.goto('/frogid/');
     // Wait for the loading overlay to disappear
     await expect(page.locator('#loading-overlay')).toHaveClass(/hidden/, { timeout: 15000 });
+    const settingsBtn = page.locator('#btn-settings');
+    if (await settingsBtn.count() > 0) {
+      const isChecked = await page.locator('#mobile-toggle').evaluate(el => el.checked);
+      if (!isChecked) await settingsBtn.click({ force: true });
+    }
+    
   });
 
   test('playback controls update scrubber and date', async ({ page }) => {

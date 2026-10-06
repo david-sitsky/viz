@@ -7,11 +7,12 @@
   <meta name="description" content="Interactive animated map showing 1.18 million frog recordings across Australia from 2017–2024">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610061213">
+  <link rel="stylesheet" href="../common/styles.css?v=202610061225">
   <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
 </head>
 <body>
+  <input type="checkbox" id="mobile-toggle" style="display: none;">
 
   <!-- ─── Map ─── -->
 
@@ -33,7 +34,7 @@
   <div id="top-left-panel">
     <!-- Stats Bar -->
     <header id="stats-bar" class="glass hidden" style="display: flex; flex-direction: column; gap: 8px;">
-      <div style="display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
         <div style="display: flex; align-items: center; gap: 16px;">
           <div class="stat">
             <span class="stat-label">📅 DATE</span>
@@ -59,8 +60,8 @@
     </header>
 
     <!-- Playback Controls -->
-    <footer id="controls" class="glass hidden" style="margin-top: 10px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 4px;">
+    <footer id="controls" class="glass hidden" style="margin-top: 10px; display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
         <div class="speed-ctrl" style="margin: 0;">
           <span style="font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.65);">SPEED</span>
           <input type="range" id="speed" min="1" max="10" value="10" step="1" aria-label="Speed" style="width: 70px;">
@@ -80,11 +81,13 @@
             <span class="toggle-track"><span class="toggle-thumb"></span></span>
             <span class="fade-label">Fade</span>
           </label>
-          <div id="map-style-selector" class="style-selector-inline">
-            <button class="style-btn active" data-style="dark" title="Dark">🌙</button>
-            <button class="style-btn" data-style="streets" title="Streets">🗺️</button>
-            <button class="style-btn" data-style="satellite" title="Satellite">🛰️</button>
-          </div>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; align-items: center;">
+        <div id="map-style-selector" class="style-selector-inline">
+          <button class="style-btn active" data-style="dark" title="Dark">🌙</button>
+          <button class="style-btn" data-style="streets" title="Streets">🗺️</button>
+          <button class="style-btn" data-style="satellite" title="Satellite">🛰️</button>
         </div>
       </div>
     </footer>
@@ -122,6 +125,6 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/app.js?v=202610061213"></script>
+  <script type="module" src="js/app.js?v=202610061225"></script>
 </body>
 </html>

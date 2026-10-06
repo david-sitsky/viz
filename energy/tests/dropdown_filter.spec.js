@@ -14,6 +14,12 @@ test('test chart view mode dropdown and map filtering', async ({ page }) => {
 
   // Wait for loading to finish
   await page.waitForSelector('#loading-overlay', { state: 'hidden', timeout: 30000 });
+    const settingsBtn = page.locator('#btn-settings');
+    if (await settingsBtn.count() > 0) {
+      const isChecked = await page.locator('#mobile-toggle').evaluate(el => el.checked);
+      if (!isChecked) await settingsBtn.click({ force: true });
+    }
+    
   await page.waitForTimeout(1000);
 
   // Check initial chart labels (should be fuel types)
