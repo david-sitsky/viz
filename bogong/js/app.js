@@ -1,5 +1,5 @@
-import { loadData } from '../../common/js/engine_data.js?v=202610061159';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061159';
+import { loadData } from '../../common/js/engine_data.js?v=202610061208';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061208';
 
 class EngineApp {
   constructor() {
@@ -79,8 +79,6 @@ class EngineApp {
       scrubber:         $('scrubber'),
       speedSlider:      $('speed'),
       speedVal:         $('speed-val'),
-      dayInfo:          $('day-info'),
-      todayInfo:        $('today-info'),
       fadeToggle:       $('fade-toggle'),
       mapStyleSelector: $('map-style-selector'),
     };
@@ -187,8 +185,6 @@ class EngineApp {
     this.dom.statDate.textContent   = d.toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' });
     const counts = this.map.getVisibleCounts();
     this.dom.statRecords.textContent = counts.total.toLocaleString();
-    this.dom.todayInfo.textContent   = `${counts.today.toLocaleString()} today`;
-    this.dom.dayInfo.textContent     = `Day ${(this.currentDay+1).toLocaleString()} of ${metadata.totalDays.toLocaleString()}`;
     this.dom.scrubber.value          = this.currentDay;
   }
 

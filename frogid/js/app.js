@@ -10,8 +10,8 @@
  *  - Both types live in the #right-panels flex column.
  */
 
-import { loadData } from '../../common/js/engine_data.js?v=202610061159';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610061159';
+import { loadData } from '../../common/js/engine_data.js?v=202610061208';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610061208';
 import { AudioManager } from './audio.js?v=12';
 
 class FrogApp {
@@ -119,8 +119,6 @@ class FrogApp {
       scrubber:         $('scrubber'),
       speedSlider:      $('speed'),
       speedVal:         $('speed-val'),
-      dayInfo:          $('day-info'),
-      todayInfo:        $('today-info'),
       fadeToggle:       $('fade-toggle'),
       speciesFilter:    $('species-filter'),
       filterInput:      $('filter-input'),
@@ -365,8 +363,6 @@ class FrogApp {
     this.dom.statDate.textContent   = d.toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' });
     const counts = this.map.getVisibleCounts();
     this.dom.statRecords.textContent = counts.total.toLocaleString();
-    this.dom.todayInfo.textContent   = `${counts.today.toLocaleString()} today`;
-    this.dom.dayInfo.textContent     = `Day ${(this.currentDay+1).toLocaleString()} of ${metadata.totalDays.toLocaleString()}`;
     this.dom.scrubber.value          = this.currentDay;
   }
 
