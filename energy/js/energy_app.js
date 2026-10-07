@@ -276,7 +276,7 @@ _hideLoading() {
                   d.destroy();
               },
               steps: [
-                  { element: '.viz-title', popover: { title: 'Welcome', description: 'This interactive map animates the daily generation of electricity across Australia\'s National Electricity Market (NEM), highlighting the ongoing transition from fossil fuels to renewable energy. Note that the Northern Territory (NT) and Western Australia (WA) are not connected to the NEM and are therefore not shown.', side: 'bottom', align: 'start' } },
+                  { element: '.viz-title', popover: { title: 'Welcome', description: 'This interactive map animates the daily generation of electricity across Australia\'s National Electricity Market (NEM), highlighting the ongoing transition from fossil fuels to renewable energy. Note that the Northern Territory (NT) is not connected to the NEM and is therefore not shown.', side: 'bottom', align: 'start' } },
                   { element: '#btn-play', popover: { title: 'Play Animation', description: 'Click play to start the timeline animation.', side: 'bottom', align: 'start' } },
                   { element: '#btn-settings', popover: { title: 'Settings & Filters', description: 'Click here for extra options and state filtering.', side: 'bottom', align: 'end' } },
                   { element: '#chart-view-mode', popover: { title: 'Cumulative Generation', description: 'Use this dropdown to compare specific fuel sources across states.', side: 'top', align: 'end' } }
