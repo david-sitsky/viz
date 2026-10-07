@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610071559';
-import { EngineMap } from './energy_map.js?v=202610071559';
+import { loadData } from './energy_data.js?v=202610071602';
+import { EngineMap } from './energy_map.js?v=202610071602';
 
 class EngineApp {
   constructor() {
@@ -626,7 +626,12 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
                 if (this.chartViewMode === 'state_renewables_pct') {
                     valStr = item.total.toFixed(1) + '%';
                 } else {
-                    valStr = Math.round(item.total / 1000).toLocaleString() + ' GWh';
+                    let gwh = item.total / 1000;
+                    if (gwh > 0 && gwh < 1) {
+                        valStr = Math.round(item.total).toLocaleString() + ' MWh';
+                    } else {
+                        valStr = Math.round(gwh).toLocaleString() + ' GWh';
+                    }
                 }
             }
             
