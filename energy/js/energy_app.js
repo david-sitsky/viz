@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610071609';
-import { EngineMap } from './energy_map.js?v=202610071609';
+import { loadData } from './energy_data.js?v=202610071620';
+import { EngineMap } from './energy_map.js?v=202610071620';
 
 class EngineApp {
   constructor() {
@@ -483,6 +483,20 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         }
         this._absoluteMaxTotals['all_sources'] = Math.max(...absCatTotals);
         this._absoluteAggregateMaxTotal = Math.max(fossilMax, renMax);
+        
+        let stateRenTotals = new Map();
+        let stateFosTotals = new Map();
+        for (let i = 0; i < metadata.fuelTypes.length; i++) {
+            const fType = metadata.fuelTypes[i];
+            const isRen = ['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType);
+            const isFos = ['coal', 'gas'].includes(fType);
+            for (const [st, val] of absStateTotals.get(i).entries()) {
+                if (isRen) stateRenTotals.set(st, (stateRenTotals.get(st) || 0) + val);
+                if (isFos) stateFosTotals.set(st, (stateFosTotals.get(st) || 0) + val);
+            }
+        }
+        this._absoluteMaxTotals['state_renewables'] = Math.max(0, ...Array.from(stateRenTotals.values()));
+        this._absoluteMaxTotals['state_fossil_fuels'] = Math.max(0, ...Array.from(stateFosTotals.values()));
     }
     
     // Accumulate power up to current day
