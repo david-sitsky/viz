@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Automatically deploy when code or data is pushed to main
+      - main
   workflow_dispatch:
 
 permissions:
@@ -21,6 +21,28 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+        
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install aiohttp
+          npm ci
+          npx playwright install --with-deps chromium
+          
+      - name: Compile Binary Data Blobs
+        run: |
+          cd energy && python3 scripts/build_blob.py
+          cd ..
+          python3 common/scripts/ala_build.py --start-date "2020-08-01T00:00:00Z" --input-csv bogong/data/raw_events.csv --output-bin bogong/data/data.bin --output-meta bogong/data/metadata.json --output-species bogong/data/species_info.json
+          python3 common/scripts/ala_build.py --start-date "2020-08-01T00:00:00Z" --input-csv christmas-beetle/data/raw_events.csv --output-bin christmas-beetle/data/data.bin --output-meta christmas-beetle/data/metadata.json --output-species christmas-beetle/data/species_info.json
+          
+        
+      - name: Run Playwright Tests
+        run: npm run test
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
