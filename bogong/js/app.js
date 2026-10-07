@@ -56,7 +56,7 @@ class EngineApp {
             { element: '.viz-title', popover: { title: 'Welcome', description: 'This interactive map animates historical and recent sightings of the Bogong moth across Australia. There has been a recent resurgence of sightings which is exciting! They can travel up to 1,000 kilometres every summer to reach the cool caves in the Australian Alps, navigating using Earth\'s magnetic field and the stars.', side: 'bottom', align: 'start' } },
             { element: '#btn-play', popover: { title: 'Play the Timeline', description: 'Click play to start animating through the Bogong Moth sightings.', side: 'bottom', align: 'start' } },
             { element: '#speed', popover: { title: 'Adjust Speed', description: 'Control how fast the timeline progresses using this slider.', side: 'top', align: 'start' } },
-            { popover: { title: 'Help Track Bogong Moths', description: 'Upload your Bogong moth images to <a href="https://www.zoo.org.au/moth-tracker" target="_blank">Moth Tracker</a> or use iNaturalist!' } }
+            { popover: { title: 'Help Track Bogong Moths', description: 'Upload your Bogong moth images to <a href="https://www.zoo.org.au/moth-tracker" target="_blank">Moth Tracker</a> or use <a href="https://www.inaturalist.org/" target="_blank">iNaturalist</a>!' } }
           ],
           onDestroyStarted: () => {
             localStorage.setItem('hasSeenBogongTour', 'true');
