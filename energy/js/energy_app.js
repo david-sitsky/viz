@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610071625';
-import { EngineMap } from './energy_map.js?v=202610071625';
+import { loadData } from './energy_data.js?v=202610071627';
+import { EngineMap } from './energy_map.js?v=202610071627';
 
 class EngineApp {
   constructor() {
@@ -412,29 +412,43 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
     
     // Fallback if no data for the current view mode
     const checkHasData = (s, e) => {
-        if (e - s === 0) return false;
         const mode = this.chartViewMode || 'all_sources';
-        if (mode.startsWith('state_') && mode !== 'state_renewables_pct') {
-            let targetIndices = [];
-            if (mode === 'state_renewables') {
-                metadata.fuelTypes.forEach((fType, idx) => {
-                    if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) targetIndices.push(idx);
-                });
-            } else if (mode === 'state_fossil_fuels') {
-                metadata.fuelTypes.forEach((fType, idx) => {
-                    if (['coal', 'gas'].includes(fType)) targetIndices.push(idx);
-                });
-            } else {
-                const targetType = mode.replace('state_', '');
-                targetIndices.push(metadata.fuelTypes.indexOf(targetType));
-            }
-            
-            for (let i = s; i < e; i++) {
-                if (targetIndices.includes(categoryIndices[i])) return true;
-            }
-            return false;
+        const avg = metadata.recordCount / dayOffsets.length;
+        
+        if (mode === 'all_sources' || mode === 'state_renewables_pct') {
+            const threshold = Math.max(1, avg * 0.5);
+            return (e - s) >= threshold;
         }
-        return true;
+        
+        let targetIndices = [];
+        if (mode === 'state_renewables') {
+            metadata.fuelTypes.forEach((fType, idx) => {
+                if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) targetIndices.push(idx);
+            });
+        } else if (mode === 'state_fossil_fuels') {
+            metadata.fuelTypes.forEach((fType, idx) => {
+                if (['coal', 'gas'].includes(fType)) targetIndices.push(idx);
+            });
+        } else {
+            const targetType = mode.replace('state_', '');
+            targetIndices.push(metadata.fuelTypes.indexOf(targetType));
+        }
+        
+        if (!this._avgModeCounts) this._avgModeCounts = {};
+        if (this._avgModeCounts[mode] === undefined) {
+            let totalMatch = 0;
+            for (let i = 0; i < metadata.recordCount; i++) {
+                if (targetIndices.includes(categoryIndices[i])) totalMatch++;
+            }
+            this._avgModeCounts[mode] = totalMatch / dayOffsets.length;
+        }
+        
+        const threshold = Math.max(1, this._avgModeCounts[mode] * 0.5);
+        let matchCount = 0;
+        for (let i = s; i < e; i++) {
+            if (targetIndices.includes(categoryIndices[i])) matchCount++;
+        }
+        return matchCount >= threshold;
     };
 
     if (!checkHasData(dayStart, endIdx)) {
