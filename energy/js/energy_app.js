@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610071547';
-import { EngineMap } from './energy_map.js?v=202610071547';
+import { loadData } from './energy_data.js?v=202610071559';
+import { EngineMap } from './energy_map.js?v=202610071559';
 
 class EngineApp {
   constructor() {
@@ -398,13 +398,27 @@ _hideLoading() {
 let dayStart = dayOffsets[this.currentDay] ?? 0;
     let endIdx = (this.currentDay + 1 < dayOffsets.length) ? dayOffsets[this.currentDay + 1] : metadata.recordCount;
     
-    // Fallback if no data
-    if (endIdx - dayStart === 0) {
+    // Fallback if no data for the current view mode
+    const checkHasData = (s, e) => {
+        if (e - s === 0) return false;
+        const mode = this.chartViewMode || 'all_sources';
+        if (mode.startsWith('state_') && mode !== 'state_renewables_pct') {
+            const targetType = mode.replace('state_', '');
+            const targetCatIdx = metadata.fuelTypes.indexOf(targetType);
+            for (let i = s; i < e; i++) {
+                if (categoryIndices[i] === targetCatIdx) return true;
+            }
+            return false;
+        }
+        return true;
+    };
+
+    if (!checkHasData(dayStart, endIdx)) {
         let fallbackDay = this.currentDay - 1;
         while (fallbackDay >= 0) {
             let s = dayOffsets[fallbackDay] ?? 0;
             let e = (fallbackDay + 1 < dayOffsets.length) ? dayOffsets[fallbackDay + 1] : metadata.recordCount;
-            if (e - s > 0) {
+            if (checkHasData(s, e)) {
                 dayStart = s;
                 endIdx = e;
                 break;
@@ -579,11 +593,13 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         
         const targetColor = palette[targetCatIdx];
         for (const [state, total] of stateTotals.entries()) {
-            chartData.push({
-                name: state,
-                total: total,
-                color: targetColor
-            });
+            if (total > 0) {
+                chartData.push({
+                    name: state,
+                    total: total,
+                    color: targetColor
+                });
+            }
         }
     }
     
