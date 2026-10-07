@@ -1,24 +1,16 @@
-name: Daily Energy Data Update & Deploy
+name: Daily Data Update
 
 on:
   schedule:
     - cron: '0 16 * * *' # Runs at midnight AWST (16:00 UTC)
   workflow_dispatch: # Allows manual triggering
-  push:
-    branches:
-      - main # Automatically deploy when code is pushed to main
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
-  build-and-deploy:
+  update-data:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
       
     steps:
       - name: Checkout repository
@@ -61,16 +53,6 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add -u
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: automated daily data update"
-          git pull --rebase origin main && git push origin main
-          
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: '.'
-          
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+          # Pull with rebase, favouring our local automated changes if there is a conflict on CSVs
+          git pull --rebase -X theirs origin main || (git rebase --abort && git pull origin main -s recursive -X ours)
+          git push origin main
