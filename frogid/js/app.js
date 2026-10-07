@@ -11,8 +11,8 @@ import { makeDraggable } from '../../common/js/draggable.js';
  *  - Both types live in the #right-panels flex column.
  */
 
-import { loadData } from '../../common/js/engine_data.js?v=202610071754';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610071754';
+import { loadData } from '../../common/js/engine_data.js?v=202610071806';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610071806';
 import { AudioManager } from './audio.js?v=12';
 
 class FrogApp {
@@ -94,7 +94,7 @@ class FrogApp {
             { element: '#btn-sound', popover: { title: 'Listen to the Frogs', description: 'Enable sound to hear the distinct croaks and calls of the frogs currently animating on the map.', side: 'bottom', align: 'start' } },
             { element: '#btn-play', popover: { title: 'Play the Timeline', description: 'Click play to start animating through 7 years of expert-verified acoustic recordings.', side: 'bottom', align: 'start' } },
             { element: '#speed', popover: { title: 'Adjust Speed', description: 'Control how fast the timeline progresses using this slider.', side: 'top', align: 'start' } },
-            { element: '#filter-input', popover: { title: 'Filter by Species', description: 'Search and select specific frog species by common or scientific name to isolate their calls and sightings.', side: 'right', align: 'start' } },
+            { element: '#filter-input', popover: { title: 'Filter by Species', description: 'Search and select specific frog species by common or scientific name to isolate their calls and sightings. For example, "Peron\'s Tree Frog".', side: 'right', align: 'start' } },
             { element: '.home-nav-inline', popover: { title: 'Back to Home', description: 'Click here to go back to the list of interactive visualisations available.', side: 'bottom', align: 'start' } },
             { popover: { title: 'Get Involved', description: 'Install the FrogID <a href="https://www.frogid.net.au/" target="_blank">mobile app</a> and record your own frog calls!' } }
           ],
