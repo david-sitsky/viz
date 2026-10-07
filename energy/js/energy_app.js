@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610071603';
-import { EngineMap } from './energy_map.js?v=202610071603';
+import { loadData } from './energy_data.js?v=202610071609';
+import { EngineMap } from './energy_map.js?v=202610071609';
 
 class EngineApp {
   constructor() {
@@ -300,6 +300,18 @@ _hideLoading() {
             if (this.map && this.map.setFilter) {
                 if (this.chartViewMode === 'all_sources' || this.chartViewMode === 'state_renewables_pct') {
                     this.map.setFilter(new Set());
+                } else if (this.chartViewMode === 'state_renewables') {
+                    const renIndices = [];
+                    this.data.metadata.fuelTypes.forEach((fType, idx) => {
+                        if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) renIndices.push(idx);
+                    });
+                    this.map.setFilter(new Set(renIndices));
+                } else if (this.chartViewMode === 'state_fossil_fuels') {
+                    const fosIndices = [];
+                    this.data.metadata.fuelTypes.forEach((fType, idx) => {
+                        if (['coal', 'gas'].includes(fType)) fosIndices.push(idx);
+                    });
+                    this.map.setFilter(new Set(fosIndices));
                 } else {
                     const targetType = this.chartViewMode.replace('state_', '');
                     const targetCatIdx = this.data.metadata.fuelTypes.indexOf(targetType);
@@ -403,10 +415,22 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
         if (e - s === 0) return false;
         const mode = this.chartViewMode || 'all_sources';
         if (mode.startsWith('state_') && mode !== 'state_renewables_pct') {
-            const targetType = mode.replace('state_', '');
-            const targetCatIdx = metadata.fuelTypes.indexOf(targetType);
+            let targetIndices = [];
+            if (mode === 'state_renewables') {
+                metadata.fuelTypes.forEach((fType, idx) => {
+                    if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) targetIndices.push(idx);
+                });
+            } else if (mode === 'state_fossil_fuels') {
+                metadata.fuelTypes.forEach((fType, idx) => {
+                    if (['coal', 'gas'].includes(fType)) targetIndices.push(idx);
+                });
+            } else {
+                const targetType = mode.replace('state_', '');
+                targetIndices.push(metadata.fuelTypes.indexOf(targetType));
+            }
+            
             for (let i = s; i < e; i++) {
-                if (categoryIndices[i] === targetCatIdx) return true;
+                if (targetIndices.includes(categoryIndices[i])) return true;
             }
             return false;
         }
@@ -569,14 +593,30 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
             });
         }
     } else {
-        const targetType = mode.replace('state_', '');
-        const targetCatIdx = metadata.fuelTypes.indexOf(targetType);
+        let targetIndices = [];
+        let targetColor = [255, 255, 255]; // fallback
+        if (mode === 'state_renewables') {
+            metadata.fuelTypes.forEach((fType, idx) => {
+                if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) targetIndices.push(idx);
+            });
+            targetColor = [34, 197, 94]; // green
+        } else if (mode === 'state_fossil_fuels') {
+            metadata.fuelTypes.forEach((fType, idx) => {
+                if (['coal', 'gas'].includes(fType)) targetIndices.push(idx);
+            });
+            targetColor = [161, 161, 170]; // zinc-400
+        } else {
+            const targetType = mode.replace('state_', '');
+            const idx = metadata.fuelTypes.indexOf(targetType);
+            targetIndices.push(idx);
+            targetColor = palette[idx];
+        }
         
         const stateTotals = new Map();
         
         let targetStart = this.chartMode === 'cumulative' ? 0 : dayStart;
         for (let i = targetStart; i < endIdx; i++) {
-            if (categoryIndices[i] === targetCatIdx) {
+            if (targetIndices.includes(categoryIndices[i])) {
                 const fac = this.facilityMap.get(this.data.facilityIds[i]);
                 if (!fac || !this.selectedStates.has(fac.state)) continue;
                 
@@ -591,7 +631,6 @@ let dayStart = dayOffsets[this.currentDay] ?? 0;
             currentMax = Math.max(0, ...Array.from(stateTotals.values()));
         }
         
-        const targetColor = palette[targetCatIdx];
         for (const [state, total] of stateTotals.entries()) {
             if (total > 0) {
                 chartData.push({
