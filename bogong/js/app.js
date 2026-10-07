@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from '../../common/js/engine_data.js?v=202610062336';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610062336';
+import { loadData } from '../../common/js/engine_data.js?v=202610071123';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610071123';
 
 class EngineApp {
   constructor() {
@@ -53,6 +53,7 @@ class EngineApp {
             }
           },
           steps: [
+            { element: '.viz-title', popover: { title: 'Welcome to Bogong Moth Sightings', description: 'This interactive map animates historical and recent sightings of the Bogong Moth across Australia, helping researchers track their migration and population health.', side: 'bottom', align: 'start' } },
             { element: '#btn-play', popover: { title: 'Play the Timeline', description: 'Click play to start animating through the Bogong Moth sightings.', side: 'bottom', align: 'start' } },
             { element: '#speed', popover: { title: 'Adjust Speed', description: 'Control how fast the timeline progresses using this slider.', side: 'top', align: 'start' } }
           ],

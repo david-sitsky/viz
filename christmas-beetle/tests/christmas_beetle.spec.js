@@ -1,6 +1,11 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe('Christmas Beetle Visualiser', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      window.localStorage.setItem('hasSeenBeetleTour', 'true');
+    });
+  });
   test('loads without errors and UI elements appear', async ({ page }) => {
     const errors = [];
     page.on('pageerror', err => errors.push(err.message));
