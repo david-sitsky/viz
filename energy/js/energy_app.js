@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610071204';
-import { EngineMap } from './energy_map.js?v=202610071204';
+import { loadData } from './energy_data.js?v=202610071547';
+import { EngineMap } from './energy_map.js?v=202610071547';
 
 class EngineApp {
   constructor() {
@@ -298,16 +298,8 @@ _hideLoading() {
             
             // Update map filters
             if (this.map && this.map.setFilter) {
-                if (this.chartViewMode === 'all_sources') {
+                if (this.chartViewMode === 'all_sources' || this.chartViewMode === 'state_renewables_pct') {
                     this.map.setFilter(new Set());
-                } else if (this.chartViewMode === 'state_renewables_pct') {
-                    const renIndices = [];
-                    this.data.metadata.fuelTypes.forEach((fType, idx) => {
-                        if (['hydro', 'wind', 'commercial_solar', 'rooftop_solar'].includes(fType)) {
-                            renIndices.push(idx);
-                        }
-                    });
-                    this.map.setFilter(new Set(renIndices));
                 } else {
                     const targetType = this.chartViewMode.replace('state_', '');
                     const targetCatIdx = this.data.metadata.fuelTypes.indexOf(targetType);
