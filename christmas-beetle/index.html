@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive animated map showing Christmas Beetle recordings across Australia">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610071051">
+  <link rel="stylesheet" href="../common/styles.css?v=202610071142">
   <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
   <style>
@@ -16,6 +16,20 @@
       --brand-color: #f59e0b; 
       --brand-color-light: #fcd34d;
       --bg-glass: rgba(15, 23, 42, 0.85);
+    }
+    .attribution {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      text-align: right;
+      margin-top: 4px;
+      padding-right: 4px;
+    }
+    .attribution a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+    .attribution a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -127,6 +141,6 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/app.js?v=202610071051"></script>
+  <script type="module" src="js/app.js?v=202610071142"></script>
 </body>
 </html>
