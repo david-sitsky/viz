@@ -660,3 +660,11 @@ input[type="range"]::-moz-range-thumb { height: 14px; width: 14px; border-radius
 .driver-popover-arrow {
   border-color: #18181b !important;
 }
+
+.driverjs-theme .driver-popover-description a {
+  color: #fff !important;
+  text-decoration: underline !important;
+}
+.driverjs-theme .driver-popover-description a:hover {
+  color: #4ade80 !important;
+}
