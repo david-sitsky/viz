@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610070544';
-import { EngineMap } from './energy_map.js?v=202610070544';
+import { loadData } from './energy_data.js?v=202610071754';
+import { EngineMap } from './energy_map.js?v=202610071754';
 
 class EngineApp {
   constructor() {
@@ -279,7 +279,8 @@ _hideLoading() {
                   { element: '.viz-title', popover: { title: 'Welcome', description: 'This interactive map animates the daily generation of electricity across Australia\'s National Electricity Market (NEM), highlighting the ongoing transition from fossil fuels to renewable energy. Note that the Northern Territory (NT) is not connected to the NEM so its data is not available.', side: 'bottom', align: 'start' } },
                   { element: '#btn-play', popover: { title: 'Play Animation', description: 'Click play to start the timeline animation.', side: 'bottom', align: 'start' } },
                   { element: '#btn-settings', popover: { title: 'Settings & Filters', description: 'Click here for extra options and state filtering.', side: 'bottom', align: 'end' } },
-                  { element: '#chart-view-mode', popover: { title: 'Power Generation', description: 'Use this dropdown to compare specific fuel sources across states.', side: 'top', align: 'end' } }
+                  { element: '.home-nav-inline', popover: { title: 'Back to Home', description: 'Click here to go back to the list of interactive visualisations available.', side: 'bottom', align: 'start' } },
+            { element: '#chart-view-mode', popover: { title: 'Power Generation', description: 'Use this dropdown to compare specific fuel sources across states.', side: 'top', align: 'end' } }
               ]
           });
           setTimeout(() => d.drive(), 500);

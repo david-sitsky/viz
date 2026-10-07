@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from '../../common/js/engine_data.js?v=202610070544';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610070544';
+import { loadData } from '../../common/js/engine_data.js?v=202610071754';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610071754';
 
 class App {
   constructor() {
@@ -89,6 +89,7 @@ class App {
             { element: '#btn-play', popover: { title: 'Play the Timeline', description: 'Click play to start animating through the sightings.', side: 'bottom', align: 'start' } },
             { element: '#speed', popover: { title: 'Adjust Speed', description: 'Control how fast the timeline progresses using this slider.', side: 'top', align: 'start' } },
             { element: '#species-filter', popover: { title: 'Filter by Species', description: 'Search and select specific beetle species to isolate their sightings.', side: 'right', align: 'start' } },
+            { element: '.home-nav-inline', popover: { title: 'Back to Home', description: 'Click here to go back to the list of interactive visualisations available.', side: 'bottom', align: 'start' } },
             { popover: { title: 'Get Involved', description: 'Participate in the <a href="https://invertebratesaustralia.org/christmas-beetles" target="_blank">Christmas Beetle Count</a> from Invertebrates Australia.' } }
           ],
           onDestroyStarted: () => {
