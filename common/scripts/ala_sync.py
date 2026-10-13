@@ -22,11 +22,11 @@ def fetch_occurrences_chunk(query, start_date, end_date):
     while start_index < total_records:
         url = f"{base_url}{url_query}&startIndex={start_index}"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        retries = 3
+        retries = 5
         success = False
         while retries > 0 and not success:
             try:
-                with urllib.request.urlopen(req, timeout=10) as response:
+                with urllib.request.urlopen(req, timeout=30) as response:
                     data = json.loads(response.read().decode())
                     if start_index == 0:
                         total_records = data.get("totalRecords", 0)
@@ -69,8 +69,8 @@ def fetch_occurrences_chunk(query, start_date, end_date):
 
 def fetch_all_occurrences(query, start_date_str):
     print(f"Fetching ALA data for query: {query}...")
-    start_dt = datetime.datetime.strptime(start_date_str, '%Y-%m-%dT%H:%M:%SZ')
-    end_dt = datetime.datetime.utcnow()
+    start_dt = datetime.datetime.strptime(start_date_str, '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=datetime.timezone.utc)
+    end_dt = datetime.datetime.now(datetime.timezone.utc)
     
     all_records = []
     current_start = start_dt
