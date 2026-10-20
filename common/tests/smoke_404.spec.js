@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-const PAGES = ['/', '/energy/index.html', '/bogong/index.html', '/frogid/index.html', '/christmas-beetle/index.html'];
+const PAGES = ['/', '/energy/index.html', '/bogong/index.html', '/frogid/index.html', '/christmas-beetle/index.html', '/parkrun/index.html'];
 
 test.describe('Smoke Tests - No 404s', () => {
   for (const p of PAGES) {
@@ -17,6 +17,8 @@ test.describe('Smoke Tests - No 404s', () => {
         window.localStorage.setItem('hasSeenTour', 'true');
         window.localStorage.setItem('hasSeenFrogTour', 'true');
         window.localStorage.setItem('hasSeenBogongTour', 'true');
+        window.localStorage.setItem('hasSeenBeetleTour', 'true');
+        window.localStorage.setItem('hasSeenParkrunTour', 'true');
       });
 
       await page.goto(p, { waitUntil: 'networkidle' });

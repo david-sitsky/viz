@@ -84,6 +84,7 @@ jobs:
           cd ..
           python3 common/scripts/ala_build.py --input-csv bogong/data/raw_events.csv --output-bin bogong/data/data.bin --output-meta bogong/data/metadata.json --output-species bogong/data/species_info.json
           python3 common/scripts/ala_build.py --input-csv christmas-beetle/data/raw_events.csv --output-bin christmas-beetle/data/data.bin --output-meta christmas-beetle/data/metadata.json --output-species christmas-beetle/data/species_info.json
+          python3 parkrun/scripts/build_blob.py
           
       - name: Run Playwright Tests
         run: npm run test

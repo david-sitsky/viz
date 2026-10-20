@@ -20,7 +20,8 @@ export function makeDraggable(el, handle = el, options = {}) {
     startLeft = rect.left;
     startTop = rect.top;
     
-    if (options.onDragStart) options.onDragStart();
+    const onDragStartCb = typeof options === 'function' ? options : (options && options.onDragStart);
+    if (onDragStartCb) onDragStartCb();
 
     el.style.position = 'fixed';
     el.style.left = startLeft + 'px';

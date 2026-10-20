@@ -1,0 +1,5522 @@
+[
+  {
+    "id": 1,
+    "eventname": "stpeters",
+    "longName": "St Peters parkrun",
+    "shortName": "St Peters",
+    "location": "Sydney Park, St Peters, Sydney",
+    "seriesid": 1,
+    "lon": 151.18219,
+    "lat": -33.907658
+  },
+  {
+    "id": 2,
+    "eventname": "albertmelbourne",
+    "longName": "Albert parkrun, Melbourne",
+    "shortName": "Albert Melbourne",
+    "location": "Albert Park, Melbourne, Australia",
+    "seriesid": 1,
+    "lon": 144.96312,
+    "lat": -37.843521
+  },
+  {
+    "id": 3,
+    "eventname": "newfarm",
+    "longName": "New Farm parkrun",
+    "shortName": "New Farm",
+    "location": "New Farm, Brisbane",
+    "seriesid": 1,
+    "lon": 153.051636,
+    "lat": -27.471134
+  },
+  {
+    "id": 4,
+    "eventname": "mainbeach",
+    "longName": "Main Beach parkrun",
+    "shortName": "Main Beach",
+    "location": "Main Beach, Goldcoast",
+    "seriesid": 1,
+    "lon": 153.428879,
+    "lat": -27.972706
+  },
+  {
+    "id": 5,
+    "eventname": "kirra",
+    "longName": "Kirra parkrun",
+    "shortName": "Kirra",
+    "location": "Kirra Beach, Gold Coast QLD, Australia",
+    "seriesid": 1,
+    "lon": 153.522781,
+    "lat": -28.166758
+  },
+  {
+    "id": 6,
+    "eventname": "newy",
+    "longName": "Newy parkrun",
+    "shortName": "Newy",
+    "location": "50a Tully St, Carrington, Newcastle NSW",
+    "seriesid": 1,
+    "lon": 151.76144,
+    "lat": -32.914566
+  },
+  {
+    "id": 7,
+    "eventname": "ginninderra",
+    "longName": "Ginninderra parkrun",
+    "shortName": "Ginninderra",
+    "location": "John Knight Memorial Park",
+    "seriesid": 1,
+    "lon": 149.073486,
+    "lat": -35.234051
+  },
+  {
+    "id": 8,
+    "eventname": "coomera",
+    "longName": "Coomera parkrun",
+    "shortName": "Coomera",
+    "location": "Tallowwood Park",
+    "seriesid": 1,
+    "lon": 153.281709,
+    "lat": -27.885247
+  },
+  {
+    "id": 9,
+    "eventname": "balyangsanctuary",
+    "longName": "Balyang Sanctuary parkrun",
+    "shortName": "Balyang Sanctuary",
+    "location": "Balyang Sanctuary",
+    "seriesid": 1,
+    "lon": 144.331179,
+    "lat": -38.166457
+  },
+  {
+    "id": 10,
+    "eventname": "parramatta",
+    "longName": "Parramatta parkrun",
+    "shortName": "Parramatta",
+    "location": "Eric Primrose Reserve",
+    "seriesid": 1,
+    "lon": 151.063534,
+    "lat": -33.820838
+  },
+  {
+    "id": 11,
+    "eventname": "claisebrookcove",
+    "longName": "Claisebrook Cove parkrun",
+    "shortName": "Claisebrook Cove",
+    "location": "Claisebrook Cove",
+    "seriesid": 1,
+    "lon": 115.881884,
+    "lat": -31.950868
+  },
+  {
+    "id": 12,
+    "eventname": "wynnum",
+    "longName": "Wynnum parkrun",
+    "shortName": "Wynnum",
+    "location": "Wynnum Manly Foreshore, QLD",
+    "seriesid": 1,
+    "lon": 153.177898,
+    "lat": -27.442933
+  },
+  {
+    "id": 13,
+    "eventname": "curlcurl",
+    "longName": "Curl Curl parkrun",
+    "shortName": "Curl Curl",
+    "location": "John Fisher Park",
+    "seriesid": 1,
+    "lon": 151.282339,
+    "lat": -33.766483
+  },
+  {
+    "id": 14,
+    "eventname": "northlakes",
+    "longName": "North Lakes parkrun",
+    "shortName": "North Lakes",
+    "location": "Eden Lake, North Lakes, Queensland",
+    "seriesid": 1,
+    "lon": 153.020729,
+    "lat": -27.23669
+  },
+  {
+    "id": 15,
+    "eventname": "kingscliff",
+    "longName": "Kingscliff parkrun",
+    "shortName": "Kingscliff",
+    "location": "Bells Boulevard, SALT Village, Kingsclif",
+    "seriesid": 1,
+    "lon": 153.578901,
+    "lat": -28.277477
+  },
+  {
+    "id": 16,
+    "eventname": "kawana",
+    "longName": "Kawana parkrun",
+    "shortName": "Kawana",
+    "location": "Kawana Surf Club",
+    "seriesid": 1,
+    "lon": 153.135488,
+    "lat": -26.702046
+  },
+  {
+    "id": 17,
+    "eventname": "riverway",
+    "longName": "Riverway parkrun",
+    "shortName": "Riverway",
+    "location": "Riverway Lagoon",
+    "seriesid": 1,
+    "lon": 146.73018,
+    "lat": -19.320306
+  },
+  {
+    "id": 18,
+    "eventname": "sandgate",
+    "longName": "Sandgate parkrun",
+    "shortName": "Sandgate",
+    "location": "Arthur Davis Park",
+    "seriesid": 1,
+    "lon": 153.068234,
+    "lat": -27.311291
+  },
+  {
+    "id": 19,
+    "eventname": "southbank",
+    "longName": "South Bank parkrun",
+    "shortName": "South Bank",
+    "location": "South Bank Parklands",
+    "seriesid": 1,
+    "lon": 153.023962,
+    "lat": -27.478872
+  },
+  {
+    "id": 20,
+    "eventname": "risdonbrook",
+    "longName": "Risdon Brook parkrun",
+    "shortName": "Risdon Brook",
+    "location": "Risdon Brook Park",
+    "seriesid": 1,
+    "lon": 147.332352,
+    "lat": -42.804471
+  },
+  {
+    "id": 21,
+    "eventname": "torrens",
+    "longName": "Torrens parkrun",
+    "shortName": "Torrens",
+    "location": "Torrens Lake Weir",
+    "seriesid": 1,
+    "lon": 138.587444,
+    "lat": -34.917551
+  },
+  {
+    "id": 22,
+    "eventname": "invereskprecinct",
+    "longName": "Inveresk Precinct parkrun",
+    "shortName": "Inveresk Precinct",
+    "location": "Inveresk Precinct, Launceston, Tasmania",
+    "seriesid": 1,
+    "lon": 147.14088,
+    "lat": -41.425512
+  },
+  {
+    "id": 23,
+    "eventname": "rockingham",
+    "longName": "Rockingham parkrun",
+    "shortName": "Rockingham",
+    "location": "Rockingham",
+    "seriesid": 1,
+    "lon": 115.728757,
+    "lat": -32.275296
+  },
+  {
+    "id": 24,
+    "eventname": "darwin",
+    "longName": "Darwin parkrun",
+    "shortName": "Darwin",
+    "location": "Bicentennial Park",
+    "seriesid": 1,
+    "lon": 130.840725,
+    "lat": -12.466925
+  },
+  {
+    "id": 25,
+    "eventname": "lakemac",
+    "longName": "Lake Mac parkrun",
+    "shortName": "Lake Mac",
+    "location": "Lake Macquarie",
+    "seriesid": 1,
+    "lon": 151.612487,
+    "lat": -32.972596
+  },
+  {
+    "id": 26,
+    "eventname": "varsitylakes",
+    "longName": "Varsity Lakes parkrun",
+    "shortName": "Varsity Lakes",
+    "location": "Varsity Lakes",
+    "seriesid": 1,
+    "lon": 153.410554,
+    "lat": -28.084627
+  },
+  {
+    "id": 27,
+    "eventname": "fingalbay",
+    "longName": "Fingal Bay parkrun",
+    "shortName": "Fingal Bay",
+    "location": "Fingal Bay",
+    "seriesid": 1,
+    "lon": 152.170644,
+    "lat": -32.742887
+  },
+  {
+    "id": 28,
+    "eventname": "canningriver",
+    "longName": "Canning River parkrun",
+    "shortName": "Canning River",
+    "location": "Canning River Regional Park",
+    "seriesid": 1,
+    "lon": 115.92266,
+    "lat": -32.020912
+  },
+  {
+    "id": 29,
+    "eventname": "shepparton",
+    "longName": "Shepparton parkrun",
+    "shortName": "Shepparton",
+    "location": "Victoria Park Lake",
+    "seriesid": 1,
+    "lon": 145.396146,
+    "lat": -36.390858
+  },
+  {
+    "id": 30,
+    "eventname": "toowoomba",
+    "longName": "Toowoomba parkrun",
+    "shortName": "Toowoomba",
+    "location": "Queens Park",
+    "seriesid": 1,
+    "lon": 151.963926,
+    "lat": -27.56019
+  },
+  {
+    "id": 31,
+    "eventname": "mitchelton",
+    "longName": "Mitchelton parkrun",
+    "shortName": "Mitchelton",
+    "location": "Teralba Park",
+    "seriesid": 1,
+    "lon": 152.979298,
+    "lat": -27.404423
+  },
+  {
+    "id": 32,
+    "eventname": "warrnambool",
+    "longName": "Warrnambool parkrun",
+    "shortName": "Warrnambool",
+    "location": "Warrnambool",
+    "seriesid": 1,
+    "lon": 142.47937,
+    "lat": -38.392862
+  },
+  {
+    "id": 33,
+    "eventname": "noosa",
+    "longName": "Noosa parkrun",
+    "shortName": "Noosa",
+    "location": "Noosaville",
+    "seriesid": 1,
+    "lon": 153.030388,
+    "lat": -26.40872
+  },
+  {
+    "id": 34,
+    "eventname": "tuggeranong",
+    "longName": "Tuggeranong parkrun",
+    "shortName": "Tuggeranong",
+    "location": "Lake Tuggeranong",
+    "seriesid": 1,
+    "lon": 149.064989,
+    "lat": -35.410284
+  },
+  {
+    "id": 35,
+    "eventname": "bunbury",
+    "longName": "Bunbury parkrun",
+    "shortName": "Bunbury",
+    "location": "Big Swamp Wildlife Park",
+    "seriesid": 1,
+    "lon": 115.633228,
+    "lat": -33.342966
+  },
+  {
+    "id": 36,
+    "eventname": "loganriver",
+    "longName": "Logan River parkrun",
+    "shortName": "Logan River",
+    "location": "Logan River parklands",
+    "seriesid": 1,
+    "lon": 153.192024,
+    "lat": -27.698831
+  },
+  {
+    "id": 37,
+    "eventname": "mountbarker",
+    "longName": "Mount Barker parkrun",
+    "shortName": "Mount Barker",
+    "location": "Mount Barker Homemaker Centre",
+    "seriesid": 1,
+    "lon": 138.867869,
+    "lat": -35.069655
+  },
+  {
+    "id": 38,
+    "eventname": "aveley",
+    "longName": "Aveley parkrun",
+    "shortName": "Aveley",
+    "location": "Central Park",
+    "seriesid": 1,
+    "lon": 115.988052,
+    "lat": -31.789954
+  },
+  {
+    "id": 39,
+    "eventname": "lakejoondalup",
+    "longName": "Lake Joondalup parkrun",
+    "shortName": "Lake Joondalup",
+    "location": "Neil Hawkins Park",
+    "seriesid": 1,
+    "lon": 115.777144,
+    "lat": -31.744138
+  },
+  {
+    "id": 40,
+    "eventname": "sandonpoint",
+    "longName": "Sandon Point parkrun",
+    "shortName": "Sandon Point",
+    "location": "Sandon Point",
+    "seriesid": 1,
+    "lon": 150.924554,
+    "lat": -34.333372
+  },
+  {
+    "id": 41,
+    "eventname": "northshore",
+    "longName": "North Shore parkrun",
+    "shortName": "North Shore",
+    "location": "North Shore",
+    "seriesid": 1,
+    "lon": 146.70074,
+    "lat": -19.252326
+  },
+  {
+    "id": 42,
+    "eventname": "northwollongong",
+    "longName": "North Wollongong parkrun",
+    "shortName": "North Wollongong",
+    "location": "Fairy Meadow Beach",
+    "seriesid": 1,
+    "lon": 150.904866,
+    "lat": -34.395977
+  },
+  {
+    "id": 43,
+    "eventname": "ipswichqld",
+    "longName": "Ipswich QLD parkrun",
+    "shortName": "Ipswich QLD",
+    "location": "Bill Patterson Oval",
+    "seriesid": 1,
+    "lon": 152.764292,
+    "lat": -27.625421
+  },
+  {
+    "id": 44,
+    "eventname": "batemansbay",
+    "longName": "Batemans Bay parkrun",
+    "shortName": "Batemans Bay",
+    "location": "Batemans Bay",
+    "seriesid": 1,
+    "lon": 150.185995,
+    "lat": -35.712112
+  },
+  {
+    "id": 45,
+    "eventname": "gungahlin",
+    "longName": "Gungahlin parkrun",
+    "shortName": "Gungahlin",
+    "location": "Yerrabi Pond",
+    "seriesid": 1,
+    "lon": 149.129405,
+    "lat": -35.178952
+  },
+  {
+    "id": 46,
+    "eventname": "tamworth",
+    "longName": "Tamworth parkrun",
+    "shortName": "Tamworth",
+    "location": "Tamworth",
+    "seriesid": 1,
+    "lon": 150.936905,
+    "lat": -31.099559
+  },
+  {
+    "id": 47,
+    "eventname": "airliebeach",
+    "longName": "Airlie Beach parkrun",
+    "shortName": "Airlie Beach",
+    "location": "Coral Sea Marina",
+    "seriesid": 1,
+    "lon": 148.711122,
+    "lat": -20.267153
+  },
+  {
+    "id": 48,
+    "eventname": "wynyardforeshore",
+    "longName": "Wynyard Foreshore parkrun",
+    "shortName": "Wynyard Foreshore",
+    "location": "East Wynyard Foreshore",
+    "seriesid": 1,
+    "lon": 145.738245,
+    "lat": -40.98771
+  },
+  {
+    "id": 49,
+    "eventname": "kalgoorlieboulder",
+    "longName": "Kalgoorlie-Boulder parkrun",
+    "shortName": "Kalgoorlie-Boulder",
+    "location": "Karlkurla Bushland Park",
+    "seriesid": 1,
+    "lon": 121.456625,
+    "lat": -30.718868
+  },
+  {
+    "id": 50,
+    "eventname": "gatton",
+    "longName": "Gatton parkrun",
+    "shortName": "Gatton",
+    "location": "Lake Apex",
+    "seriesid": 1,
+    "lon": 152.270476,
+    "lat": -27.570426
+  },
+  {
+    "id": 51,
+    "eventname": "cairns",
+    "longName": "Cairns parkrun",
+    "shortName": "Cairns",
+    "location": "Cairns Esplanade",
+    "seriesid": 1,
+    "lon": 145.763211,
+    "lat": -16.904574
+  },
+  {
+    "id": 52,
+    "eventname": "highlands",
+    "longName": "Highlands parkrun",
+    "shortName": "Highlands",
+    "location": "Stocklandâ€™s Highlands community",
+    "seriesid": 1,
+    "lon": 144.903713,
+    "lat": -37.59106
+  },
+  {
+    "id": 53,
+    "eventname": "devonport",
+    "longName": "Devonport parkrun",
+    "shortName": "Devonport",
+    "location": "Mersey Bluff",
+    "seriesid": 1,
+    "lon": 146.356321,
+    "lat": -41.162847
+  },
+  {
+    "id": 54,
+    "eventname": "cleveland",
+    "longName": "Cleveland parkrun",
+    "shortName": "Cleveland",
+    "location": "Cleveland",
+    "seriesid": 1,
+    "lon": 153.274298,
+    "lat": -27.539355
+  },
+  {
+    "id": 55,
+    "eventname": "rocksriverside",
+    "longName": "Rocks Riverside parkrun",
+    "shortName": "Rocks Riverside",
+    "location": "Rocks Riverside Park",
+    "seriesid": 1,
+    "lon": 152.959235,
+    "lat": -27.542633
+  },
+  {
+    "id": 56,
+    "eventname": "nulkaba",
+    "longName": "Nulkaba parkrun",
+    "shortName": "Nulkaba",
+    "location": "St Phillips Christian College",
+    "seriesid": 1,
+    "lon": 151.352856,
+    "lat": -32.794952
+  },
+  {
+    "id": 57,
+    "eventname": "hastingsforeshore",
+    "longName": "Hastings Foreshore parkrun",
+    "shortName": "Hastings Foreshore",
+    "location": "Hastings Foreshore",
+    "seriesid": 1,
+    "lon": 145.196651,
+    "lat": -38.307311
+  },
+  {
+    "id": 58,
+    "eventname": "bunyaville",
+    "longName": "Bunyaville parkrun",
+    "shortName": "Bunyaville",
+    "location": "James Drysdale Recreational Conservation Centre",
+    "seriesid": 1,
+    "lon": 152.949138,
+    "lat": -27.377306
+  },
+  {
+    "id": 59,
+    "eventname": "inverell",
+    "longName": "Inverell parkrun",
+    "shortName": "Inverell",
+    "location": "Campbell Park",
+    "seriesid": 1,
+    "lon": 151.10897,
+    "lat": -29.77388
+  },
+  {
+    "id": 60,
+    "eventname": "mosman",
+    "longName": "Mosman parkrun",
+    "shortName": "Mosman",
+    "location": "Spit West Reserve",
+    "seriesid": 1,
+    "lon": 151.245989,
+    "lat": -33.806252
+  },
+  {
+    "id": 61,
+    "eventname": "armidale",
+    "longName": "Armidale parkrun",
+    "shortName": "Armidale",
+    "location": "SportUNE",
+    "seriesid": 1,
+    "lon": 151.639419,
+    "lat": -30.491998
+  },
+  {
+    "id": 62,
+    "eventname": "diamondcreek",
+    "longName": "Diamond Creek parkrun",
+    "shortName": "Diamond Creek",
+    "location": "Marngrook Oval",
+    "seriesid": 1,
+    "lon": 145.153249,
+    "lat": -37.673576
+  },
+  {
+    "id": 63,
+    "eventname": "warwick",
+    "longName": "Warwick parkrun",
+    "shortName": "Warwick",
+    "location": "Condamine River",
+    "seriesid": 1,
+    "lon": 152.038465,
+    "lat": -28.209605
+  },
+  {
+    "id": 64,
+    "eventname": "oceangrove",
+    "longName": "Ocean Grove parkrun",
+    "shortName": "Ocean Grove",
+    "location": "Barwon Estuary Picnic Area",
+    "seriesid": 1,
+    "lon": 144.512783,
+    "lat": -38.267313
+  },
+  {
+    "id": 65,
+    "eventname": "bargara",
+    "longName": "Bargara parkrun",
+    "shortName": "Bargara",
+    "location": "Nielson Park",
+    "seriesid": 1,
+    "lon": 152.456905,
+    "lat": -24.806914
+  },
+  {
+    "id": 66,
+    "eventname": "bathurst",
+    "longName": "Bathurst parkrun",
+    "shortName": "Bathurst",
+    "location": "Bicentennial Park",
+    "seriesid": 1,
+    "lon": 149.586917,
+    "lat": -33.414176
+  },
+  {
+    "id": 67,
+    "eventname": "portmacquarie",
+    "longName": "Port Macquarie parkrun",
+    "shortName": "Port Macquarie",
+    "location": "Port Macquarie",
+    "seriesid": 1,
+    "lon": 152.916551,
+    "lat": -31.42754
+  },
+  {
+    "id": 68,
+    "eventname": "blackbutt",
+    "longName": "Blackbutt parkrun",
+    "shortName": "Blackbutt",
+    "location": "Richley Recreation Reserve",
+    "seriesid": 1,
+    "lon": 151.699755,
+    "lat": -32.932526
+  },
+  {
+    "id": 69,
+    "eventname": "emerald",
+    "longName": "Emerald parkrun",
+    "shortName": "Emerald",
+    "location": "Botanical Gardens",
+    "seriesid": 1,
+    "lon": 148.165534,
+    "lat": -23.535317
+  },
+  {
+    "id": 70,
+    "eventname": "berwicksprings",
+    "longName": "Berwick Springs parkrun",
+    "shortName": "Berwick Springs",
+    "location": "Berwick Springs Promenade",
+    "seriesid": 1,
+    "lon": 145.322932,
+    "lat": -38.062069
+  },
+  {
+    "id": 71,
+    "eventname": "pointcook",
+    "longName": "Point Cook parkrun",
+    "shortName": "Point Cook",
+    "location": "Arndell Park Community Centre",
+    "seriesid": 1,
+    "lon": 144.72952,
+    "lat": -37.862086
+  },
+  {
+    "id": 72,
+    "eventname": "rockhampton",
+    "longName": "Rockhampton parkrun",
+    "shortName": "Rockhampton",
+    "location": "Botanic Gardens",
+    "seriesid": 1,
+    "lon": 150.491432,
+    "lat": -23.400579
+  },
+  {
+    "id": 73,
+    "eventname": "dalby",
+    "longName": "Dalby parkrun",
+    "shortName": "Dalby",
+    "location": "Dalby",
+    "seriesid": 1,
+    "lon": 151.262339,
+    "lat": -27.188036
+  },
+  {
+    "id": 74,
+    "eventname": "westerfolds",
+    "longName": "Westerfolds parkrun",
+    "shortName": "Westerfolds",
+    "location": "Westerfolds Park",
+    "seriesid": 1,
+    "lon": 145.133986,
+    "lat": -37.746092
+  },
+  {
+    "id": 75,
+    "eventname": "mudgeeraba",
+    "longName": "Mudgeeraba parkrun",
+    "shortName": "Mudgeeraba",
+    "location": "Darcy Doyle Park",
+    "seriesid": 1,
+    "lon": 153.364098,
+    "lat": -28.086682
+  },
+  {
+    "id": 76,
+    "eventname": "alburywodonga",
+    "longName": "Albury Wodonga parkrun",
+    "shortName": "Albury Wodonga",
+    "location": "Hovell Tree Park",
+    "seriesid": 1,
+    "lon": 146.88886,
+    "lat": -36.0873
+  },
+  {
+    "id": 77,
+    "eventname": "mackay",
+    "longName": "Mackay parkrun",
+    "shortName": "Mackay",
+    "location": "Mackay Botanic Gardens",
+    "seriesid": 1,
+    "lon": 149.155797,
+    "lat": -21.152238
+  },
+  {
+    "id": 78,
+    "eventname": "roma",
+    "longName": "Roma parkrun",
+    "shortName": "Roma",
+    "location": "Roma",
+    "seriesid": 1,
+    "lon": 148.789054,
+    "lat": -26.567166
+  },
+  {
+    "id": 79,
+    "eventname": "maitland",
+    "longName": "Maitland parkrun",
+    "shortName": "Maitland",
+    "location": "Walka Recreation & Wildlife Reserve",
+    "seriesid": 1,
+    "lon": 151.552845,
+    "lat": -32.714435
+  },
+  {
+    "id": 80,
+    "eventname": "torquay",
+    "longName": "Torquay parkrun",
+    "shortName": "Torquay",
+    "location": "Fishermans Beach",
+    "seriesid": 1,
+    "lon": 144.326903,
+    "lat": -38.327281
+  },
+  {
+    "id": 81,
+    "eventname": "lakesentrance",
+    "longName": "Lakes Entrance parkrun",
+    "shortName": "Lakes Entrance",
+    "location": "Lakes Entrance Rotunda, Memorial Park",
+    "seriesid": 1,
+    "lon": 147.994104,
+    "lat": -37.879944
+  },
+  {
+    "id": 82,
+    "eventname": "herveybay",
+    "longName": "Hervey Bay parkrun",
+    "shortName": "Hervey Bay",
+    "location": "Lions Park",
+    "seriesid": 1,
+    "lon": 152.90367,
+    "lat": -25.283163
+  },
+  {
+    "id": 83,
+    "eventname": "bluegumhills",
+    "longName": "Blue Gum Hills parkrun",
+    "shortName": "Blue Gum Hills",
+    "location": "Blue Gum Hills Regional Park",
+    "seriesid": 1,
+    "lon": 151.620206,
+    "lat": -32.884131
+  },
+  {
+    "id": 84,
+    "eventname": "minnippi",
+    "longName": "Minnippi parkrun",
+    "shortName": "Minnippi",
+    "location": "Meadowfields Road",
+    "seriesid": 1,
+    "lon": 153.118679,
+    "lat": -27.49331
+  },
+  {
+    "id": 85,
+    "eventname": "mountgambier",
+    "longName": "Mount Gambier parkrun",
+    "shortName": "Mount Gambier",
+    "location": "Blue Lake Reserve",
+    "seriesid": 1,
+    "lon": 140.777854,
+    "lat": -37.84289
+  },
+  {
+    "id": 86,
+    "eventname": "calamvale",
+    "longName": "Calamvale parkrun",
+    "shortName": "Calamvale",
+    "location": "Calamvale District Park",
+    "seriesid": 1,
+    "lon": 153.039287,
+    "lat": -27.620775
+  },
+  {
+    "id": 87,
+    "eventname": "stanthorpe",
+    "longName": "Stanthorpe parkrun",
+    "shortName": "Stanthorpe",
+    "location": "Gleeson Park",
+    "seriesid": 1,
+    "lon": 151.931781,
+    "lat": -28.65183
+  },
+  {
+    "id": 88,
+    "eventname": "lillydalelake",
+    "longName": "Lillydale Lake parkrun",
+    "shortName": "Lillydale Lake",
+    "location": "Lilydale Lake",
+    "seriesid": 1,
+    "lon": 145.357071,
+    "lat": -37.766218
+  },
+  {
+    "id": 89,
+    "eventname": "goldenbeach",
+    "longName": "Golden Beach parkrun",
+    "shortName": "Golden Beach",
+    "location": "Woorim Park",
+    "seriesid": 1,
+    "lon": 153.120795,
+    "lat": -26.829014
+  },
+  {
+    "id": 90,
+    "eventname": "lakeview",
+    "longName": "Lakeview parkrun",
+    "shortName": "Lakeview",
+    "location": "The Shores Way",
+    "seriesid": 1,
+    "lon": 151.642302,
+    "lat": -33.030093
+  },
+  {
+    "id": 91,
+    "eventname": "singleton",
+    "longName": "Singleton parkrun",
+    "shortName": "Singleton",
+    "location": "Rose Point Park",
+    "seriesid": 1,
+    "lon": 151.160776,
+    "lat": -32.565281
+  },
+  {
+    "id": 92,
+    "eventname": "yamba",
+    "longName": "Yamba parkrun",
+    "shortName": "Yamba",
+    "location": "Ford Park",
+    "seriesid": 1,
+    "lon": 153.357271,
+    "lat": -29.435742
+  },
+  {
+    "id": 93,
+    "eventname": "cooksriver",
+    "longName": "Cooks River parkrun",
+    "shortName": "Cooks River",
+    "location": "Saint Mary Mackillop Reserve",
+    "seriesid": 1,
+    "lon": 151.116857,
+    "lat": -33.913708
+  },
+  {
+    "id": 94,
+    "eventname": "quinnsrocks",
+    "longName": "Quinns Rocks parkrun",
+    "shortName": "Quinns Rocks",
+    "location": "Quinns Rocks",
+    "seriesid": 1,
+    "lon": 115.69588,
+    "lat": -31.679025
+  },
+  {
+    "id": 95,
+    "eventname": "coffsharbour",
+    "longName": "Coffs Harbour parkrun",
+    "shortName": "Coffs Harbour",
+    "location": "Park Beach Reserve",
+    "seriesid": 1,
+    "lon": 153.1376,
+    "lat": -30.295687
+  },
+  {
+    "id": 96,
+    "eventname": "manjimup",
+    "longName": "Manjimup parkrun",
+    "shortName": "Manjimup",
+    "location": "Manjimup Homemaker Centre",
+    "seriesid": 1,
+    "lon": 116.179615,
+    "lat": -34.227785
+  },
+  {
+    "id": 97,
+    "eventname": "campbelltown",
+    "longName": "Campbelltown parkrun",
+    "shortName": "Campbelltown",
+    "location": "Hurricane Drive",
+    "seriesid": 1,
+    "lon": 150.814819,
+    "lat": -34.018301
+  },
+  {
+    "id": 98,
+    "eventname": "sale",
+    "longName": "Sale parkrun",
+    "shortName": "Sale",
+    "location": "Sale Botanic Gardens",
+    "seriesid": 1,
+    "lon": 147.078273,
+    "lat": -38.114103
+  },
+  {
+    "id": 99,
+    "eventname": "queanbeyan",
+    "longName": "Queanbeyan parkrun",
+    "shortName": "Queanbeyan",
+    "location": "Queanbeyan",
+    "seriesid": 1,
+    "lon": 149.238801,
+    "lat": -35.348151
+  },
+  {
+    "id": 100,
+    "eventname": "pioneer",
+    "longName": "Pioneer parkrun",
+    "shortName": "Pioneer",
+    "location": "Pioneer Park",
+    "seriesid": 1,
+    "lon": 116.001509,
+    "lat": -32.066125
+  },
+  {
+    "id": 101,
+    "eventname": "tamborinemountain",
+    "longName": "Tamborine Mountain parkrun",
+    "shortName": "Tamborine Mountain",
+    "location": "Tamborine Mountain Sports Complex",
+    "seriesid": 1,
+    "lon": 153.193434,
+    "lat": -27.941377
+  },
+  {
+    "id": 102,
+    "eventname": "penrithlakes",
+    "longName": "Penrith Lakes parkrun",
+    "shortName": "Penrith Lakes",
+    "location": "Sydney International Regatta Centre",
+    "seriesid": 1,
+    "lon": 150.685741,
+    "lat": -33.725922
+  },
+  {
+    "id": 103,
+    "eventname": "kenningtonreservoir",
+    "longName": "Kennington Reservoir parkrun",
+    "shortName": "Kennington Reservoir",
+    "location": "Kennington Reservoir",
+    "seriesid": 1,
+    "lon": 144.312232,
+    "lat": -36.772141
+  },
+  {
+    "id": 104,
+    "eventname": "yeppoon",
+    "longName": "Yeppoon parkrun",
+    "shortName": "Yeppoon",
+    "location": "Yeppoon",
+    "seriesid": 1,
+    "lon": 150.739086,
+    "lat": -23.128177
+  },
+  {
+    "id": 105,
+    "eventname": "rousehill",
+    "longName": "Rouse Hill parkrun",
+    "shortName": "Rouse Hill",
+    "location": "Rouse Hill Regional Park",
+    "seriesid": 1,
+    "lon": 150.911109,
+    "lat": -33.679301
+  },
+  {
+    "id": 106,
+    "eventname": "stonescorner",
+    "longName": "Stones Corner parkrun",
+    "shortName": "Stones Corner",
+    "location": "Hanlon Park",
+    "seriesid": 1,
+    "lon": 153.042469,
+    "lat": -27.498722
+  },
+  {
+    "id": 107,
+    "eventname": "wishart",
+    "longName": "Wishart parkrun",
+    "shortName": "Wishart",
+    "location": "Wishart Community Park",
+    "seriesid": 1,
+    "lon": 153.103468,
+    "lat": -27.560975
+  },
+  {
+    "id": 108,
+    "eventname": "victorharbor",
+    "longName": "Victor Harbor parkrun",
+    "shortName": "Victor Harbor",
+    "location": "Victor Harbor",
+    "seriesid": 1,
+    "lon": 138.611096,
+    "lat": -35.565657
+  },
+  {
+    "id": 109,
+    "eventname": "mtpenang",
+    "longName": "Mt Penang parkrun",
+    "shortName": "Mt Penang",
+    "location": "Mt Penang Parklands",
+    "seriesid": 1,
+    "lon": 151.293178,
+    "lat": -33.426328
+  },
+  {
+    "id": 110,
+    "eventname": "cottesloe",
+    "longName": "Cottesloe parkrun",
+    "shortName": "Cottesloe",
+    "location": "Marine Parade",
+    "seriesid": 1,
+    "lon": 115.75182,
+    "lat": -32.006479
+  },
+  {
+    "id": 111,
+    "eventname": "mountisa",
+    "longName": "Mount Isa parkrun",
+    "shortName": "Mount Isa",
+    "location": "Tharrapatha Way",
+    "seriesid": 1,
+    "lon": 139.492772,
+    "lat": -20.702319
+  },
+  {
+    "id": 112,
+    "eventname": "yarrabilba",
+    "longName": "Yarrabilba parkrun",
+    "shortName": "Yarrabilba",
+    "location": "Darlington Parklands",
+    "seriesid": 1,
+    "lon": 153.10409,
+    "lat": -27.80288
+  },
+  {
+    "id": 113,
+    "eventname": "maribyrnong",
+    "longName": "Maribyrnong parkrun",
+    "shortName": "Maribyrnong",
+    "location": "Maribyrnong",
+    "seriesid": 1,
+    "lon": 144.897858,
+    "lat": -37.770632
+  },
+  {
+    "id": 114,
+    "eventname": "pittsworth",
+    "longName": "Pittsworth parkrun",
+    "shortName": "Pittsworth",
+    "location": "Pittsworth",
+    "seriesid": 1,
+    "lon": 151.641106,
+    "lat": -27.712352
+  },
+  {
+    "id": 115,
+    "eventname": "lawson",
+    "longName": "Lawson parkrun",
+    "shortName": "Lawson",
+    "location": "North Lawson Park",
+    "seriesid": 1,
+    "lon": 150.426901,
+    "lat": -33.713629
+  },
+  {
+    "id": 116,
+    "eventname": "carineglades",
+    "longName": "Carine Glades parkrun",
+    "shortName": "Carine Glades",
+    "location": "Carine Regional Open Space",
+    "seriesid": 1,
+    "lon": 115.789061,
+    "lat": -31.853621
+  },
+  {
+    "id": 117,
+    "eventname": "hamilton",
+    "longName": "Hamilton parkrun",
+    "shortName": "Hamilton",
+    "location": "Lake Hamilton",
+    "seriesid": 1,
+    "lon": 142.040024,
+    "lat": -37.737592
+  },
+  {
+    "id": 118,
+    "eventname": "centrallakes",
+    "longName": "Central Lakes parkrun",
+    "shortName": "Central Lakes",
+    "location": "Central Lakes Drive",
+    "seriesid": 1,
+    "lon": 152.973187,
+    "lat": -27.07755
+  },
+  {
+    "id": 119,
+    "eventname": "pakenham",
+    "longName": "Pakenham parkrun",
+    "shortName": "Pakenham",
+    "location": "Pakenham",
+    "seriesid": 1,
+    "lon": 145.463839,
+    "lat": -38.06462
+  },
+  {
+    "id": 120,
+    "eventname": "capalaba",
+    "longName": "Capalaba parkrun",
+    "shortName": "Capalaba",
+    "location": "Capalaba Regional Park",
+    "seriesid": 1,
+    "lon": 153.186858,
+    "lat": -27.521405
+  },
+  {
+    "id": 121,
+    "eventname": "mudgee",
+    "longName": "Mudgee parkrun",
+    "shortName": "Mudgee",
+    "location": "Mudgee",
+    "seriesid": 1,
+    "lon": 149.586719,
+    "lat": -32.589229
+  },
+  {
+    "id": 122,
+    "eventname": "wangaratta",
+    "longName": "Wangaratta parkrun",
+    "shortName": "Wangaratta",
+    "location": "Apex Park",
+    "seriesid": 1,
+    "lon": 146.329944,
+    "lat": -36.351774
+  },
+  {
+    "id": 123,
+    "eventname": "broadbeachwaters",
+    "longName": "Broadbeach Waters parkrun",
+    "shortName": "Broadbeach Waters",
+    "location": "Monaco Street",
+    "seriesid": 1,
+    "lon": 153.412292,
+    "lat": -28.018497
+  },
+  {
+    "id": 124,
+    "eventname": "toolerncreek",
+    "longName": "Toolern Creek parkrun",
+    "shortName": "Toolern Creek",
+    "location": "Toolern Creek Park",
+    "seriesid": 1,
+    "lon": 144.583229,
+    "lat": -37.714776
+  },
+  {
+    "id": 125,
+    "eventname": "redcliffe",
+    "longName": "Redcliffe parkrun",
+    "shortName": "Redcliffe",
+    "location": "Suttons Beach Park, Marine Parade",
+    "seriesid": 1,
+    "lon": 153.114827,
+    "lat": -27.235456
+  },
+  {
+    "id": 126,
+    "eventname": "froghollow",
+    "longName": "Frog Hollow parkrun",
+    "shortName": "Frog Hollow",
+    "location": "David Collins Drive",
+    "seriesid": 1,
+    "lon": 145.273622,
+    "lat": -37.991559
+  },
+  {
+    "id": 127,
+    "eventname": "shellharbour",
+    "longName": "Shellharbour parkrun",
+    "shortName": "Shellharbour",
+    "location": "Killalea Drive",
+    "seriesid": 1,
+    "lon": 150.862868,
+    "lat": -34.602608
+  },
+  {
+    "id": 128,
+    "eventname": "berrinba",
+    "longName": "Berrinba parkrun",
+    "shortName": "Berrinba",
+    "location": "Berrinba Wetlands",
+    "seriesid": 1,
+    "lon": 153.077193,
+    "lat": -27.665606
+  },
+  {
+    "id": 129,
+    "eventname": "inverloch",
+    "longName": "Inverloch parkrun",
+    "shortName": "Inverloch",
+    "location": "Rotary Centenary Park",
+    "seriesid": 1,
+    "lon": 145.719625,
+    "lat": -38.639515
+  },
+  {
+    "id": 130,
+    "eventname": "stlucia",
+    "longName": "St Lucia parkrun",
+    "shortName": "St Lucia",
+    "location": "University of Queensland",
+    "seriesid": 1,
+    "lon": 153.017796,
+    "lat": -27.495122
+  },
+  {
+    "id": 131,
+    "eventname": "geographebay",
+    "longName": "Geographe Bay parkrun",
+    "shortName": "Geographe Bay",
+    "location": "Geographe Bay Rd",
+    "seriesid": 1,
+    "lon": 115.354374,
+    "lat": -33.642342
+  },
+  {
+    "id": 132,
+    "eventname": "mtclarence",
+    "longName": "Mt Clarence parkrun",
+    "shortName": "Mt Clarence",
+    "location": "Flinders Parade",
+    "seriesid": 1,
+    "lon": 117.916528,
+    "lat": -35.025659
+  },
+  {
+    "id": 133,
+    "eventname": "bibralake",
+    "longName": "Bibra Lake parkrun",
+    "shortName": "Bibra Lake",
+    "location": "Bibra Lake Reserve",
+    "seriesid": 1,
+    "lon": 115.820636,
+    "lat": -32.093955
+  },
+  {
+    "id": 134,
+    "eventname": "chermside",
+    "longName": "Chermside parkrun",
+    "shortName": "Chermside",
+    "location": "Kidspace Playground, 7th Brigade Park",
+    "seriesid": 1,
+    "lon": 153.033507,
+    "lat": -27.37896
+  },
+  {
+    "id": 135,
+    "eventname": "dawesville",
+    "longName": "Dawesville parkrun",
+    "shortName": "Dawesville",
+    "location": "Dawesville Foreshore Reserve",
+    "seriesid": 1,
+    "lon": 115.640914,
+    "lat": -32.625918
+  },
+  {
+    "id": 136,
+    "eventname": "cronulla",
+    "longName": "Cronulla parkrun",
+    "shortName": "Cronulla",
+    "location": "Don Lucas Reserve",
+    "seriesid": 1,
+    "lon": 151.161836,
+    "lat": -34.040937
+  },
+  {
+    "id": 137,
+    "eventname": "lismore",
+    "longName": "Lismore parkrun",
+    "shortName": "Lismore",
+    "location": "Riverside Park",
+    "seriesid": 1,
+    "lon": 153.270029,
+    "lat": -28.812589
+  },
+  {
+    "id": 138,
+    "eventname": "cowra",
+    "longName": "Cowra parkrun",
+    "shortName": "Cowra",
+    "location": "Cowra",
+    "seriesid": 1,
+    "lon": 148.703733,
+    "lat": -33.812714
+  },
+  {
+    "id": 139,
+    "eventname": "portaugusta",
+    "longName": "Port Augusta parkrun",
+    "shortName": "Port Augusta",
+    "location": "Eastside Foreshore (underneath the Joy Baluch)",
+    "seriesid": 1,
+    "lon": 137.764721,
+    "lat": -32.4874
+  },
+  {
+    "id": 140,
+    "eventname": "atherton",
+    "longName": "Atherton parkrun",
+    "shortName": "Atherton",
+    "location": "Atherton Tablelands railtrail",
+    "seriesid": 1,
+    "lon": 145.471686,
+    "lat": -17.275414
+  },
+  {
+    "id": 141,
+    "eventname": "stockton",
+    "longName": "Stockton parkrun",
+    "shortName": "Stockton",
+    "location": "Stockton",
+    "seriesid": 1,
+    "lon": 151.78442,
+    "lat": -32.919273
+  },
+  {
+    "id": 142,
+    "eventname": "huskisson",
+    "longName": "Huskisson parkrun",
+    "shortName": "Huskisson",
+    "location": "Huskisson White Sands Park",
+    "seriesid": 1,
+    "lon": 150.677109,
+    "lat": -35.049429
+  },
+  {
+    "id": 143,
+    "eventname": "parkville",
+    "longName": "Parkville parkrun",
+    "shortName": "Parkville",
+    "location": "Princes Park",
+    "seriesid": 1,
+    "lon": 144.961755,
+    "lat": -37.784837
+  },
+  {
+    "id": 144,
+    "eventname": "moora",
+    "longName": "Moora parkrun",
+    "shortName": "Moora",
+    "location": "Apex Park",
+    "seriesid": 1,
+    "lon": 116.004276,
+    "lat": -30.638892
+  },
+  {
+    "id": 145,
+    "eventname": "brightwater",
+    "longName": "Brightwater parkrun",
+    "shortName": "Brightwater",
+    "location": "Brightwater Sports Ground",
+    "seriesid": 1,
+    "lon": 153.106718,
+    "lat": -26.709852
+  },
+  {
+    "id": 146,
+    "eventname": "brimbank",
+    "longName": "Brimbank parkrun",
+    "shortName": "Brimbank",
+    "location": "Brimbank Park",
+    "seriesid": 1,
+    "lon": 144.834123,
+    "lat": -37.727547
+  },
+  {
+    "id": 147,
+    "eventname": "coburg",
+    "longName": "Coburg parkrun",
+    "shortName": "Coburg",
+    "location": "Coburg Lake Reserve",
+    "seriesid": 1,
+    "lon": 144.968861,
+    "lat": -37.733811
+  },
+  {
+    "id": 148,
+    "eventname": "traralgon",
+    "longName": "Traralgon parkrun",
+    "shortName": "Traralgon",
+    "location": "Agnes Brereton Park",
+    "seriesid": 1,
+    "lon": 146.53648,
+    "lat": -38.189632
+  },
+  {
+    "id": 149,
+    "eventname": "warnerlakes",
+    "longName": "Warner Lakes parkrun",
+    "shortName": "Warner Lakes",
+    "location": "Dragonfly Park",
+    "seriesid": 1,
+    "lon": 152.955385,
+    "lat": -27.306906
+  },
+  {
+    "id": 150,
+    "eventname": "narrabri",
+    "longName": "Narrabri parkrun",
+    "shortName": "Narrabri",
+    "location": "Narrabri West Lake",
+    "seriesid": 1,
+    "lon": 149.755908,
+    "lat": -30.33885
+  },
+  {
+    "id": 151,
+    "eventname": "thebeaches",
+    "longName": "The Beaches parkrun",
+    "shortName": "The Beaches",
+    "location": "Dixon Park Beach boat ramp",
+    "seriesid": 1,
+    "lon": 151.760065,
+    "lat": -32.946293
+  },
+  {
+    "id": 152,
+    "eventname": "warragul",
+    "longName": "Warragul parkrun",
+    "shortName": "Warragul",
+    "location": "Brooker Park",
+    "seriesid": 1,
+    "lon": 145.932929,
+    "lat": -38.151043
+  },
+  {
+    "id": 153,
+    "eventname": "taree",
+    "longName": "Taree parkrun",
+    "shortName": "Taree",
+    "location": "Endeavour Place Reserve",
+    "seriesid": 1,
+    "lon": 152.468625,
+    "lat": -31.910271
+  },
+  {
+    "id": 154,
+    "eventname": "dubbo",
+    "longName": "Dubbo parkrun",
+    "shortName": "Dubbo",
+    "location": "Dubbo",
+    "seriesid": 1,
+    "lon": 148.591034,
+    "lat": -32.256257
+  },
+  {
+    "id": 155,
+    "eventname": "menai",
+    "longName": "Menai parkrun",
+    "shortName": "Menai",
+    "location": "Parc Menai",
+    "seriesid": 1,
+    "lon": 151.015082,
+    "lat": -34.016364
+  },
+  {
+    "id": 156,
+    "eventname": "gawler",
+    "longName": "Gawler parkrun",
+    "shortName": "Gawler",
+    "location": "Clonlea Reserve",
+    "seriesid": 1,
+    "lon": 138.750027,
+    "lat": -34.590841
+  },
+  {
+    "id": 157,
+    "eventname": "kununurra",
+    "longName": "Kununurra parkrun",
+    "shortName": "Kununurra",
+    "location": "Swim Beach Park",
+    "seriesid": 1,
+    "lon": 128.700113,
+    "lat": -15.791571
+  },
+  {
+    "id": 158,
+    "eventname": "billrosesportscomplex",
+    "longName": "Bill Rose Sports Complex parkrun",
+    "shortName": "Bill Rose Sports Complex",
+    "location": "Bill Rose Sports Complex",
+    "seriesid": 1,
+    "lon": 150.856114,
+    "lat": -32.054009
+  },
+  {
+    "id": 159,
+    "eventname": "maryborough",
+    "longName": "Maryborough parkrun",
+    "shortName": "Maryborough",
+    "location": "Anzac Park/Ululah Lagoon",
+    "seriesid": 1,
+    "lon": 152.686507,
+    "lat": -25.533689
+  },
+  {
+    "id": 160,
+    "eventname": "goulburn",
+    "longName": "Goulburn parkrun",
+    "shortName": "Goulburn",
+    "location": "Marsden Weir Park",
+    "seriesid": 1,
+    "lon": 149.706096,
+    "lat": -34.736445
+  },
+  {
+    "id": 161,
+    "eventname": "mansfieldbotanic",
+    "longName": "Mansfield Botanic parkrun",
+    "shortName": "Mansfield Botanic",
+    "location": "Mansfield Botanic Park",
+    "seriesid": 1,
+    "lon": 146.093889,
+    "lat": -37.052419
+  },
+  {
+    "id": 162,
+    "eventname": "goondiwindi",
+    "longName": "Goondiwindi parkrun",
+    "shortName": "Goondiwindi",
+    "location": "Goondiwindi",
+    "seriesid": 1,
+    "lon": 150.307043,
+    "lat": -28.54951
+  },
+  {
+    "id": 163,
+    "eventname": "jells",
+    "longName": "Jells parkrun",
+    "shortName": "Jells",
+    "location": "Jells Park",
+    "seriesid": 1,
+    "lon": 145.193976,
+    "lat": -37.897912
+  },
+  {
+    "id": 164,
+    "eventname": "chippingnorton",
+    "longName": "Chipping Norton parkrun",
+    "shortName": "Chipping Norton",
+    "location": "Black Muscat Park",
+    "seriesid": 1,
+    "lon": 150.964108,
+    "lat": -33.909244
+  },
+  {
+    "id": 165,
+    "eventname": "mawsonlakes",
+    "longName": "Mawson Lakes parkrun",
+    "shortName": "Mawson Lakes",
+    "location": "Mawson Lakes",
+    "seriesid": 1,
+    "lon": 138.616733,
+    "lat": -34.81134
+  },
+  {
+    "id": 166,
+    "eventname": "clarevalley",
+    "longName": "Clare Valley parkrun",
+    "shortName": "Clare Valley",
+    "location": "Clare Showgrounds",
+    "seriesid": 1,
+    "lon": 138.625011,
+    "lat": -33.866335
+  },
+  {
+    "id": 167,
+    "eventname": "lancefield",
+    "longName": "Lancefield parkrun",
+    "shortName": "Lancefield",
+    "location": "Lancefield Park",
+    "seriesid": 1,
+    "lon": 144.724258,
+    "lat": -37.279321
+  },
+  {
+    "id": 168,
+    "eventname": "forestlake",
+    "longName": "Forest Lake parkrun",
+    "shortName": "Forest Lake",
+    "location": "Forest Lake Sports Fields",
+    "seriesid": 1,
+    "lon": 152.967745,
+    "lat": -27.61964
+  },
+  {
+    "id": 169,
+    "eventname": "hamiltonisland",
+    "longName": "Hamilton Island parkrun",
+    "shortName": "Hamilton Island",
+    "location": "Hamilton Island",
+    "seriesid": 1,
+    "lon": 148.95513,
+    "lat": -20.345551
+  },
+  {
+    "id": 170,
+    "eventname": "phillipisland",
+    "longName": "Phillip Island parkrun",
+    "shortName": "Phillip Island",
+    "location": "Churchill Island",
+    "seriesid": 1,
+    "lon": 145.340674,
+    "lat": -38.498822
+  },
+  {
+    "id": 171,
+    "eventname": "theponds",
+    "longName": "The Ponds parkrun",
+    "shortName": "The Ponds",
+    "location": "The Ponds Community Hub",
+    "seriesid": 1,
+    "lon": 150.909187,
+    "lat": -33.705952
+  },
+  {
+    "id": 172,
+    "eventname": "altonabeach",
+    "longName": "Altona Beach parkrun",
+    "shortName": "Altona Beach",
+    "location": "Apex Park",
+    "seriesid": 1,
+    "lon": 144.811911,
+    "lat": -37.875236
+  },
+  {
+    "id": 173,
+    "eventname": "rhodes",
+    "longName": "Rhodes parkrun",
+    "shortName": "Rhodes",
+    "location": "West Concord",
+    "seriesid": 1,
+    "lon": 151.081803,
+    "lat": -33.847462
+  },
+  {
+    "id": 174,
+    "eventname": "castlemaine",
+    "longName": "Castlemaine parkrun",
+    "shortName": "Castlemaine",
+    "location": "Castlemaine Botanical Gardens",
+    "seriesid": 1,
+    "lon": 144.217649,
+    "lat": -37.050794
+  },
+  {
+    "id": 175,
+    "eventname": "ashgrove",
+    "longName": "Ashgrove parkrun",
+    "shortName": "Ashgrove",
+    "location": "Ashgrove Sportsground",
+    "seriesid": 1,
+    "lon": 152.972975,
+    "lat": -27.442334
+  },
+  {
+    "id": 176,
+    "eventname": "bega",
+    "longName": "Bega parkrun",
+    "shortName": "Bega",
+    "location": "Bega Racecourse",
+    "seriesid": 1,
+    "lon": 149.843541,
+    "lat": -36.667479
+  },
+  {
+    "id": 177,
+    "eventname": "lochiel",
+    "longName": "Lochiel parkrun",
+    "shortName": "Lochiel",
+    "location": "Geoff Health Golf",
+    "seriesid": 1,
+    "lon": 138.649251,
+    "lat": -34.880815
+  },
+  {
+    "id": 178,
+    "eventname": "championlakes",
+    "longName": "Champion Lakes parkrun",
+    "shortName": "Champion Lakes",
+    "location": "Champion Lakes",
+    "seriesid": 1,
+    "lon": 115.999535,
+    "lat": -32.106314
+  },
+  {
+    "id": 179,
+    "eventname": "petrie",
+    "longName": "Petrie parkrun",
+    "shortName": "Petrie",
+    "location": "Sweeney Reserve",
+    "seriesid": 1,
+    "lon": 152.974425,
+    "lat": -27.273406
+  },
+  {
+    "id": 180,
+    "eventname": "paradisepoint",
+    "longName": "Paradise Point parkrun",
+    "shortName": "Paradise Point",
+    "location": "Paradise Point",
+    "seriesid": 1,
+    "lon": 153.396218,
+    "lat": -27.885082
+  },
+  {
+    "id": 181,
+    "eventname": "grafton",
+    "longName": "Grafton parkrun",
+    "shortName": "Grafton",
+    "location": "Barnier Park",
+    "seriesid": 1,
+    "lon": 152.920487,
+    "lat": -29.643847
+  },
+  {
+    "id": 182,
+    "eventname": "surfersparadise",
+    "longName": "Surfers Paradise parkrun",
+    "shortName": "Surfers Paradise",
+    "location": "HOTA - Home of the Arts",
+    "seriesid": 1,
+    "lon": 153.417365,
+    "lat": -28.000737
+  },
+  {
+    "id": 183,
+    "eventname": "highfields",
+    "longName": "Highfields parkrun",
+    "shortName": "Highfields",
+    "location": "Kratzke Oval",
+    "seriesid": 1,
+    "lon": 151.968834,
+    "lat": -27.446059
+  },
+  {
+    "id": 184,
+    "eventname": "nambour",
+    "longName": "Nambour parkrun",
+    "shortName": "Nambour",
+    "location": "Parklands Regional Park",
+    "seriesid": 1,
+    "lon": 152.973543,
+    "lat": -26.594251
+  },
+  {
+    "id": 185,
+    "eventname": "wyndhamvale",
+    "longName": "Wyndham Vale parkrun",
+    "shortName": "Wyndham Vale",
+    "location": "Presidents Park",
+    "seriesid": 1,
+    "lon": 144.634532,
+    "lat": -37.881655
+  },
+  {
+    "id": 186,
+    "eventname": "theterrace",
+    "longName": "The Terrace parkrun",
+    "shortName": "The Terrace",
+    "location": "Riverside Park",
+    "seriesid": 1,
+    "lon": 151.738939,
+    "lat": -32.761601
+  },
+  {
+    "id": 187,
+    "eventname": "woodbridgeriverside",
+    "longName": "Woodbridge Riverside parkrun",
+    "shortName": "Woodbridge Riverside",
+    "location": "Woodbridge Riverside Park",
+    "seriesid": 1,
+    "lon": 115.99131,
+    "lat": -31.887528
+  },
+  {
+    "id": 188,
+    "eventname": "sirromet",
+    "longName": "Sirromet parkrun",
+    "shortName": "Sirromet",
+    "location": "Sirromet Wines",
+    "seriesid": 1,
+    "lon": 153.230817,
+    "lat": -27.593935
+  },
+  {
+    "id": 189,
+    "eventname": "panania",
+    "longName": "Panania parkrun",
+    "shortName": "Panania",
+    "location": "Field of Dreams Reserve",
+    "seriesid": 1,
+    "lon": 150.993483,
+    "lat": -33.945673
+  },
+  {
+    "id": 190,
+    "eventname": "churchill",
+    "longName": "Churchill parkrun",
+    "shortName": "Churchill",
+    "location": "Eel Hole Creek",
+    "seriesid": 1,
+    "lon": 146.422465,
+    "lat": -38.312871
+  },
+  {
+    "id": 191,
+    "eventname": "bairnsdale",
+    "longName": "Bairnsdale parkrun",
+    "shortName": "Bairnsdale",
+    "location": "Bairnsdale",
+    "seriesid": 1,
+    "lon": 147.632774,
+    "lat": -37.823487
+  },
+  {
+    "id": 192,
+    "eventname": "studley",
+    "longName": "Studley parkrun",
+    "shortName": "Studley",
+    "location": "Studley Park Boathouse",
+    "seriesid": 1,
+    "lon": 145.008858,
+    "lat": -37.80083
+  },
+  {
+    "id": 193,
+    "eventname": "maylandspeninsula",
+    "longName": "Maylands Peninsula parkrun",
+    "shortName": "Maylands Peninsula",
+    "location": "Clarkson Reserve",
+    "seriesid": 1,
+    "lon": 115.915089,
+    "lat": -31.947167
+  },
+  {
+    "id": 194,
+    "eventname": "kedron",
+    "longName": "Kedron parkrun",
+    "shortName": "Kedron",
+    "location": "Kedron",
+    "seriesid": 1,
+    "lon": 153.046297,
+    "lat": -27.406927
+  },
+  {
+    "id": 195,
+    "eventname": "lalor",
+    "longName": "Lalor parkrun",
+    "shortName": "Lalor",
+    "location": "Whittlesea Public Gardens",
+    "seriesid": 1,
+    "lon": 144.985422,
+    "lat": -37.668084
+  },
+  {
+    "id": 196,
+    "eventname": "theentrance",
+    "longName": "The Entrance parkrun",
+    "shortName": "The Entrance",
+    "location": "Picnic Point Reserve",
+    "seriesid": 1,
+    "lon": 151.493202,
+    "lat": -33.338401
+  },
+  {
+    "id": 197,
+    "eventname": "portland",
+    "longName": "Portland parkrun",
+    "shortName": "Portland",
+    "location": "Fawthrop Lagoon",
+    "seriesid": 1,
+    "lon": 141.60446,
+    "lat": -38.354785
+  },
+  {
+    "id": 198,
+    "eventname": "cobram",
+    "longName": "Cobram parkrun",
+    "shortName": "Cobram",
+    "location": "Thompsons Beach",
+    "seriesid": 1,
+    "lon": 145.668554,
+    "lat": -35.913461
+  },
+  {
+    "id": 199,
+    "eventname": "westbeach",
+    "longName": "West Beach parkrun",
+    "shortName": "West Beach",
+    "location": "Harold and Cynthia reserve",
+    "seriesid": 1,
+    "lon": 138.499643,
+    "lat": -34.939218
+  },
+  {
+    "id": 200,
+    "eventname": "burleygriffin",
+    "longName": "Burley Griffin parkrun",
+    "shortName": "Burley Griffin",
+    "location": "Weston Park",
+    "seriesid": 1,
+    "lon": 149.088585,
+    "lat": -35.292148
+  },
+  {
+    "id": 201,
+    "eventname": "bowen",
+    "longName": "Bowen parkrun",
+    "shortName": "Bowen",
+    "location": "Bowen",
+    "seriesid": 1,
+    "lon": 148.257052,
+    "lat": -19.985467
+  },
+  {
+    "id": 202,
+    "eventname": "strathalbyn",
+    "longName": "Strathalbyn parkrun",
+    "shortName": "Strathalbyn",
+    "location": "Rotary Park",
+    "seriesid": 1,
+    "lon": 138.89303,
+    "lat": -35.258681
+  },
+  {
+    "id": 203,
+    "eventname": "renmark",
+    "longName": "Renmark parkrun",
+    "shortName": "Renmark",
+    "location": "Renmark Riverfront",
+    "seriesid": 1,
+    "lon": 140.751235,
+    "lat": -34.17425
+  },
+  {
+    "id": 204,
+    "eventname": "wagga",
+    "longName": "Wagga parkrun",
+    "shortName": "Wagga",
+    "location": "Apex Park",
+    "seriesid": 1,
+    "lon": 147.378216,
+    "lat": -35.170935
+  },
+  {
+    "id": 205,
+    "eventname": "meadowbrook",
+    "longName": "Meadowbrook parkrun",
+    "shortName": "Meadowbrook",
+    "location": "Riverdale Park",
+    "seriesid": 1,
+    "lon": 153.155785,
+    "lat": -27.673493
+  },
+  {
+    "id": 206,
+    "eventname": "wauchope",
+    "longName": "Wauchope parkrun",
+    "shortName": "Wauchope",
+    "location": "Rocks Ferry Reserve",
+    "seriesid": 1,
+    "lon": 152.744034,
+    "lat": -31.452159
+  },
+  {
+    "id": 207,
+    "eventname": "weipa",
+    "longName": "Weipa parkrun",
+    "shortName": "Weipa",
+    "location": "Weipa",
+    "seriesid": 1,
+    "lon": 141.865454,
+    "lat": -12.64068
+  },
+  {
+    "id": 208,
+    "eventname": "youyangs",
+    "longName": "You Yangs parkrun",
+    "shortName": "You Yangs",
+    "location": "You Yangs Regional Park",
+    "seriesid": 1,
+    "lon": 144.40047,
+    "lat": -37.953582
+  },
+  {
+    "id": 209,
+    "eventname": "christiesbeach",
+    "longName": "Christies Beach parkrun",
+    "shortName": "Christies Beach",
+    "location": "Christies Beach",
+    "seriesid": 1,
+    "lon": 138.46916,
+    "lat": -35.135628
+  },
+  {
+    "id": 210,
+    "eventname": "chelseabicentennial",
+    "longName": "Chelsea Bicentennial parkrun",
+    "shortName": "Chelsea Bicentennial",
+    "location": "Chelsea Bicentennial Park",
+    "seriesid": 1,
+    "lon": 145.12656,
+    "lat": -38.049247
+  },
+  {
+    "id": 211,
+    "eventname": "wilsonbotanic",
+    "longName": "Wilson Botanic parkrun",
+    "shortName": "Wilson Botanic",
+    "location": "Wilson Botanic Park",
+    "seriesid": 1,
+    "lon": 145.339808,
+    "lat": -38.026521
+  },
+  {
+    "id": 212,
+    "eventname": "moree",
+    "longName": "Moree parkrun",
+    "shortName": "Moree",
+    "location": "Moree",
+    "seriesid": 1,
+    "lon": 149.843183,
+    "lat": -29.46707
+  },
+  {
+    "id": 213,
+    "eventname": "palmerston",
+    "longName": "Palmerston parkrun",
+    "shortName": "Palmerston",
+    "location": "Palmerston Water Park",
+    "seriesid": 1,
+    "lon": 130.982607,
+    "lat": -12.475829
+  },
+  {
+    "id": 214,
+    "eventname": "orange",
+    "longName": "Orange parkrun",
+    "shortName": "Orange",
+    "location": "Gosling Creek Reserve",
+    "seriesid": 1,
+    "lon": 149.089749,
+    "lat": -33.325825
+  },
+  {
+    "id": 215,
+    "eventname": "shelley",
+    "longName": "Shelley parkrun",
+    "shortName": "Shelley",
+    "location": "Shelley Foreshore",
+    "seriesid": 1,
+    "lon": 115.881886,
+    "lat": -32.028968
+  },
+  {
+    "id": 216,
+    "eventname": "galston",
+    "longName": "Galston parkrun",
+    "shortName": "Galston",
+    "location": "Fagan Park",
+    "seriesid": 1,
+    "lon": 151.043648,
+    "lat": -33.642734
+  },
+  {
+    "id": 217,
+    "eventname": "willoughby",
+    "longName": "Willoughby parkrun",
+    "shortName": "Willoughby",
+    "location": "Artarmon Reserve",
+    "seriesid": 1,
+    "lon": 151.193171,
+    "lat": -33.811705
+  },
+  {
+    "id": 218,
+    "eventname": "karkarook",
+    "longName": "Karkarook parkrun",
+    "shortName": "Karkarook",
+    "location": "Karkarook Park",
+    "seriesid": 1,
+    "lon": 145.086858,
+    "lat": -37.940079
+  },
+  {
+    "id": 219,
+    "eventname": "nepeanriver",
+    "longName": "Nepean River parkrun",
+    "shortName": "Nepean River",
+    "location": "Penrith",
+    "seriesid": 1,
+    "lon": 150.664414,
+    "lat": -33.761704
+  },
+  {
+    "id": 220,
+    "eventname": "kamay",
+    "longName": "Kamay parkrun",
+    "shortName": "Kamay",
+    "location": "Yarra Bay Beach",
+    "seriesid": 1,
+    "lon": 151.229992,
+    "lat": -33.97993
+  },
+  {
+    "id": 221,
+    "eventname": "forster",
+    "longName": "Forster parkrun",
+    "shortName": "Forster",
+    "location": "Forster",
+    "seriesid": 1,
+    "lon": 152.519554,
+    "lat": -32.180174
+  },
+  {
+    "id": 222,
+    "eventname": "cohuna",
+    "longName": "Cohuna parkrun",
+    "shortName": "Cohuna",
+    "location": "Cohuna",
+    "seriesid": 1,
+    "lon": 144.223054,
+    "lat": -35.809232
+  },
+  {
+    "id": 223,
+    "eventname": "rootyhill",
+    "longName": "Rooty Hill parkrun",
+    "shortName": "Rooty Hill",
+    "location": "Blacktown Football Park",
+    "seriesid": 1,
+    "lon": 150.868394,
+    "lat": -33.783724
+  },
+  {
+    "id": 224,
+    "eventname": "underwoodpark",
+    "longName": "Underwood Park parkrun",
+    "shortName": "Underwood Park",
+    "location": "Underwood Park",
+    "seriesid": 1,
+    "lon": 153.147211,
+    "lat": -27.598691
+  },
+  {
+    "id": 225,
+    "eventname": "portfairy",
+    "longName": "Port Fairy parkrun",
+    "shortName": "Port Fairy",
+    "location": "Russell Clark Reserve",
+    "seriesid": 1,
+    "lon": 142.229977,
+    "lat": -38.389932
+  },
+  {
+    "id": 226,
+    "eventname": "tannumsands",
+    "longName": "Tannum Sands parkrun",
+    "shortName": "Tannum Sands",
+    "location": "Canoe Point Park",
+    "seriesid": 1,
+    "lon": 151.364976,
+    "lat": -23.93798
+  },
+  {
+    "id": 227,
+    "eventname": "mullummullum",
+    "longName": "Mullum Mullum parkrun",
+    "shortName": "Mullum Mullum",
+    "location": "Schwerkolt Cottage, Mitcham",
+    "seriesid": 1,
+    "lon": 145.21251,
+    "lat": -37.811673
+  },
+  {
+    "id": 228,
+    "eventname": "lithgow",
+    "longName": "Lithgow parkrun",
+    "shortName": "Lithgow",
+    "location": "Lithgow Pony Club",
+    "seriesid": 1,
+    "lon": 150.151201,
+    "lat": -33.494173
+  },
+  {
+    "id": 229,
+    "eventname": "wondai",
+    "longName": "Wondai parkrun",
+    "shortName": "Wondai",
+    "location": "Wondai",
+    "seriesid": 1,
+    "lon": 151.872411,
+    "lat": -26.318523
+  },
+  {
+    "id": 230,
+    "eventname": "whiterock",
+    "longName": "White Rock parkrun",
+    "shortName": "White Rock",
+    "location": "White Rock",
+    "seriesid": 1,
+    "lon": 152.849745,
+    "lat": -27.676652
+  },
+  {
+    "id": 231,
+    "eventname": "newborough",
+    "longName": "Newborough parkrun",
+    "shortName": "Newborough",
+    "location": "Moe Botanic Garden",
+    "seriesid": 1,
+    "lon": 146.270714,
+    "lat": -38.178663
+  },
+  {
+    "id": 232,
+    "eventname": "darebin",
+    "longName": "Darebin parkrun",
+    "shortName": "Darebin",
+    "location": "C T Barling Reserve",
+    "seriesid": 1,
+    "lon": 145.034293,
+    "lat": -37.721239
+  },
+  {
+    "id": 233,
+    "eventname": "bundaberg",
+    "longName": "Bundaberg parkrun",
+    "shortName": "Bundaberg",
+    "location": "Queens Park",
+    "seriesid": 1,
+    "lon": 152.330781,
+    "lat": -24.86835
+  },
+  {
+    "id": 234,
+    "eventname": "calleya",
+    "longName": "Calleya parkrun",
+    "shortName": "Calleya",
+    "location": "Treeby",
+    "seriesid": 1,
+    "lon": 115.876176,
+    "lat": -32.126604
+  },
+  {
+    "id": 235,
+    "eventname": "ararat",
+    "longName": "Ararat parkrun",
+    "shortName": "Ararat",
+    "location": "Alexandra Gardens",
+    "seriesid": 1,
+    "lon": 142.928756,
+    "lat": -37.279712
+  },
+  {
+    "id": 236,
+    "eventname": "georgetown",
+    "longName": "George Town parkrun",
+    "shortName": "George Town",
+    "location": "Kanamaluka trail",
+    "seriesid": 1,
+    "lon": 146.821208,
+    "lat": -41.109186
+  },
+  {
+    "id": 237,
+    "eventname": "echucamoama",
+    "longName": "Echuca Moama parkrun",
+    "shortName": "Echuca Moama",
+    "location": "Lions Park",
+    "seriesid": 1,
+    "lon": 144.739213,
+    "lat": -36.139104
+  },
+  {
+    "id": 238,
+    "eventname": "applecross",
+    "longName": "Applecross parkrun",
+    "shortName": "Applecross",
+    "location": "Jeff Joseph Reserve",
+    "seriesid": 1,
+    "lon": 115.834885,
+    "lat": -32.006932
+  },
+  {
+    "id": 239,
+    "eventname": "timboon",
+    "longName": "Timboon parkrun",
+    "shortName": "Timboon",
+    "location": "Timboon",
+    "seriesid": 1,
+    "lon": 142.977527,
+    "lat": -38.483074
+  },
+  {
+    "id": 240,
+    "eventname": "ballinacoast",
+    "longName": "Ballina Coast parkrun",
+    "shortName": "Ballina Coast",
+    "location": "Ballina",
+    "seriesid": 1,
+    "lon": 153.576356,
+    "lat": -28.869637
+  },
+  {
+    "id": 241,
+    "eventname": "mountbeauty",
+    "longName": "Mount Beauty parkrun",
+    "shortName": "Mount Beauty",
+    "location": "Mount Beauty",
+    "seriesid": 1,
+    "lon": 147.174015,
+    "lat": -36.736278
+  },
+  {
+    "id": 242,
+    "eventname": "redlandbay",
+    "longName": "Redland Bay parkrun",
+    "shortName": "Redland Bay",
+    "location": "Sel Outridge Park",
+    "seriesid": 1,
+    "lon": 153.307539,
+    "lat": -27.614582
+  },
+  {
+    "id": 243,
+    "eventname": "mansfieldqld",
+    "longName": "Mansfield parkrun, Queensland",
+    "shortName": "Mansfield QLD",
+    "location": "Tillack Park",
+    "seriesid": 1,
+    "lon": 153.101744,
+    "lat": -27.522987
+  },
+  {
+    "id": 244,
+    "eventname": "dollspoint",
+    "longName": "Dolls Point parkrun",
+    "shortName": "Dolls Point",
+    "location": "Peter Depena Reserve",
+    "seriesid": 1,
+    "lon": 151.144928,
+    "lat": -33.995775
+  },
+  {
+    "id": 245,
+    "eventname": "mernda",
+    "longName": "Mernda parkrun",
+    "shortName": "Mernda",
+    "location": "Mernda Adventure Park",
+    "seriesid": 1,
+    "lon": 145.100493,
+    "lat": -37.593706
+  },
+  {
+    "id": 246,
+    "eventname": "cleland",
+    "longName": "Cleland parkrun",
+    "shortName": "Cleland",
+    "location": "Cleland Conservation Park",
+    "seriesid": 1,
+    "lon": 138.698602,
+    "lat": -34.964185
+  },
+  {
+    "id": 247,
+    "eventname": "greenbank",
+    "longName": "Greenbank parkrun",
+    "shortName": "Greenbank",
+    "location": "Spring Mountain Reserve",
+    "seriesid": 1,
+    "lon": 152.922846,
+    "lat": -27.739202
+  },
+  {
+    "id": 248,
+    "eventname": "aldingabeach",
+    "longName": "Aldinga Beach parkrun",
+    "shortName": "Aldinga Beach",
+    "location": "The Esplanade",
+    "seriesid": 1,
+    "lon": 138.444983,
+    "lat": -35.287768
+  },
+  {
+    "id": 249,
+    "eventname": "nuriootpa",
+    "longName": "Nuriootpa parkrun",
+    "shortName": "Nuriootpa",
+    "location": "Coulthard Reserve, Nuriootpa",
+    "seriesid": 1,
+    "lon": 139.006952,
+    "lat": -34.466685
+  },
+  {
+    "id": 250,
+    "eventname": "portlincoln",
+    "longName": "Port Lincoln parkrun",
+    "shortName": "Port Lincoln",
+    "location": "Port Lincoln",
+    "seriesid": 1,
+    "lon": 135.860614,
+    "lat": -34.720803
+  },
+  {
+    "id": 251,
+    "eventname": "newportlakes",
+    "longName": "Newport Lakes parkrun",
+    "shortName": "Newport Lakes",
+    "location": "Newport Lakes Reserve",
+    "seriesid": 1,
+    "lon": 144.870716,
+    "lat": -37.840109
+  },
+  {
+    "id": 252,
+    "eventname": "carisbrooke",
+    "longName": "Carisbrooke parkrun",
+    "shortName": "Carisbrooke",
+    "location": "Carisbrooke Park",
+    "seriesid": 1,
+    "lon": 138.677757,
+    "lat": -34.754627
+  },
+  {
+    "id": 253,
+    "eventname": "oakey",
+    "longName": "Oakey parkrun",
+    "shortName": "Oakey",
+    "location": "Oakey Park",
+    "seriesid": 1,
+    "lon": 151.720815,
+    "lat": -27.429333
+  },
+  {
+    "id": 254,
+    "eventname": "bannockburnbush",
+    "longName": "Bannockburn Bush parkrun",
+    "shortName": "Bannockburn Bush",
+    "location": "Bannockburn",
+    "seriesid": 1,
+    "lon": 144.142907,
+    "lat": -38.063066
+  },
+  {
+    "id": 255,
+    "eventname": "urunga",
+    "longName": "Urunga parkrun",
+    "shortName": "Urunga",
+    "location": "Urunga Boardwalk",
+    "seriesid": 1,
+    "lon": 153.022849,
+    "lat": -30.497475
+  },
+  {
+    "id": 256,
+    "eventname": "portarlington",
+    "longName": "Portarlington parkrun",
+    "shortName": "Portarlington",
+    "location": "The Esplanade",
+    "seriesid": 1,
+    "lon": 144.654211,
+    "lat": -38.113934
+  },
+  {
+    "id": 257,
+    "eventname": "kangarooisland",
+    "longName": "Kangaroo Island parkrun",
+    "shortName": "Kangaroo Island",
+    "location": "Kingscote",
+    "seriesid": 1,
+    "lon": 137.640473,
+    "lat": -35.655848
+  },
+  {
+    "id": 258,
+    "eventname": "windsorprecinct",
+    "longName": "Windsor Precinct parkrun",
+    "shortName": "Windsor Precinct",
+    "location": "Windsor Precinct",
+    "seriesid": 1,
+    "lon": 147.095454,
+    "lat": -41.403535
+  },
+  {
+    "id": 259,
+    "eventname": "railton",
+    "longName": "Railton parkrun",
+    "shortName": "Railton",
+    "location": "Lions Park",
+    "seriesid": 1,
+    "lon": 146.424482,
+    "lat": -41.347581
+  },
+  {
+    "id": 260,
+    "eventname": "porthedland",
+    "longName": "Port Hedland parkrun",
+    "shortName": "Port Hedland",
+    "location": "Civic Centre Gardens",
+    "seriesid": 1,
+    "lon": 118.613332,
+    "lat": -20.307149
+  },
+  {
+    "id": 261,
+    "eventname": "sunbury",
+    "longName": "Sunbury parkrun",
+    "shortName": "Sunbury",
+    "location": "Apex Park",
+    "seriesid": 1,
+    "lon": 144.739936,
+    "lat": -37.580542
+  },
+  {
+    "id": 262,
+    "eventname": "whitfordsnodes",
+    "longName": "Whitfords Nodes parkrun",
+    "shortName": "Whitfords Nodes",
+    "location": "Whitfords Nodes Park",
+    "seriesid": 1,
+    "lon": 115.73696,
+    "lat": -31.817129
+  },
+  {
+    "id": 263,
+    "eventname": "cloncurry",
+    "longName": "Cloncurry parkrun",
+    "shortName": "Cloncurry",
+    "location": "Mary K Park",
+    "seriesid": 1,
+    "lon": 140.519814,
+    "lat": -20.70873
+  },
+  {
+    "id": 264,
+    "eventname": "reynellaeast",
+    "longName": "Reynella East parkrun",
+    "shortName": "Reynella East",
+    "location": "The Wetlands",
+    "seriesid": 1,
+    "lon": 138.558626,
+    "lat": -35.088747
+  },
+  {
+    "id": 265,
+    "eventname": "lota",
+    "longName": "Lota parkrun",
+    "shortName": "Lota",
+    "location": "Lota Camping Reserve",
+    "seriesid": 1,
+    "lon": 153.193225,
+    "lat": -27.468558
+  },
+  {
+    "id": 266,
+    "eventname": "eastrichmond",
+    "longName": "East Richmond parkrun",
+    "shortName": "East Richmond",
+    "location": "Ham Common Bicentenary Park",
+    "seriesid": 1,
+    "lon": 150.774321,
+    "lat": -33.604814
+  },
+  {
+    "id": 267,
+    "eventname": "marriottwaters",
+    "longName": "Marriott Waters parkrun",
+    "shortName": "Marriott Waters",
+    "location": "Marriott Waters Reserve",
+    "seriesid": 1,
+    "lon": 145.249088,
+    "lat": -38.072157
+  },
+  {
+    "id": 268,
+    "eventname": "miles",
+    "longName": "Miles parkrun",
+    "shortName": "Miles",
+    "location": "Moraby Park",
+    "seriesid": 1,
+    "lon": 150.180284,
+    "lat": -26.656701
+  },
+  {
+    "id": 269,
+    "eventname": "stgeorge",
+    "longName": "St George parkrun",
+    "shortName": "St George",
+    "location": "St George",
+    "seriesid": 1,
+    "lon": 148.568244,
+    "lat": -28.044422
+  },
+  {
+    "id": 270,
+    "eventname": "koonwarra",
+    "longName": "Koonwarra parkrun",
+    "shortName": "Koonwarra",
+    "location": "The Great Southern Rail Trail",
+    "seriesid": 1,
+    "lon": 145.947772,
+    "lat": -38.547585
+  },
+  {
+    "id": 271,
+    "eventname": "northharbour",
+    "longName": "North Harbour parkrun",
+    "shortName": "North Harbour",
+    "location": "North Harbour Heritage Park",
+    "seriesid": 1,
+    "lon": 152.998427,
+    "lat": -27.106368
+  },
+  {
+    "id": 272,
+    "eventname": "margaretriver",
+    "longName": "Margaret River parkrun",
+    "shortName": "Margaret River",
+    "location": "Rotary Park",
+    "seriesid": 1,
+    "lon": 115.074331,
+    "lat": -33.944257
+  },
+  {
+    "id": 273,
+    "eventname": "yokine",
+    "longName": "Yokine parkrun",
+    "shortName": "Yokine",
+    "location": "Yokine Reserve",
+    "seriesid": 1,
+    "lon": 115.86113,
+    "lat": -31.911504
+  },
+  {
+    "id": 274,
+    "eventname": "sanremo",
+    "longName": "San Remo parkrun",
+    "shortName": "San Remo",
+    "location": "Edgewater Park",
+    "seriesid": 1,
+    "lon": 151.530089,
+    "lat": -33.229509
+  },
+  {
+    "id": 275,
+    "eventname": "queensdomain",
+    "longName": "Queens Domain parkrun",
+    "shortName": "Queens Domain",
+    "location": "Queens Domain",
+    "seriesid": 1,
+    "lon": 147.31775,
+    "lat": -42.863822
+  },
+  {
+    "id": 276,
+    "eventname": "gardinerscreek",
+    "longName": "Gardiners Creek parkrun",
+    "shortName": "Gardiners Creek",
+    "location": "Gardiners Creek Reserve",
+    "seriesid": 1,
+    "lon": 145.114787,
+    "lat": -37.845344
+  },
+  {
+    "id": 277,
+    "eventname": "coombs",
+    "longName": "Coombs parkrun",
+    "shortName": "Coombs",
+    "location": "Pearlman Street",
+    "seriesid": 1,
+    "lon": 149.047518,
+    "lat": -35.326215
+  },
+  {
+    "id": 278,
+    "eventname": "portbroughton",
+    "longName": "Port Broughton parkrun",
+    "shortName": "Port Broughton",
+    "location": "Port Broughton Foreshore",
+    "seriesid": 1,
+    "lon": 137.929613,
+    "lat": -33.598731
+  },
+  {
+    "id": 279,
+    "eventname": "bright",
+    "longName": "Bright parkrun",
+    "shortName": "Bright",
+    "location": "Mystic Plantation",
+    "seriesid": 1,
+    "lon": 146.978,
+    "lat": -36.743803
+  },
+  {
+    "id": 280,
+    "eventname": "nhill",
+    "longName": "Nhill parkrun",
+    "shortName": "Nhill",
+    "location": "Nhill Swamp and Wildlife Reserve",
+    "seriesid": 1,
+    "lon": 141.645653,
+    "lat": -36.338609
+  },
+  {
+    "id": 281,
+    "eventname": "greenway",
+    "longName": "GreenWay parkrun",
+    "shortName": "GreenWay",
+    "location": "Richard Murden Reserve",
+    "seriesid": 1,
+    "lon": 151.14457,
+    "lat": -33.882504
+  },
+  {
+    "id": 282,
+    "eventname": "zillmere",
+    "longName": "Zillmere parkrun",
+    "shortName": "Zillmere",
+    "location": "O‘Callaghan Park",
+    "seriesid": 1,
+    "lon": 153.041015,
+    "lat": -27.361066
+  },
+  {
+    "id": 283,
+    "eventname": "nightcliff",
+    "longName": "Nightcliff parkrun",
+    "shortName": "Nightcliff",
+    "location": "Rapid Creek",
+    "seriesid": 1,
+    "lon": 130.857655,
+    "lat": -12.376205
+  },
+  {
+    "id": 284,
+    "eventname": "cardwell",
+    "longName": "Cardwell parkrun",
+    "shortName": "Cardwell",
+    "location": "Cardwell",
+    "seriesid": 1,
+    "lon": 146.025909,
+    "lat": -18.263036
+  },
+  {
+    "id": 285,
+    "eventname": "rosebud",
+    "longName": "Rosebud parkrun",
+    "shortName": "Rosebud",
+    "location": "Rosebud Parade",
+    "seriesid": 1,
+    "lon": 144.905291,
+    "lat": -38.354221
+  },
+  {
+    "id": 286,
+    "eventname": "plantation",
+    "longName": "Plantation parkrun",
+    "shortName": "Plantation",
+    "location": "Plantation Park",
+    "seriesid": 1,
+    "lon": 147.401024,
+    "lat": -19.584321
+  },
+  {
+    "id": 287,
+    "eventname": "kelvingrove",
+    "longName": "Kelvin Grove parkrun",
+    "shortName": "Kelvin Grove",
+    "location": "Bishop Street Park",
+    "seriesid": 1,
+    "lon": 153.009807,
+    "lat": -27.441334
+  },
+  {
+    "id": 288,
+    "eventname": "largsbay",
+    "longName": "Largs Bay parkrun",
+    "shortName": "Largs Bay",
+    "location": "Largs Bay",
+    "seriesid": 1,
+    "lon": 138.485654,
+    "lat": -34.825832
+  },
+  {
+    "id": 289,
+    "eventname": "moana",
+    "longName": "Moana parkrun",
+    "shortName": "Moana",
+    "location": "Moana Surf Life Saving Club",
+    "seriesid": 1,
+    "lon": 138.470913,
+    "lat": -35.197847
+  },
+  {
+    "id": 290,
+    "eventname": "bellerive",
+    "longName": "Bellerive parkrun",
+    "shortName": "Bellerive",
+    "location": "Bellerive Beach Park",
+    "seriesid": 1,
+    "lon": 147.37175,
+    "lat": -42.878181
+  },
+  {
+    "id": 291,
+    "eventname": "aplinsweir",
+    "longName": "Aplins Weir parkrun",
+    "shortName": "Aplins Weir",
+    "location": "Aplins Weir",
+    "seriesid": 1,
+    "lon": 146.782361,
+    "lat": -19.302328
+  },
+  {
+    "id": 292,
+    "eventname": "southtoowoomba",
+    "longName": "South Toowoomba parkrun",
+    "shortName": "South Toowoomba",
+    "location": "Middle Ridge Park",
+    "seriesid": 1,
+    "lon": 151.956346,
+    "lat": -27.594604
+  },
+  {
+    "id": 293,
+    "eventname": "edithburgh",
+    "longName": "Edithburgh parkrun",
+    "shortName": "Edithburgh",
+    "location": "Edithburgh Tidal Pool",
+    "seriesid": 1,
+    "lon": 137.747177,
+    "lat": -35.080717
+  },
+  {
+    "id": 294,
+    "eventname": "wanneroo",
+    "longName": "Wanneroo parkrun",
+    "shortName": "Wanneroo",
+    "location": "Opportunity Park",
+    "seriesid": 1,
+    "lon": 115.793187,
+    "lat": -31.751242
+  },
+  {
+    "id": 295,
+    "eventname": "wildflower",
+    "longName": "Wildflower parkrun",
+    "shortName": "Wildflower",
+    "location": "Ku-ring-gai Wildflower Garden",
+    "seriesid": 1,
+    "lon": 151.177321,
+    "lat": -33.705633
+  },
+  {
+    "id": 296,
+    "eventname": "picton",
+    "longName": "Picton parkrun",
+    "shortName": "Picton",
+    "location": "Picton Botanic Gardens Bike Track",
+    "seriesid": 1,
+    "lon": 150.610264,
+    "lat": -34.16566
+  },
+  {
+    "id": 297,
+    "eventname": "goolwa",
+    "longName": "Goolwa parkrun",
+    "shortName": "Goolwa",
+    "location": "Richard Ballard Park",
+    "seriesid": 1,
+    "lon": 138.789448,
+    "lat": -35.499385
+  },
+  {
+    "id": 298,
+    "eventname": "burnie",
+    "longName": "Burnie parkrun",
+    "shortName": "Burnie",
+    "location": "Burnie Foreshore",
+    "seriesid": 1,
+    "lon": 145.905,
+    "lat": -41.049194
+  },
+  {
+    "id": 299,
+    "eventname": "mountainslie",
+    "longName": "Mount Ainslie parkrun",
+    "shortName": "Mount Ainslie",
+    "location": "Remembrance Nature Park",
+    "seriesid": 1,
+    "lon": 149.152038,
+    "lat": -35.278828
+  },
+  {
+    "id": 300,
+    "eventname": "oceanview",
+    "longName": "Ocean View parkrun",
+    "shortName": "Ocean View",
+    "location": "Ocean View Estates",
+    "seriesid": 1,
+    "lon": 152.802517,
+    "lat": -27.121296
+  },
+  {
+    "id": 301,
+    "eventname": "burswoodpeninsula",
+    "longName": "Burswood Peninsula parkrun",
+    "shortName": "Burswood Peninsula",
+    "location": "Burswood Peninsular",
+    "seriesid": 1,
+    "lon": 115.887561,
+    "lat": -31.95306
+  },
+  {
+    "id": 302,
+    "eventname": "cobar",
+    "longName": "Cobar parkrun",
+    "shortName": "Cobar",
+    "location": "Newey Reserve",
+    "seriesid": 1,
+    "lon": 145.831405,
+    "lat": -31.509832
+  },
+  {
+    "id": 303,
+    "eventname": "portsorell",
+    "longName": "Port Sorell parkrun",
+    "shortName": "Port Sorell",
+    "location": "Port Sorell Surf Lifesaving Club",
+    "seriesid": 1,
+    "lon": 146.541641,
+    "lat": -41.151526
+  },
+  {
+    "id": 304,
+    "eventname": "euroa",
+    "longName": "Euroa parkrun",
+    "shortName": "Euroa",
+    "location": "Sevens Creek Park",
+    "seriesid": 1,
+    "lon": 145.573825,
+    "lat": -36.752767
+  },
+  {
+    "id": 305,
+    "eventname": "northsydney",
+    "longName": "North Sydney parkrun",
+    "shortName": "North Sydney",
+    "location": "St Leonards Park",
+    "seriesid": 1,
+    "lon": 151.211772,
+    "lat": -33.830396
+  },
+  {
+    "id": 306,
+    "eventname": "jubileeway",
+    "longName": "Jubilee Way parkrun",
+    "shortName": "Jubilee Way",
+    "location": "Jubilee Community Centre",
+    "seriesid": 1,
+    "lon": 138.69439,
+    "lat": -34.806102
+  },
+  {
+    "id": 307,
+    "eventname": "westerfolds-juniors",
+    "longName": "Westerfolds junior parkrun",
+    "shortName": "Westerfolds juniors",
+    "location": "Westerfolds Park",
+    "seriesid": 2,
+    "lon": 145.13425,
+    "lat": -37.74439
+  },
+  {
+    "id": 308,
+    "eventname": "woywoy",
+    "longName": "Woy Woy parkrun",
+    "shortName": "Woy Woy",
+    "location": "Lions Park",
+    "seriesid": 1,
+    "lon": 151.336038,
+    "lat": -33.484787
+  },
+  {
+    "id": 309,
+    "eventname": "jindabyne",
+    "longName": "Jindabyne parkrun",
+    "shortName": "Jindabyne",
+    "location": "Banjo Paterson Park",
+    "seriesid": 1,
+    "lon": 148.625881,
+    "lat": -36.41565
+  },
+  {
+    "id": 310,
+    "eventname": "mounthelena",
+    "longName": "Mount Helena parkrun",
+    "shortName": "Mount Helena",
+    "location": "Railway Reserves Heritage Trail",
+    "seriesid": 1,
+    "lon": 116.208462,
+    "lat": -31.879999
+  },
+  {
+    "id": 311,
+    "eventname": "willow",
+    "longName": "Willow parkrun",
+    "shortName": "Willow",
+    "location": "Willow Park",
+    "seriesid": 1,
+    "lon": 146.874752,
+    "lat": -36.136018
+  },
+  {
+    "id": 312,
+    "eventname": "geeveston",
+    "longName": "Geeveston parkrun",
+    "shortName": "Geeveston",
+    "location": "Heritage Park,",
+    "seriesid": 1,
+    "lon": 146.925685,
+    "lat": -43.163256
+  },
+  {
+    "id": 313,
+    "eventname": "cormorantbay",
+    "longName": "Cormorant Bay parkrun",
+    "shortName": "Cormorant Bay",
+    "location": "Cormorant Bay Recreational Reserve",
+    "seriesid": 1,
+    "lon": 152.622246,
+    "lat": -27.401736
+  },
+  {
+    "id": 314,
+    "eventname": "pallara",
+    "longName": "Pallara parkrun",
+    "shortName": "Pallara",
+    "location": "Brookbent Road Park",
+    "seriesid": 1,
+    "lon": 153.011071,
+    "lat": -27.609314
+  },
+  {
+    "id": 315,
+    "eventname": "mudjimbabeach",
+    "longName": "Mudjimba Beach parkrun",
+    "shortName": "Mudjimba Beach",
+    "location": "Cnr Mudjimba Beach Esplanade and Mudjimb",
+    "seriesid": 1,
+    "lon": 153.100818,
+    "lat": -26.615149
+  },
+  {
+    "id": 316,
+    "eventname": "easterngardens",
+    "longName": "Eastern Gardens parkrun",
+    "shortName": "Eastern Gardens",
+    "location": "Eastern Park",
+    "seriesid": 1,
+    "lon": 144.378578,
+    "lat": -38.147322
+  },
+  {
+    "id": 317,
+    "eventname": "meningie",
+    "longName": "Meningie parkrun",
+    "shortName": "Meningie",
+    "location": "248 Esplanade",
+    "seriesid": 1,
+    "lon": 139.338438,
+    "lat": -35.68627
+  },
+  {
+    "id": 318,
+    "eventname": "pakapakanthi",
+    "longName": "Pakapakanthi parkrun",
+    "shortName": "Pakapakanthi",
+    "location": "Pakapakanthi/Victoria Park",
+    "seriesid": 1,
+    "lon": 138.617578,
+    "lat": -34.928906
+  },
+  {
+    "id": 319,
+    "eventname": "shipwreck",
+    "longName": "Shipwreck parkrun",
+    "shortName": "Shipwreck",
+    "location": "Shipwreck Park",
+    "seriesid": 1,
+    "lon": 115.977875,
+    "lat": -32.162855
+  },
+  {
+    "id": 320,
+    "eventname": "tamworthwetlands",
+    "longName": "Tamworth Wetlands parkrun",
+    "shortName": "Tamworth Wetlands",
+    "location": "Tamworth Wetlands",
+    "seriesid": 1,
+    "lon": 115.812074,
+    "lat": -32.33239
+  },
+  {
+    "id": 321,
+    "eventname": "wimmerariverhorsham",
+    "longName": "Wimmera River parkrun, Horsham",
+    "shortName": "Wimmera River, Horsham",
+    "location": "Sawyer Park",
+    "seriesid": 1,
+    "lon": 142.202555,
+    "lat": -36.722724
+  },
+  {
+    "id": 322,
+    "eventname": "montroseforeshore",
+    "longName": "Montrose Foreshore parkrun",
+    "shortName": "Montrose Foreshore",
+    "location": "Montrose Foreshore Community Park",
+    "seriesid": 1,
+    "lon": 147.269908,
+    "lat": -42.8227
+  },
+  {
+    "id": 323,
+    "eventname": "seacliffesplanade",
+    "longName": "Seacliff Esplanade parkrun",
+    "shortName": "Seacliff Esplanade",
+    "location": "248 Esplanade",
+    "seriesid": 1,
+    "lon": 138.516667,
+    "lat": -35.035682
+  },
+  {
+    "id": 324,
+    "eventname": "stebonheath",
+    "longName": "Stebonheath parkrun",
+    "shortName": "Stebonheath",
+    "location": "Stebonheath Park",
+    "seriesid": 1,
+    "lon": 138.66393,
+    "lat": -34.676285
+  },
+  {
+    "id": 325,
+    "eventname": "braidwoodshowground",
+    "longName": "Braidwood Showground parkrun",
+    "shortName": "Braidwood Showground",
+    "location": "Braidwood Showground",
+    "seriesid": 1,
+    "lon": 149.791222,
+    "lat": -35.422759
+  },
+  {
+    "id": 326,
+    "eventname": "charlestonsouthaustralia",
+    "longName": "Charleston parkrun, South Australia",
+    "shortName": "Charleston, South Australia",
+    "location": "Amy Gillett Trail",
+    "seriesid": 1,
+    "lon": 138.903161,
+    "lat": -34.916841
+  },
+  {
+    "id": 327,
+    "eventname": "cowpasturereservecamden",
+    "longName": "Cowpasture Reserve parkrun, Camden",
+    "shortName": "Cowpasture Reserve, Camden",
+    "location": "Nepean River Cycleway",
+    "seriesid": 1,
+    "lon": 150.700727,
+    "lat": -34.053665
+  },
+  {
+    "id": 328,
+    "eventname": "perrylakes",
+    "longName": "Perry Lakes parkrun",
+    "shortName": "Perry Lakes",
+    "location": "Perry Lakes Reserve",
+    "seriesid": 1,
+    "lon": 115.784168,
+    "lat": -31.945635
+  },
+  {
+    "id": 329,
+    "eventname": "horseshoebayreserve",
+    "longName": "Horseshoe Bay Reserve parkrun",
+    "shortName": "Horseshoe Bay Reserve",
+    "location": "Horseshoe Bay Reserve",
+    "seriesid": 1,
+    "lon": 153.042179,
+    "lat": -30.883931
+  },
+  {
+    "id": 330,
+    "eventname": "centennial",
+    "longName": "Centennial parkrun",
+    "shortName": "Centennial",
+    "location": "Centennial Park",
+    "seriesid": 1,
+    "lon": 151.228564,
+    "lat": -33.898808
+  },
+  {
+    "id": 331,
+    "eventname": "bourkeracecourse",
+    "longName": "Bourke Racecourse parkrun",
+    "shortName": "Bourke Racecourse",
+    "location": "Bourke Racecourse",
+    "seriesid": 1,
+    "lon": 145.92572,
+    "lat": -30.09756
+  },
+  {
+    "id": 332,
+    "eventname": "victoryheightstrail",
+    "longName": "Victory Heights Trail parkrun",
+    "shortName": "Victory Heights Trail",
+    "location": "Victory Heights Recreational Trails",
+    "seriesid": 1,
+    "lon": 152.680084,
+    "lat": -26.171845
+  },
+  {
+    "id": 333,
+    "eventname": "baringa",
+    "longName": "Baringa parkrun",
+    "shortName": "Baringa",
+    "location": "Baringa Sports Grounds",
+    "seriesid": 1,
+    "lon": 153.080945,
+    "lat": -26.806829
+  },
+  {
+    "id": 334,
+    "eventname": "kmreedyreserve",
+    "longName": "KM Reedy Reserve parkrun",
+    "shortName": "KM Reedy Reserve",
+    "location": "KM Reedy Reserve",
+    "seriesid": 1,
+    "lon": 145.251726,
+    "lat": -38.021647
+  },
+  {
+    "id": 335,
+    "eventname": "narrominewetlands",
+    "longName": "Narromine Wetlands parkrun",
+    "shortName": "Narromine Wetlands",
+    "location": "Narromine Wetlands",
+    "seriesid": 1,
+    "lon": 148.236598,
+    "lat": -32.246949
+  },
+  {
+    "id": 336,
+    "eventname": "yowie",
+    "longName": "Yowie parkrun",
+    "shortName": "Yowie",
+    "location": "Yowie Park",
+    "seriesid": 1,
+    "lon": 152.562585,
+    "lat": -26.947949
+  },
+  {
+    "id": 337,
+    "eventname": "milduraweir",
+    "longName": "Mildura Weir parkrun",
+    "shortName": "Mildura Weir",
+    "location": "Mildura Weir - Lock 11",
+    "seriesid": 1,
+    "lon": 142.162215,
+    "lat": -34.175887
+  },
+  {
+    "id": 338,
+    "eventname": "grahamandrews",
+    "longName": "Graham Andrews parkrun",
+    "shortName": "Graham Andrews",
+    "location": "Graham Andrews Parkland",
+    "seriesid": 1,
+    "lon": 146.244782,
+    "lat": -26.412576
+  },
+  {
+    "id": 339,
+    "eventname": "naracoortelake",
+    "longName": "Naracoorte Lake parkrun",
+    "shortName": "Naracoorte Lake",
+    "location": "Naracoorte Swimming Lake",
+    "seriesid": 1,
+    "lon": 140.741843,
+    "lat": -36.949411
+  },
+  {
+    "id": 340,
+    "eventname": "glasshousemountainsconservation",
+    "longName": "Glass House Mountains Conservation parkrun",
+    "shortName": "Glass House Mountains Conservation",
+    "location": "Glass House Mountains Conservation Park",
+    "seriesid": 1,
+    "lon": 152.823678,
+    "lat": -26.986817
+  },
+  {
+    "id": 341,
+    "eventname": "birdslandreserve",
+    "longName": "Birdsland Reserve parkrun",
+    "shortName": "Birdsland Reserve",
+    "location": "Birdsland Reserve",
+    "seriesid": 1,
+    "lon": 145.335724,
+    "lat": -37.923408
+  },
+  {
+    "id": 342,
+    "eventname": "yeldulknieweirtrail",
+    "longName": "Yeldulknie Weir Trail parkrun",
+    "shortName": "Yeldulknie Weir Trail",
+    "location": "Yeldulknie Weir Trail",
+    "seriesid": 1,
+    "lon": 136.50305,
+    "lat": -33.70206
+  },
+  {
+    "id": 343,
+    "eventname": "grandridgerailtrail",
+    "longName": "Grand Ridge Rail Trail parkrun, Mirboo North",
+    "shortName": "Grand Ridge Rail Trail",
+    "location": "Grand Ridge Rail Trail",
+    "seriesid": 1,
+    "lon": 146.16502,
+    "lat": -38.400561
+  },
+  {
+    "id": 344,
+    "eventname": "shiraztrail",
+    "longName": "Shiraz Trail parkrun",
+    "shortName": "Shiraz Trail",
+    "location": "The Shiraz Trail",
+    "seriesid": 1,
+    "lon": 138.547611,
+    "lat": -35.217671
+  },
+  {
+    "id": 345,
+    "eventname": "whitemarkwharf",
+    "longName": "Whitemark Wharf parkrun",
+    "shortName": "Whitemark Wharf",
+    "location": "Whitemark Wharf",
+    "seriesid": 1,
+    "lon": 148.013824,
+    "lat": -40.121659
+  },
+  {
+    "id": 346,
+    "eventname": "queenelizabethcasino",
+    "longName": "Queen Elizabeth parkrun, Casino",
+    "shortName": "Queen Elizabeth, Casino",
+    "location": "Queen Elizabeth Park",
+    "seriesid": 1,
+    "lon": 153.051164,
+    "lat": -28.867591
+  },
+  {
+    "id": 347,
+    "eventname": "charleyscreek",
+    "longName": "Charleys Creek parkrun",
+    "shortName": "Charleys Creek",
+    "location": "Rotary Park",
+    "seriesid": 1,
+    "lon": 150.623683,
+    "lat": -26.736553
+  },
+  {
+    "id": 348,
+    "eventname": "marina",
+    "longName": "Marina parkrun",
+    "shortName": "Marina",
+    "location": "Marina Park",
+    "seriesid": 1,
+    "lon": 114.613067,
+    "lat": -28.763698
+  },
+  {
+    "id": 349,
+    "eventname": "collierivertrail",
+    "longName": "Collie River Trail parkrun",
+    "shortName": "Collie River Trail",
+    "location": "Collie River Trail",
+    "seriesid": 1,
+    "lon": 116.156872,
+    "lat": -33.357664
+  },
+  {
+    "id": 350,
+    "eventname": "brokenhillracecourse",
+    "longName": "Broken Hill Racecourse parkrun",
+    "shortName": "Broken Hill Racecourse",
+    "location": "Broken Hill Racecourse",
+    "seriesid": 1,
+    "lon": 141.483931,
+    "lat": -31.911528
+  },
+  {
+    "id": 351,
+    "eventname": "harrisavenue",
+    "longName": "Harris Avenue parkrun",
+    "shortName": "Harris Avenue",
+    "location": "Harris Avenue Sports Centre",
+    "seriesid": 1,
+    "lon": 152.94537,
+    "lat": -27.171876
+  },
+  {
+    "id": 352,
+    "eventname": "werringtonlakesreserve",
+    "longName": "Werrington Lakes Reserve parkrun",
+    "shortName": "Werrington Lakes Reserve",
+    "location": "Werrington Lakes Reserve",
+    "seriesid": 1,
+    "lon": 150.738658,
+    "lat": -33.755343
+  },
+  {
+    "id": 353,
+    "eventname": "kingstonpark",
+    "longName": "Kingston Park parkrun",
+    "shortName": "Kingston Park",
+    "location": "Kingston Park",
+    "seriesid": 1,
+    "lon": 147.309649,
+    "lat": -42.972838
+  },
+  {
+    "id": 354,
+    "eventname": "riverbank",
+    "longName": "Riverbank parkrun",
+    "shortName": "Riverbank",
+    "location": "Riverbank Park",
+    "seriesid": 1,
+    "lon": 148.909794,
+    "lat": -34.838474
+  },
+  {
+    "id": 355,
+    "eventname": "berwickwaters",
+    "longName": "Berwick Waters parkrun",
+    "shortName": "Berwick Waters",
+    "location": "Berwick Waters Playground",
+    "seriesid": 1,
+    "lon": 145.342965,
+    "lat": -38.078218
+  },
+  {
+    "id": 356,
+    "eventname": "rosgregortrail",
+    "longName": "Ros Gregor Trail parkrun",
+    "shortName": "Ros Gregor Trail",
+    "location": "Ros Gregor Trail",
+    "seriesid": 1,
+    "lon": 151.993762,
+    "lat": -26.681999
+  },
+  {
+    "id": 357,
+    "eventname": "wagibridge",
+    "longName": "Wagi Bridge parkrun",
+    "shortName": "Wagi Bridge",
+    "location": "Wagi Bridge",
+    "seriesid": 1,
+    "lon": 149.123403,
+    "lat": -35.161135
+  },
+  {
+    "id": 358,
+    "eventname": "kadinatrail",
+    "longName": "Kadina Trail parkrun",
+    "shortName": "Kadina Trail",
+    "location": "Kadina Trail",
+    "seriesid": 1,
+    "lon": 116.026041,
+    "lat": -31.92623
+  },
+  {
+    "id": 359,
+    "eventname": "campaspe",
+    "longName": "Campaspe parkrun",
+    "shortName": "Campaspe",
+    "location": "Campaspe Park",
+    "seriesid": 1,
+    "lon": 144.531445,
+    "lat": -37.354683
+  },
+  {
+    "id": 360,
+    "eventname": "goldfieldsreservoir",
+    "longName": "Goldfields Reservoir parkrun",
+    "shortName": "Goldfields Reservoir",
+    "location": "Goldfields Reservoir",
+    "seriesid": 1,
+    "lon": 143.731855,
+    "lat": -37.065018
+  },
+  {
+    "id": 361,
+    "eventname": "benallabotanicalgardens",
+    "longName": "Benalla Botanical Gardens parkrun",
+    "shortName": "Benalla Botanical Gardens",
+    "location": "Benalla Botanical Gardens",
+    "seriesid": 1,
+    "lon": 145.977439,
+    "lat": -36.553856
+  },
+  {
+    "id": 362,
+    "eventname": "aurora",
+    "longName": "Aurora parkrun",
+    "shortName": "Aurora",
+    "location": "Aurora Town Centre Park",
+    "seriesid": 1,
+    "lon": 145.00465,
+    "lat": -37.622365
+  },
+  {
+    "id": 363,
+    "eventname": "mundyregional",
+    "longName": "Mundy Regional parkrun",
+    "shortName": "Mundy Regional",
+    "location": "Mundy Regional Park",
+    "seriesid": 1,
+    "lon": 116.035959,
+    "lat": -31.96618
+  },
+  {
+    "id": 364,
+    "eventname": "wallabytrack",
+    "longName": "Wallaby Track parkrun",
+    "shortName": "Wallaby Track",
+    "location": "Wallaby Track",
+    "seriesid": 1,
+    "lon": 143.898319,
+    "lat": -37.552061
+  },
+  {
+    "id": 365,
+    "eventname": "kerangregional",
+    "longName": "Kerang Regional parkrun",
+    "shortName": "Kerang Regional",
+    "location": "Kerang Regional Park",
+    "seriesid": 1,
+    "lon": 143.908707,
+    "lat": -35.730934
+  },
+  {
+    "id": 366,
+    "eventname": "gloucesterdistrict",
+    "longName": "Gloucester District parkrun",
+    "shortName": "Gloucester District",
+    "location": "Gloucester District Park",
+    "seriesid": 1,
+    "lon": 151.953594,
+    "lat": -32.00456
+  },
+  {
+    "id": 367,
+    "eventname": "edinburghoval",
+    "longName": "Edinburgh Oval parkrun",
+    "shortName": "Edinburgh Oval",
+    "location": "Edinburgh Oval Park",
+    "seriesid": 1,
+    "lon": 115.891775,
+    "lat": -32.003668
+  },
+  {
+    "id": 368,
+    "eventname": "warringalparklands",
+    "longName": "Warringal Parklands parkrun",
+    "shortName": "Warringal Parklands",
+    "location": "Warringal Parklands",
+    "seriesid": 1,
+    "lon": 145.074478,
+    "lat": -37.755246
+  },
+  {
+    "id": 369,
+    "eventname": "dandenong",
+    "longName": "Dandenong parkrun",
+    "shortName": "Dandenong",
+    "location": "Dandenong Park",
+    "seriesid": 1,
+    "lon": 145.215644,
+    "lat": -37.991139
+  },
+  {
+    "id": 370,
+    "eventname": "bendigobotanicgardens",
+    "longName": "Bendigo Botanic Gardens parkrun",
+    "shortName": "Bendigo Botanic Gardens",
+    "location": "Bendigo Botanic Gardens",
+    "seriesid": 1,
+    "lon": 144.305636,
+    "lat": -36.725618
+  },
+  {
+    "id": 371,
+    "eventname": "walcha",
+    "longName": "Walcha parkrun",
+    "shortName": "Walcha",
+    "location": "Corner of Hill Street and Middle Street",
+    "seriesid": 1,
+    "lon": 151.597579,
+    "lat": -30.981818
+  },
+  {
+    "id": 372,
+    "eventname": "peppertree",
+    "longName": "Peppertree parkrun",
+    "shortName": "Peppertree",
+    "location": "Peppertree Park",
+    "seriesid": 1,
+    "lon": 144.432973,
+    "lat": -37.68168
+  },
+  {
+    "id": 373,
+    "eventname": "cyrilcurtainreserve",
+    "longName": "Cyril Curtain Reserve parkrun",
+    "shortName": "Cyril Curtain Reserve",
+    "location": "Cyril Curtain Reserve",
+    "seriesid": 1,
+    "lon": 144.902847,
+    "lat": -37.872231
+  },
+  {
+    "id": 374,
+    "eventname": "ourpark",
+    "longName": "Our Park parkrun",
+    "shortName": "Our Park",
+    "location": "Our Park",
+    "seriesid": 1,
+    "lon": 147.876873,
+    "lat": -42.559297
+  },
+  {
+    "id": 375,
+    "eventname": "katereed",
+    "longName": "Kate Reed parkrun",
+    "shortName": "Kate Reed",
+    "location": "Kate Reed Recreation Area",
+    "seriesid": 1,
+    "lon": 147.138035,
+    "lat": -41.47567
+  },
+  {
+    "id": 376,
+    "eventname": "tedscobieoval",
+    "longName": "Ted Scobie Oval parkrun",
+    "shortName": "Ted Scobie Oval",
+    "location": "Ted Scobie Oval",
+    "seriesid": 1,
+    "lon": 146.074443,
+    "lat": -34.273904
+  },
+  {
+    "id": 377,
+    "eventname": "pioneerdairy",
+    "longName": "Pioneer Dairy parkrun",
+    "shortName": "Pioneer Dairy",
+    "location": "Pioneer Dairy",
+    "seriesid": 1,
+    "lon": 151.427968,
+    "lat": -33.29805
+  },
+  {
+    "id": 378,
+    "eventname": "casulaparklands",
+    "longName": "Casula Parklands parkrun",
+    "shortName": "Casula Parklands",
+    "location": "Casula Parklands",
+    "seriesid": 1,
+    "lon": 150.91369,
+    "lat": -33.948703
+  },
+  {
+    "id": 379,
+    "eventname": "centenary",
+    "longName": "Centenary parkrun",
+    "shortName": "Centenary",
+    "location": "Centenary Park",
+    "seriesid": 1,
+    "lon": 147.642912,
+    "lat": -22.81841
+  },
+  {
+    "id": 380,
+    "eventname": "lakebogaforeshore",
+    "longName": "Lake Boga Foreshore parkrun",
+    "shortName": "Lake Boga Foreshore",
+    "location": "Lake Boga Foreshore",
+    "seriesid": 1,
+    "lon": 143.628251,
+    "lat": -35.45108
+  },
+  {
+    "id": 381,
+    "eventname": "thorndon-juniors",
+    "longName": "Thorndon junior parkrun",
+    "shortName": "Thorndon juniors",
+    "location": "Thorndon Park",
+    "seriesid": 2,
+    "lon": 138.690985,
+    "lat": -34.874224
+  },
+  {
+    "id": 382,
+    "eventname": "northparkesoval",
+    "longName": "Northparkes Oval parkrun",
+    "shortName": "Northparkes Oval",
+    "location": "Northparkes Oval",
+    "seriesid": 1,
+    "lon": 148.18147,
+    "lat": -33.126723
+  },
+  {
+    "id": 383,
+    "eventname": "waterlooplains",
+    "longName": "Waterloo Plains parkrun",
+    "shortName": "Waterloo Plains",
+    "location": "Waterloo Plains Environmental Park",
+    "seriesid": 1,
+    "lon": 149.958153,
+    "lat": -26.11661
+  },
+  {
+    "id": 384,
+    "eventname": "sskoopatrail",
+    "longName": "S.S. Koopa Trail parkrun",
+    "shortName": "S.S. Koopa Trail",
+    "location": "Bribie Island Lions Park",
+    "seriesid": 1,
+    "lon": 153.145072,
+    "lat": -27.065817
+  },
+  {
+    "id": 385,
+    "eventname": "oldthomsonriverroad",
+    "longName": "Old Thomson River Road parkrun",
+    "shortName": "Old Thomson River Road",
+    "location": "Old Thomson River Road",
+    "seriesid": 1,
+    "lon": 144.243624,
+    "lat": -23.436746
+  },
+  {
+    "id": 386,
+    "eventname": "garveypark",
+    "longName": "Garvey Park parkrun",
+    "shortName": "Garvey Park",
+    "location": "Garvey Park",
+    "seriesid": 1,
+    "lon": 115.941181,
+    "lat": -31.922558
+  },
+  {
+    "id": 387,
+    "eventname": "malenytrail",
+    "longName": "Maleny Trail parkrun",
+    "shortName": "Maleny Trail",
+    "location": "Maleny Trail",
+    "seriesid": 1,
+    "lon": 152.860806,
+    "lat": -26.760218
+  },
+  {
+    "id": 388,
+    "eventname": "gayndahriverwalk",
+    "longName": "Gayndah River Walk parkrun",
+    "shortName": "Gayndah River Walk",
+    "location": "Gayndah River Walk",
+    "seriesid": 1,
+    "lon": 151.611063,
+    "lat": -25.624063
+  },
+  {
+    "id": 389,
+    "eventname": "louishamonpark",
+    "longName": "Louis Hamon Park parkrun",
+    "shortName": "Louis Hamon Park",
+    "location": "Louis Hamon Park",
+    "seriesid": 1,
+    "lon": 145.442706,
+    "lat": -36.094049
+  },
+  {
+    "id": 390,
+    "eventname": "pembroke",
+    "longName": "Pembroke parkrun",
+    "shortName": "Pembroke",
+    "location": "Pembroke Park",
+    "seriesid": 1,
+    "lon": 147.558066,
+    "lat": -42.780686
+  },
+  {
+    "id": 391,
+    "eventname": "cascadesonclydewetlands",
+    "longName": "Cascades on Clyde Wetlands parkrun",
+    "shortName": "Cascades on Clyde Wetlands",
+    "location": "Cascades on Clyde Wetlands",
+    "seriesid": 1,
+    "lon": 145.325835,
+    "lat": -38.100383
+  },
+  {
+    "id": 392,
+    "eventname": "bellevuepark-juniors",
+    "longName": "Bellevue Park junior parkrun",
+    "shortName": "Bellevue Park juniors",
+    "location": "Bellevue Park State School",
+    "seriesid": 2,
+    "lon": 153.396886,
+    "lat": -27.994529
+  },
+  {
+    "id": 393,
+    "eventname": "whalanreserve",
+    "longName": "Whalan Reserve parkrun",
+    "shortName": "Whalan Reserve",
+    "location": "Whalan Reserve",
+    "seriesid": 1,
+    "lon": 150.79587,
+    "lat": -33.75943
+  },
+  {
+    "id": 394,
+    "eventname": "avondaleuniversitycollege",
+    "longName": "Avondale University College parkrun",
+    "shortName": "Avondale University College",
+    "location": "Avondale University College",
+    "seriesid": 1,
+    "lon": 151.463247,
+    "lat": -33.088354
+  },
+  {
+    "id": 395,
+    "eventname": "henrykendallreserve",
+    "longName": "Henry Kendall Reserve parkrun",
+    "shortName": "Henry Kendall Reserve",
+    "location": "Henry Kendall Reserve",
+    "seriesid": 1,
+    "lon": 152.794806,
+    "lat": -31.636004
+  },
+  {
+    "id": 396,
+    "eventname": "desconnorpark-juniors",
+    "longName": "Des Connor Park junior parkrun",
+    "shortName": "Des Connor Park juniors",
+    "location": "Des Connor Park",
+    "seriesid": 2,
+    "lon": 152.978964,
+    "lat": -27.441892
+  },
+  {
+    "id": 397,
+    "eventname": "leetonsportandrecreationprecinct",
+    "longName": "Leeton Sport and Recreation Precinct parkrun",
+    "shortName": "Leeton Sport and Recreation Precinct",
+    "location": "Leeton Sport and Recreation Precinct",
+    "seriesid": 1,
+    "lon": 146.411376,
+    "lat": -34.556093
+  },
+  {
+    "id": 398,
+    "eventname": "ovensrivertrail",
+    "longName": "Ovens River Trail parkrun",
+    "shortName": "Ovens River Trail",
+    "location": "Ovens River Trail",
+    "seriesid": 1,
+    "lon": 146.711688,
+    "lat": -36.555094
+  },
+  {
+    "id": 399,
+    "eventname": "hamptonoval",
+    "longName": "Hampton Oval parkrun",
+    "shortName": "Hampton Oval",
+    "location": "Hampton Oval",
+    "seriesid": 1,
+    "lon": 116.70334,
+    "lat": -20.666182
+  },
+  {
+    "id": 400,
+    "eventname": "southparareservoir",
+    "longName": "South Para Reservoir parkrun",
+    "shortName": "South Para Reservoir",
+    "location": "South Para Reservoir",
+    "seriesid": 1,
+    "lon": 138.877987,
+    "lat": -34.683829
+  },
+  {
+    "id": 401,
+    "eventname": "theavenues",
+    "longName": "The Avenues parkrun",
+    "shortName": "The Avenues",
+    "location": "The Avenues",
+    "seriesid": 1,
+    "lon": 138.709337,
+    "lat": -35.209252
+  },
+  {
+    "id": 402,
+    "eventname": "bayviewroad",
+    "longName": "Bayview Road parkrun",
+    "shortName": "Bayview Road",
+    "location": "Bayview Road",
+    "seriesid": 1,
+    "lon": 116.806181,
+    "lat": -20.729535
+  },
+  {
+    "id": 403,
+    "eventname": "dorsetrecreationreserve",
+    "longName": "Dorset Recreation Reserve parkrun",
+    "shortName": "Dorset Recreation Reserve",
+    "location": "Dorset Recreation Reserve",
+    "seriesid": 1,
+    "lon": 145.29128,
+    "lat": -37.805244
+  },
+  {
+    "id": 404,
+    "eventname": "eccoripley",
+    "longName": "Ecco Ripley parkrun",
+    "shortName": "Ecco Ripley",
+    "location": "Ecco Ripley",
+    "seriesid": 1,
+    "lon": 152.80014,
+    "lat": -27.681056
+  },
+  {
+    "id": 405,
+    "eventname": "mcleanbeach",
+    "longName": "McLean Beach parkrun",
+    "shortName": "McLean Beach",
+    "location": "McLean Beach",
+    "seriesid": 1,
+    "lon": 144.959987,
+    "lat": -35.519255
+  },
+  {
+    "id": 406,
+    "eventname": "patawalongariver",
+    "longName": "Patawalonga River parkrun",
+    "shortName": "Patawalonga River",
+    "location": "Anderson Avenue",
+    "seriesid": 1,
+    "lon": 138.516116,
+    "lat": -34.963603
+  },
+  {
+    "id": 407,
+    "eventname": "nathaliashowgrounds",
+    "longName": "Nathalia Showgrounds parkrun",
+    "shortName": "Nathalia Showgrounds",
+    "location": "Nathalia Showgrounds and Recreation Reserve",
+    "seriesid": 1,
+    "lon": 145.211172,
+    "lat": -36.053066
+  },
+  {
+    "id": 408,
+    "eventname": "homestead",
+    "longName": "Homestead parkrun",
+    "shortName": "Homestead",
+    "location": "Homestead",
+    "seriesid": 1,
+    "lon": 115.970386,
+    "lat": -32.053807
+  },
+  {
+    "id": 409,
+    "eventname": "chaffeypark",
+    "longName": "Chaffey Park parkrun",
+    "shortName": "Chaffey Park",
+    "location": "Chaffey Park",
+    "seriesid": 1,
+    "lon": 150.73018,
+    "lat": -30.743124
+  },
+  {
+    "id": 410,
+    "eventname": "railwaypark",
+    "longName": "Railway Park parkrun",
+    "shortName": "Railway Park",
+    "location": "Railway Park",
+    "seriesid": 1,
+    "lon": 151.600195,
+    "lat": -26.164413
+  },
+  {
+    "id": 411,
+    "eventname": "fodderforest",
+    "longName": "Fodder Forest parkrun",
+    "shortName": "Fodder Forest",
+    "location": "Fodder Forest",
+    "seriesid": 1,
+    "lon": 153.293958,
+    "lat": -27.583123
+  },
+  {
+    "id": 412,
+    "eventname": "glenoma",
+    "longName": "Glenoma parkrun",
+    "shortName": "Glenoma",
+    "location": "Glenoma Park",
+    "seriesid": 1,
+    "lon": 145.708784,
+    "lat": -16.899012
+  },
+  {
+    "id": 413,
+    "eventname": "ansteyhillrecreation",
+    "longName": "Anstey Hill Recreation parkrun",
+    "shortName": "Anstey Hill Recreation",
+    "location": "Anstey Hill Recreation",
+    "seriesid": 1,
+    "lon": 138.728048,
+    "lat": -34.825885
+  },
+  {
+    "id": 414,
+    "eventname": "wentworthcommon",
+    "longName": "Wentworth Common parkrun",
+    "shortName": "Wentworth Common",
+    "location": "Wentworth Common",
+    "seriesid": 1,
+    "lon": 151.075107,
+    "lat": -33.837954
+  },
+  {
+    "id": 415,
+    "eventname": "coppertrail",
+    "longName": "Copper Trail parkrun",
+    "shortName": "Copper Trail",
+    "location": "Copper Trail",
+    "seriesid": 1,
+    "lon": 137.667378,
+    "lat": -33.95397
+  },
+  {
+    "id": 416,
+    "eventname": "southbeachrecreationreserve",
+    "longName": "South Beach Recreation Reserve parkrun",
+    "shortName": "South Beach Recreation Reserve",
+    "location": "South Beach Recreation Reserve",
+    "seriesid": 1,
+    "lon": 115.752554,
+    "lat": -32.07687
+  },
+  {
+    "id": 417,
+    "eventname": "frankstonnatureconservationres",
+    "longName": "Frankston Nature Conservation Reserve parkrun",
+    "shortName": "Frankston Nature Conservation Reserve",
+    "location": "Frankston Nature Conservation Reserve",
+    "seriesid": 1,
+    "lon": 145.12985,
+    "lat": -38.17212
+  },
+  {
+    "id": 418,
+    "eventname": "oaklandsestatereserve",
+    "longName": "Oaklands Estate Reserve parkrun",
+    "shortName": "Oaklands Estate Reserve",
+    "location": "Oaklands Estate Reserve",
+    "seriesid": 1,
+    "lon": 138.548072,
+    "lat": -34.999482
+  },
+  {
+    "id": 419,
+    "eventname": "jamestowngolfcourse",
+    "longName": "Jamestown Golf Course parkrun",
+    "shortName": "Jamestown Golf Course",
+    "location": "Jamestown Golf Course",
+    "seriesid": 1,
+    "lon": 138.561957,
+    "lat": -33.228546
+  },
+  {
+    "id": 420,
+    "eventname": "lewisparkreserve",
+    "longName": "Lewis Park Reserve parkrun",
+    "shortName": "Lewis Park Reserve",
+    "location": "Lewis Park Reserve",
+    "seriesid": 1,
+    "lon": 145.248705,
+    "lat": -37.86738
+  },
+  {
+    "id": 421,
+    "eventname": "warrandyteriverreserve",
+    "longName": "Warrandyte River Reserve parkrun",
+    "shortName": "Warrandyte River Reserve",
+    "location": "Warrandyte River Reserve",
+    "seriesid": 1,
+    "lon": 145.219969,
+    "lat": -37.73646
+  },
+  {
+    "id": 422,
+    "eventname": "jarrahdaleheritage",
+    "longName": "Jarrahdale Heritage parkrun",
+    "shortName": "Jarrahdale Heritage",
+    "location": "Jarrahdale Heritage Park",
+    "seriesid": 1,
+    "lon": 116.058618,
+    "lat": -32.33521
+  },
+  {
+    "id": 423,
+    "eventname": "panboolawetlands",
+    "longName": "Panboola Wetlands parkrun",
+    "shortName": "Panboola Wetlands",
+    "location": "Panboola Wetlands",
+    "seriesid": 1,
+    "lon": 149.876361,
+    "lat": -36.932932
+  },
+  {
+    "id": 424,
+    "eventname": "charterstowersairport",
+    "longName": "Charters Towers Airport parkrun",
+    "shortName": "Charters Towers Airport",
+    "location": "Charters Towers Airport",
+    "seriesid": 1,
+    "lon": 146.273413,
+    "lat": -20.044688
+  },
+  {
+    "id": 425,
+    "eventname": "karoolapark",
+    "longName": "Karoola Park parkrun",
+    "shortName": "Karoola Park",
+    "location": "Karoola Park",
+    "seriesid": 1,
+    "lon": 150.895351,
+    "lat": -32.255338
+  },
+  {
+    "id": 426,
+    "eventname": "werribeeparkmansion",
+    "longName": "Werribee Park Mansion parkrun",
+    "shortName": "Werribee Park Mansion",
+    "location": "Werribee Park Mansion",
+    "seriesid": 1,
+    "lon": 144.670875,
+    "lat": -37.929679
+  },
+  {
+    "id": 427,
+    "eventname": "lakeclaremont",
+    "longName": "Lake Claremont parkrun",
+    "shortName": "Lake Claremont",
+    "location": "Lake Claremont",
+    "seriesid": 1,
+    "lon": 115.779507,
+    "lat": -31.97481
+  },
+  {
+    "id": 428,
+    "eventname": "mypongareservoir",
+    "longName": "Myponga Reservoir parkrun",
+    "shortName": "Myponga Reservoir",
+    "location": "Myponga Reservoir",
+    "seriesid": 1,
+    "lon": 138.452385,
+    "lat": -35.394655
+  },
+  {
+    "id": 429,
+    "eventname": "elliottheadsbeach",
+    "longName": "Elliott Heads Beach parkrun",
+    "shortName": "Elliott Heads Beach",
+    "location": "Elliott Heads Beach",
+    "seriesid": 1,
+    "lon": 152.491565,
+    "lat": -24.92193
+  },
+  {
+    "id": 430,
+    "eventname": "kirkdalereserve",
+    "longName": "Kirkdale Reserve parkrun",
+    "shortName": "Kirkdale Reserve",
+    "location": "Kirkdale Reserve",
+    "seriesid": 1,
+    "lon": 144.983855,
+    "lat": -37.770512
+  },
+  {
+    "id": 431,
+    "eventname": "southernhighlandsbotanicgardens",
+    "longName": "Southern Highlands Botanic Gardens parkrun",
+    "shortName": "Southern Highlands Botanic Gardens",
+    "location": "Southern Highlands Botanic Gardens",
+    "seriesid": 1,
+    "lon": 150.430717,
+    "lat": -34.499624
+  },
+  {
+    "id": 432,
+    "eventname": "frankkeenanreserve",
+    "longName": "Frank Keenan Reserve parkrun",
+    "shortName": "Frank Keenan Reserve",
+    "location": "Frank Keenan Reserve",
+    "seriesid": 1,
+    "lon": 146.02204,
+    "lat": -36.002211
+  },
+  {
+    "id": 433,
+    "eventname": "bellsparade",
+    "longName": "Bells Parade parkrun",
+    "shortName": "Bells Parade",
+    "location": "Bells Parade",
+    "seriesid": 1,
+    "lon": 146.401326,
+    "lat": -41.228831
+  },
+  {
+    "id": 434,
+    "eventname": "umbagongdistrict",
+    "longName": "Umbagong District parkrun",
+    "shortName": "Umbagong District",
+    "location": "Umbagong District Park",
+    "seriesid": 1,
+    "lon": 149.020531,
+    "lat": -35.218922
+  },
+  {
+    "id": 435,
+    "eventname": "nantuwama",
+    "longName": "Nantu Wama parkrun",
+    "shortName": "Nantu Wama",
+    "location": "Nantu Wama/Lefevre Park",
+    "seriesid": 1,
+    "lon": 138.600665,
+    "lat": -34.905183
+  },
+  {
+    "id": 436,
+    "eventname": "westburytowncommon",
+    "longName": "Westbury Town Common parkrun",
+    "shortName": "Westbury Town Common",
+    "location": "Westbury Town Common",
+    "seriesid": 1,
+    "lon": 146.825856,
+    "lat": -41.528688
+  },
+  {
+    "id": 437,
+    "eventname": "universityofwesternaustralia",
+    "longName": "University of Western Australia parkrun",
+    "shortName": "University of Western Australia",
+    "location": "University of Western Australia (Crawley Campus)",
+    "seriesid": 1,
+    "lon": 115.819132,
+    "lat": -31.977596
+  },
+  {
+    "id": 438,
+    "eventname": "beaufortlake",
+    "longName": "Beaufort Lake parkrun",
+    "shortName": "Beaufort Lake",
+    "location": "Beaufort Lake",
+    "seriesid": 1,
+    "lon": 143.382552,
+    "lat": -37.439405
+  },
+  {
+    "id": 439,
+    "eventname": "jerrabomberramountainreserve",
+    "longName": "Jerrabomberra Mountain Reserve parkrun",
+    "shortName": "Jerrabomberra Mountain Reserve",
+    "location": "Jerrabomberra Mountain Reserve",
+    "seriesid": 1,
+    "lon": 149.20315,
+    "lat": -35.376524
+  },
+  {
+    "id": 440,
+    "eventname": "tynwaldpark",
+    "longName": "Tynwald Park parkrun",
+    "shortName": "Tynwald Park",
+    "location": "Tynwald Park",
+    "seriesid": 1,
+    "lon": 147.071624,
+    "lat": -42.776331
+  },
+  {
+    "id": 441,
+    "eventname": "nolenspark",
+    "longName": "Nolen’s Park parkrun",
+    "shortName": "Nolen’s Park",
+    "location": "Nolen’s Park",
+    "seriesid": 1,
+    "lon": 143.727281,
+    "lat": -36.117426
+  },
+  {
+    "id": 442,
+    "eventname": "robelledomain",
+    "longName": "Robelle Domain parkrun",
+    "shortName": "Robelle Domain",
+    "location": "Robelle Domain",
+    "seriesid": 1,
+    "lon": 152.903883,
+    "lat": -27.680012
+  },
+  {
+    "id": 443,
+    "eventname": "memorialpark",
+    "longName": "Memorial Park parkrun",
+    "shortName": "Memorial Park",
+    "location": "Memorial Park",
+    "seriesid": 1,
+    "lon": 138.005566,
+    "lat": -33.179621
+  },
+  {
+    "id": 444,
+    "eventname": "cooberpedyoval",
+    "longName": "Coober Pedy Oval parkrun",
+    "shortName": "Coober Pedy Oval",
+    "location": "Coober Pedy Oval",
+    "seriesid": 1,
+    "lon": 134.754566,
+    "lat": -29.018468
+  },
+  {
+    "id": 445,
+    "eventname": "princeofwales",
+    "longName": "Prince of Wales parkrun",
+    "shortName": "Prince of Wales",
+    "location": "Prince of Wales Park",
+    "seriesid": 1,
+    "lon": 143.816194,
+    "lat": -37.548659
+  },
+  {
+    "id": 446,
+    "eventname": "scribblygumsconservation",
+    "longName": "Scribbly Gums Conservation parkrun",
+    "shortName": "Scribbly Gums Conservation",
+    "location": "Scribbly Gums Conservation Area",
+    "seriesid": 1,
+    "lon": 153.235428,
+    "lat": -27.52964
+  },
+  {
+    "id": 447,
+    "eventname": "baxter",
+    "longName": "Baxter parkrun",
+    "shortName": "Baxter",
+    "location": "Baxter Park",
+    "seriesid": 1,
+    "lon": 113.654841,
+    "lat": -24.891447
+  },
+  {
+    "id": 448,
+    "eventname": "jurienbayforeshore",
+    "longName": "Jurien Bay Foreshore parkrun",
+    "shortName": "Jurien Bay Foreshore",
+    "location": "Jurien Bay Foreshore",
+    "seriesid": 1,
+    "lon": 115.037533,
+    "lat": -30.302452
+  },
+  {
+    "id": 449,
+    "eventname": "picnicpointparklands",
+    "longName": "Picnic Point Parklands parkrun",
+    "shortName": "Picnic Point Parklands",
+    "location": "Picnic Point Parklands",
+    "seriesid": 1,
+    "lon": 151.986016,
+    "lat": -27.578938
+  },
+  {
+    "id": 450,
+    "eventname": "lakewallace",
+    "longName": "Lake Wallace parkrun",
+    "shortName": "Lake Wallace",
+    "location": "Lake Wallace",
+    "seriesid": 1,
+    "lon": 141.295153,
+    "lat": -37.033988
+  },
+  {
+    "id": 451,
+    "eventname": "australianstandingstones",
+    "longName": "Australian Standing Stones parkrun",
+    "shortName": "Australian Standing Stones",
+    "location": "Australian Standing Stones",
+    "seriesid": 1,
+    "lon": 151.752481,
+    "lat": -29.741602
+  },
+  {
+    "id": 452,
+    "eventname": "calembeen",
+    "longName": "Calembeen parkrun",
+    "shortName": "Calembeen",
+    "location": "Calembeen Park",
+    "seriesid": 1,
+    "lon": 143.889512,
+    "lat": -37.419365
+  },
+  {
+    "id": 453,
+    "eventname": "brisbanevalleyrailtrail",
+    "longName": "Brisbane Valley Rail Trail parkrun, Blackbutt",
+    "shortName": "Brisbane Valley Rail Trail",
+    "location": "Brisbane Valley Rail Trail",
+    "seriesid": 1,
+    "lon": 152.102115,
+    "lat": -26.882628
+  },
+  {
+    "id": 454,
+    "eventname": "pointhutpond",
+    "longName": "Point Hut Pond parkrun",
+    "shortName": "Point Hut Pond",
+    "location": "Point Hut Pond District Park",
+    "seriesid": 1,
+    "lon": 149.084343,
+    "lat": -35.454104
+  },
+  {
+    "id": 455,
+    "eventname": "mariacreekreserve",
+    "longName": "Maria Creek Reserve parkrun",
+    "shortName": "Maria Creek Reserve",
+    "location": "Maria Creek Reserve",
+    "seriesid": 1,
+    "lon": 139.850911,
+    "lat": -36.82741
+  },
+  {
+    "id": 456,
+    "eventname": "newcastlepark",
+    "longName": "Newcastle Park parkrun",
+    "shortName": "Newcastle Park",
+    "location": "Newcastle Park",
+    "seriesid": 1,
+    "lon": 116.470403,
+    "lat": -31.55064
+  },
+  {
+    "id": 457,
+    "eventname": "oconnorsbeach",
+    "longName": "O’Connors Beach parkrun",
+    "shortName": "O’Connors Beach",
+    "location": "O’Connors Beach",
+    "seriesid": 1,
+    "lon": 148.274083,
+    "lat": -41.338567
+  },
+  {
+    "id": 458,
+    "eventname": "yackandandahrailtrail",
+    "longName": "Yackandandah Rail Trail parkrun",
+    "shortName": "Yackandandah Rail Trail",
+    "location": "Yackandandah Rail Trail",
+    "seriesid": 1,
+    "lon": 146.838391,
+    "lat": -36.316082
+  },
+  {
+    "id": 459,
+    "eventname": "parkindulareserve",
+    "longName": "Parkindula Reserve parkrun",
+    "shortName": "Parkindula Reserve",
+    "location": "Parkindula Reserve",
+    "seriesid": 1,
+    "lon": 138.867671,
+    "lat": -35.090709
+  },
+  {
+    "id": 460,
+    "eventname": "tallangattastation",
+    "longName": "Tallangatta Station parkrun",
+    "shortName": "Tallangatta Station",
+    "location": "Tallangatta Station",
+    "seriesid": 1,
+    "lon": 147.178437,
+    "lat": -36.218537
+  },
+  {
+    "id": 461,
+    "eventname": "dixonfield",
+    "longName": "Dixon Field parkrun",
+    "shortName": "Dixon Field",
+    "location": "Dixon Field",
+    "seriesid": 1,
+    "lon": 144.584456,
+    "lat": -37.483912
+  },
+  {
+    "id": 462,
+    "eventname": "woodlandshistoricpark",
+    "longName": "Woodlands Historic Park parkrun",
+    "shortName": "Woodlands Historic Park",
+    "location": "Woodlands Historic Park",
+    "seriesid": 1,
+    "lon": 144.843618,
+    "lat": -37.640182
+  },
+  {
+    "id": 463,
+    "eventname": "kilmoreracecoursewalkingtrack",
+    "longName": "Kilmore Racecourse Walking Track parkrun",
+    "shortName": "Kilmore Racecourse Walking Track",
+    "location": "Kilmore Racecourse Walking Track",
+    "seriesid": 1,
+    "lon": 144.960419,
+    "lat": -37.288433
+  },
+  {
+    "id": 464,
+    "eventname": "maroondahdam",
+    "longName": "Maroondah Dam parkrun",
+    "shortName": "Maroondah Dam",
+    "location": "Maroondah Dam",
+    "seriesid": 1,
+    "lon": 145.552323,
+    "lat": -37.642875
+  },
+  {
+    "id": 465,
+    "eventname": "naroomawetlands",
+    "longName": "Narooma Wetlands parkrun",
+    "shortName": "Narooma Wetlands",
+    "location": "Narooma Wetlands",
+    "seriesid": 1,
+    "lon": 139.293059,
+    "lat": -35.12956
+  },
+  {
+    "id": 466,
+    "eventname": "townbeach",
+    "longName": "Town Beach parkrun",
+    "shortName": "Town Beach",
+    "location": "Town Beach",
+    "seriesid": 1,
+    "lon": 122.237403,
+    "lat": -17.968407
+  },
+  {
+    "id": 467,
+    "eventname": "wesmitchellpark",
+    "longName": "Wes Mitchell Park parkrun",
+    "shortName": "Wes Mitchell Park",
+    "location": "Wes Mitchell Park",
+    "seriesid": 1,
+    "lon": 153.006603,
+    "lat": -25.915262
+  },
+  {
+    "id": 468,
+    "eventname": "harmonyboulevard",
+    "longName": "Harmony Boulevard parkrun",
+    "shortName": "Harmony Boulevard",
+    "location": "Harmony Boulevard Park",
+    "seriesid": 1,
+    "lon": 153.059891,
+    "lat": -26.738409
+  },
+  {
+    "id": 469,
+    "eventname": "jakespoint",
+    "longName": "Jakes Point parkrun",
+    "shortName": "Jakes Point",
+    "location": "Jakes Point Lookout",
+    "seriesid": 1,
+    "lon": 114.15228,
+    "lat": -27.733275
+  },
+  {
+    "id": 470,
+    "eventname": "wilsoninletheritagetrail",
+    "longName": "Wilson Inlet Heritage Trail parkrun",
+    "shortName": "Wilson Inlet Heritage Trail",
+    "location": "Wilson Inlet Heritage Trail",
+    "seriesid": 1,
+    "lon": 117.366188,
+    "lat": -34.968285
+  },
+  {
+    "id": 471,
+    "eventname": "goulburnrivertrailseymour",
+    "longName": "Goulburn River Trail parkrun, Seymour",
+    "shortName": "Goulburn River Trail, Seymour",
+    "location": "Goulburn River Trail, Seymour",
+    "seriesid": 1,
+    "lon": 145.124768,
+    "lat": -37.018279
+  },
+  {
+    "id": 472,
+    "eventname": "tworiverswines",
+    "longName": "Two Rivers Wines parkrun",
+    "shortName": "Two Rivers Wines",
+    "location": "Two Rivers Wines",
+    "seriesid": 1,
+    "lon": 150.677378,
+    "lat": -32.404772
+  },
+  {
+    "id": 473,
+    "eventname": "dhunggaarrreserve",
+    "longName": "Dhunggaarr Reserve parkrun",
+    "shortName": "Dhunggaarr Reserve",
+    "location": "Dhunggaarr Reserve",
+    "seriesid": 1,
+    "lon": 152.654475,
+    "lat": -31.885091
+  },
+  {
+    "id": 474,
+    "eventname": "katherinehotsprings",
+    "longName": "Katherine Hot Springs parkrun",
+    "shortName": "Katherine Hot Springs",
+    "location": "Katherine Hot Springs",
+    "seriesid": 1,
+    "lon": 132.254944,
+    "lat": -14.482484
+  },
+  {
+    "id": 475,
+    "eventname": "centennialparkdunsborough",
+    "longName": "Centennial Park parkrun, Dunsborough",
+    "shortName": "Centennial Park, Dunsborough",
+    "location": "Centennial Park, Dunsborough",
+    "seriesid": 1,
+    "lon": 115.112646,
+    "lat": -33.615733
+  },
+  {
+    "id": 476,
+    "eventname": "belairnationalpark",
+    "longName": "Belair National Park parkrun",
+    "shortName": "Belair National Park",
+    "location": "Belair National Park",
+    "seriesid": 1,
+    "lon": 138.636344,
+    "lat": -35.011616
+  },
+  {
+    "id": 477,
+    "eventname": "palmcreek",
+    "longName": "Palm Creek parkrun",
+    "shortName": "Palm Creek",
+    "location": "Palm Creek",
+    "seriesid": 1,
+    "lon": 146.161677,
+    "lat": -18.651491
+  },
+  {
+    "id": 478,
+    "eventname": "trebeckreserve",
+    "longName": "Trebeck Reserve parkrun",
+    "shortName": "Trebeck Reserve",
+    "location": "Trebeck Reserve",
+    "seriesid": 1,
+    "lon": 143.988093,
+    "lat": -38.233939
+  },
+  {
+    "id": 479,
+    "eventname": "ballpark",
+    "longName": "Ball Park parkrun",
+    "shortName": "Ball Park",
+    "location": "Ball Park",
+    "seriesid": 1,
+    "lon": 146.393936,
+    "lat": -36.000667
+  },
+  {
+    "id": 480,
+    "eventname": "zeehangolfclub",
+    "longName": "Zeehan Golf Club parkrun",
+    "shortName": "Zeehan Golf Club",
+    "location": "Zeehan Golf Club",
+    "seriesid": 1,
+    "lon": 145.322678,
+    "lat": -41.889891
+  },
+  {
+    "id": 481,
+    "eventname": "capestonelake",
+    "longName": "Capestone Lake parkrun",
+    "shortName": "Capestone Lake",
+    "location": "Capestone Lake",
+    "seriesid": 1,
+    "lon": 153.039406,
+    "lat": -27.233548
+  },
+  {
+    "id": 482,
+    "eventname": "whyallaforeshore",
+    "longName": "Whyalla Foreshore parkrun",
+    "shortName": "Whyalla Foreshore",
+    "location": "Whyalla Foreshore",
+    "seriesid": 1,
+    "lon": 137.585902,
+    "lat": -33.040603
+  },
+  {
+    "id": 483,
+    "eventname": "ridleyplaceforeshore",
+    "longName": "Ridley Place Foreshore parkrun",
+    "shortName": "Ridley Place Foreshore",
+    "location": "Ridley Place Foreshore",
+    "seriesid": 1,
+    "lon": 115.714384,
+    "lat": -33.275814
+  },
+  {
+    "id": 484,
+    "eventname": "esperanceforeshore",
+    "longName": "Esperance Foreshore parkrun",
+    "shortName": "Esperance Foreshore",
+    "location": "Esperance Foreshore",
+    "seriesid": 1,
+    "lon": 121.893784,
+    "lat": -33.863295
+  },
+  {
+    "id": 485,
+    "eventname": "jubileetenterfield",
+    "longName": "Jubilee parkrun, Tenterfield",
+    "shortName": "Jubilee, Tenterfield",
+    "location": "Jubilee, Tenterfield",
+    "seriesid": 1,
+    "lon": 152.01537,
+    "lat": -29.054042
+  },
+  {
+    "id": 486,
+    "eventname": "jeunepark",
+    "longName": "Jeune Park parkrun",
+    "shortName": "Jeune Park",
+    "location": "Jeune Park",
+    "seriesid": 1,
+    "lon": 152.992548,
+    "lat": -27.993368
+  },
+  {
+    "id": 487,
+    "eventname": "rexjacksonoval",
+    "longName": "Rex Jackson Oval parkrun",
+    "shortName": "Rex Jackson Oval",
+    "location": "Rex Jackson Oval",
+    "seriesid": 1,
+    "lon": 150.981697,
+    "lat": -34.188779
+  },
+  {
+    "id": 488,
+    "eventname": "nagambielake",
+    "longName": "Nagambie Lake parkrun",
+    "shortName": "Nagambie Lake",
+    "location": "Nagambie Lake",
+    "seriesid": 1,
+    "lon": 145.148185,
+    "lat": -36.786149
+  },
+  {
+    "id": 489,
+    "eventname": "bungendorecommon",
+    "longName": "Bungendore Common parkrun",
+    "shortName": "Bungendore Common",
+    "location": "Bungendore Common",
+    "seriesid": 1,
+    "lon": 149.446987,
+    "lat": -35.250379
+  },
+  {
+    "id": 490,
+    "eventname": "greatsouthernrailtrailkorumburra",
+    "longName": "Great Southern Rail Trail parkrun, Korumburra",
+    "shortName": "Great Southern Rail Trail, Korumburra",
+    "location": "Great Southern Rail Trail, Korumburra",
+    "seriesid": 1,
+    "lon": 145.825156,
+    "lat": -38.432179
+  },
+  {
+    "id": 491,
+    "eventname": "bindapark",
+    "longName": "Binda Park parkrun",
+    "shortName": "Binda Park",
+    "location": "Binda Park",
+    "seriesid": 1,
+    "lon": 148.037729,
+    "lat": -22.004623
+  },
+  {
+    "id": 492,
+    "eventname": "aubotanicgardenmountannan",
+    "longName": "Australian Botanic Garden Mount Annan parkrun",
+    "shortName": "Australian Botanic Garden Mount Annan",
+    "location": "Australian Botanic Garden Mount Annan",
+    "seriesid": 1,
+    "lon": 150.766217,
+    "lat": -34.066408
+  },
+  {
+    "id": 493,
+    "eventname": "seaview",
+    "longName": "Seaview parkrun",
+    "shortName": "Seaview",
+    "location": "Seaview",
+    "seriesid": 1,
+    "lon": 149.165504,
+    "lat": -21.035236
+  },
+  {
+    "id": 494,
+    "eventname": "pirrama",
+    "longName": "Pirrama parkrun",
+    "shortName": "Pirrama",
+    "location": "Pirrama",
+    "seriesid": 1,
+    "lon": 151.191857,
+    "lat": -33.865396
+  },
+  {
+    "id": 495,
+    "eventname": "samfordparklands",
+    "longName": "Samford Parklands parkrun",
+    "shortName": "Samford Parklands",
+    "location": "Samford Parklands",
+    "seriesid": 1,
+    "lon": 152.88284,
+    "lat": -27.356315
+  },
+  {
+    "id": 496,
+    "eventname": "oldeskrailwaystation",
+    "longName": "Old Esk Railway Station parkrun",
+    "shortName": "Old Esk Railway Station",
+    "location": "Old Esk Railway Station",
+    "seriesid": 1,
+    "lon": 152.41977,
+    "lat": -27.241567
+  },
+  {
+    "id": 497,
+    "eventname": "macquarieuniversity",
+    "longName": "Macquarie University parkrun",
+    "shortName": "Macquarie University",
+    "location": "Macquarie University",
+    "seriesid": 1,
+    "lon": 151.114271,
+    "lat": -33.774425
+  },
+  {
+    "id": 498,
+    "eventname": "workmansbeach",
+    "longName": "Workman’s Beach parkrun",
+    "shortName": "Workman’s Beach",
+    "location": "Workman’s Beach",
+    "seriesid": 1,
+    "lon": 151.913142,
+    "lat": -24.211762
+  },
+  {
+    "id": 499,
+    "eventname": "emeraldlake",
+    "longName": "Emerald Lake parkrun",
+    "shortName": "Emerald Lake",
+    "location": "Emerald Lake",
+    "seriesid": 1,
+    "lon": 145.458234,
+    "lat": -37.930268
+  },
+  {
+    "id": 500,
+    "eventname": "galupreserve",
+    "longName": "Galup Reserve parkrun",
+    "shortName": "Galup Reserve",
+    "location": "Galup Reserve",
+    "seriesid": 1,
+    "lon": 115.821468,
+    "lat": -31.925038
+  },
+  {
+    "id": 501,
+    "eventname": "aintreereserve",
+    "longName": "Aintree Reserve parkrun",
+    "shortName": "Aintree Reserve",
+    "location": "Aintree Reserve",
+    "seriesid": 1,
+    "lon": 144.673619,
+    "lat": -37.712795
+  },
+  {
+    "id": 502,
+    "eventname": "birtinyaisland",
+    "longName": "Birtinya Island parkrun",
+    "shortName": "Birtinya Island",
+    "location": "Birtinya Island",
+    "seriesid": 1,
+    "lon": 153.120471,
+    "lat": -26.74229
+  },
+  {
+    "id": 503,
+    "eventname": "grahamstownaquaticcentremedowie",
+    "longName": "Grahamstown Aquatic Centre parkrun, Medowie",
+    "shortName": "Grahamstown Aquatic Centre, Medowie",
+    "location": "Grahamstown Aquatic Centre, Medowie",
+    "seriesid": 1,
+    "lon": 151.822113,
+    "lat": -32.759748
+  },
+  {
+    "id": 504,
+    "eventname": "mareebarailtrail",
+    "longName": "Mareeba Rail Trail parkrun",
+    "shortName": "Mareeba Rail Trail",
+    "location": "Mareeba Rail Trail",
+    "seriesid": 1,
+    "lon": 145.424039,
+    "lat": -17.010074
+  },
+  {
+    "id": 505,
+    "eventname": "sirjamesmitchell",
+    "longName": "Sir James Mitchell parkrun",
+    "shortName": "Sir James Mitchell",
+    "location": "Sir James Mitchell",
+    "seriesid": 1,
+    "lon": 115.878401,
+    "lat": -31.971747
+  },
+  {
+    "id": 506,
+    "eventname": "waikeriewetlands",
+    "longName": "Waikerie Wetlands parkrun",
+    "shortName": "Waikerie Wetlands",
+    "location": "Waikerie Wetlands",
+    "seriesid": 1,
+    "lon": 139.980451,
+    "lat": -34.174394
+  },
+  {
+    "id": 507,
+    "eventname": "suratmemorialpark",
+    "longName": "Surat Memorial Park parkrun",
+    "shortName": "Surat Memorial Park",
+    "location": "Surat Memorial Park",
+    "seriesid": 1,
+    "lon": 149.069512,
+    "lat": -27.150931
+  },
+  {
+    "id": 508,
+    "eventname": "dragereserve",
+    "longName": "Drage Reserve parkrun",
+    "shortName": "Drage Reserve",
+    "location": "Drage Reserve",
+    "seriesid": 1,
+    "lon": 138.640862,
+    "lat": -34.887194
+  },
+  {
+    "id": 509,
+    "eventname": "burrumheadsbeach",
+    "longName": "Burrum Heads Beach parkrun",
+    "shortName": "Burrum Heads Beach",
+    "location": "Burrum Heads Beach",
+    "seriesid": 1,
+    "lon": 152.630279,
+    "lat": -25.204584
+  },
+  {
+    "id": 510,
+    "eventname": "skyriverpath",
+    "longName": "Sky River Path parkrun",
+    "shortName": "Sky River Path",
+    "location": "Sky River Path",
+    "seriesid": 1,
+    "lon": 149.278952,
+    "lat": -31.271095
+  },
+  {
+    "id": 511,
+    "eventname": "merredinpeak",
+    "longName": "Merredin Peak parkrun",
+    "shortName": "Merredin Peak",
+    "location": "Merredin Peak",
+    "seriesid": 1,
+    "lon": 118.289452,
+    "lat": -31.470564
+  },
+  {
+    "id": 512,
+    "eventname": "gainsboroughparklands",
+    "longName": "Gainsborough Parklands parkrun",
+    "shortName": "Gainsborough Parklands",
+    "location": "Gainsborough Parklands",
+    "seriesid": 1,
+    "lon": 153.299229,
+    "lat": -27.812345
+  },
+  {
+    "id": 513,
+    "eventname": "hoblersbridgereserve",
+    "longName": "Hoblers Bridge Reserve parkrun",
+    "shortName": "Hoblers Bridge Reserve",
+    "location": "Hoblers Bridge Reserve",
+    "seriesid": 1,
+    "lon": 147.170722,
+    "lat": -41.436491
+  },
+  {
+    "id": 514,
+    "eventname": "eildonpondage",
+    "longName": "Eildon Pondage parkrun",
+    "shortName": "Eildon Pondage",
+    "location": "Eildon Pondage",
+    "seriesid": 1,
+    "lon": 145.906145,
+    "lat": -37.242627
+  },
+  {
+    "id": 515,
+    "eventname": "pyramidhillgolftrail",
+    "longName": "Pyramid Hill Golf Trail parkrun",
+    "shortName": "Pyramid Hill Golf Trail",
+    "location": "Pyramid Hill Golf Trail",
+    "seriesid": 1,
+    "lon": 144.137393,
+    "lat": -36.050871
+  },
+  {
+    "id": 516,
+    "eventname": "alicespringstelegraphstation",
+    "longName": "Alice Springs Telegraph Station parkrun",
+    "shortName": "Alice Springs Telegraph Station",
+    "location": "Alice Springs Telegraph Station",
+    "seriesid": 1,
+    "lon": 133.887883,
+    "lat": -23.673314
+  },
+  {
+    "id": 517,
+    "eventname": "hiddenvale",
+    "longName": "Hidden Vale parkrun",
+    "shortName": "Hidden Vale",
+    "location": "Hidden Vale",
+    "seriesid": 1,
+    "lon": 152.46597,
+    "lat": -27.716932
+  },
+  {
+    "id": 518,
+    "eventname": "belvedere",
+    "longName": "Belvedere parkrun",
+    "shortName": "Belvedere",
+    "location": "Belvedere",
+    "seriesid": 1,
+    "lon": 145.155851,
+    "lat": -38.105426
+  },
+  {
+    "id": 519,
+    "eventname": "lakemaryanntingkkarli",
+    "longName": "Lake Mary Ann Tingkkarli parkrun",
+    "shortName": "Lake Mary Ann Tingkkarli",
+    "location": "Lake Mary Ann Tingkkarli",
+    "seriesid": 1,
+    "lon": 134.211018,
+    "lat": -19.608546
+  },
+  {
+    "id": 520,
+    "eventname": "kewarrabeach",
+    "longName": "Kewarra Beach parkrun",
+    "shortName": "Kewarra Beach",
+    "location": "Kewarra Beach",
+    "seriesid": 1,
+    "lon": 145.683914,
+    "lat": -16.777676
+  },
+  {
+    "id": 521,
+    "eventname": "blackswanlake",
+    "longName": "Black Swan Lake parkrun",
+    "shortName": "Black Swan Lake",
+    "location": "Black Swan Lake",
+    "seriesid": 1,
+    "lon": 115.774806,
+    "lat": -32.47418
+  },
+  {
+    "id": 522,
+    "eventname": "reddallreserve",
+    "longName": "Reddall Reserve parkrun",
+    "shortName": "Reddall Reserve",
+    "location": "Reddall Reserve",
+    "seriesid": 1,
+    "lon": 150.866257,
+    "lat": -34.539216
+  },
+  {
+    "id": 523,
+    "eventname": "thepharlaptrack",
+    "longName": "The Phar Lap Track parkrun",
+    "shortName": "The Phar Lap Track",
+    "location": "Phar Lap Track",
+    "seriesid": 1,
+    "lon": 145.128673,
+    "lat": -37.993515
+  },
+  {
+    "id": 524,
+    "eventname": "redhillrailtrail",
+    "longName": "Red Hill Rail Trail parkrun",
+    "shortName": "Red Hill Rail Trail",
+    "location": "Red Hill Rail Trail",
+    "seriesid": 1,
+    "lon": 145.026784,
+    "lat": -38.380498
+  },
+  {
+    "id": 525,
+    "eventname": "coolumeco",
+    "longName": "Coolum Eco parkrun",
+    "shortName": "Coolum Eco",
+    "location": "Coolum Eco",
+    "seriesid": 1,
+    "lon": 153.062671,
+    "lat": -26.51794
+  },
+  {
+    "id": 526,
+    "eventname": "lakecolac",
+    "longName": "Lake Colac parkrun",
+    "shortName": "Lake Colac",
+    "location": "Lake Colac",
+    "seriesid": 1,
+    "lon": 143.589186,
+    "lat": -38.332222
+  },
+  {
+    "id": 527,
+    "eventname": "auburnbotanicgardens",
+    "longName": "Auburn Botanic Gardens parkrun",
+    "shortName": "Auburn Botanic Gardens",
+    "location": "Auburn Botanic Gardens",
+    "seriesid": 1,
+    "lon": 151.015305,
+    "lat": -33.859877
+  },
+  {
+    "id": 528,
+    "eventname": "lakefyanswalkingtrack",
+    "longName": "Lake Fyans Walking Track parkrun",
+    "shortName": "Lake Fyans Walking Track",
+    "location": "Lake Fyans Walking Track",
+    "seriesid": 1,
+    "lon": 142.616196,
+    "lat": -37.145642
+  },
+  {
+    "id": 529,
+    "eventname": "elarariparianparklands",
+    "longName": "Elara Riparian Parklands parkrun",
+    "shortName": "Elara Riparian Parklands",
+    "location": "Elara Riparian Parklands",
+    "seriesid": 1,
+    "lon": 150.803885,
+    "lat": -33.693933
+  },
+  {
+    "id": 530,
+    "eventname": "wodentown",
+    "longName": "Woden Town parkrun",
+    "shortName": "Woden Town",
+    "location": "Woden Town",
+    "seriesid": 1,
+    "lon": 149.088932,
+    "lat": -35.343931
+  },
+  {
+    "id": 531,
+    "eventname": "pointvernonforeshorereserve",
+    "longName": "Point Vernon Foreshore Reserve parkrun",
+    "shortName": "Point Vernon Foreshore Reserve",
+    "location": "Point Vernon Foreshore Reserve",
+    "seriesid": 1,
+    "lon": 152.825102,
+    "lat": -25.258635
+  },
+  {
+    "id": 532,
+    "eventname": "cameronparkwellington",
+    "longName": "Cameron Park parkrun, Wellington",
+    "shortName": "Cameron Park, Wellington",
+    "location": "Cameron Park, Wellington",
+    "seriesid": 1,
+    "lon": 148.941498,
+    "lat": -32.552493
+  },
+  {
+    "id": 533,
+    "eventname": "aintreereserve-juniors",
+    "longName": "Aintree Reserve junior parkrun",
+    "shortName": "Aintree Reserve juniors",
+    "location": "Aintree Reserve juniors",
+    "seriesid": 2,
+    "lon": 144.673299,
+    "lat": -37.712657
+  },
+  {
+    "id": 534,
+    "eventname": "desoza",
+    "longName": "De Soza parkrun",
+    "shortName": "De Soza",
+    "location": "De Soza",
+    "seriesid": 1,
+    "lon": 143.883626,
+    "lat": -37.649085
+  },
+  {
+    "id": 535,
+    "eventname": "constellationsofthesouth",
+    "longName": "Constellations of the South parkrun",
+    "shortName": "Constellations of the South",
+    "location": "Constellations of the South",
+    "seriesid": 1,
+    "lon": 151.507,
+    "lat": -30.637282
+  },
+  {
+    "id": 536,
+    "eventname": "victoryroadreserve",
+    "longName": "Victory Road Reserve parkrun",
+    "shortName": "Victory Road Reserve",
+    "location": "Victory Road Reserve",
+    "seriesid": 1,
+    "lon": 145.108231,
+    "lat": -37.948161
+  },
+  {
+    "id": 537,
+    "eventname": "rokebycrossoverrailtrail",
+    "longName": "Rokeby Crossover Rail Trail parkrun",
+    "shortName": "Rokeby Crossover Rail Trail",
+    "location": "Rokeby Crossover Rail Trail",
+    "seriesid": 1,
+    "lon": 145.931515,
+    "lat": -38.068113
+  },
+  {
+    "id": 538,
+    "eventname": "parklakeswetlands",
+    "longName": "Parklakes Wetlands parkrun",
+    "shortName": "Parklakes Wetlands",
+    "location": "Parklakes Wetlands",
+    "seriesid": 1,
+    "lon": 153.024148,
+    "lat": -26.604659
+  },
+  {
+    "id": 539,
+    "eventname": "cruickshankpark",
+    "longName": "Cruickshank Park parkrun",
+    "shortName": "Cruickshank Park",
+    "location": "Cruickshank Park",
+    "seriesid": 1,
+    "lon": 144.876886,
+    "lat": -37.817195
+  },
+  {
+    "id": 540,
+    "eventname": "bongilbongil",
+    "longName": "Bongil Bongil parkrun",
+    "shortName": "Bongil Bongil",
+    "location": "Bongil Picnic Area",
+    "seriesid": 1,
+    "lon": 153.066759,
+    "lat": -30.372884
+  },
+  {
+    "id": 541,
+    "eventname": "breenavenuewalkingtrack",
+    "longName": "Breen Avenue Walking Track parkrun",
+    "shortName": "Breen Avenue Walking Track",
+    "location": "Breen Avenue Walking Track",
+    "seriesid": 1,
+    "lon": 145.053225,
+    "lat": -36.313671
+  },
+  {
+    "id": 542,
+    "eventname": "kershawgardens",
+    "longName": "Kershaw Gardens parkrun",
+    "shortName": "Kershaw Gardens",
+    "location": "Kershaw Gardens",
+    "seriesid": 1,
+    "lon": 150.51636,
+    "lat": -23.361038
+  },
+  {
+    "id": 543,
+    "eventname": "sunrisebeach",
+    "longName": "Sunrise Beach parkrun",
+    "shortName": "Sunrise Beach",
+    "location": "Sunrise Beach",
+    "seriesid": 1,
+    "lon": 115.113018,
+    "lat": -21.634871
+  },
+  {
+    "id": 544,
+    "eventname": "greenheartrobinaparklands",
+    "longName": "Greenheart Robina Parklands parkrun",
+    "shortName": "Greenheart Robina Parklands",
+    "location": "Greenheart Robina Parklands",
+    "seriesid": 1,
+    "lon": 153.382328,
+    "lat": -28.063017
+  },
+  {
+    "id": 545,
+    "eventname": "ulladulla",
+    "longName": "Ulladulla parkrun",
+    "shortName": "Ulladulla",
+    "location": "Ulladulla",
+    "seriesid": 1,
+    "lon": 150.478122,
+    "lat": -35.35287
+  },
+  {
+    "id": 546,
+    "eventname": "longpoint",
+    "longName": "Long Point parkrun",
+    "shortName": "Long Point",
+    "location": "Long Point",
+    "seriesid": 1,
+    "lon": 115.729677,
+    "lat": -32.367044
+  },
+  {
+    "id": 547,
+    "eventname": "mcivorcreektrailheathcote",
+    "longName": "McIvor Creek Trail parkrun, Heathcote",
+    "shortName": "McIvor Creek Trail, Heathcote",
+    "location": "McIvor Creek Trail, Heathcote",
+    "seriesid": 1,
+    "lon": 144.711606,
+    "lat": -36.92392
+  },
+  {
+    "id": 548,
+    "eventname": "murdochuniversity",
+    "longName": "Murdoch University parkrun",
+    "shortName": "Murdoch University",
+    "location": "Murdoch University",
+    "seriesid": 1,
+    "lon": 115.83584,
+    "lat": -32.067009
+  },
+  {
+    "id": 549,
+    "eventname": "spinnaker",
+    "longName": "Spinnaker parkrun",
+    "shortName": "Spinnaker",
+    "location": "Spinnaker",
+    "seriesid": 1,
+    "lon": 151.248679,
+    "lat": -23.829759
+  },
+  {
+    "id": 550,
+    "eventname": "oldgolfcoursenarrogin",
+    "longName": "Old Golf Course parkrun, Narrogin",
+    "shortName": "Old Golf Course, Narrogin",
+    "location": "Old Golf Course, Narrogin",
+    "seriesid": 1,
+    "lon": 117.17514,
+    "lat": -32.925766
+  },
+  {
+    "id": 551,
+    "eventname": "mootyanggunyaswamp",
+    "longName": "Moot Yang Gunya Swamp parkrun",
+    "shortName": "Moot Yang Gunya Swamp",
+    "location": "Moot Yang Gunya Swamp",
+    "seriesid": 1,
+    "lon": 140.690227,
+    "lat": -36.355726
+  },
+  {
+    "id": 552,
+    "eventname": "endeavour",
+    "longName": "Endeavour parkrun",
+    "shortName": "Endeavour",
+    "location": "Endeavour",
+    "seriesid": 1,
+    "lon": 153.097583,
+    "lat": -27.20285
+  }
+]

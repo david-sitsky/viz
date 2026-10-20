@@ -20,4 +20,9 @@ bogong/data/*.bin
 bogong/data/metadata.json
 christmas-beetle/data/*.bin
 christmas-beetle/data/metadata.json
+parkrun/data/*.bin
+parkrun/data/metadata.json
+!parkrun/data/events/*.csv
+!parkrun/data/raw_events.csv
 */data/species_info.json
+
