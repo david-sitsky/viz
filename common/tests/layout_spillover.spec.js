@@ -4,7 +4,8 @@ const PAGES = [
   '/bogong/index.html',
   '/frogid/index.html',
   '/christmas-beetle/index.html',
-  '/energy/index.html'
+  '/energy/index.html',
+  '/parkrun/index.html'
 ];
 
 test.describe('Layout Spillover Tests', () => {

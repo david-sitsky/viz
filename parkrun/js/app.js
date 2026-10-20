@@ -1,11 +1,15 @@
 import { loadData } from './parkrun_data.js';
 import { ParkrunMap, getRunnerColor } from './map.js';
+import { GrowthLineChart } from './growth_chart.js';
 import { makeDraggable } from '../../common/js/draggable.js';
 
 class ParkrunApp {
   constructor() {
     this.data = null;
     this.map = null;
+    this.growthChart = null;
+    this.growthChartBottom = null;
+    this.cumulativeSeries = null;
     this.currentWeek = 0;
     this.playing = false;
     this.hasStartedAnimation = false;
@@ -42,8 +46,20 @@ class ParkrunApp {
           .addTo(this.map.map);
       }
 
+      if (this.dom.growthCanvas) {
+        this.growthChart = new GrowthLineChart(this.dom.growthCanvas, {
+          onSeek: (w) => this._setWeek(w, true)
+        });
+      }
+      if (this.dom.growthCanvasBottom) {
+        this.growthChartBottom = new GrowthLineChart(this.dom.growthCanvasBottom, {
+          onSeek: (w) => this._setWeek(w, true)
+        });
+      }
+
       this._recomputePeaks();
       this._setupControls();
+      this._setupBottomPanelTabs();
       this._setupStateFilter();
       this._setupMapStyleSwitcher();
       this._setupKeyboard();
@@ -51,7 +67,7 @@ class ParkrunApp {
       this._setupHelpTour();
 
       this._hideLoading();
-      ['statsBar', 'controls', 'mapStyleSelector', 'weeklyStatsCard', 'legendCard', 'bottomPanel', 'filterPanel'].forEach(k => {
+      ['statsBar', 'controls', 'mapStyleSelector', 'weeklyStatsCard', 'legendCard', 'growthCard', 'bottomPanel', 'filterPanel'].forEach(k => {
         if (this.dom[k]) this.dom[k].classList.remove('hidden');
       });
 
@@ -108,10 +124,20 @@ class ParkrunApp {
       barValActive:         $('bar-val-active'),
       barFillFinishers:     $('bar-fill-finishers'),
       barValFinishers:      $('bar-val-finishers'),
-      barFillCumulative:    $('bar-fill-cumulative'),
+      barFillCumulative:      $('bar-fill-cumulative'),
       barValCumulative:       $('bar-val-cumulative'),
       yearWatermarkContainer: $('year-watermark-container'),
       yearWatermark:          $('year-watermark'),
+      growthCard:             $('growth-card'),
+      growthCardVal:          $('growth-card-val'),
+      growthCanvas:           $('growth-canvas'),
+      tabBtnWeekly:           $('tab-btn-weekly'),
+      tabBtnGrowth:           $('tab-btn-growth'),
+      bottomViewWeekly:       $('bottom-view-weekly'),
+      bottomViewGrowth:       $('bottom-view-growth'),
+      growthBottomVal:        $('growth-bottom-val'),
+      growthCanvasBottom:     $('growth-canvas-bottom'),
+      chartSubLabel:          $('chart-sub-label'),
     };
   }
 
@@ -177,6 +203,27 @@ class ParkrunApp {
     }
   }
 
+  _setupBottomPanelTabs() {
+    if (!this.dom.tabBtnWeekly || !this.dom.tabBtnGrowth) return;
+
+    this.dom.tabBtnWeekly.addEventListener('click', () => {
+      this.dom.tabBtnWeekly.classList.add('active');
+      this.dom.tabBtnGrowth.classList.remove('active');
+      if (this.dom.bottomViewWeekly) this.dom.bottomViewWeekly.style.display = 'block';
+      if (this.dom.bottomViewGrowth) this.dom.bottomViewGrowth.style.display = 'none';
+      if (this.dom.chartSubLabel) this.dom.chartSubLabel.textContent = 'Scaled to Peak (100%)';
+    });
+
+    this.dom.tabBtnGrowth.addEventListener('click', () => {
+      this.dom.tabBtnGrowth.classList.add('active');
+      this.dom.tabBtnWeekly.classList.remove('active');
+      if (this.dom.bottomViewWeekly) this.dom.bottomViewWeekly.style.display = 'none';
+      if (this.dom.bottomViewGrowth) this.dom.bottomViewGrowth.style.display = 'block';
+      if (this.dom.chartSubLabel) this.dom.chartSubLabel.textContent = 'All-Time Trajectory';
+      if (this.growthChartBottom) this.growthChartBottom.render();
+    });
+  }
+
   _getEarliestFilteredWeek() {
     if (!this.data || !this.selectedStateIds || this.selectedStateIds.size === 0) return 0;
     const { weeklyActiveByState } = this.data;
@@ -201,25 +248,38 @@ class ParkrunApp {
     let maxFin = 0;
     let maxCum = 0;
 
+    const cumulativeSeries = new Int32Array(totalWeeks);
+
     if (weeklyActiveByState) {
       for (let w = 0; w < totalWeeks; w++) {
         let wAct = 0;
         let wFin = 0;
+        let wCum = 0;
         for (const sid of this.selectedStateIds) {
           wAct += weeklyActiveByState[w * 8 + sid];
           wFin += weeklyFinishersByState[w * 8 + sid];
+          wCum += weeklyCumulativeByState[w * 8 + sid];
         }
         if (wAct > maxAct) maxAct = wAct;
         if (wFin > maxFin) maxFin = wFin;
+        cumulativeSeries[w] = wCum;
       }
       for (const sid of this.selectedStateIds) {
         maxCum += weeklyCumulativeByState[(totalWeeks - 1) * 8 + sid];
       }
     }
 
+    this.cumulativeSeries = cumulativeSeries;
     this.maxActiveLocations = Math.max(1, maxAct);
     this.maxWeeklyFinishers = Math.max(1, maxFin);
     this.maxCumulativeFinishers = Math.max(1, maxCum);
+
+    if (this.growthChart) {
+      this.growthChart.setData(this.data.metadata, cumulativeSeries, this.maxCumulativeFinishers);
+    }
+    if (this.growthChartBottom) {
+      this.growthChartBottom.setData(this.data.metadata, cumulativeSeries, this.maxCumulativeFinishers);
+    }
   }
 
   _setupStateFilter() {
@@ -443,6 +503,20 @@ class ParkrunApp {
         this.dom.barValCumulative.textContent = `${cumulative.toLocaleString()} finisher${cumulative === 1 ? '' : 's'}`;
       }
 
+      if (this.dom.growthCardVal) {
+        this.dom.growthCardVal.textContent = cumulative.toLocaleString();
+      }
+      if (this.dom.growthBottomVal) {
+        this.dom.growthBottomVal.textContent = cumulative.toLocaleString();
+      }
+
+    }
+
+    if (this.growthChart) {
+      this.growthChart.setWeek(this.currentWeek);
+    }
+    if (this.growthChartBottom) {
+      this.growthChartBottom.setWeek(this.currentWeek);
     }
 
     if (this.map) {

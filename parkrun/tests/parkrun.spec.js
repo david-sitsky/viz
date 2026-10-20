@@ -681,6 +681,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     await expect(statsBar).toBeVisible();
     await expect(weeklyCard).not.toBeVisible();
     await expect(legendCard).not.toBeVisible();
+    await expect(page.locator('#growth-card')).not.toBeVisible();
     await expect(controls).not.toBeVisible();
     await expect(filterPanel).not.toBeVisible();
 
@@ -698,6 +699,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     await settingsBtn.click();
     await expect(weeklyCard).toBeVisible();
     await expect(legendCard).toBeVisible();
+    await expect(page.locator('#growth-card')).toBeVisible();
     await expect(controls).toBeVisible();
     await expect(filterPanel).toBeVisible();
 
@@ -705,6 +707,83 @@ test.describe('Parkrun Visualisation Tests', () => {
     await settingsBtn.click();
     await expect(weeklyCard).not.toBeVisible();
     await expect(legendCard).not.toBeVisible();
+    await expect(page.locator('#growth-card')).not.toBeVisible();
+  });
+
+  test('Growth line chart renders in desktop left panel, updates as timeline advances, and supports click-to-scrub', async ({ page }) => {
+    await page.goto('/parkrun/index.html');
+    await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
+
+    const growthCard = page.locator('#growth-card');
+    await expect(growthCard).toBeVisible();
+
+    const canvas = page.locator('#growth-canvas');
+    await expect(canvas).toBeVisible();
+
+    const growthVal = page.locator('#growth-card-val');
+    // Initially week 0 (108 finishers on 2 Apr 2011)
+    await expect(growthVal).toHaveText('108');
+
+    // Advance timeline to week 200 (March 2015)
+    const scrubber = page.locator('#scrubber');
+    await scrubber.fill('200');
+    await scrubber.dispatchEvent('input');
+
+    // Growth card value updates
+    const text200 = await growthVal.textContent();
+    expect(parseInt(text200.replace(/,/g, ''), 10)).toBeGreaterThan(500_000);
+
+    // Test click-to-scrub on canvas: clicking near the middle of canvas seeks to ~week 400
+    const canvasBox = await canvas.boundingBox();
+    expect(canvasBox).not.toBeNull();
+    // Click at 50% along the canvas width
+    await page.mouse.click(canvasBox.x + canvasBox.width * 0.5, canvasBox.y + canvasBox.height * 0.5);
+
+    // Verify scrubber value changed towards ~400
+    const scrubVal = parseInt(await scrubber.inputValue(), 10);
+    expect(scrubVal).toBeGreaterThan(300);
+    expect(scrubVal).toBeLessThan(500);
+  });
+
+  test('Bottom panel view tabs allow toggling between weekly turnout bars and full growth curve line graph', async ({ page }) => {
+    await page.goto('/parkrun/index.html');
+    await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
+
+    const tabWeekly = page.locator('#tab-btn-weekly');
+    const tabGrowth = page.locator('#tab-btn-growth');
+    const viewWeekly = page.locator('#bottom-view-weekly');
+    const viewGrowth = page.locator('#bottom-view-growth');
+    const subLabel = page.locator('#chart-sub-label');
+
+    // Initially, Weekly view is active
+    await expect(tabWeekly).toHaveClass(/active/);
+    await expect(viewWeekly).toBeVisible();
+    await expect(viewGrowth).not.toBeVisible();
+    await expect(subLabel).toHaveText('Scaled to Peak (100%)');
+
+    // Click Growth tab
+    await tabGrowth.click();
+    await expect(tabGrowth).toHaveClass(/active/);
+    await expect(tabWeekly).not.toHaveClass(/active/);
+    await expect(viewGrowth).toBeVisible();
+    await expect(viewWeekly).not.toBeVisible();
+    await expect(subLabel).toHaveText('All-Time Trajectory');
+
+    const bottomCanvas = page.locator('#growth-canvas-bottom');
+    await expect(bottomCanvas).toBeVisible();
+
+    // Advance timeline and verify bottom growth value updates
+    const scrubber = page.locator('#scrubber');
+    await scrubber.fill('100');
+    await scrubber.dispatchEvent('input');
+    const bottomVal = page.locator('#growth-bottom-val');
+    await expect(bottomVal).not.toHaveText('0');
+
+    // Click Weekly tab to switch back
+    await tabWeekly.click();
+    await expect(tabWeekly).toHaveClass(/active/);
+    await expect(viewWeekly).toBeVisible();
+    await expect(viewGrowth).not.toBeVisible();
   });
 });
 
