@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive map showing the weekly growth of Saturday Parkrun participants and locations across Australia over time">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏃‍♀️</text></svg>">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610210954">
+  <link rel="stylesheet" href="../common/styles.css?v=202610211048">
   <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
   <style>
@@ -430,29 +430,6 @@
           <div class="bar-value" id="bar-val-finishers" style="width: 110px; text-align: right; color: var(--parkrun-orange); font-weight: 700;">0</div>
         </div>
       </div>
-
-      <!-- Divider -->
-      <hr id="bottom-panel-divider" style="border: none; border-top: 1px solid rgba(255,255,255,0.12); margin: 8px 0 7px 0;">
-
-      <!-- Section 2: Growth Bar -->
-      <div class="chart-header" id="bottom-growth-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-        <div class="chart-title" id="chart-title-growth" style="margin-bottom: 0; font-weight: 700; color: #e4e4e7; font-size: 11px; letter-spacing: 0.5px;">
-          GROWTH
-        </div>
-        <div style="font-size: 9px; color: rgba(255,255,255,0.45); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
-          All-Time Total
-        </div>
-      </div>
-      <div class="bar-chart" id="bar-chart-growth">
-        <!-- Cumulative Finishers Row (At the bottom) -->
-        <div class="bar-row">
-          <div class="bar-label" style="width: 125px; color: #cbd5e1;">Total Finishers</div>
-          <div class="bar-track">
-            <div class="bar-fill" id="bar-fill-cumulative" style="width: 0%; background: linear-gradient(90deg, #f59e0b, #e11d48);"></div>
-          </div>
-          <div class="bar-value" id="bar-val-cumulative" style="width: 110px; text-align: right; color: #fca5a5;">0</div>
-        </div>
-      </div>
     </div>
 
     <!-- View 2: Growth Line Graph View (Toggled on Mobile or Desktop) -->
@@ -477,6 +454,6 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/app.js?v=202610210954"></script>
+  <script type="module" src="js/app.js?v=202610211048"></script>
 </body>
 </html>

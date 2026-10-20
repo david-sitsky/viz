@@ -96,6 +96,12 @@ function parseBinary(buffer, metadata) {
   const seenEventsPerState = Array.from({ length: 8 }, () => new Set());
   const stateEstablishedCount = new Int16Array(8);
 
+  // Precompute per-event weekly aggregations for instant venue-level filtering
+  const eventWeeklyFinishers = new Map();
+  const eventWeeklyCumulative = new Map();
+  const eventPeakFinishers = new Map();
+  const eventFirstWeek = new Map();
+
   for (let w = 0; w < totalWeeks; w++) {
     const start = offsets[w];
     const end = (w + 1 < offsets.length) ? offsets[w + 1] : recordCount;
@@ -109,6 +115,22 @@ function parseBinary(buffer, metadata) {
       if (sid < 8 && !seenEventsPerState[sid].has(eid)) {
         seenEventsPerState[sid].add(eid);
         stateEstablishedCount[sid]++;
+      }
+
+      let venueFinArr = eventWeeklyFinishers.get(eid);
+      if (!venueFinArr) {
+        venueFinArr = new Uint16Array(totalWeeks);
+        eventWeeklyFinishers.set(eid, venueFinArr);
+        eventWeeklyCumulative.set(eid, new Int32Array(totalWeeks));
+        eventPeakFinishers.set(eid, 0);
+        eventFirstWeek.set(eid, w);
+      }
+      venueFinArr[w] = fin;
+      if (fin > eventPeakFinishers.get(eid)) {
+        eventPeakFinishers.set(eid, fin);
+      }
+      if (!eventFirstWeek.has(eid)) {
+        eventFirstWeek.set(eid, w);
       }
     }
     for (let s = 0; s < 8; s++) {
@@ -124,11 +146,27 @@ function parseBinary(buffer, metadata) {
     }
   }
 
-  // Pre-index event metadata by ID for quick lookup
+  // Pre-index event metadata by ID and ensure all defined events have series initialized
   const eventMap = new Map();
   if (metadata.events) {
     for (const ev of metadata.events) {
       eventMap.set(ev.id, ev);
+      if (!eventWeeklyFinishers.has(ev.id)) {
+        eventWeeklyFinishers.set(ev.id, new Uint16Array(totalWeeks));
+        eventWeeklyCumulative.set(ev.id, new Int32Array(totalWeeks));
+        eventPeakFinishers.set(ev.id, 0);
+        eventFirstWeek.set(ev.id, -1);
+      }
+    }
+  }
+
+  // Compute cumulative series for every venue
+  for (const [eid, venueFinArr] of eventWeeklyFinishers.entries()) {
+    const cumArr = eventWeeklyCumulative.get(eid);
+    let sum = 0;
+    for (let w = 0; w < totalWeeks; w++) {
+      sum += venueFinArr[w];
+      cumArr[w] = sum;
     }
   }
 
@@ -144,7 +182,11 @@ function parseBinary(buffer, metadata) {
     weeklyFinishersByState,
     weeklyActiveByState,
     weeklyCumulativeByState,
-    weeklyEstablishedByState
+    weeklyEstablishedByState,
+    eventWeeklyFinishers,
+    eventWeeklyCumulative,
+    eventPeakFinishers,
+    eventFirstWeek
   };
 }
 

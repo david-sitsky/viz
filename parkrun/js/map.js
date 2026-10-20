@@ -109,9 +109,9 @@ export class ParkrunMap {
     this.map.on('click', (e) => {
       // If clicked on empty map space
       if (!this._lastPickedObject) {
-        this.pinnedRecord = null;
-        this.lastPinnedPos = null;
-        if (this.onSelectRecord) this.onSelectRecord(null);
+        if (this.pinnedRecord) {
+          this.clearPin();
+        }
       }
       this._lastPickedObject = null;
     });
@@ -158,7 +158,9 @@ export class ParkrunMap {
   clearPin() {
     this.pinnedRecord = null;
     this.lastPinnedPos = null;
+    this._lastPickedObject = null;
     if (this.onSelectRecord) this.onSelectRecord(null);
+    this._updateLayers();
   }
 
   _handleHover(info) {
@@ -190,6 +192,7 @@ export class ParkrunMap {
     if (this.onSelectRecord) {
       this.onSelectRecord(info.object, info.x, info.y, true);
     }
+    this._updateLayers();
   }
 
   _updateLayers() {
@@ -338,6 +341,29 @@ export class ParkrunMap {
         }
       })
     );
+
+    // Layer 4: Pinned event highlight ring (shows which venue is currently filtered)
+    if (this.pinnedRecord && this.pinnedRecord.lon && this.pinnedRecord.lat) {
+      const p = this.pinnedRecord;
+      layers.push(
+        new ScatterplotLayer({
+          id: 'pinned-event-highlight',
+          data: [p],
+          getPosition: d => [d.lon, d.lat],
+          getRadius: d => Math.max(14, (Math.sqrt(Math.max(1, d.finishers || 0)) * radiusScale) + 5),
+          radiusUnits: 'pixels',
+          stroked: true,
+          filled: false,
+          getLineColor: [255, 255, 255, 250],
+          getLineWidth: 2.5,
+          lineWidthUnits: 'pixels',
+          pickable: false,
+          updateTriggers: {
+            data: [p.eventId, p.finishers]
+          }
+        })
+      );
+    }
 
     // Update live hovered or pinned popup with current week's turnout
     const target = this.pinnedRecord || this.hoveredRecord;

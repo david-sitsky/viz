@@ -15,6 +15,7 @@ class ParkrunApp {
     this.hasStartedAnimation = false;
     this.speed = 20; // Default 20x
     this.selectedStateIds = new Set([0, 1, 2, 3, 4, 5, 6, 7]);
+    this.selectedEventId = null;
     this.tickTimer = null;
     this._isPopupDragged = false;
     this._lastPinnedEventId = null;
@@ -29,7 +30,7 @@ class ParkrunApp {
       this.data = await loadData(
         'data/metadata.json',
         'data/parkrun.bin',
-        'parkrun-v5',
+        'parkrun-v6',
         (phase, pct) => this._updateLoading(phase, pct)
       );
 
@@ -211,7 +212,15 @@ class ParkrunApp {
       this.dom.tabBtnGrowth.classList.remove('active');
       if (this.dom.bottomViewWeekly) this.dom.bottomViewWeekly.style.display = 'block';
       if (this.dom.bottomViewGrowth) this.dom.bottomViewGrowth.style.display = 'none';
-      if (this.dom.chartSubLabel) this.dom.chartSubLabel.textContent = 'Scaled to Peak (100%)';
+      if (this.dom.chartSubLabel) {
+        if (this.selectedEventId !== null) {
+          const evMeta = this.data.eventMap?.get(this.selectedEventId);
+          const vName = evMeta ? (evMeta.shortName || evMeta.longName) : 'Venue';
+          this.dom.chartSubLabel.textContent = `${vName} Peak (100%)`;
+        } else {
+          this.dom.chartSubLabel.textContent = 'Scaled to Peak (100%)';
+        }
+      }
     });
 
     this.dom.tabBtnGrowth.addEventListener('click', () => {
@@ -225,6 +234,10 @@ class ParkrunApp {
   }
 
   _getEarliestFilteredWeek() {
+    if (this.selectedEventId !== null && this.data?.eventFirstWeek) {
+      const fw = this.data.eventFirstWeek.get(this.selectedEventId);
+      if (fw !== undefined && fw >= 0) return fw;
+    }
     if (!this.data || !this.selectedStateIds || this.selectedStateIds.size === 0) return 0;
     const { weeklyActiveByState } = this.data;
     const totalWeeks = this.data.metadata.totalWeeks;
@@ -242,6 +255,27 @@ class ParkrunApp {
 
   _recomputePeaks() {
     const totalWeeks = this.data.metadata.totalWeeks;
+
+    if (this.selectedEventId !== null) {
+      const eid = this.selectedEventId;
+      const venueCumArr = this.data.eventWeeklyCumulative?.get(eid);
+      const peakFin = this.data.eventPeakFinishers?.get(eid) || 1;
+      const allTimeFin = venueCumArr ? venueCumArr[totalWeeks - 1] : 1;
+
+      this.cumulativeSeries = venueCumArr || new Int32Array(totalWeeks);
+      this.maxActiveLocations = 1;
+      this.maxWeeklyFinishers = Math.max(1, peakFin);
+      this.maxCumulativeFinishers = Math.max(1, allTimeFin);
+
+      if (this.growthChart) {
+        this.growthChart.setData(this.data.metadata, this.cumulativeSeries, this.maxCumulativeFinishers);
+      }
+      if (this.growthChartBottom) {
+        this.growthChartBottom.setData(this.data.metadata, this.cumulativeSeries, this.maxCumulativeFinishers);
+      }
+      return;
+    }
+
     const { weeklyActiveByState, weeklyFinishersByState, weeklyCumulativeByState } = this.data;
     
     let maxAct = 0;
@@ -449,20 +483,32 @@ class ParkrunApp {
       let cumulative = 0;
       let established = 0;
 
-      const { weeklyFinishersByState, weeklyActiveByState, weeklyCumulativeByState, weeklyEstablishedByState } = this.data;
-      if (weeklyFinishersByState) {
-        for (const sid of this.selectedStateIds) {
-          const idx = this.currentWeek * 8 + sid;
-          finishers += weeklyFinishersByState[idx];
-          activeEvents += weeklyActiveByState[idx];
-          cumulative += weeklyCumulativeByState[idx];
-          established += weeklyEstablishedByState[idx];
-        }
+      if (this.selectedEventId !== null) {
+        const eid = this.selectedEventId;
+        const venueFin = this.data.eventWeeklyFinishers?.get(eid)?.[this.currentWeek] || 0;
+        const venueCum = this.data.eventWeeklyCumulative?.get(eid)?.[this.currentWeek] || 0;
+        const firstWeek = this.data.eventFirstWeek?.get(eid) ?? -1;
+
+        finishers = venueFin;
+        activeEvents = venueFin > 0 ? 1 : 0;
+        cumulative = venueCum;
+        established = (firstWeek !== -1 && this.currentWeek >= firstWeek) ? 1 : 0;
       } else {
-        finishers = stats.finishers;
-        activeEvents = stats.activeEvents;
-        cumulative = stats.cumulativeFinishers;
-        established = stats.totalEventsEstablished;
+        const { weeklyFinishersByState, weeklyActiveByState, weeklyCumulativeByState, weeklyEstablishedByState } = this.data;
+        if (weeklyFinishersByState) {
+          for (const sid of this.selectedStateIds) {
+            const idx = this.currentWeek * 8 + sid;
+            finishers += weeklyFinishersByState[idx];
+            activeEvents += weeklyActiveByState[idx];
+            cumulative += weeklyCumulativeByState[idx];
+            established += weeklyEstablishedByState[idx];
+          }
+        } else {
+          finishers = stats.finishers;
+          activeEvents = stats.activeEvents;
+          cumulative = stats.cumulativeFinishers;
+          established = stats.totalEventsEstablished;
+        }
       }
 
       if (this.dom.statFinishers) {
@@ -495,19 +541,23 @@ class ParkrunApp {
         this.dom.barValFinishers.textContent = `${finishers.toLocaleString()} runner${finishers === 1 ? '' : 's'}`;
       }
 
-      if (this.dom.barFillCumulative) {
-        const pct = Math.min(100, (cumulative / this.maxCumulativeFinishers) * 100);
-        this.dom.barFillCumulative.style.width = `${pct.toFixed(1)}%`;
-      }
-      if (this.dom.barValCumulative) {
-        this.dom.barValCumulative.textContent = `${cumulative.toLocaleString()} finisher${cumulative === 1 ? '' : 's'}`;
-      }
-
       if (this.dom.growthCardVal) {
         this.dom.growthCardVal.textContent = cumulative.toLocaleString();
       }
       if (this.dom.growthBottomVal) {
         this.dom.growthBottomVal.textContent = cumulative.toLocaleString();
+      }
+
+      if (this.dom.chartSubLabel) {
+        if (this.dom.tabBtnGrowth?.classList.contains('active')) {
+          this.dom.chartSubLabel.textContent = 'All-Time Trajectory';
+        } else if (this.selectedEventId !== null) {
+          const evMeta = this.data.eventMap?.get(this.selectedEventId);
+          const vName = evMeta ? (evMeta.shortName || evMeta.longName) : 'Venue';
+          this.dom.chartSubLabel.textContent = `${vName} Peak (100%)`;
+        } else {
+          this.dom.chartSubLabel.textContent = 'Scaled to Peak (100%)';
+        }
       }
 
     }
@@ -583,13 +633,27 @@ class ParkrunApp {
       this.dom.tooltip.style.display = 'none';
       this._isPopupDragged = false;
       this._lastPinnedEventId = null;
+      if (this.selectedEventId !== null) {
+        this.selectedEventId = null;
+        this._recomputePeaks();
+        this._setWeek(this.currentWeek, false);
+      }
       return;
     }
 
     if (isPinned) {
-      if (this._lastPinnedEventId !== record.eventId) {
-        this._isPopupDragged = false;
-        this._lastPinnedEventId = record.eventId;
+      const eventId = record.eventId ?? null;
+      if (eventId !== null) {
+        const eventChanged = (this.selectedEventId !== eventId);
+        this.selectedEventId = eventId;
+        if (this._lastPinnedEventId !== eventId) {
+          this._isPopupDragged = false;
+          this._lastPinnedEventId = eventId;
+        }
+        if (eventChanged) {
+          this._recomputePeaks();
+          this._setWeek(this.currentWeek, false);
+        }
       }
     } else {
       this._isPopupDragged = false;

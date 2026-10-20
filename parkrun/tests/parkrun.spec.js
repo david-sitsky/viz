@@ -180,21 +180,16 @@ test.describe('Parkrun Visualisation Tests', () => {
 
     const barValActive = page.locator('#bar-val-active');
     const barValFinishers = page.locator('#bar-val-finishers');
-    const barValCumulative = page.locator('#bar-val-cumulative');
 
     // At week 0 (start), 1 venue should use singular form "1 venue" (strictly not "1 venues")
     await expect(barValActive).toHaveText('1 venue');
     await expect(barValFinishers).toHaveText('108 runners');
-    await expect(barValCumulative).toHaveText('108 finishers');
 
-    // Verify two distinct sections: WEEKLY PARTICIPATION and GROWTH separated by an hr
+    // Verify WEEKLY PARTICIPATION section
     await expect(bottomPanel.locator('#chart-title-participation')).toHaveText('WEEKLY PARTICIPATION');
-    await expect(bottomPanel.locator('hr')).toBeVisible();
-    await expect(bottomPanel.locator('#chart-title-growth')).toHaveText('GROWTH');
 
-    // Verify "Total Finishers" label in both HUD and bottom panel
+    // Verify "Total Finishers" label in HUD
     await expect(page.locator('#weekly-stats-card')).toContainText('Total Finishers');
-    await expect(bottomPanel).toContainText('Total Finishers');
 
     const scrubber = page.locator('#scrubber');
 
@@ -217,11 +212,9 @@ test.describe('Parkrun Visualisation Tests', () => {
     await scrubber.fill(maxVal);
     await scrubber.dispatchEvent('input');
 
-    // At final week, total finishers bar reaches 100%
-    const barFillCumulative = page.locator('#bar-fill-cumulative');
-    const widthStyle = await barFillCumulative.evaluate(el => el.style.width);
-    expect(widthStyle).toMatch(/^100(\.0)?%$/);
-    await expect(barValCumulative).toContainText('25,354,245 finishers');
+    // At final week, total finishers in HUD and growth card reaches 25,354,245
+    await expect(page.locator('#stat-cumulative')).toContainText('25,354,245');
+    await expect(page.locator('#growth-card-val')).toContainText('25,354,245');
   });
 
   test('Past venue popup indicates inactive status and provides homepage link when available', async ({ page }) => {
@@ -292,13 +285,12 @@ test.describe('Parkrun Visualisation Tests', () => {
     await expect(statCumulative).toHaveText('0');
     await expect(page.locator('#stat-established')).toHaveText('0');
 
-    // Verify bottom panel bar widths drop to 0%
+    // Verify bottom panel bar widths drop to 0% and growth card drops to 0
     const barActive = page.locator('#bar-fill-active');
     const barFinishers = page.locator('#bar-fill-finishers');
-    const barCumulative = page.locator('#bar-fill-cumulative');
     await expect(barActive).toHaveCSS('width', '0px');
     await expect(barFinishers).toHaveCSS('width', '0px');
-    await expect(barCumulative).toHaveCSS('width', '0px');
+    await expect(page.locator('#growth-card-val')).toHaveText('0');
 
     // Select only Queensland (QLD - index 2)
     const qldCheckbox = filterPanel.locator('input[type="checkbox"][value="2"]');
@@ -306,12 +298,9 @@ test.describe('Parkrun Visualisation Tests', () => {
 
     // Verify QLD stats are populated for final week
     await expect(statCumulative).toContainText('7,725,348');
+    await expect(page.locator('#growth-card-val')).toContainText('7,725,348');
     await expect(page.locator('#stat-active')).not.toHaveText('0');
     await expect(page.locator('#stat-finishers')).not.toHaveText('0');
-
-    // Verify cumulative bar fills to 100% since peak is calibrated to selected state
-    const qldCumulativeWidth = await barCumulative.evaluate(el => el.style.width);
-    expect(qldCumulativeWidth).toMatch(/^100(\.0)?%$/);
 
     // Select all states again
     const btnSelectAll = page.locator('#btn-select-all');
@@ -319,6 +308,7 @@ test.describe('Parkrun Visualisation Tests', () => {
 
     // Verify cumulative restores to total Australia count
     await expect(statCumulative).toContainText('25,354,245');
+    await expect(page.locator('#growth-card-val')).toContainText('25,354,245');
   });
 
   test('Popup is draggable and maintains fixed jitter-free dimensions', async ({ page }) => {
@@ -784,6 +774,97 @@ test.describe('Parkrun Visualisation Tests', () => {
     await expect(tabWeekly).toHaveClass(/active/);
     await expect(viewWeekly).toBeVisible();
     await expect(viewGrowth).not.toBeVisible();
+  });
+
+  test('Clicking a specific venue filters all statistics to that venue, and closing popup restores global options', async ({ page }) => {
+    await page.goto('/parkrun/index.html');
+    await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
+
+    // Set timeline to week 500
+    const scrubber = page.locator('#scrubber');
+    await scrubber.fill('500');
+    await scrubber.dispatchEvent('input');
+
+    // Capture global Australia-wide stats
+    const globalActive = parseInt((await page.locator('#stat-active').textContent()).replace(/,/g, ''), 10);
+    const globalFinishers = parseInt((await page.locator('#stat-finishers').textContent()).replace(/,/g, ''), 10);
+    const globalCumulative = parseInt((await page.locator('#stat-cumulative').textContent()).replace(/,/g, ''), 10);
+
+    expect(globalActive).toBeGreaterThan(10);
+    expect(globalFinishers).toBeGreaterThan(1000);
+    expect(globalCumulative).toBeGreaterThan(1_000_000);
+
+    // Simulate clicking Event 1 (St Peters) on map
+    const venueData = await page.evaluate(() => {
+      const ev = window.app.data.eventMap.get(1);
+      const w = 500;
+      const fin = window.app.data.eventWeeklyFinishers.get(1)[w];
+      const cum = window.app.data.eventWeeklyCumulative.get(1)[w];
+      const peak = window.app.data.eventPeakFinishers.get(1);
+
+      window.app.map._handleClick({
+        object: {
+          eventId: 1,
+          placename: ev.shortName || 'St Peters',
+          name: ev.longName || 'St Peters parkrun',
+          eventname: ev.eventname || 'stpeters',
+          lon: ev.lon,
+          lat: ev.lat,
+          finishers: fin,
+          date: window.app.data.metadata.weekStats[w].date
+        },
+        index: 0,
+        x: 350,
+        y: 250
+      });
+
+      return { fin, cum, peak, isVenueActive: fin > 0 };
+    });
+
+    // Verify popup is open and pinned
+    const tooltip = page.locator('#map-tooltip');
+    await expect(tooltip).toBeVisible();
+    await expect(tooltip.locator('#tooltip-title')).toContainText('St Peters');
+    await expect(tooltip.locator('#tooltip-close')).toBeVisible();
+
+    // Verify stats filtered strictly to St Peters venue:
+    // Active Locations should be 1 (if active) or 0 (if inactive)
+    const venueActiveText = venueData.isVenueActive ? '1' : '0';
+    await expect(page.locator('#stat-active')).toHaveText(venueActiveText);
+    await expect(page.locator('#bar-val-active')).toHaveText(venueData.isVenueActive ? '1 venue' : '0 venues');
+
+    if (venueData.isVenueActive) {
+      const activeBarWidth = await page.locator('#bar-fill-active').evaluate(el => el.style.width);
+      expect(activeBarWidth).toMatch(/^100(\.0)?%$/);
+    }
+
+    // Participants should reflect local venue attendance
+    await expect(page.locator('#stat-finishers')).toHaveText(venueData.fin.toLocaleString());
+    await expect(page.locator('#bar-val-finishers')).toHaveText(`${venueData.fin.toLocaleString()} ${venueData.fin === 1 ? 'runner' : 'runners'}`);
+
+    // All-time finishes in HUD and Growth Card should match venue cumulative
+    await expect(page.locator('#stat-cumulative')).toHaveText(venueData.cum.toLocaleString());
+    await expect(page.locator('#growth-card-val')).toHaveText(venueData.cum.toLocaleString());
+
+    // Chart subtitle reflects venue peak scaling
+    await expect(page.locator('#chart-sub-label')).toContainText('St Peters');
+
+    // Click '✕' on popup to close and revert to global filtering
+    await tooltip.locator('#tooltip-close').click();
+
+    // Verify popup is dismissed
+    await expect(tooltip).not.toBeVisible();
+
+    // Verify stats immediately revert back to Australia-wide global totals
+    const restoredActive = parseInt((await page.locator('#stat-active').textContent()).replace(/,/g, ''), 10);
+    const restoredFinishers = parseInt((await page.locator('#stat-finishers').textContent()).replace(/,/g, ''), 10);
+    const restoredCumulative = parseInt((await page.locator('#stat-cumulative').textContent()).replace(/,/g, ''), 10);
+
+    expect(restoredActive).toBe(globalActive);
+    expect(restoredFinishers).toBe(globalFinishers);
+    expect(restoredCumulative).toBe(globalCumulative);
+    await expect(page.locator('#growth-card-val')).toHaveText(globalCumulative.toLocaleString());
+    await expect(page.locator('#chart-sub-label')).toHaveText('Scaled to Peak (100%)');
   });
 });
 
