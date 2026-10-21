@@ -687,12 +687,17 @@ test.describe('Parkrun Visualisation Tests', () => {
     await page.goto('/parkrun/index.html');
     await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
 
-    // 1. Verify Australia map is centered higher to accommodate bottom panel
+    // 1. Verify Australia map is centered higher to accommodate bottom panel and clear Tasmania
     const center = await page.evaluate(() => window.app.map.map.getCenter());
-    expect(center.lat).toBeCloseTo(-34.0, 0);
+    expect(center.lat).toBeCloseTo(-37.0, 0);
 
     const ptAlice = await page.evaluate(() => window.app.map.map.project([133.5, -25.5]));
-    expect(ptAlice.y).toBeLessThan(380); // shifted up from raw screen center (422)
+    expect(ptAlice.y).toBeLessThan(350); // shifted up from raw screen center (422)
+
+    // Verify Tasmania southern tip has ample clearance above the bottom panel
+    const initialBottomPanel = await page.locator('#bottom-panel').boundingBox();
+    const ptTas = await page.evaluate(() => window.app.map.map.project([146.8, -43.64]));
+    expect(initialBottomPanel.y - ptTas.y).toBeGreaterThan(100);
 
     // 2. Trigger watermark to 2012
     const scrubber = page.locator('#scrubber');
@@ -828,14 +833,15 @@ test.describe('Parkrun Visualisation Tests', () => {
     const tabWeeklyPlot = page.locator('#tab-btn-weekly-plot');
     const viewGrowth = page.locator('#bottom-view-growth');
     const viewWeeklyPlot = page.locator('#bottom-view-weekly-plot');
-    const subLabel = page.locator('#chart-sub-label');
+    const growthTitle = page.locator('#growth-bottom-title');
+    const weeklyTitle = page.locator('#weekly-bottom-title');
 
     // Initially, Growth Line is active by default on mobile
     await expect(tabGrowth).toHaveClass(/active/);
     await expect(tabWeeklyPlot).not.toHaveClass(/active/);
     await expect(viewGrowth).toBeVisible();
     await expect(viewWeeklyPlot).not.toBeVisible();
-    await expect(subLabel).toHaveText('All-Time Trajectory');
+    await expect(growthTitle).toHaveText('All-Time Growth');
 
     const bottomCanvas = page.locator('#growth-canvas-bottom');
     await expect(bottomCanvas).toBeVisible();
@@ -853,7 +859,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     await expect(tabGrowth).not.toHaveClass(/active/);
     await expect(viewWeeklyPlot).toBeVisible();
     await expect(viewGrowth).not.toBeVisible();
-    await expect(subLabel).toHaveText('Weekly Turnout History');
+    await expect(weeklyTitle).toHaveText('Weekly Participants');
 
     const bottomWeeklyCanvas = page.locator('#weekly-canvas-bottom');
     await expect(bottomWeeklyCanvas).toBeVisible();
@@ -866,7 +872,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     await expect(tabWeeklyPlot).not.toHaveClass(/active/);
     await expect(viewGrowth).toBeVisible();
     await expect(viewWeeklyPlot).not.toBeVisible();
-    await expect(subLabel).toHaveText('All-Time Trajectory');
+    await expect(growthTitle).toHaveText('All-Time Growth');
   });
 
   test('Tapping on a venue on mobile always displays a pinned popup with venue filtering and close button', async ({ page }) => {
@@ -909,12 +915,20 @@ test.describe('Parkrun Visualisation Tests', () => {
     // Verify venue filtering is applied (Locations Established is 1)
     await expect(page.locator('#stat-established')).toHaveText('1');
 
+    // Verify mobile bottom panel chart titles include venue name in brackets
+    const growthBottomTitle = page.locator('#growth-bottom-title');
+    const weeklyBottomTitle = page.locator('#weekly-bottom-title');
+    await expect(growthBottomTitle).toContainText('(St Peters)');
+    await expect(weeklyBottomTitle).toContainText('(St Peters)');
+
     // Dismiss pinned popup via close button
     await closeBtn.click();
     await expect(tooltip).not.toBeVisible();
 
-    // Stats restored to global overview
+    // Stats and mobile chart titles restored to global overview
     await expect(page.locator('#stat-established')).not.toHaveText('1');
+    await expect(growthBottomTitle).toHaveText('All-Time Growth');
+    await expect(weeklyBottomTitle).toHaveText('Weekly Participants');
   });
 
   test('Clicking a specific venue filters all statistics to that venue, and closing popup restores global options', async ({ page }) => {

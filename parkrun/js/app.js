@@ -160,7 +160,8 @@ class ParkrunApp {
       growthCanvasBottom:     $('growth-canvas-bottom'),
       weeklyBottomVal:        $('weekly-bottom-val'),
       weeklyCanvasBottom:     $('weekly-canvas-bottom'),
-      chartSubLabel:          $('chart-sub-label'),
+      growthBottomTitle:      $('growth-bottom-title'),
+      weeklyBottomTitle:      $('weekly-bottom-title'),
     };
   }
 
@@ -257,12 +258,6 @@ class ParkrunApp {
 
   _updateChartSubLabel() {
     this._updateCardTitles();
-    if (!this.dom.chartSubLabel) return;
-    if (this.dom.tabBtnGrowth?.classList.contains('active')) {
-      this.dom.chartSubLabel.textContent = 'All-Time Trajectory';
-    } else if (this.dom.tabBtnWeeklyPlot?.classList.contains('active')) {
-      this.dom.chartSubLabel.textContent = 'Weekly Turnout History';
-    }
   }
 
   _updateCardTitles() {
@@ -275,12 +270,24 @@ class ParkrunApp {
       if (this.dom.weeklyCardTitle) {
         this.dom.weeklyCardTitle.textContent = `Weekly Participants (${vName})`;
       }
+      if (this.dom.growthBottomTitle) {
+        this.dom.growthBottomTitle.textContent = `All-Time Growth (${vName})`;
+      }
+      if (this.dom.weeklyBottomTitle) {
+        this.dom.weeklyBottomTitle.textContent = `Weekly Participants (${vName})`;
+      }
     } else {
       if (this.dom.growthCardTitle) {
         this.dom.growthCardTitle.textContent = 'All-Time Growth';
       }
       if (this.dom.weeklyCardTitle) {
         this.dom.weeklyCardTitle.textContent = 'Weekly Participants';
+      }
+      if (this.dom.growthBottomTitle) {
+        this.dom.growthBottomTitle.textContent = 'All-Time Growth';
+      }
+      if (this.dom.weeklyBottomTitle) {
+        this.dom.weeklyBottomTitle.textContent = 'Weekly Participants';
       }
     }
   }
