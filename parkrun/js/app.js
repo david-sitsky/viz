@@ -860,7 +860,7 @@ class ParkrunApp {
         element: '.viz-title',
         popover: {
           title: 'Welcome',
-          description: 'This interactive map animates weekly Saturday Parkrun events across Australia, tracking runner participation and venue growth from 2011 to today.',
+          description: 'This interactive map animates weekly Parkrun events across Australia, tracking runner participation and venue growth from 2011 to today.',
           side: 'bottom',
           align: 'start'
         }
@@ -869,7 +869,7 @@ class ParkrunApp {
         element: '#btn-play',
         popover: {
           title: 'Play the Timeline',
-          description: 'Click play to start animating through Saturday Parkrun events across Australia, or drag the scrubber below to jump to any week.',
+          description: 'Click play to start animating through Parkrun events across Australia, or drag the scrubber below to jump to any week.',
           side: 'bottom',
           align: 'start'
         }

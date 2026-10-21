@@ -540,7 +540,7 @@ test.describe('Parkrun Visualisation Tests', () => {
 
     // Step 1: Welcome / Intro text
     await expect(popover.locator('.driver-popover-title')).toHaveText('Welcome');
-    await expect(popover.locator('.driver-popover-description')).toContainText('animates weekly Saturday Parkrun events across Australia');
+    await expect(popover.locator('.driver-popover-description')).toContainText('animates weekly Parkrun events across Australia');
 
     // Step 2: Main controls
     await popover.locator('.driver-popover-next-btn').click();
