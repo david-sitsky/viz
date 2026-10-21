@@ -303,6 +303,7 @@ class ParkrunApp {
 
   _recomputePeaks() {
     const totalWeeks = this.data.metadata.totalWeeks;
+    const earliestWeek = this._getEarliestFilteredWeek();
 
     if (this.selectedEventId !== null) {
       const eid = this.selectedEventId;
@@ -318,16 +319,16 @@ class ParkrunApp {
       this.maxCumulativeFinishers = Math.max(1, allTimeFin);
 
       if (this.growthChart) {
-        this.growthChart.setData(this.data.metadata, this.cumulativeSeries, this.maxCumulativeFinishers);
+        this.growthChart.setData(this.data.metadata, this.cumulativeSeries, this.maxCumulativeFinishers, earliestWeek);
       }
       if (this.growthChartBottom) {
-        this.growthChartBottom.setData(this.data.metadata, this.cumulativeSeries, this.maxCumulativeFinishers);
+        this.growthChartBottom.setData(this.data.metadata, this.cumulativeSeries, this.maxCumulativeFinishers, earliestWeek);
       }
       if (this.weeklyChart) {
-        this.weeklyChart.setData(this.data.metadata, this.weeklySeries, this.maxWeeklyFinishers);
+        this.weeklyChart.setData(this.data.metadata, this.weeklySeries, this.maxWeeklyFinishers, earliestWeek);
       }
       if (this.weeklyChartBottom) {
-        this.weeklyChartBottom.setData(this.data.metadata, this.weeklySeries, this.maxWeeklyFinishers);
+        this.weeklyChartBottom.setData(this.data.metadata, this.weeklySeries, this.maxWeeklyFinishers, earliestWeek);
       }
       return;
     }
@@ -368,16 +369,16 @@ class ParkrunApp {
     this.maxCumulativeFinishers = Math.max(1, maxCum);
 
     if (this.growthChart) {
-      this.growthChart.setData(this.data.metadata, cumulativeSeries, this.maxCumulativeFinishers);
+      this.growthChart.setData(this.data.metadata, cumulativeSeries, this.maxCumulativeFinishers, earliestWeek);
     }
     if (this.growthChartBottom) {
-      this.growthChartBottom.setData(this.data.metadata, cumulativeSeries, this.maxCumulativeFinishers);
+      this.growthChartBottom.setData(this.data.metadata, cumulativeSeries, this.maxCumulativeFinishers, earliestWeek);
     }
     if (this.weeklyChart) {
-      this.weeklyChart.setData(this.data.metadata, weeklySeries, this.maxWeeklyFinishers);
+      this.weeklyChart.setData(this.data.metadata, weeklySeries, this.maxWeeklyFinishers, earliestWeek);
     }
     if (this.weeklyChartBottom) {
-      this.weeklyChartBottom.setData(this.data.metadata, weeklySeries, this.maxWeeklyFinishers);
+      this.weeklyChartBottom.setData(this.data.metadata, weeklySeries, this.maxWeeklyFinishers, earliestWeek);
     }
   }
 
@@ -649,15 +650,15 @@ class ParkrunApp {
     // Force layout reflow so animation retriggers cleanly
     void this.dom.yearWatermark.offsetWidth;
 
-    // Scale transition and hold duration dynamically - twice as slow as base interval
+    // Scale transition and hold duration dynamically - doubled elapsed time as requested
     const baseIntervalMs = this.playing
       ? Math.max(30, Math.round(1000 / this.speed))
       : Math.max(200, Math.round(1000 / this.speed));
-    const durationMs = baseIntervalMs * 2;
+    const durationMs = baseIntervalMs * 4;
 
-    const fadeInMs = Math.max(30, Math.round(durationMs * 0.25));
-    const fadeOutMs = Math.max(30, Math.round(durationMs * 0.35));
-    const holdMs = Math.max(20, durationMs - fadeOutMs);
+    const fadeInMs = Math.max(60, Math.round(durationMs * 0.25));
+    const fadeOutMs = Math.max(60, Math.round(durationMs * 0.35));
+    const holdMs = Math.max(40, durationMs - fadeOutMs);
 
     this.dom.yearWatermark.style.transition = `opacity ${fadeInMs}ms ease-out, transform ${fadeInMs}ms ease-out`;
     this.dom.yearWatermark.classList.add('show');
@@ -704,7 +705,12 @@ class ParkrunApp {
       if (this.selectedEventId !== null) {
         this.selectedEventId = null;
         this._recomputePeaks();
-        this._setWeek(this.currentWeek, false);
+        const earliestWeek = this._getEarliestFilteredWeek();
+        if (this.currentWeek < earliestWeek) {
+          this._setWeek(earliestWeek, true);
+        } else {
+          this._setWeek(this.currentWeek, false);
+        }
       }
       return;
     }
@@ -720,7 +726,12 @@ class ParkrunApp {
         }
         if (eventChanged) {
           this._recomputePeaks();
-          this._setWeek(this.currentWeek, false);
+          const earliestWeek = this._getEarliestFilteredWeek();
+          if (this.currentWeek < earliestWeek) {
+            this._setWeek(earliestWeek, true);
+          } else {
+            this._setWeek(this.currentWeek, false);
+          }
         }
       }
     } else {

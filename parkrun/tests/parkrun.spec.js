@@ -920,5 +920,93 @@ test.describe('Parkrun Visualisation Tests', () => {
     expect(scrubVal).toBeGreaterThan(300);
     expect(scrubVal).toBeLessThan(500);
   });
+
+  test('Plots start dates and first date ticks reflect filtered start date (state and venue)', async ({ page }) => {
+    await page.goto('/parkrun/index.html');
+    await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
+
+    // 1. Initial national view: starts at week 0 (April 2011), first tick is '11
+    const initialChartState = await page.evaluate(() => ({
+      growthStartWeek: window.app.growthChart.startWeek,
+      growthFirstTick: window.app.growthChart.yearTicks[0]?.label,
+      weeklyStartWeek: window.app.weeklyChart.startWeek,
+      weeklyFirstTick: window.app.weeklyChart.yearTicks[0]?.label,
+    }));
+
+    expect(initialChartState.growthStartWeek).toBe(0);
+    expect(initialChartState.growthFirstTick).toBe("'11");
+    expect(initialChartState.weeklyStartWeek).toBe(0);
+    expect(initialChartState.weeklyFirstTick).toBe("'11");
+
+    // 2. Filter by NSW (starts 21 Jan 2012, Week 42): first tick should reflect '12
+    const settingsBtn = page.locator('#btn-settings');
+    const isChecked = await page.locator('#mobile-toggle').evaluate(el => el.checked);
+    if (!isChecked) await settingsBtn.click({ force: true });
+
+    await page.locator('#btn-deselect-all').click();
+    await page.locator('#filter-content input[type="checkbox"][value="0"]').check(); // NSW
+
+    const nswChartState = await page.evaluate(() => ({
+      growthStartWeek: window.app.growthChart.startWeek,
+      growthFirstTick: window.app.growthChart.yearTicks[0]?.label,
+      weeklyStartWeek: window.app.weeklyChart.startWeek,
+      weeklyFirstTick: window.app.weeklyChart.yearTicks[0]?.label,
+    }));
+
+    expect(nswChartState.growthStartWeek).toBe(42);
+    expect(nswChartState.growthFirstTick).toBe("'12");
+    expect(nswChartState.weeklyStartWeek).toBe(42);
+    expect(nswChartState.weeklyFirstTick).toBe("'12");
+
+    // 3. Select all states again
+    await page.locator('#btn-select-all').click();
+
+    // Close settings drawer
+    const isCheckedAfter = await page.locator('#mobile-toggle').evaluate(el => el.checked);
+    if (isCheckedAfter) await settingsBtn.click({ force: true });
+
+    // 4. Select a specific venue: Event 1 (St Peters, firstWeek 42)
+    await page.evaluate(() => {
+      const ev = window.app.data.eventMap.get(1);
+      window.app.map._handleClick({
+        object: {
+          eventId: 1,
+          placename: ev.shortName || 'St Peters',
+          name: ev.longName || 'St Peters parkrun',
+          eventname: ev.eventname || 'stpeters',
+          lon: ev.lon,
+          lat: ev.lat,
+          finishers: 100,
+          date: '2012-01-21'
+        },
+        index: 0,
+        x: 350,
+        y: 250
+      });
+    });
+
+    const venueChartState = await page.evaluate(() => ({
+      growthStartWeek: window.app.growthChart.startWeek,
+      growthFirstTick: window.app.growthChart.yearTicks[0]?.label,
+      weeklyStartWeek: window.app.weeklyChart.startWeek,
+      weeklyFirstTick: window.app.weeklyChart.yearTicks[0]?.label,
+    }));
+
+    expect(venueChartState.growthStartWeek).toBe(42);
+    expect(venueChartState.growthFirstTick).toBe("'12");
+    expect(venueChartState.weeklyStartWeek).toBe(42);
+    expect(venueChartState.weeklyFirstTick).toBe("'12");
+
+    // 5. Dismiss venue popup: verifies restored to week 0 and '11
+    await page.locator('#tooltip-close').click();
+
+    const restoredChartState = await page.evaluate(() => ({
+      growthStartWeek: window.app.growthChart.startWeek,
+      growthFirstTick: window.app.growthChart.yearTicks[0]?.label,
+    }));
+
+    expect(restoredChartState.growthStartWeek).toBe(0);
+    expect(restoredChartState.growthFirstTick).toBe("'11");
+  });
 });
 
