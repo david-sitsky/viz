@@ -41,12 +41,12 @@ export function getRunnerColor(finishers, alpha = 210) {
 function calculateOptimalAustraliaViewport() {
   const w = window.innerWidth;
   const h = window.innerHeight;
-  const isMobilePortrait = (w <= 600 && h > w);
+  const isMobilePortrait = (w <= 640 && h > w);
   const centerLng = 133.5;
-  const centerLat = isMobilePortrait ? -25.5 : -27.6;
+  const centerLat = isMobilePortrait ? -34.0 : -27.6;
   let zoom;
-  if (w <= 450) zoom = isMobilePortrait ? 2.15 : 2.4;
-  else if (w <= 650) zoom = isMobilePortrait ? 2.45 : 2.7;
+  if (w <= 450) zoom = isMobilePortrait ? 2.25 : 2.4;
+  else if (w <= 650) zoom = isMobilePortrait ? 2.5 : 2.7;
   else if (w <= 1000) zoom = 3.0;
   else if (w <= 1400) zoom = 3.35;
   else zoom = 3.5;

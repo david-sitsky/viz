@@ -682,6 +682,37 @@ test.describe('Parkrun Visualisation Tests', () => {
     expect(Math.abs(centerAfterY - viewport.height / 2)).toBeLessThan(10);
   });
 
+  test('On mobile, Australia map is shifted up and year watermark is centered between top and bottom panels', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/parkrun/index.html');
+    await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
+
+    // 1. Verify Australia map is centered higher to accommodate bottom panel
+    const center = await page.evaluate(() => window.app.map.map.getCenter());
+    expect(center.lat).toBeCloseTo(-34.0, 0);
+
+    const ptAlice = await page.evaluate(() => window.app.map.map.project([133.5, -25.5]));
+    expect(ptAlice.y).toBeLessThan(380); // shifted up from raw screen center (422)
+
+    // 2. Trigger watermark to 2012
+    const scrubber = page.locator('#scrubber');
+    await scrubber.fill('40');
+    await scrubber.dispatchEvent('input');
+
+    const watermark = page.locator('#year-watermark');
+    await expect(watermark).toHaveText('2012');
+
+    const box = await watermark.boundingBox();
+    const statsBar = await page.locator('#stats-bar').boundingBox();
+    const bottomPanel = await page.locator('#bottom-panel').boundingBox();
+
+    const distToStats = box.y - (statsBar.y + statsBar.height);
+    const distToBottom = bottomPanel.y - (box.y + box.height);
+
+    // Watermark is centered between top panel and bottom panel within 25px tolerance
+    expect(Math.abs(distToStats - distToBottom)).toBeLessThan(25);
+  });
+
   test('Female runner icons are used consistently across favicon, loading screen, header, and gallery', async ({ page }) => {
     await page.goto('/parkrun/index.html');
     await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
