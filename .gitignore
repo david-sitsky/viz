@@ -25,4 +25,4 @@ parkrun/data/metadata.json
 !parkrun/data/events/*.csv
 !parkrun/data/raw_events.csv
 */data/species_info.json
-
+gas-export-tax*

@@ -1,11 +1,13 @@
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 const { chromium } = require('@playwright/test');
 const { execSync } = require('child_process');
 
 const DATA_DIR = path.resolve(__dirname, '../data');
 const EVENTS_DIR = path.resolve(DATA_DIR, 'events');
 const CATALOG_FILE = path.resolve(DATA_DIR, 'events_catalog.json');
+const EVENTS_JSON_URL = 'https://images.parkrun.com/events.json';
 
 const args = process.argv.slice(2);
 function getArg(flag, defaultValue) {
@@ -19,17 +21,92 @@ const hasFlag = (flag) => args.includes(flag);
 
 const DRY_RUN = hasFlag('--dry-run');
 const FORCE = hasFlag('--force');
+const SKIP_LOCATION_SYNC = hasFlag('--skip-location-sync');
+const CONCURRENCY = Math.max(1, parseInt(getArg('--concurrency', '3'), 10));
 const BATCH = parseInt(getArg('--batch', '1'), 10);
 const TOTAL_BATCHES = parseInt(getArg('--total-batches', '1'), 10);
-const DELAY_MS = parseInt(getArg('--delay', '1500'), 10);
+const DELAY_MS = parseInt(getArg('--delay', '800'), 10);
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function fetchEventsJson() {
+  return new Promise((resolve, reject) => {
+    https.get(EVENTS_JSON_URL, { headers: { 'User-Agent': 'Mozilla/5.0' }, timeout: 15000 }, (res) => {
+      if (res.statusCode !== 200) {
+        return reject(new Error(`HTTP ${res.statusCode}`));
+      }
+      let rawData = '';
+      res.on('data', (chunk) => { rawData += chunk; });
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(rawData));
+        } catch (e) {
+          reject(e);
+        }
+      });
+    }).on('error', reject);
+  });
+}
+
+async function syncLocations(catalog) {
+  try {
+    console.log('Checking images.parkrun.com/events.json for new Australian locations...');
+    const master = await fetchEventsJson();
+    if (!master || !master.events || !master.events.features) {
+      console.warn('Could not parse live events.json features, skipping location sync.');
+      return catalog;
+    }
+
+    const ausSaturdayFeatures = master.events.features.filter(
+      (f) => f.properties && f.properties.countrycode === 3 && f.properties.seriesid === 1 && !f.properties.eventname.includes('-juniors')
+    );
+
+    const existingNames = new Set(catalog.map((e) => e.eventname));
+    let newLocationsCount = 0;
+
+    for (const f of ausSaturdayFeatures) {
+      const ename = f.properties.eventname;
+      if (!existingNames.has(ename)) {
+        const newId = catalog.length + 1;
+        const newEntry = {
+          id: newId,
+          eventname: ename,
+          longName: f.properties.EventLongName || ename,
+          shortName: f.properties.EventShortName || ename,
+          location: f.properties.EventLocation || '',
+          seriesid: f.properties.seriesid,
+          lon: f.geometry.coordinates[0],
+          lat: f.geometry.coordinates[1],
+        };
+        catalog.push(newEntry);
+        existingNames.add(ename);
+        newLocationsCount++;
+
+        const csvPath = path.join(EVENTS_DIR, `${ename}.csv`);
+        if (!fs.existsSync(csvPath)) {
+          fs.writeFileSync(csvPath, 'event_number,date,finishers,volunteers,male_first_finisher,male_time,female_first_finisher,female_time\n');
+        }
+        console.log(`[New Location] Discovered new parkrun: ${newEntry.longName} (${ename})`);
+      }
+    }
+
+    if (newLocationsCount > 0) {
+      fs.writeFileSync(CATALOG_FILE, JSON.stringify(catalog, null, 2));
+      console.log(`[Locations Sync] Added ${newLocationsCount} new location(s) to catalog. Total locations: ${catalog.length}`);
+    } else {
+      console.log(`[Locations Sync] All ${catalog.length} Saturday locations are up to date.`);
+    }
+  } catch (err) {
+    console.warn(`[Locations Sync] Could not check live events.json (${err.message}). Using existing catalog.`);
+  }
+  return catalog;
+}
+
 function getLatestSaturday() {
   const now = new Date();
-  const day = now.getUTCDay(); // 0 = Sun, 6 = Sat
+  const day = now.getUTCDay();
   const diffDays = (day + 1) % 7;
   const sat = new Date(now.getTime() - diffDays * 86400000);
   return sat.toISOString().slice(0, 10);
@@ -68,52 +145,56 @@ function getLatestEventInCsv(csvPath) {
   };
 }
 
-async function scrapeNewEvents(page, eventName, lastRecordedEventNum) {
+async function scrapeNewEvents(page, eventName, lastRecordedEventNum, retries = 2) {
   const url = `https://www.parkrun.com.au/${eventName}/results/eventhistory/`;
-  try {
-    const resp = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 35000 });
-    if (!resp || resp.status() === 404) return [];
-    if (resp.status() === 405) {
-      console.warn(`[WAF 405] Cooling down 90s on ${eventName}...`);
-      await sleep(90000);
-      return [];
-    }
-
-    const hasTable = await page.$('table.Results-table');
-    if (!hasTable) return [];
-
-    const rows = await page.$$eval('table.Results-table tbody tr', (trs) => {
-      return trs.map((tr) => Array.from(tr.querySelectorAll('td')).map((td) => td.innerText.trim()));
-    });
-
-    const newRows = [];
-    for (const cells of rows) {
-      if (!cells || cells.length < 3) continue;
-      const eventNum = parseInt(cells[0], 10);
-      if (isNaN(eventNum) || eventNum <= lastRecordedEventNum) {
-        // Rows are sorted descending (latest first). Once we hit an already-recorded event, stop!
-        break;
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const resp = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 25000 });
+      if (!resp || resp.status() === 404) return [];
+      if (resp.status() === 405) {
+        console.warn(`[WAF 405] Cooling down 60s on ${eventName}...`);
+        await sleep(60000);
+        continue;
       }
 
-      newRows.push({
-        event_number: eventNum,
-        date: cells[1],
-        finishers: parseInt(cells[2], 10) || 0,
-        volunteers: parseInt(cells[3], 10) || 0,
-        male_first_finisher: cells[4] || '',
-        male_time: cells[5] || '',
-        female_first_finisher: cells[6] || '',
-        female_time: cells[7] || '',
-      });
-    }
+      const hasTable = await page.$('table.Results-table');
+      if (!hasTable) return [];
 
-    // Sort ascending for appending
-    newRows.reverse();
-    return newRows;
-  } catch (e) {
-    console.error(`Error scraping ${eventName}:`, e.message);
-    return [];
+      const rows = await page.$$eval('table.Results-table tbody tr', (trs) => {
+        return trs.map((tr) => Array.from(tr.querySelectorAll('td')).map((td) => td.innerText.trim()));
+      });
+
+      const newRows = [];
+      for (const cells of rows) {
+        if (!cells || cells.length < 3) continue;
+        const eventNum = parseInt(cells[0], 10);
+        if (isNaN(eventNum) || eventNum <= lastRecordedEventNum) {
+          break;
+        }
+
+        newRows.push({
+          event_number: eventNum,
+          date: cells[1],
+          finishers: parseInt(cells[2], 10) || 0,
+          volunteers: parseInt(cells[3], 10) || 0,
+          male_first_finisher: cells[4] || '',
+          male_time: cells[5] || '',
+          female_first_finisher: cells[6] || '',
+          female_time: cells[7] || '',
+        });
+      }
+
+      newRows.reverse();
+      return newRows;
+    } catch (e) {
+      if (attempt === retries) {
+        console.error(`Error scraping ${eventName} after ${retries} attempts:`, e.message);
+        return [];
+      }
+      await sleep(2000 * attempt);
+    }
   }
+  return [];
 }
 
 async function main() {
@@ -122,8 +203,12 @@ async function main() {
     process.exit(1);
   }
 
-  const catalog = JSON.parse(fs.readFileSync(CATALOG_FILE, 'utf-8'));
-  // Strictly Saturday 5k events
+  let catalog = JSON.parse(fs.readFileSync(CATALOG_FILE, 'utf-8'));
+
+  if (!SKIP_LOCATION_SYNC) {
+    catalog = await syncLocations(catalog);
+  }
+
   const saturdayEvents = catalog.filter(
     (ev) => ev.seriesid === 1 && !ev.eventname.includes('-juniors')
   );
@@ -146,7 +231,6 @@ async function main() {
 
   console.log(`Events needing updates: ${pendingEvents.length} of ${saturdayEvents.length}`);
 
-  // Apply batch partition if specified
   let batchEvents = pendingEvents;
   if (TOTAL_BATCHES > 1) {
     const batchSize = Math.ceil(pendingEvents.length / TOTAL_BATCHES);
@@ -169,46 +253,64 @@ async function main() {
     headless: true,
     args: ['--disable-blink-features=AutomationControlled']
   });
-  const context = await browser.newContext({
-    userAgent:
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
-  });
-  const page = await context.newPage();
 
+  const workerCount = Math.min(CONCURRENCY, batchEvents.length);
+  console.log(`Launching ${workerCount} concurrent worker(s) to fetch updates...`);
+
+  let currentIndex = 0;
   let totalNewRunsAdded = 0;
   let updatedCount = 0;
 
-  for (let i = 0; i < batchEvents.length; i++) {
-    const ev = batchEvents[i];
-    const csvPath = path.join(EVENTS_DIR, `${ev.eventname}.csv`);
+  async function worker(workerId) {
+    const context = await browser.newContext({
+      userAgent:
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+    });
+    const page = await context.newPage();
+    await page.route('**/*.{png,jpg,jpeg,svg,gif,webp,woff,woff2,ttf,css}', (route) => route.abort());
 
-    await sleep(DELAY_MS + Math.floor(Math.random() * 600));
+    while (true) {
+      const i = currentIndex++;
+      if (i >= batchEvents.length) break;
 
-    const newRows = await scrapeNewEvents(page, ev.eventname, ev.lastEventNum);
-    if (newRows.length > 0) {
-      const appendLines = [];
-      for (const r of newRows) {
-        appendLines.push([
-          r.event_number,
-          parseDateDDMMYYYY(r.date),
-          r.finishers,
-          r.volunteers,
-          escapeCsvField(r.male_first_finisher),
-          escapeCsvField(r.male_time),
-          escapeCsvField(r.female_first_finisher),
-          escapeCsvField(r.female_time),
-        ].join(','));
+      const ev = batchEvents[i];
+      const csvPath = path.join(EVENTS_DIR, `${ev.eventname}.csv`);
+
+      await sleep(DELAY_MS + Math.floor(Math.random() * 400));
+
+      const newRows = await scrapeNewEvents(page, ev.eventname, ev.lastEventNum);
+      if (newRows.length > 0) {
+        const appendLines = [];
+        for (const r of newRows) {
+          appendLines.push([
+            r.event_number,
+            parseDateDDMMYYYY(r.date),
+            r.finishers,
+            r.volunteers,
+            escapeCsvField(r.male_first_finisher),
+            escapeCsvField(r.male_time),
+            escapeCsvField(r.female_first_finisher),
+            escapeCsvField(r.female_time),
+          ].join(','));
+        }
+
+        fs.appendFileSync(csvPath, appendLines.join('\n') + '\n');
+        totalNewRunsAdded += newRows.length;
+        updatedCount++;
+        console.log(`[Worker ${workerId + 1}] [${i + 1}/${batchEvents.length}] ${ev.eventname}: +${newRows.length} new run(s) added (latest: ${newRows[newRows.length - 1].date})`);
+      } else {
+        console.log(`[Worker ${workerId + 1}] [${i + 1}/${batchEvents.length}] ${ev.eventname}: up to date`);
       }
-
-      fs.appendFileSync(csvPath, appendLines.join('\n') + '\n');
-      totalNewRunsAdded += newRows.length;
-      updatedCount++;
-      console.log(`[${i + 1}/${batchEvents.length}] ${ev.eventname}: +${newRows.length} new events added (latest: ${newRows[newRows.length - 1].date})`);
-    } else {
-      console.log(`[${i + 1}/${batchEvents.length}] ${ev.eventname}: no new runs`);
     }
+
+    await context.close();
   }
 
+  const workers = [];
+  for (let w = 0; w < workerCount; w++) {
+    workers.push(worker(w));
+  }
+  await Promise.all(workers);
   await browser.close();
 
   console.log(`\nWeekly check complete. Updated ${updatedCount} events (+${totalNewRunsAdded} runs added).`);
