@@ -41,15 +41,6 @@ class ParkrunApp {
         this._updateTooltip(record, x, y, isPinned);
       });
 
-      if (this.dom.yearWatermarkContainer && this.map?.map && globalThis.maplibregl) {
-        new globalThis.maplibregl.Marker({
-          element: this.dom.yearWatermarkContainer,
-          anchor: 'center'
-        })
-          .setLngLat([133.8, -25.5])
-          .addTo(this.map.map);
-      }
-
       if (this.dom.growthCanvas) {
         this.growthChart = new GrowthLineChart(this.dom.growthCanvas, {
           onSeek: (w) => this._setWeek(w, true)
@@ -862,75 +853,121 @@ class ParkrunApp {
       this.tourDriver.destroy();
     }
 
+    const isMobile = window.innerWidth <= 640;
+
+    const steps = [
+      {
+        element: '.viz-title',
+        popover: {
+          title: 'Welcome',
+          description: 'This interactive map animates weekly Saturday Parkrun events across Australia, tracking runner participation and venue growth from 2011 to today.',
+          side: 'bottom',
+          align: 'start'
+        }
+      },
+      {
+        element: '#btn-play',
+        popover: {
+          title: 'Play the Timeline',
+          description: 'Click play to start animating through Saturday Parkrun events across Australia, or drag the scrubber below to jump to any week.',
+          side: 'bottom',
+          align: 'start'
+        }
+      }
+    ];
+
+    if (!isMobile) {
+      steps.push(
+        {
+          element: '#growth-card',
+          popover: {
+            title: 'All-Time Growth',
+            description: 'Shows cumulative finishes across Australia since 2011. Drag or click anywhere directly on the graph line to scrub through the timeline.',
+            side: 'right',
+            align: 'start'
+          }
+        },
+        {
+          element: '#weekly-chart-card',
+          popover: {
+            title: 'Weekly Participants',
+            description: 'Displays the weekly attendance curve over time, highlighting seasonal peaks and trends. You can also drag or click on this graph to scrub.',
+            side: 'right',
+            align: 'start'
+          }
+        }
+      );
+    } else {
+      steps.push({
+        element: '#bottom-panel',
+        popover: {
+          title: 'Interactive Graphs',
+          description: 'Use the tabs below to switch between weekly turnout bars, the all-time growth line, and weekly attendance history. Tap or drag along the line plots to scrub through the timeline.',
+          side: 'top',
+          align: 'center'
+        }
+      });
+    }
+
+    steps.push(
+      {
+        popover: {
+          title: 'Filter by Single Venue',
+          description: 'Click or tap any parkrun venue circle on the map to pin its popup. All statistics, graphs, and timeline dates will filter exclusively to that venue, showing its name in the graph headers. Click the "✕" button on the popup to return to the all-events view.'
+        }
+      },
+      {
+        element: '#btn-settings',
+        popover: {
+          title: 'Settings',
+          description: 'Click here to open the settings drawer for speed control, basemap styles, and state & territory filtering.',
+          side: 'bottom',
+          align: 'end'
+        }
+      },
+      {
+        element: '#filter-panel',
+        popover: {
+          title: 'Filter by State & Territory',
+          description: 'Select individual states or territories. Statistics, graphs, and the earliest timeline start date automatically recalibrate to the selected regions.',
+          side: 'right',
+          align: 'start'
+        }
+      },
+      {
+        element: '#speed',
+        popover: {
+          title: 'Adjust Speed',
+          description: 'Control how fast the timeline progresses using this slider, from 1× up to 20× speed.',
+          side: 'top',
+          align: 'start'
+        }
+      },
+      {
+        element: '.home-nav-inline',
+        popover: {
+          title: 'Back to Home',
+          description: 'Click here to go back to the list of interactive visualisations available.',
+          side: 'bottom',
+          align: 'start'
+        }
+      }
+    );
+
     const d = window.driver.js.driver({
       showProgress: true,
       popoverClass: 'driverjs-theme',
       onHighlightStarted: (element, step, options) => {
         const toggle = document.getElementById('mobile-toggle');
         if (toggle) {
-          if (step.element === '#filter-panel' || step.element === '#speed') {
+          if (step && (step.element === '#filter-panel' || step.element === '#speed')) {
             if (!toggle.checked) toggle.checked = true;
           } else {
             if (toggle.checked) toggle.checked = false;
           }
         }
       },
-      steps: [
-        {
-          element: '.viz-title',
-          popover: {
-            title: 'Welcome',
-            description: 'This interactive map animates weekly Saturday Parkrun events across Australia, tracking runner participation and venue growth from 2011 to today.',
-            side: 'bottom',
-            align: 'start'
-          }
-        },
-        {
-          element: '#btn-play',
-          popover: {
-            title: 'Play the Timeline',
-            description: 'Click play to start animating through Saturday Parkrun events across Australia, or drag the scrubber below to jump to any week.',
-            side: 'bottom',
-            align: 'start'
-          }
-        },
-        {
-          element: '#btn-settings',
-          popover: {
-            title: 'Settings',
-            description: 'Click here to open the settings drawer for speed control, basemap styles, and state & territory filtering.',
-            side: 'bottom',
-            align: 'end'
-          }
-        },
-        {
-          element: '#filter-panel',
-          popover: {
-            title: 'Filter by State & Territory',
-            description: 'Select individual states or territories. Statistics, graphs, and the earliest timeline start date automatically recalibrate to the selected regions.',
-            side: 'right',
-            align: 'start'
-          }
-        },
-        {
-          element: '#speed',
-          popover: {
-            title: 'Adjust Speed',
-            description: 'Control how fast the timeline progresses using this slider, from 1× up to 20× speed.',
-            side: 'top',
-            align: 'start'
-          }
-        },
-        {
-          element: '.home-nav-inline',
-          popover: {
-            title: 'Back to Home',
-            description: 'Click here to go back to the list of interactive visualisations available.',
-            side: 'bottom',
-            align: 'start'
-          }
-        }
-      ],
+      steps,
       onDestroyStarted: () => {
         try {
           localStorage.setItem('hasSeenParkrunTour', 'true');

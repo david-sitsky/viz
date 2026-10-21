@@ -546,25 +546,40 @@ test.describe('Parkrun Visualisation Tests', () => {
     await popover.locator('.driver-popover-next-btn').click();
     await expect(popover.locator('.driver-popover-title')).toHaveText('Play the Timeline');
 
-    // Step 3: Settings button
+    // Step 3: All-Time Growth line graph (desktop left panel)
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover.locator('.driver-popover-title')).toHaveText('All-Time Growth');
+    await expect(popover.locator('.driver-popover-description')).toContainText('cumulative finishes');
+
+    // Step 4: Weekly Participants line graph (desktop left panel)
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover.locator('.driver-popover-title')).toHaveText('Weekly Participants');
+    await expect(popover.locator('.driver-popover-description')).toContainText('weekly attendance');
+
+    // Step 5: Filter by Single Venue
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover.locator('.driver-popover-title')).toHaveText('Filter by Single Venue');
+    await expect(popover.locator('.driver-popover-description')).toContainText('filter exclusively to that venue');
+
+    // Step 6: Settings button
     await popover.locator('.driver-popover-next-btn').click();
     await expect(popover.locator('.driver-popover-title')).toHaveText('Settings');
 
-    // Step 4: Filtering settings shown (drawer opened)
+    // Step 7: Filtering settings shown (drawer opened)
     await popover.locator('.driver-popover-next-btn').click();
     await expect(popover.locator('.driver-popover-title')).toHaveText('Filter by State & Territory');
-    const isCheckedStep4 = await page.locator('#mobile-toggle').evaluate(el => el.checked);
-    expect(isCheckedStep4).toBe(true);
+    const isCheckedStep7 = await page.locator('#mobile-toggle').evaluate(el => el.checked);
+    expect(isCheckedStep7).toBe(true);
 
-    // Step 5: Speed control
+    // Step 8: Speed control
     await popover.locator('.driver-popover-next-btn').click();
     await expect(popover.locator('.driver-popover-title')).toHaveText('Adjust Speed');
 
-    // Step 6: Home button strictly last (drawer closed)
+    // Step 9: Home button strictly last (drawer closed)
     await popover.locator('.driver-popover-next-btn').click();
     await expect(popover.locator('.driver-popover-title')).toHaveText('Back to Home');
-    const isCheckedStep6 = await page.locator('#mobile-toggle').evaluate(el => el.checked);
-    expect(isCheckedStep6).toBe(false);
+    const isCheckedStep9 = await page.locator('#mobile-toggle').evaluate(el => el.checked);
+    expect(isCheckedStep9).toBe(false);
 
     // Close / Complete tour
     await popover.locator('.driver-popover-next-btn').click();
@@ -575,6 +590,60 @@ test.describe('Parkrun Visualisation Tests', () => {
     expect(hasSeen).toBe('true');
   });
 
+  test('Help walkthrough tour on mobile highlights bottom panel graphs and venue selection', async ({ page }) => {
+    // Set mobile viewport
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.addInitScript(() => {
+      localStorage.clear();
+    });
+
+    await page.goto('/parkrun/index.html');
+    await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
+
+    const popover = page.locator('.driver-popover');
+    await expect(popover).toBeVisible({ timeout: 6000 });
+
+    // Step 1: Welcome
+    await expect(popover.locator('.driver-popover-title')).toHaveText('Welcome');
+
+    // Step 2: Play the Timeline
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover.locator('.driver-popover-title')).toHaveText('Play the Timeline');
+
+    // Step 3: Interactive Graphs (bottom panel on mobile)
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover.locator('.driver-popover-title')).toHaveText('Interactive Graphs');
+    await expect(popover.locator('.driver-popover-description')).toContainText('switch between weekly turnout bars');
+
+    // Step 4: Filter by Single Venue
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover.locator('.driver-popover-title')).toHaveText('Filter by Single Venue');
+
+    // Step 5: Settings
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover.locator('.driver-popover-title')).toHaveText('Settings');
+
+    // Step 6: Filter by State & Territory (drawer opens)
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover.locator('.driver-popover-title')).toHaveText('Filter by State & Territory');
+    const isCheckedStep6 = await page.locator('#mobile-toggle').evaluate(el => el.checked);
+    expect(isCheckedStep6).toBe(true);
+
+    // Step 7: Speed control
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover.locator('.driver-popover-title')).toHaveText('Adjust Speed');
+
+    // Step 8: Back to Home (drawer closes)
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover.locator('.driver-popover-title')).toHaveText('Back to Home');
+    const isCheckedStep8 = await page.locator('#mobile-toggle').evaluate(el => el.checked);
+    expect(isCheckedStep8).toBe(false);
+
+    // Complete tour
+    await popover.locator('.driver-popover-next-btn').click();
+    await expect(popover).toHaveCount(0);
+  });
+
   test('Past venues checkbox option is removed from settings drawer and past venues remain enabled by default', async ({ page }) => {
     await page.goto('/parkrun/index.html');
     await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
@@ -583,37 +652,45 @@ test.describe('Parkrun Visualisation Tests', () => {
     await expect(page.locator('#toggle-established')).toHaveCount(0);
   });
 
-  test('Year watermark is anchored to central Australia and follows map movement', async ({ page }) => {
+  test('Year watermark is centered in middle of screen and remains visible and stationary across map pan and zoom', async ({ page }) => {
     await page.goto('/parkrun/index.html');
     await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
 
     const watermarkContainer = page.locator('#year-watermark-container');
     await expect(watermarkContainer).toBeAttached();
 
-    // Verify it is attached inside MapLibre marker container
-    await expect(page.locator('.maplibregl-marker #year-watermark')).toBeAttached();
+    // Verify it is NOT attached as a map coordinate marker
+    await expect(page.locator('.maplibregl-marker #year-watermark')).toHaveCount(0);
 
     // Trigger watermark to 2012
     const scrubber = page.locator('#scrubber');
     await scrubber.fill('40');
     await scrubber.dispatchEvent('input');
-    await expect(page.locator('#year-watermark')).toHaveText('2012');
+    const watermark = page.locator('#year-watermark');
+    await expect(watermark).toHaveText('2012');
 
-    // Get initial position of marker
-    const boxBefore = await watermarkContainer.boundingBox();
+    // Verify watermark is centered in screen viewport
+    const viewport = page.viewportSize();
+    const boxBefore = await watermark.boundingBox();
     expect(boxBefore).not.toBeNull();
+    const centerBeforeX = boxBefore.x + boxBefore.width / 2;
+    const centerBeforeY = boxBefore.y + boxBefore.height / 2;
+    expect(Math.abs(centerBeforeX - viewport.width / 2)).toBeLessThan(10);
+    expect(Math.abs(centerBeforeY - viewport.height / 2)).toBeLessThan(10);
 
-    // Pan map by [150, 80]
+    // Pan map by [150, 80] and zoom in significantly (e.g. zooming in on Sydney)
     await page.evaluate(() => {
       window.app.map.map.panBy([150, 80], { animate: false });
+      window.app.map.map.zoomTo(8, { animate: false });
     });
 
-    const boxAfter = await watermarkContainer.boundingBox();
+    // Watermark position on screen remains centered and does not drift off-screen
+    const boxAfter = await watermark.boundingBox();
     expect(boxAfter).not.toBeNull();
-
-    // Container position on screen should have shifted by exactly -150 and -80
-    expect(Math.round(boxAfter.x - boxBefore.x)).toBe(-150);
-    expect(Math.round(boxAfter.y - boxBefore.y)).toBe(-80);
+    const centerAfterX = boxAfter.x + boxAfter.width / 2;
+    const centerAfterY = boxAfter.y + boxAfter.height / 2;
+    expect(Math.abs(centerAfterX - viewport.width / 2)).toBeLessThan(10);
+    expect(Math.abs(centerAfterY - viewport.height / 2)).toBeLessThan(10);
   });
 
   test('Female runner icons are used consistently across favicon, loading screen, header, and gallery', async ({ page }) => {
