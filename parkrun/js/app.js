@@ -227,16 +227,13 @@ class ParkrunApp {
   }
 
   _setupBottomPanelTabs() {
-    if (!this.dom.tabBtnWeekly || !this.dom.tabBtnGrowth || !this.dom.tabBtnWeeklyPlot) return;
+    if (!this.dom.tabBtnGrowth || !this.dom.tabBtnWeeklyPlot) return;
 
     const setTab = (activeTab) => {
-      [this.dom.tabBtnWeekly, this.dom.tabBtnGrowth, this.dom.tabBtnWeeklyPlot].forEach(b => {
+      [this.dom.tabBtnGrowth, this.dom.tabBtnWeeklyPlot].forEach(b => {
         if (b) b.classList.toggle('active', b === activeTab);
       });
 
-      if (this.dom.bottomViewWeekly) {
-        this.dom.bottomViewWeekly.style.display = (activeTab === this.dom.tabBtnWeekly) ? 'block' : 'none';
-      }
       if (this.dom.bottomViewGrowth) {
         this.dom.bottomViewGrowth.style.display = (activeTab === this.dom.tabBtnGrowth) ? 'block' : 'none';
       }
@@ -254,7 +251,6 @@ class ParkrunApp {
       }
     };
 
-    this.dom.tabBtnWeekly.addEventListener('click', () => setTab(this.dom.tabBtnWeekly));
     this.dom.tabBtnGrowth.addEventListener('click', () => setTab(this.dom.tabBtnGrowth));
     this.dom.tabBtnWeeklyPlot.addEventListener('click', () => setTab(this.dom.tabBtnWeeklyPlot));
   }
@@ -266,12 +262,6 @@ class ParkrunApp {
       this.dom.chartSubLabel.textContent = 'All-Time Trajectory';
     } else if (this.dom.tabBtnWeeklyPlot?.classList.contains('active')) {
       this.dom.chartSubLabel.textContent = 'Weekly Turnout History';
-    } else if (this.selectedEventId !== null) {
-      const evMeta = this.data.eventMap?.get(this.selectedEventId);
-      const vName = evMeta ? (evMeta.shortName || evMeta.longName) : 'Venue';
-      this.dom.chartSubLabel.textContent = `${vName} Peak (100%)`;
-    } else {
-      this.dom.chartSubLabel.textContent = 'Scaled to Peak (100%)';
     }
   }
 
@@ -714,6 +704,12 @@ class ParkrunApp {
 
   _updateTooltip(record, x, y, isPinned = false) {
     if (!this.dom.tooltip) return;
+
+    const isMobile = typeof window !== 'undefined' && (window.innerWidth <= 640 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches));
+    if (isMobile && record) {
+      isPinned = true;
+    }
+
     if (!record) {
       this.dom.tooltip.style.display = 'none';
       this._isPopupDragged = false;
@@ -902,7 +898,7 @@ class ParkrunApp {
         element: '#bottom-panel',
         popover: {
           title: 'Interactive Graphs',
-          description: 'Use the tabs below to switch between weekly turnout bars, the all-time growth line, and weekly attendance history. Tap or drag along the line plots to scrub through the timeline.',
+          description: 'Switch between the [ 📈 Growth Line ] of all-time finishes and the [ 🏃 Weekly Line ] turnout history. Tap or drag along the line graphs to scrub through the timeline.',
           side: 'top',
           align: 'center'
         }

@@ -171,7 +171,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     await expect(page.locator('#weekly-card-val')).toHaveText('100');
   });
 
-  test('Bottom panel renders horizontal bar graphs scaled appropriately with 100% peaks on mobile', async ({ page }) => {
+  test('Bottom panel renders Growth Line and Weekly Line graphs matching desktop on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/parkrun/index.html');
     await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
@@ -179,39 +179,28 @@ test.describe('Parkrun Visualisation Tests', () => {
     const bottomPanel = page.locator('#bottom-panel');
     await expect(bottomPanel).toBeVisible();
 
-    const barValActive = page.locator('#bar-val-active');
-    const barValFinishers = page.locator('#bar-val-finishers');
+    // Verify old weekly bar charts are removed
+    await expect(page.locator('#tab-btn-weekly')).toHaveCount(0);
+    await expect(page.locator('#bottom-view-weekly')).toHaveCount(0);
 
-    // At week 0 (start), 1 venue should use singular form "1 venue" (strictly not "1 venues")
-    await expect(barValActive).toHaveText('1 venue');
-    await expect(barValFinishers).toHaveText('108 runners');
+    // Verify Growth Line and Weekly Line tabs are present
+    const tabGrowth = page.locator('#tab-btn-growth');
+    const tabWeeklyPlot = page.locator('#tab-btn-weekly-plot');
+    await expect(tabGrowth).toBeVisible();
+    await expect(tabWeeklyPlot).toBeVisible();
 
-    // Verify WEEKLY PARTICIPATION section
-    await expect(bottomPanel.locator('#chart-title-participation')).toHaveText('WEEKLY PARTICIPATION');
-
-    const scrubber = page.locator('#scrubber');
-
-    // At week 804 (peak active venues in dataset: 540 venues), bar reaches 100%
-    await scrubber.fill('804');
-    await scrubber.dispatchEvent('input');
-    const barFillActive = page.locator('#bar-fill-active');
-    const activeWidth = await barFillActive.evaluate(el => el.style.width);
-    expect(activeWidth).toMatch(/^100(\.0)?%$/);
-
-    // At week 770 (peak weekly participants: 98,962 runners), bar reaches 100%
-    await scrubber.fill('770');
-    await scrubber.dispatchEvent('input');
-    const barFillFinishers = page.locator('#bar-fill-finishers');
-    const finishersWidth = await barFillFinishers.evaluate(el => el.style.width);
-    expect(finishersWidth).toMatch(/^100(\.0)?%$/);
+    // Growth Line view is active by default
+    await expect(tabGrowth).toHaveClass(/active/);
+    await expect(page.locator('#bottom-view-growth')).toBeVisible();
 
     // Scrubber to final week (25,354,245 total runners)
+    const scrubber = page.locator('#scrubber');
     const maxVal = await scrubber.getAttribute('max');
     await scrubber.fill(maxVal);
     await scrubber.dispatchEvent('input');
 
-    // At final week, total finishers in growth card reaches 25,354,245
-    await expect(page.locator('#growth-card-val')).toContainText('25,354,245');
+    // At final week, total finishers in growth graph reaches 25,354,245
+    await expect(page.locator('#growth-bottom-val')).toContainText('25,354,245');
   });
 
   test('Past venue popup indicates inactive status and provides homepage link when available', async ({ page }) => {
@@ -613,7 +602,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     // Step 3: Interactive Graphs (bottom panel on mobile)
     await popover.locator('.driver-popover-next-btn').click();
     await expect(popover.locator('.driver-popover-title')).toHaveText('Interactive Graphs');
-    await expect(popover.locator('.driver-popover-description')).toContainText('switch between weekly turnout bars');
+    await expect(popover.locator('.driver-popover-description')).toContainText('Growth Line');
 
     // Step 4: Filter by Single Venue
     await popover.locator('.driver-popover-next-btn').click();
@@ -799,33 +788,21 @@ test.describe('Parkrun Visualisation Tests', () => {
     expect(scrubVal).toBeLessThan(500);
   });
 
-  test('Bottom panel view tabs allow toggling between weekly turnout bars and full growth curve line graph on mobile', async ({ page }) => {
+  test('Bottom panel view tabs allow toggling between Growth Line and Weekly Line graphs on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/parkrun/index.html');
     await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
 
-    const tabWeekly = page.locator('#tab-btn-weekly');
     const tabGrowth = page.locator('#tab-btn-growth');
     const tabWeeklyPlot = page.locator('#tab-btn-weekly-plot');
-    const viewWeekly = page.locator('#bottom-view-weekly');
     const viewGrowth = page.locator('#bottom-view-growth');
     const viewWeeklyPlot = page.locator('#bottom-view-weekly-plot');
     const subLabel = page.locator('#chart-sub-label');
 
-    // Initially, Weekly view is active
-    await expect(tabWeekly).toHaveClass(/active/);
-    await expect(viewWeekly).toBeVisible();
-    await expect(viewGrowth).not.toBeVisible();
-    await expect(viewWeeklyPlot).not.toBeVisible();
-    await expect(subLabel).toHaveText('Scaled to Peak (100%)');
-
-    // Click Growth tab
-    await tabGrowth.click();
+    // Initially, Growth Line is active by default on mobile
     await expect(tabGrowth).toHaveClass(/active/);
-    await expect(tabWeekly).not.toHaveClass(/active/);
     await expect(tabWeeklyPlot).not.toHaveClass(/active/);
     await expect(viewGrowth).toBeVisible();
-    await expect(viewWeekly).not.toBeVisible();
     await expect(viewWeeklyPlot).not.toBeVisible();
     await expect(subLabel).toHaveText('All-Time Trajectory');
 
@@ -843,9 +820,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     await tabWeeklyPlot.click();
     await expect(tabWeeklyPlot).toHaveClass(/active/);
     await expect(tabGrowth).not.toHaveClass(/active/);
-    await expect(tabWeekly).not.toHaveClass(/active/);
     await expect(viewWeeklyPlot).toBeVisible();
-    await expect(viewWeekly).not.toBeVisible();
     await expect(viewGrowth).not.toBeVisible();
     await expect(subLabel).toHaveText('Weekly Turnout History');
 
@@ -854,12 +829,61 @@ test.describe('Parkrun Visualisation Tests', () => {
     const bottomWeeklyVal = page.locator('#weekly-bottom-val');
     await expect(bottomWeeklyVal).not.toHaveText('0');
 
-    // Click Weekly tab to switch back
-    await tabWeekly.click();
-    await expect(tabWeekly).toHaveClass(/active/);
-    await expect(viewWeekly).toBeVisible();
-    await expect(viewGrowth).not.toBeVisible();
+    // Click Growth tab to switch back
+    await tabGrowth.click();
+    await expect(tabGrowth).toHaveClass(/active/);
+    await expect(tabWeeklyPlot).not.toHaveClass(/active/);
+    await expect(viewGrowth).toBeVisible();
     await expect(viewWeeklyPlot).not.toBeVisible();
+    await expect(subLabel).toHaveText('All-Time Trajectory');
+  });
+
+  test('Tapping on a venue on mobile always displays a pinned popup with venue filtering and close button', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/parkrun/index.html');
+    await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
+
+    // Set timeline to week 500
+    const scrubber = page.locator('#scrubber');
+    await scrubber.fill('500');
+    await scrubber.dispatchEvent('input');
+
+    // Simulate mobile touch / hover on St Peters (eventId: 1)
+    await page.evaluate(() => {
+      const ev = window.app.data.eventMap.get(1);
+      window.app.map._handleHover({
+        object: {
+          eventId: 1,
+          placename: ev.shortName || 'St Peters',
+          name: ev.longName || 'St Peters parkrun',
+          eventname: ev.eventname || 'stpeters',
+          lon: ev.lon,
+          lat: ev.lat,
+          finishers: 150,
+          date: '2012-01-21'
+        },
+        index: 0,
+        x: 200,
+        y: 300
+      });
+    });
+
+    const tooltip = page.locator('#map-tooltip');
+    await expect(tooltip).toBeVisible();
+
+    // Verify on mobile it is treated strictly as a pinned popup with close button visible
+    const closeBtn = tooltip.locator('#tooltip-close');
+    await expect(closeBtn).toBeVisible();
+
+    // Verify venue filtering is applied (Locations Established is 1)
+    await expect(page.locator('#stat-established')).toHaveText('1');
+
+    // Dismiss pinned popup via close button
+    await closeBtn.click();
+    await expect(tooltip).not.toBeVisible();
+
+    // Stats restored to global overview
+    await expect(page.locator('#stat-established')).not.toHaveText('1');
   });
 
   test('Clicking a specific venue filters all statistics to that venue, and closing popup restores global options', async ({ page }) => {

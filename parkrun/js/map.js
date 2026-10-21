@@ -88,9 +88,10 @@ export class ParkrunMap {
       }
     }
 
+    const isMobileDevice = typeof window !== 'undefined' && (window.innerWidth <= 640 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches));
     this.overlay = new MapboxOverlay({
       interleaved: false,
-      pickingRadius: 14,
+      pickingRadius: isMobileDevice ? 24 : 14,
       onClick: (info) => this._handleClick(info),
       onHover: (info) => this._handleHover(info),
     });
@@ -167,12 +168,20 @@ export class ParkrunMap {
     if (this.map && (this.map.isMoving() || this.map.isZooming())) return;
     if (this.pinnedRecord) return; // Keep pinned popup open
 
+    const isMobile = typeof window !== 'undefined' && (window.innerWidth <= 640 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches));
+
     const container = document.getElementById(this.map.getContainer().id);
     if (!info || info.index < 0 || !info.object) {
       if (container) container.style.cursor = '';
       this.hoveredRecord = null;
       this.lastHoverPos = null;
-      if (this.onSelectRecord) this.onSelectRecord(null);
+      if (!isMobile && this.onSelectRecord) this.onSelectRecord(null);
+      return;
+    }
+
+    if (isMobile) {
+      // On mobile / touch devices, any tap on a venue is treated as a pinned popup with filtering
+      this._handleClick(info);
       return;
     }
 

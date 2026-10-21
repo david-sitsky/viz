@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive map showing the weekly growth of Parkrun participants and locations across Australia over time">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏃‍♀️</text></svg>">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610211254">
+  <link rel="stylesheet" href="../common/styles.css?v=202610211317">
   <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
   <style>
@@ -415,49 +415,21 @@
     </div>
   </div>
 
-  <!-- ─── Bottom Panel: Horizontal Bar Charts & Growth Curve ─── -->
+  <!-- ─── Bottom Panel: Line Graphs for Mobile ─── -->
   <div id="bottom-panel" class="glass hidden" style="pointer-events: auto;">
     <!-- View Switcher Tabs Header -->
     <div class="chart-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
       <div style="display: flex; gap: 6px; align-items: center;">
-        <button id="tab-btn-weekly" class="chart-tab-btn active" type="button" title="View Weekly Participation Bars">📊 Weekly</button>
-        <button id="tab-btn-growth" class="chart-tab-btn" type="button" title="View Growth Curve Line Graph">📈 Growth Line</button>
+        <button id="tab-btn-growth" class="chart-tab-btn active" type="button" title="View Growth Curve Line Graph">📈 Growth Line</button>
         <button id="tab-btn-weekly-plot" class="chart-tab-btn" type="button" title="View Weekly Participants Line Graph">🏃 Weekly Line</button>
       </div>
       <div id="chart-sub-label" style="font-size: 9px; color: rgba(255,255,255,0.45); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
-        Scaled to Peak (100%)
+        All-Time Trajectory
       </div>
     </div>
 
-    <!-- View 1: Weekly Turnout Bars (Default) -->
-    <div id="bottom-view-weekly">
-      <div class="chart-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-        <div class="chart-title" id="chart-title-participation" style="margin-bottom: 0; font-weight: 700; color: #e4e4e7; font-size: 11px; letter-spacing: 0.5px;">
-          WEEKLY PARTICIPATION
-        </div>
-      </div>
-      <div class="bar-chart" id="bar-chart-participation">
-        <!-- Active Locations Row -->
-        <div class="bar-row">
-          <div class="bar-label" style="width: 125px;">Active Locations</div>
-          <div class="bar-track">
-            <div class="bar-fill" id="bar-fill-active" style="width: 0%; background: linear-gradient(90deg, #06b6d4, #22d3ee);"></div>
-          </div>
-          <div class="bar-value" id="bar-val-active" style="width: 110px; text-align: right; color: #38bdf8;">0</div>
-        </div>
-        <!-- Participants Row -->
-        <div class="bar-row">
-          <div class="bar-label" style="width: 125px;">Participants</div>
-          <div class="bar-track">
-            <div class="bar-fill" id="bar-fill-finishers" style="width: 0%; background: linear-gradient(90deg, #ea580c, #f97316);"></div>
-          </div>
-          <div class="bar-value" id="bar-val-finishers" style="width: 110px; text-align: right; color: var(--parkrun-orange); font-weight: 700;">0</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- View 2: Growth Line Graph View (Toggled on Mobile or Desktop) -->
-    <div id="bottom-view-growth" style="display: none;">
+    <!-- View 1: Growth Line Graph View (Default on Mobile) -->
+    <div id="bottom-view-growth" style="display: block;">
       <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
         <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: rgba(255,255,255,0.7); letter-spacing: 0.5px;">Total Finishes Over Time</span>
         <div style="text-align: right;">
@@ -497,6 +469,6 @@
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/app.js?v=202610211254"></script>
+  <script type="module" src="js/app.js?v=202610211317"></script>
 </body>
 </html>
