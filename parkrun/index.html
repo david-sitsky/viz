@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive map showing the weekly growth of Saturday Parkrun participants and locations across Australia over time">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏃‍♀️</text></svg>">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="../common/styles.css?v=202610211048">
+  <link rel="stylesheet" href="../common/styles.css?v=202610211106">
   <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
   <style>
@@ -187,11 +187,21 @@
       border-color: rgba(249, 115, 22, 0.45);
       color: #fb923c;
     }
+    #top-left-panel {
+      max-height: calc(100vh - 24px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: none;
+    }
+    #top-left-panel::-webkit-scrollbar {
+      display: none;
+    }
     /* Mobile Portrait Responsiveness */
     @media (max-width: 640px) {
       #mobile-toggle:not(:checked) ~ #top-left-panel #weekly-stats-card,
       #mobile-toggle:not(:checked) ~ #top-left-panel #legend-card,
-      #mobile-toggle:not(:checked) ~ #top-left-panel #growth-card {
+      #mobile-toggle:not(:checked) ~ #top-left-panel #growth-card,
+      #mobile-toggle:not(:checked) ~ #top-left-panel #weekly-chart-card {
         display: none !important;
       }
       .bar-label {
@@ -350,6 +360,25 @@
       </div>
     </div>
 
+    <!-- Weekly Participants Line Chart Card (Desktop Left Panel) -->
+    <div id="weekly-chart-card" class="glass hidden" style="margin-top: 8px; padding: 10px 12px; pointer-events: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+        <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: rgba(255,255,255,0.7); letter-spacing: 0.5px;">Weekly Participants</span>
+        <div style="text-align: right;">
+          <span id="weekly-card-val" style="font-size: 13px; font-weight: 700; color: #38bdf8; font-variant-numeric: tabular-nums;">0</span>
+          <span style="font-size: 10px; color: rgba(255,255,255,0.5);"> runners</span>
+        </div>
+      </div>
+      <div style="position: relative; width: 100%; height: 110px;">
+        <canvas id="weekly-canvas" style="width: 100%; height: 100%; display: block; border-radius: 4px; cursor: crosshair; touch-action: none;"></canvas>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 9px; color: rgba(255,255,255,0.4); margin-top: 4px;">
+        <span>Apr 2011</span>
+        <span style="color: rgba(56, 189, 248, 0.75);">Drag line to scrub</span>
+        <span>Oct 2026</span>
+      </div>
+    </div>
+
     <!-- Playback Controls / Settings Drawer -->
     <footer id="controls" class="glass hidden" style="pointer-events: auto; margin-top: 8px;">
       <div class="controls-row" style="display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
@@ -399,6 +428,7 @@
       <div style="display: flex; gap: 6px; align-items: center;">
         <button id="tab-btn-weekly" class="chart-tab-btn active" type="button" title="View Weekly Participation Bars">📊 Weekly</button>
         <button id="tab-btn-growth" class="chart-tab-btn" type="button" title="View Growth Curve Line Graph">📈 Growth Line</button>
+        <button id="tab-btn-weekly-plot" class="chart-tab-btn" type="button" title="View Weekly Participants Line Graph">🏃 Weekly Line</button>
       </div>
       <div id="chart-sub-label" style="font-size: 9px; color: rgba(255,255,255,0.45); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
         Scaled to Peak (100%)
@@ -450,10 +480,29 @@
         <span>Oct 2026</span>
       </div>
     </div>
+
+    <!-- View 3: Weekly Participants Line Graph View -->
+    <div id="bottom-view-weekly-plot" style="display: none;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+        <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: rgba(255,255,255,0.7); letter-spacing: 0.5px;">Weekly Participants Over Time</span>
+        <div style="text-align: right;">
+          <span id="weekly-bottom-val" style="font-size: 13px; font-weight: 700; color: #38bdf8; font-variant-numeric: tabular-nums;">0</span>
+          <span style="font-size: 10px; color: rgba(255,255,255,0.5);"> runners</span>
+        </div>
+      </div>
+      <div style="position: relative; width: 100%; height: 110px;">
+        <canvas id="weekly-canvas-bottom" style="width: 100%; height: 100%; display: block; border-radius: 4px; cursor: crosshair; touch-action: none;"></canvas>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 9px; color: rgba(255,255,255,0.4); margin-top: 4px;">
+        <span>Apr 2011</span>
+        <span style="color: rgba(56, 189, 248, 0.75);">Drag line to scrub</span>
+        <span>Oct 2026</span>
+      </div>
+    </div>
   </div>
 
   <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/deck.gl@9/dist.min.js"></script>
-  <script type="module" src="js/app.js?v=202610211048"></script>
+  <script type="module" src="js/app.js?v=202610211106"></script>
 </body>
 </html>

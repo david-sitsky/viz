@@ -741,22 +741,27 @@ test.describe('Parkrun Visualisation Tests', () => {
 
     const tabWeekly = page.locator('#tab-btn-weekly');
     const tabGrowth = page.locator('#tab-btn-growth');
+    const tabWeeklyPlot = page.locator('#tab-btn-weekly-plot');
     const viewWeekly = page.locator('#bottom-view-weekly');
     const viewGrowth = page.locator('#bottom-view-growth');
+    const viewWeeklyPlot = page.locator('#bottom-view-weekly-plot');
     const subLabel = page.locator('#chart-sub-label');
 
     // Initially, Weekly view is active
     await expect(tabWeekly).toHaveClass(/active/);
     await expect(viewWeekly).toBeVisible();
     await expect(viewGrowth).not.toBeVisible();
+    await expect(viewWeeklyPlot).not.toBeVisible();
     await expect(subLabel).toHaveText('Scaled to Peak (100%)');
 
     // Click Growth tab
     await tabGrowth.click();
     await expect(tabGrowth).toHaveClass(/active/);
     await expect(tabWeekly).not.toHaveClass(/active/);
+    await expect(tabWeeklyPlot).not.toHaveClass(/active/);
     await expect(viewGrowth).toBeVisible();
     await expect(viewWeekly).not.toBeVisible();
+    await expect(viewWeeklyPlot).not.toBeVisible();
     await expect(subLabel).toHaveText('All-Time Trajectory');
 
     const bottomCanvas = page.locator('#growth-canvas-bottom');
@@ -769,11 +774,27 @@ test.describe('Parkrun Visualisation Tests', () => {
     const bottomVal = page.locator('#growth-bottom-val');
     await expect(bottomVal).not.toHaveText('0');
 
+    // Click Weekly Line plot tab
+    await tabWeeklyPlot.click();
+    await expect(tabWeeklyPlot).toHaveClass(/active/);
+    await expect(tabGrowth).not.toHaveClass(/active/);
+    await expect(tabWeekly).not.toHaveClass(/active/);
+    await expect(viewWeeklyPlot).toBeVisible();
+    await expect(viewWeekly).not.toBeVisible();
+    await expect(viewGrowth).not.toBeVisible();
+    await expect(subLabel).toHaveText('Weekly Turnout History');
+
+    const bottomWeeklyCanvas = page.locator('#weekly-canvas-bottom');
+    await expect(bottomWeeklyCanvas).toBeVisible();
+    const bottomWeeklyVal = page.locator('#weekly-bottom-val');
+    await expect(bottomWeeklyVal).not.toHaveText('0');
+
     // Click Weekly tab to switch back
     await tabWeekly.click();
     await expect(tabWeekly).toHaveClass(/active/);
     await expect(viewWeekly).toBeVisible();
     await expect(viewGrowth).not.toBeVisible();
+    await expect(viewWeeklyPlot).not.toBeVisible();
   });
 
   test('Clicking a specific venue filters all statistics to that venue, and closing popup restores global options', async ({ page }) => {
@@ -841,6 +862,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     // Participants should reflect local venue attendance
     await expect(page.locator('#stat-finishers')).toHaveText(venueData.fin.toLocaleString());
     await expect(page.locator('#bar-val-finishers')).toHaveText(`${venueData.fin.toLocaleString()} ${venueData.fin === 1 ? 'runner' : 'runners'}`);
+    await expect(page.locator('#weekly-card-val')).toHaveText(venueData.fin.toLocaleString());
 
     // All-time finishes in HUD and Growth Card should match venue cumulative
     await expect(page.locator('#stat-cumulative')).toHaveText(venueData.cum.toLocaleString());
@@ -864,7 +886,39 @@ test.describe('Parkrun Visualisation Tests', () => {
     expect(restoredFinishers).toBe(globalFinishers);
     expect(restoredCumulative).toBe(globalCumulative);
     await expect(page.locator('#growth-card-val')).toHaveText(globalCumulative.toLocaleString());
+    await expect(page.locator('#weekly-card-val')).toHaveText(globalFinishers.toLocaleString());
     await expect(page.locator('#chart-sub-label')).toHaveText('Scaled to Peak (100%)');
+  });
+
+  test('Weekly participants line graph on desktop left panel renders and supports scrubbing', async ({ page }) => {
+    await page.goto('/parkrun/index.html');
+    await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
+
+    const weeklyCard = page.locator('#weekly-chart-card');
+    await expect(weeklyCard).toBeVisible();
+
+    const weeklyVal = page.locator('#weekly-card-val');
+    await expect(weeklyVal).toBeVisible();
+
+    const canvas = page.locator('#weekly-canvas');
+    await expect(canvas).toBeVisible();
+
+    // Verify scrubber updates weekly runners
+    const scrubber = page.locator('#scrubber');
+    await scrubber.fill('200');
+    await scrubber.dispatchEvent('input');
+
+    const val200 = await weeklyVal.textContent();
+    expect(parseInt(val200.replace(/,/g, ''), 10)).toBeGreaterThan(100);
+
+    // Test click-to-scrub on canvas: clicking near the middle of canvas seeks timeline
+    const canvasBox = await canvas.boundingBox();
+    expect(canvasBox).not.toBeNull();
+    await page.mouse.click(canvasBox.x + canvasBox.width * 0.5, canvasBox.y + canvasBox.height * 0.5);
+
+    const scrubVal = parseInt(await scrubber.inputValue(), 10);
+    expect(scrubVal).toBeGreaterThan(300);
+    expect(scrubVal).toBeLessThan(500);
   });
 });
 

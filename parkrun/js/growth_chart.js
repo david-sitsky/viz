@@ -13,9 +13,20 @@ export class GrowthLineChart {
     this.showGhost = options.showGhost !== false;
     this.showCovidBand = options.showCovidBand !== false;
 
+    // Optional style customizations
+    this.lineColors = options.lineColors || ['#f59e0b', '#f97316', '#fb7185'];
+    this.areaColorStops = options.areaColorStops || [
+      { stop: 0, color: 'rgba(249, 115, 22, 0.32)' },
+      { stop: 0.7, color: 'rgba(249, 115, 22, 0.08)' },
+      { stop: 1, color: 'rgba(249, 115, 22, 0.0)' }
+    ];
+    this.glowColor = options.glowColor || 'rgba(249, 115, 22, 0.35)';
+    this.headRingColor = options.headRingColor || '#f97316';
+
     this.totalWeeks = 0;
     this.currentWeek = 0;
-    this.cumulativeSeries = [];
+    this.series = [];
+    this.cumulativeSeries = []; // backwards compatibility
     this.metadata = null;
     this.maxVal = 1;
     this.yearTicks = [];
@@ -80,10 +91,11 @@ export class GrowthLineChart {
     }
   }
 
-  setData(metadata, cumulativeSeries, maxVal) {
+  setData(metadata, series, maxVal) {
     this.metadata = metadata;
     this.totalWeeks = metadata.totalWeeks;
-    this.cumulativeSeries = cumulativeSeries;
+    this.series = series;
+    this.cumulativeSeries = series; // backwards compatibility
     this.maxVal = Math.max(1, maxVal);
 
     // Compute year ticks at 2-year intervals: 2012, 2014, 2016, 2018, 2020, 2022, 2024, 2026
@@ -125,7 +137,8 @@ export class GrowthLineChart {
   }
 
   render() {
-    if (!this.canvas || !this.cumulativeSeries || this.cumulativeSeries.length === 0) return;
+    const series = this.series || this.cumulativeSeries;
+    if (!this.canvas || !series || series.length === 0) return;
 
     const rect = this.canvas.getBoundingClientRect();
     const dpr = window.devicePixelRatio || 1;
@@ -231,11 +244,11 @@ export class GrowthLineChart {
     });
 
     // ─── 4. Ghost Full-Trajectory Line (Faint Background Target) ───
-    if (this.showGhost && this.cumulativeSeries.length > 1) {
+    if (this.showGhost && series.length > 1) {
       ctx.beginPath();
-      ctx.moveTo(getX(0), getY(this.cumulativeSeries[0]));
-      for (let i = 1; i < this.cumulativeSeries.length; i++) {
-        ctx.lineTo(getX(i), getY(this.cumulativeSeries[i]));
+      ctx.moveTo(getX(0), getY(series[0]));
+      for (let i = 1; i < series.length; i++) {
+        ctx.lineTo(getX(i), getY(series[i]));
       }
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
       ctx.lineWidth = 1.2;
@@ -244,44 +257,47 @@ export class GrowthLineChart {
       ctx.setLineDash([]);
     }
 
-    // ─── 5. Active Animated Growth Line & Area Gradient (Up to currentWeek) ───
-    if (this.currentWeek >= 0 && this.cumulativeSeries.length > 0) {
-      const activeCount = Math.min(this.currentWeek + 1, this.cumulativeSeries.length);
+    // ─── 5. Active Animated Line & Area Gradient (Up to currentWeek) ───
+    if (this.currentWeek >= 0 && series.length > 0) {
+      const activeCount = Math.min(this.currentWeek + 1, series.length);
 
       // Area Gradient Fill
       if (activeCount > 1) {
         ctx.beginPath();
         ctx.moveTo(getX(0), padTop + plotH);
-        ctx.lineTo(getX(0), getY(this.cumulativeSeries[0]));
+        ctx.lineTo(getX(0), getY(series[0]));
 
         for (let i = 1; i < activeCount; i++) {
-          ctx.lineTo(getX(i), getY(this.cumulativeSeries[i]));
+          ctx.lineTo(getX(i), getY(series[i]));
         }
 
         ctx.lineTo(getX(activeCount - 1), padTop + plotH);
         ctx.closePath();
 
         const areaGrad = ctx.createLinearGradient(0, padTop, 0, padTop + plotH);
-        areaGrad.addColorStop(0, 'rgba(249, 115, 22, 0.32)');
-        areaGrad.addColorStop(0.7, 'rgba(249, 115, 22, 0.08)');
-        areaGrad.addColorStop(1, 'rgba(249, 115, 22, 0.0)');
+        this.areaColorStops.forEach(({ stop, color }) => {
+          areaGrad.addColorStop(stop, color);
+        });
         ctx.fillStyle = areaGrad;
         ctx.fill();
       }
 
       // Stroke Line
       ctx.beginPath();
-      ctx.moveTo(getX(0), getY(this.cumulativeSeries[0]));
+      ctx.moveTo(getX(0), getY(series[0]));
       for (let i = 1; i < activeCount; i++) {
-        ctx.lineTo(getX(i), getY(this.cumulativeSeries[i]));
+        ctx.lineTo(getX(i), getY(series[i]));
       }
 
       const lineGrad = ctx.createLinearGradient(padLeft, 0, padLeft + plotW, 0);
-      lineGrad.addColorStop(0, '#f59e0b');
-      lineGrad.addColorStop(0.4, '#f97316');
-      lineGrad.addColorStop(1, '#fb7185');
-
-      ctx.strokeStyle = lineGrad;
+      if (this.lineColors.length === 1) {
+        ctx.strokeStyle = this.lineColors[0];
+      } else {
+        this.lineColors.forEach((color, idx) => {
+          lineGrad.addColorStop(idx / (this.lineColors.length - 1), color);
+        });
+        ctx.strokeStyle = lineGrad;
+      }
       ctx.lineWidth = 2.2;
       ctx.lineJoin = 'round';
       ctx.lineCap = 'round';
@@ -290,20 +306,20 @@ export class GrowthLineChart {
       // Current Head Playhead Dot
       const headIdx = activeCount - 1;
       const headX = getX(headIdx);
-      const headY = getY(this.cumulativeSeries[headIdx]);
+      const headY = getY(series[headIdx]);
 
       // Outer glow halo
       ctx.beginPath();
       ctx.arc(headX, headY, 6, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(249, 115, 22, 0.35)';
+      ctx.fillStyle = this.glowColor;
       ctx.fill();
 
-      // Inner white core with apricot ring
+      // Inner white core with accent ring
       ctx.beginPath();
       ctx.arc(headX, headY, 3, 0, Math.PI * 2);
       ctx.fillStyle = '#ffffff';
       ctx.fill();
-      ctx.strokeStyle = '#f97316';
+      ctx.strokeStyle = this.headRingColor;
       ctx.lineWidth = 1.5;
       ctx.stroke();
     }
