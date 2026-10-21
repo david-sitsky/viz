@@ -43,8 +43,8 @@ jobs:
       - name: Bust Browser Cache
         run: python3 common/scripts/update_html_version.py
 
-      - name: Run Tests
-        run: npm run test
+      - name: Run Parkrun Tests
+        run: npx playwright test parkrun/tests/parkrun.spec.js
 
       - name: Commit and Push Updates
         run: |
