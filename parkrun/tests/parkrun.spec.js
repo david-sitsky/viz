@@ -79,9 +79,9 @@ test.describe('Parkrun Visualisation Tests', () => {
     await speedSlider.dispatchEvent('input');
     await expect(speedVal).toHaveText('5×');
 
-    // Verify weekly finishers stat is populated
-    const statFinishers = page.locator('#stat-finishers');
-    await expect(statFinishers).not.toHaveText('—');
+    // Verify weekly participants stat is populated
+    const weeklyVal = page.locator('#weekly-card-val');
+    await expect(weeklyVal).not.toHaveText('—');
 
     // Verify playback toggle
     const btnPlay = page.locator('#btn-play');
@@ -163,15 +163,16 @@ test.describe('Parkrun Visualisation Tests', () => {
     await scrubber.fill('0');
     await scrubber.dispatchEvent('input');
     await expect(page.locator('#stat-date')).toContainText('2011');
-    await expect(page.locator('#stat-finishers')).toHaveText('108');
+    await expect(page.locator('#weekly-card-val')).toHaveText('108');
 
     // Advance scrubber to week 1 (2011-04-09)
     await scrubber.fill('1');
     await scrubber.dispatchEvent('input');
-    await expect(page.locator('#stat-finishers')).toHaveText('100');
+    await expect(page.locator('#weekly-card-val')).toHaveText('100');
   });
 
-  test('Bottom panel renders horizontal bar graphs scaled appropriately with 100% peaks', async ({ page }) => {
+  test('Bottom panel renders horizontal bar graphs scaled appropriately with 100% peaks on mobile', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/parkrun/index.html');
     await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
 
@@ -187,9 +188,6 @@ test.describe('Parkrun Visualisation Tests', () => {
 
     // Verify WEEKLY PARTICIPATION section
     await expect(bottomPanel.locator('#chart-title-participation')).toHaveText('WEEKLY PARTICIPATION');
-
-    // Verify "Total Finishers" label in HUD
-    await expect(page.locator('#weekly-stats-card')).toContainText('Total Finishers');
 
     const scrubber = page.locator('#scrubber');
 
@@ -212,8 +210,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     await scrubber.fill(maxVal);
     await scrubber.dispatchEvent('input');
 
-    // At final week, total finishers in HUD and growth card reaches 25,354,245
-    await expect(page.locator('#stat-cumulative')).toContainText('25,354,245');
+    // At final week, total finishers in growth card reaches 25,354,245
     await expect(page.locator('#growth-card-val')).toContainText('25,354,245');
   });
 
@@ -272,43 +269,33 @@ test.describe('Parkrun Visualisation Tests', () => {
     await scrubber.fill(maxVal);
     await scrubber.dispatchEvent('input');
 
-    const statCumulative = page.locator('#stat-cumulative');
-    await expect(statCumulative).toContainText('25,354,245');
+    const growthVal = page.locator('#growth-card-val');
+    await expect(growthVal).toContainText('25,354,245');
 
     // Deselect all states
     const btnDeselectAll = page.locator('#btn-deselect-all');
     await btnDeselectAll.click();
 
     // Verify stats drop to zero
-    await expect(page.locator('#stat-finishers')).toHaveText('0');
-    await expect(page.locator('#stat-active')).toHaveText('0');
-    await expect(statCumulative).toHaveText('0');
+    await expect(page.locator('#weekly-card-val')).toHaveText('0');
+    await expect(growthVal).toHaveText('0');
     await expect(page.locator('#stat-established')).toHaveText('0');
-
-    // Verify bottom panel bar widths drop to 0% and growth card drops to 0
-    const barActive = page.locator('#bar-fill-active');
-    const barFinishers = page.locator('#bar-fill-finishers');
-    await expect(barActive).toHaveCSS('width', '0px');
-    await expect(barFinishers).toHaveCSS('width', '0px');
-    await expect(page.locator('#growth-card-val')).toHaveText('0');
 
     // Select only Queensland (QLD - index 2)
     const qldCheckbox = filterPanel.locator('input[type="checkbox"][value="2"]');
     await qldCheckbox.check();
 
     // Verify QLD stats are populated for final week
-    await expect(statCumulative).toContainText('7,725,348');
-    await expect(page.locator('#growth-card-val')).toContainText('7,725,348');
-    await expect(page.locator('#stat-active')).not.toHaveText('0');
-    await expect(page.locator('#stat-finishers')).not.toHaveText('0');
+    await expect(growthVal).toContainText('7,725,348');
+    await expect(page.locator('#weekly-card-val')).not.toHaveText('0');
+    await expect(page.locator('#stat-established')).not.toHaveText('0');
 
     // Select all states again
     const btnSelectAll = page.locator('#btn-select-all');
     await btnSelectAll.click();
 
     // Verify cumulative restores to total Australia count
-    await expect(statCumulative).toContainText('25,354,245');
-    await expect(page.locator('#growth-card-val')).toContainText('25,354,245');
+    await expect(growthVal).toContainText('25,354,245');
   });
 
   test('Popup is draggable and maintains fixed jitter-free dimensions', async ({ page }) => {
@@ -475,8 +462,8 @@ test.describe('Parkrun Visualisation Tests', () => {
     // Earliest event in Victoria is Albert Melbourne on 19 Nov 2011 (Week 33)
     await expect(statDate).toHaveText('19 Nov 2011');
     await expect(scrubber).toHaveValue('33');
-    await expect(page.locator('#stat-active')).toHaveText('1');
-    await expect(page.locator('#stat-finishers')).toHaveText('64');
+    await expect(page.locator('#stat-established')).toHaveText('1');
+    await expect(page.locator('#weekly-card-val')).toHaveText('64');
 
     // Deselect Victoria and select NSW (index 0)
     await vicCheckbox.uncheck();
@@ -486,8 +473,8 @@ test.describe('Parkrun Visualisation Tests', () => {
     // Earliest event in NSW is St Peters on 21 Jan 2012 (Week 42)
     await expect(statDate).toHaveText('21 Jan 2012');
     await expect(scrubber).toHaveValue('42');
-    await expect(page.locator('#stat-active')).toHaveText('1');
-    await expect(page.locator('#stat-finishers')).toHaveText('122');
+    await expect(page.locator('#stat-established')).toHaveText('1');
+    await expect(page.locator('#weekly-card-val')).toHaveText('122');
 
     // Select all states
     await page.locator('#btn-select-all').click();
@@ -531,11 +518,8 @@ test.describe('Parkrun Visualisation Tests', () => {
     await scrubber.fill('470');
     await scrubber.dispatchEvent('input');
 
-    // Stats naturally show 0 active locations and 0 weekly participants
-    await expect(page.locator('#stat-active')).toHaveText('0');
-    await expect(page.locator('#stat-finishers')).toHaveText('0');
-    await expect(page.locator('#bar-val-active')).toHaveText('0 venues');
-    await expect(page.locator('#bar-val-finishers')).toHaveText('0 runners');
+    // Stats naturally show 0 weekly participants
+    await expect(page.locator('#weekly-card-val')).toHaveText('0');
   });
 
   test('Step-by-step Driver.js help tour displays on first visit and covers required sections in order with Home button last', async ({ page }) => {
@@ -632,7 +616,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     expect(Math.round(boxAfter.y - boxBefore.y)).toBe(-80);
   });
 
-  test('Female runner icons are used consistently across favicon, loading SVG, header, and gallery', async ({ page }) => {
+  test('Female runner icons are used consistently across favicon, loading screen, header, and gallery', async ({ page }) => {
     await page.goto('/parkrun/index.html');
     await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
 
@@ -640,9 +624,9 @@ test.describe('Parkrun Visualisation Tests', () => {
     const faviconHref = await page.locator('link[rel="icon"]').getAttribute('href');
     expect(faviconHref).toContain('🏃‍♀️');
 
-    // 2. Loading screen SVG has female runner path with ponytail
-    const loadingSvgPath = await page.locator('#loading-overlay svg path').getAttribute('d');
-    expect(loadingSvgPath).toContain('M12.5 3c-1.8-.8-3.6-.4-4.8.8');
+    // 2. Loading screen has female runner emoji
+    const loadingIcon = page.locator('#loading-overlay .loading-icon');
+    await expect(loadingIcon).toHaveText('🏃‍♀️');
 
     // 3. Header title has female runner emoji
     const vizTitle = page.locator('.viz-title');
@@ -661,17 +645,20 @@ test.describe('Parkrun Visualisation Tests', () => {
     await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
 
     const statsBar = page.locator('#stats-bar');
-    const weeklyCard = page.locator('#weekly-stats-card');
     const legendCard = page.locator('#legend-card');
     const controls = page.locator('#controls');
     const filterPanel = page.locator('#filter-panel');
     const bottomPanel = page.locator('#bottom-panel');
+    const growthCard = page.locator('#growth-card');
+    const weeklyChartCard = page.locator('#weekly-chart-card');
 
-    // In default mobile portrait view (drawer closed), only statsBar is visible
+    // In default mobile portrait view (drawer closed):
+    // statsBar and bottomPanel are visible; left panel charts and drawer cards are hidden
     await expect(statsBar).toBeVisible();
-    await expect(weeklyCard).not.toBeVisible();
+    await expect(bottomPanel).toBeVisible();
     await expect(legendCard).not.toBeVisible();
-    await expect(page.locator('#growth-card')).not.toBeVisible();
+    await expect(growthCard).not.toBeVisible();
+    await expect(weeklyChartCard).not.toBeVisible();
     await expect(controls).not.toBeVisible();
     await expect(filterPanel).not.toBeVisible();
 
@@ -684,20 +671,20 @@ test.describe('Parkrun Visualisation Tests', () => {
     const mapOpenSpace = bottomBox.y - (statsBarBox.y + statsBarBox.height);
     expect(mapOpenSpace).toBeGreaterThan(450);
 
-    // When settings button is tapped, drawer opens showing all cards
+    // When settings button is tapped, drawer opens showing settings cards (left charts remain hidden on mobile)
     const settingsBtn = page.locator('#btn-settings');
     await settingsBtn.click();
-    await expect(weeklyCard).toBeVisible();
     await expect(legendCard).toBeVisible();
-    await expect(page.locator('#growth-card')).toBeVisible();
+    await expect(growthCard).not.toBeVisible();
+    await expect(weeklyChartCard).not.toBeVisible();
     await expect(controls).toBeVisible();
     await expect(filterPanel).toBeVisible();
 
-    // Tapping settings button again collapses them back
+    // Tapping settings button again collapses drawer
     await settingsBtn.click();
-    await expect(weeklyCard).not.toBeVisible();
     await expect(legendCard).not.toBeVisible();
-    await expect(page.locator('#growth-card')).not.toBeVisible();
+    await expect(controls).not.toBeVisible();
+    await expect(filterPanel).not.toBeVisible();
   });
 
   test('Growth line chart renders in desktop left panel, updates as timeline advances, and supports click-to-scrub', async ({ page }) => {
@@ -735,7 +722,8 @@ test.describe('Parkrun Visualisation Tests', () => {
     expect(scrubVal).toBeLessThan(500);
   });
 
-  test('Bottom panel view tabs allow toggling between weekly turnout bars and full growth curve line graph', async ({ page }) => {
+  test('Bottom panel view tabs allow toggling between weekly turnout bars and full growth curve line graph on mobile', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/parkrun/index.html');
     await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
 
@@ -807,11 +795,11 @@ test.describe('Parkrun Visualisation Tests', () => {
     await scrubber.dispatchEvent('input');
 
     // Capture global Australia-wide stats
-    const globalActive = parseInt((await page.locator('#stat-active').textContent()).replace(/,/g, ''), 10);
-    const globalFinishers = parseInt((await page.locator('#stat-finishers').textContent()).replace(/,/g, ''), 10);
-    const globalCumulative = parseInt((await page.locator('#stat-cumulative').textContent()).replace(/,/g, ''), 10);
+    const globalFinishers = parseInt((await page.locator('#weekly-card-val').textContent()).replace(/,/g, ''), 10);
+    const globalCumulative = parseInt((await page.locator('#growth-card-val').textContent()).replace(/,/g, ''), 10);
+    const globalEstablished = parseInt((await page.locator('#stat-established').textContent()).replace(/,/g, ''), 10);
 
-    expect(globalActive).toBeGreaterThan(10);
+    expect(globalEstablished).toBeGreaterThan(10);
     expect(globalFinishers).toBeGreaterThan(1000);
     expect(globalCumulative).toBeGreaterThan(1_000_000);
 
@@ -848,28 +836,18 @@ test.describe('Parkrun Visualisation Tests', () => {
     await expect(tooltip.locator('#tooltip-title')).toContainText('St Peters');
     await expect(tooltip.locator('#tooltip-close')).toBeVisible();
 
-    // Verify stats filtered strictly to St Peters venue:
-    // Active Locations should be 1 (if active) or 0 (if inactive)
-    const venueActiveText = venueData.isVenueActive ? '1' : '0';
-    await expect(page.locator('#stat-active')).toHaveText(venueActiveText);
-    await expect(page.locator('#bar-val-active')).toHaveText(venueData.isVenueActive ? '1 venue' : '0 venues');
-
-    if (venueData.isVenueActive) {
-      const activeBarWidth = await page.locator('#bar-fill-active').evaluate(el => el.style.width);
-      expect(activeBarWidth).toMatch(/^100(\.0)?%$/);
-    }
+    // Verify card titles include venue name in brackets
+    await expect(page.locator('#growth-card-title')).toContainText('(St Peters)');
+    await expect(page.locator('#weekly-card-title')).toContainText('(St Peters)');
 
     // Participants should reflect local venue attendance
-    await expect(page.locator('#stat-finishers')).toHaveText(venueData.fin.toLocaleString());
-    await expect(page.locator('#bar-val-finishers')).toHaveText(`${venueData.fin.toLocaleString()} ${venueData.fin === 1 ? 'runner' : 'runners'}`);
     await expect(page.locator('#weekly-card-val')).toHaveText(venueData.fin.toLocaleString());
 
-    // All-time finishes in HUD and Growth Card should match venue cumulative
-    await expect(page.locator('#stat-cumulative')).toHaveText(venueData.cum.toLocaleString());
+    // All-time finishes in Growth Card should match venue cumulative
     await expect(page.locator('#growth-card-val')).toHaveText(venueData.cum.toLocaleString());
 
-    // Chart subtitle reflects venue peak scaling
-    await expect(page.locator('#chart-sub-label')).toContainText('St Peters');
+    // Locations established reflects 1 for selected venue
+    await expect(page.locator('#stat-established')).toHaveText('1');
 
     // Click '✕' on popup to close and revert to global filtering
     await tooltip.locator('#tooltip-close').click();
@@ -877,17 +855,18 @@ test.describe('Parkrun Visualisation Tests', () => {
     // Verify popup is dismissed
     await expect(tooltip).not.toBeVisible();
 
-    // Verify stats immediately revert back to Australia-wide global totals
-    const restoredActive = parseInt((await page.locator('#stat-active').textContent()).replace(/,/g, ''), 10);
-    const restoredFinishers = parseInt((await page.locator('#stat-finishers').textContent()).replace(/,/g, ''), 10);
-    const restoredCumulative = parseInt((await page.locator('#stat-cumulative').textContent()).replace(/,/g, ''), 10);
+    // Verify card titles revert to global default titles
+    await expect(page.locator('#growth-card-title')).toHaveText('All-Time Growth');
+    await expect(page.locator('#weekly-card-title')).toHaveText('Weekly Participants');
 
-    expect(restoredActive).toBe(globalActive);
+    // Verify stats immediately revert back to Australia-wide global totals
+    const restoredFinishers = parseInt((await page.locator('#weekly-card-val').textContent()).replace(/,/g, ''), 10);
+    const restoredCumulative = parseInt((await page.locator('#growth-card-val').textContent()).replace(/,/g, ''), 10);
+    const restoredEstablished = parseInt((await page.locator('#stat-established').textContent()).replace(/,/g, ''), 10);
+
     expect(restoredFinishers).toBe(globalFinishers);
     expect(restoredCumulative).toBe(globalCumulative);
-    await expect(page.locator('#growth-card-val')).toHaveText(globalCumulative.toLocaleString());
-    await expect(page.locator('#weekly-card-val')).toHaveText(globalFinishers.toLocaleString());
-    await expect(page.locator('#chart-sub-label')).toHaveText('Scaled to Peak (100%)');
+    expect(restoredEstablished).toBe(globalEstablished);
   });
 
   test('Weekly participants line graph on desktop left panel renders and supports scrubbing', async ({ page }) => {
@@ -1007,6 +986,61 @@ test.describe('Parkrun Visualisation Tests', () => {
 
     expect(restoredChartState.growthStartWeek).toBe(0);
     expect(restoredChartState.growthFirstTick).toBe("'11");
+  });
+
+  test('Desktop view removes bottom panel completely and displays left panel charts with dynamic venue titles', async ({ page }) => {
+    // Default desktop viewport: 1280x720
+    await page.goto('/parkrun/index.html');
+    await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
+
+    // 1. Bottom panel is completely removed on desktop
+    const bottomPanel = page.locator('#bottom-panel');
+    await expect(bottomPanel).not.toBeVisible();
+
+    // 2. Both left panel cards are visible on desktop
+    const growthCard = page.locator('#growth-card');
+    const weeklyCard = page.locator('#weekly-chart-card');
+    await expect(growthCard).toBeVisible();
+    await expect(weeklyCard).toBeVisible();
+
+    // 3. Initial titles
+    const growthTitle = page.locator('#growth-card-title');
+    const weeklyTitle = page.locator('#weekly-card-title');
+    await expect(growthTitle).toHaveText('All-Time Growth');
+    await expect(weeklyTitle).toHaveText('Weekly Participants');
+
+    // 4. Locations established is shown in lean header badge
+    const establishedBadge = page.locator('#stat-established');
+    await expect(establishedBadge).toBeVisible();
+
+    // 5. Select venue via map click simulation (St Peters)
+    await page.evaluate(() => {
+      const ev = window.app.data.eventMap.get(1);
+      window.app.map._handleClick({
+        object: {
+          eventId: 1,
+          placename: ev.shortName || 'St Peters',
+          name: ev.longName || 'St Peters parkrun',
+          eventname: ev.eventname || 'stpeters',
+          lon: ev.lon,
+          lat: ev.lat,
+          finishers: 150,
+          date: '2012-01-21'
+        },
+        index: 0,
+        x: 350,
+        y: 250
+      });
+    });
+
+    // 6. Titles now include venue name in brackets
+    await expect(growthTitle).toContainText('(St Peters)');
+    await expect(weeklyTitle).toContainText('(St Peters)');
+
+    // 7. Close popup
+    await page.locator('#tooltip-close').click();
+    await expect(growthTitle).toHaveText('All-Time Growth');
+    await expect(weeklyTitle).toHaveText('Weekly Participants');
   });
 });
 

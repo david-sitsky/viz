@@ -90,7 +90,7 @@ class ParkrunApp {
       this._setupHelpTour();
 
       this._hideLoading();
-      ['statsBar', 'controls', 'mapStyleSelector', 'weeklyStatsCard', 'legendCard', 'growthCard', 'weeklyChartCard', 'bottomPanel', 'filterPanel'].forEach(k => {
+      ['statsBar', 'controls', 'mapStyleSelector', 'legendCard', 'growthCard', 'weeklyChartCard', 'bottomPanel', 'filterPanel'].forEach(k => {
         if (this.dom[k]) this.dom[k].classList.remove('hidden');
       });
 
@@ -152,9 +152,11 @@ class ParkrunApp {
       yearWatermarkContainer: $('year-watermark-container'),
       yearWatermark:          $('year-watermark'),
       growthCard:             $('growth-card'),
+      growthCardTitle:        $('growth-card-title'),
       growthCardVal:          $('growth-card-val'),
       growthCanvas:           $('growth-canvas'),
       weeklyChartCard:        $('weekly-chart-card'),
+      weeklyCardTitle:        $('weekly-card-title'),
       weeklyCardVal:          $('weekly-card-val'),
       weeklyCanvas:           $('weekly-canvas'),
       tabBtnWeekly:           $('tab-btn-weekly'),
@@ -267,6 +269,7 @@ class ParkrunApp {
   }
 
   _updateChartSubLabel() {
+    this._updateCardTitles();
     if (!this.dom.chartSubLabel) return;
     if (this.dom.tabBtnGrowth?.classList.contains('active')) {
       this.dom.chartSubLabel.textContent = 'All-Time Trajectory';
@@ -278,6 +281,26 @@ class ParkrunApp {
       this.dom.chartSubLabel.textContent = `${vName} Peak (100%)`;
     } else {
       this.dom.chartSubLabel.textContent = 'Scaled to Peak (100%)';
+    }
+  }
+
+  _updateCardTitles() {
+    if (this.selectedEventId !== null) {
+      const evMeta = this.data?.eventMap?.get(this.selectedEventId);
+      const vName = evMeta ? (evMeta.shortName || evMeta.longName) : 'Venue';
+      if (this.dom.growthCardTitle) {
+        this.dom.growthCardTitle.textContent = `All-Time Growth (${vName})`;
+      }
+      if (this.dom.weeklyCardTitle) {
+        this.dom.weeklyCardTitle.textContent = `Weekly Participants (${vName})`;
+      }
+    } else {
+      if (this.dom.growthCardTitle) {
+        this.dom.growthCardTitle.textContent = 'All-Time Growth';
+      }
+      if (this.dom.weeklyCardTitle) {
+        this.dom.weeklyCardTitle.textContent = 'Weekly Participants';
+      }
     }
   }
 
@@ -330,6 +353,7 @@ class ParkrunApp {
       if (this.weeklyChartBottom) {
         this.weeklyChartBottom.setData(this.data.metadata, this.weeklySeries, this.maxWeeklyFinishers, earliestWeek);
       }
+      this._updateCardTitles();
       return;
     }
 
@@ -380,6 +404,7 @@ class ParkrunApp {
     if (this.weeklyChartBottom) {
       this.weeklyChartBottom.setData(this.data.metadata, weeklySeries, this.maxWeeklyFinishers, earliestWeek);
     }
+    this._updateCardTitles();
   }
 
   _setupStateFilter() {
