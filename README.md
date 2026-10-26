@@ -2,14 +2,13 @@
 
 A collection of interactive geospatial web visualisations powered by `deck.gl`.
 
-## Visualisations
+## Visualisations (Live Demos)
 
-This repository currently hosts three separate visualization projects:
-
-1. **[Energy Dashboard](energy/)**: An interactive timeline of Australia's energy generation network powered by OpenElectricity data.
-2. **[FrogID Explorer](frogid/)**: Visualise acoustic frog calls and citizen science data across Australia over time.
-3. **[Bogong Moth Tracker](bogong/)**: Track the migration and observation patterns of the Bogong Moth.
-4. **[Christmas Beetle Tracker](christmas-beetle/)**: Track citizen observations of the Australian Christmas Beetle over time.
+1. **[Bogong Moth Tracker](https://david-sitsky.github.io/viz/bogong/)**: Interactive live map tracking migration and observation patterns of the Bogong Moth across Australia.
+2. **[Christmas Beetle Tracker](https://david-sitsky.github.io/viz/christmas-beetle/)**: Track citizen observations of the Australian Christmas Beetle over time.
+3. **[Energy Dashboard](https://david-sitsky.github.io/viz/energy/)**: Interactive timeline of Australia's energy generation network powered by OpenElectricity data.
+4. **[FrogID Explorer](https://david-sitsky.github.io/viz/frogid/)**: Visualise acoustic frog calls and citizen science data across Australia over time.
+5. **[Parkrun Australia](https://david-sitsky.github.io/viz/parkrun/)**: Watch weekly Parkrun events and participation expand across Australia.
 
 ## Project Structure
 

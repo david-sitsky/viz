@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from '../../common/js/engine_data.js?v=202610251850';
-import { EngineMap } from '../../common/js/engine_map.js?v=202610251850';
+import { loadData } from '../../common/js/engine_data.js?v=202610261636';
+import { EngineMap } from '../../common/js/engine_map.js?v=202610261636';
 
 class EngineApp {
   constructor() {
@@ -194,7 +194,7 @@ class EngineApp {
   }
   _scheduleTick() {
     if (!this.playing) return;
-    const ms = Math.max(16, Math.round(600 * Math.pow(0.65, this.speed - 1)));
+    const ms = Math.max(4, Math.round(300 * Math.pow(0.65, this.speed - 1)));
     this.tickTimer = setTimeout(() => this._tick(), ms);
   }
   _tick() {
