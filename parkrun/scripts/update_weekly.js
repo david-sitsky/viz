@@ -63,9 +63,12 @@ async function syncLocations(catalog) {
       (f) => f.properties && f.properties.countrycode === 3 && f.properties.seriesid === 1 && !f.properties.eventname.includes('-juniors')
     );
 
+    const liveNames = new Set(ausSaturdayFeatures.map((f) => f.properties.eventname));
     const existingNames = new Set(catalog.map((e) => e.eventname));
     let newLocationsCount = 0;
+    let closedLocationsCount = 0;
 
+    // 1. Discover and append new locations (append-only catalog)
     for (const f of ausSaturdayFeatures) {
       const ename = f.properties.eventname;
       if (!existingNames.has(ename)) {
@@ -77,6 +80,7 @@ async function syncLocations(catalog) {
           shortName: f.properties.EventShortName || ename,
           location: f.properties.EventLocation || '',
           seriesid: f.properties.seriesid,
+          status: 'active',
           lon: f.geometry.coordinates[0],
           lat: f.geometry.coordinates[1],
         };
@@ -92,9 +96,25 @@ async function syncLocations(catalog) {
       }
     }
 
-    if (newLocationsCount > 0) {
+    // 2. Automatically detect when an active Saturday event has closed or relocated
+    for (const ev of catalog) {
+      if (ev.seriesid === 1 && !ev.eventname.includes('-juniors')) {
+        if (ev.status !== 'closed' && !liveNames.has(ev.eventname)) {
+          ev.status = 'closed';
+          const csvPath = path.join(EVENTS_DIR, `${ev.eventname}.csv`);
+          const last = getLatestEventInCsv(csvPath);
+          if (last) {
+            ev.closedDate = last.date;
+          }
+          closedLocationsCount++;
+          console.log(`[Event Closed/Relocated] ${ev.longName || ev.eventname} is no longer in live events.json. Marked as closed (last event: ${ev.closedDate || 'unknown'}).`);
+        }
+      }
+    }
+
+    if (newLocationsCount > 0 || closedLocationsCount > 0) {
       fs.writeFileSync(CATALOG_FILE, JSON.stringify(catalog, null, 2));
-      console.log(`[Locations Sync] Added ${newLocationsCount} new location(s) to catalog. Total locations: ${catalog.length}`);
+      console.log(`[Locations Sync] Added ${newLocationsCount} new, marked ${closedLocationsCount} closed. Total locations: ${catalog.length}`);
     } else {
       console.log(`[Locations Sync] All ${catalog.length} Saturday locations are up to date.`);
     }
@@ -209,8 +229,9 @@ async function main() {
     catalog = await syncLocations(catalog);
   }
 
+  const INCLUDE_CLOSED = hasFlag('--include-closed');
   const saturdayEvents = catalog.filter(
-    (ev) => ev.seriesid === 1 && !ev.eventname.includes('-juniors')
+    (ev) => ev.seriesid === 1 && !ev.eventname.includes('-juniors') && (ev.status !== 'closed' || INCLUDE_CLOSED)
   );
 
   const latestSaturday = getLatestSaturday();

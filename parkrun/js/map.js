@@ -235,7 +235,11 @@ export class ParkrunMap {
         placename: placename,
         name: evMeta ? evMeta.longName : `Event #${evId}`,
         location: evMeta ? evMeta.location : '',
-        eventname: evMeta ? evMeta.eventname : ''
+        eventname: evMeta ? evMeta.eventname : '',
+        status: evMeta ? evMeta.status : 'active',
+        closedDate: evMeta ? evMeta.closedDate : '',
+        relocatedTo: evMeta ? evMeta.relocatedTo : undefined,
+        note: evMeta ? evMeta.note : undefined
       });
     }
 
@@ -272,7 +276,11 @@ export class ParkrunMap {
                 isInactiveThisWeek: true,
                 date: weekDate,
                 finishers: 0,
-                eventNumber: null
+                eventNumber: null,
+                status: evMeta.status,
+                closedDate: evMeta.closedDate,
+                relocatedTo: evMeta.relocatedTo,
+                note: evMeta.note
               });
             }
           }
@@ -406,7 +414,11 @@ export class ParkrunMap {
           location: target.location,
           eventname: target.eventname,
           lon: target.lon || (evMeta ? evMeta.lon : 0),
-          lat: target.lat || (evMeta ? evMeta.lat : 0)
+          lat: target.lat || (evMeta ? evMeta.lat : 0),
+          status: evMeta ? evMeta.status : (target.status || 'active'),
+          closedDate: evMeta ? evMeta.closedDate : target.closedDate,
+          relocatedTo: evMeta ? evMeta.relocatedTo : target.relocatedTo,
+          note: evMeta ? evMeta.note : target.note
         };
         if (isPinned) this.pinnedRecord = inactiveRecord;
         else this.hoveredRecord = inactiveRecord;

@@ -263,7 +263,10 @@ class ParkrunApp {
   _updateCardTitles() {
     if (this.selectedEventId !== null) {
       const evMeta = this.data?.eventMap?.get(this.selectedEventId);
-      const vName = evMeta ? (evMeta.shortName || evMeta.longName) : 'Venue';
+      const isClosed = evMeta?.status === 'closed';
+      const closedYear = evMeta?.closedDate ? evMeta.closedDate.slice(0, 4) : '';
+      const closedTag = isClosed ? ` [Closed${closedYear ? ` ${closedYear}` : ''}]` : '';
+      const vName = evMeta ? ((evMeta.shortName || evMeta.longName) + closedTag) : 'Venue';
       if (this.dom.growthCardTitle) {
         this.dom.growthCardTitle.textContent = `All-Time Growth (${vName})`;
       }
@@ -758,13 +761,21 @@ class ParkrunApp {
       this._lastPinnedEventId = null;
     }
 
-    const isInactive = record.isPastVenue || record.isInactive || record.finishers === 0;
+    const isClosed = (record.status === 'closed');
+    const isPastClosure = isClosed && record.closedDate && (record.date > record.closedDate);
+    const isInactive = record.isPastVenue || record.isInactive || record.finishers === 0 || isPastClosure;
     const formattedDate = this._formatDate(record.date);
-    const titleText = record.placename || record.name;
+    const closedBadge = isPastClosure ? ' [Closed]' : '';
+    const titleText = (record.placename || record.name) + closedBadge;
     const eventNumPart = record.eventNumber ? `results/${record.eventNumber}/` : '';
     const hasHomepage = Boolean(record.eventname);
-    const parkrunUrl = hasHomepage ? `https://www.parkrun.com.au/${record.eventname}/${eventNumPart}` : '';
-    const linkText = record.eventNumber ? `View Event #${record.eventNumber} results ↗` : `Visit venue homepage ↗`;
+    let parkrunUrl = hasHomepage ? `https://www.parkrun.com.au/${record.eventname}/${eventNumPart}` : '';
+    let linkText = record.eventNumber ? `View Event #${record.eventNumber} results ↗` : `Visit venue homepage ↗`;
+
+    if (isPastClosure) {
+      parkrunUrl = `https://www.parkrun.com.au/${record.eventname}/results/eventhistory/`;
+      linkText = 'View full event history ↗';
+    }
 
     // 1. Title & Close Button
     if (this.dom.tooltipTitle) {
@@ -776,7 +787,10 @@ class ParkrunApp {
 
     // 2. Stats
     if (isInactive) {
-      const inactiveLabel = record.isPastVenue ? 'Past venue — not active on ' : 'No event held on ';
+      let inactiveLabel = record.isPastVenue ? 'Past venue — not active on ' : 'No event held on ';
+      if (isPastClosure) {
+        inactiveLabel = record.note ? `${record.note} — not active on ` : 'Permanently closed — not active on ';
+      }
       if (this.dom.tooltipDot) {
         this.dom.tooltipDot.style.background = '#94a3b8';
         this.dom.tooltipDot.style.width = '8px';

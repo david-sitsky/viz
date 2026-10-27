@@ -193,14 +193,18 @@ test.describe('Parkrun Visualisation Tests', () => {
     await expect(tabGrowth).toHaveClass(/active/);
     await expect(page.locator('#bottom-view-growth')).toBeVisible();
 
-    // Scrubber to final week (25,354,245 total runners)
+    // Scrubber to final week (25,611,770 total runners)
     const scrubber = page.locator('#scrubber');
     const maxVal = await scrubber.getAttribute('max');
     await scrubber.fill(maxVal);
     await scrubber.dispatchEvent('input');
 
-    // At final week, total finishers in growth graph reaches 25,354,245
-    await expect(page.locator('#growth-bottom-val')).toContainText('25,354,245');
+    // At final week, total finishers in growth graph matches total cumulative
+    const expectedTotal = await page.evaluate(() => {
+      const stats = window.app.data.metadata.weekStats;
+      return stats[stats.length - 1].cumulativeFinishers.toLocaleString();
+    });
+    await expect(page.locator('#growth-bottom-val')).toContainText(expectedTotal);
   });
 
   test('Past venue popup indicates inactive status and provides homepage link when available', async ({ page }) => {
@@ -259,7 +263,11 @@ test.describe('Parkrun Visualisation Tests', () => {
     await scrubber.dispatchEvent('input');
 
     const growthVal = page.locator('#growth-card-val');
-    await expect(growthVal).toContainText('25,354,245');
+    const expectedNationalTotal = await page.evaluate(() => {
+      const stats = window.app.data.metadata.weekStats;
+      return stats[stats.length - 1].cumulativeFinishers.toLocaleString();
+    });
+    await expect(growthVal).toContainText(expectedNationalTotal);
 
     // Deselect all states
     const btnDeselectAll = page.locator('#btn-deselect-all');
@@ -275,7 +283,12 @@ test.describe('Parkrun Visualisation Tests', () => {
     await qldCheckbox.check();
 
     // Verify QLD stats are populated for final week
-    await expect(growthVal).toContainText('7,725,348');
+    const expectedQldTotal = await page.evaluate(() => {
+      const { weeklyCumulativeByState, metadata } = window.app.data;
+      const lastWeek = metadata.totalWeeks - 1;
+      return weeklyCumulativeByState[lastWeek * 8 + 2].toLocaleString();
+    });
+    await expect(growthVal).toContainText(expectedQldTotal);
     await expect(page.locator('#weekly-card-val')).not.toHaveText('0');
     await expect(page.locator('#stat-established')).not.toHaveText('0');
 
@@ -284,7 +297,7 @@ test.describe('Parkrun Visualisation Tests', () => {
     await btnSelectAll.click();
 
     // Verify cumulative restores to total Australia count
-    await expect(growthVal).toContainText('25,354,245');
+    await expect(growthVal).toContainText(expectedNationalTotal);
   });
 
   test('Popup is draggable and maintains fixed jitter-free dimensions', async ({ page }) => {
@@ -1187,6 +1200,71 @@ test.describe('Parkrun Visualisation Tests', () => {
     await page.locator('#tooltip-close').click();
     await expect(growthTitle).toHaveText('All-Time Growth');
     await expect(weeklyTitle).toHaveText('Weekly Participants');
+  });
+
+  test('Closed and relocated parkrun venues (e.g. Ballarat) display closure badges and archive links', async ({ page }) => {
+    await page.goto('/parkrun/index.html');
+    await expect(page.locator('#loading-overlay')).toHaveCSS('opacity', '0', { timeout: 15000 });
+
+    // Look up Ballarat in catalog
+    const ballaratMeta = await page.evaluate(() => {
+      for (const ev of window.app.data.metadata.events) {
+        if (ev.eventname === 'ballarat') return ev;
+      }
+      return null;
+    });
+
+    expect(ballaratMeta).not.toBeNull();
+    expect(ballaratMeta.status).toBe('closed');
+    expect(ballaratMeta.relocatedTo).toBe('princeofwales');
+
+    // Simulate clicking Ballarat as a past/closed venue in 2024
+    await page.evaluate((meta) => {
+      window.app.map._handleClick({
+        object: {
+          eventId: meta.id,
+          placename: meta.shortName,
+          name: meta.longName,
+          eventname: meta.eventname,
+          lon: meta.lon,
+          lat: meta.lat,
+          finishers: 0,
+          date: '2024-05-18',
+          status: meta.status,
+          closedDate: meta.closedDate,
+          relocatedTo: meta.relocatedTo,
+          note: meta.note,
+          isPastVenue: true
+        },
+        index: 0,
+        x: 400,
+        y: 300
+      });
+    }, ballaratMeta);
+
+    // 1. Initial pin jumps to Ballarat's timeline in 2015 when active
+    const tooltip = page.locator('#map-tooltip');
+    await expect(tooltip).toBeVisible();
+    await expect(tooltip).toContainText('Ballarat');
+    await expect(tooltip).toContainText('128');
+
+    // Pinned card titles include [Closed] tag
+    await expect(page.locator('#growth-card-title')).toContainText('Ballarat [Closed 2022]');
+
+    // 2. Advance scrubber to timeline after closure (2026)
+    const scrubber = page.locator('#scrubber');
+    const maxVal = await scrubber.getAttribute('max');
+    await scrubber.fill(maxVal);
+    await scrubber.dispatchEvent('input');
+
+    // In 2026, Ballarat is past closure, showing closure badge, note, and archive link
+    await expect(tooltip).toContainText('Ballarat [Closed]');
+    await expect(tooltip).toContainText('Relocated to Prince of Wales parkrun in November 2022');
+
+    // Link points directly to full event history archive
+    const link = tooltip.locator('a');
+    await expect(link).toHaveAttribute('href', 'https://www.parkrun.com.au/ballarat/results/eventhistory/');
+    await expect(link).toContainText('View full event history');
   });
 });
 
