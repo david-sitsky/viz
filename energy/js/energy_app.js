@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202610282053';
-import { EngineMap } from './energy_map.js?v=202610282053';
+import { loadData } from './energy_data.js?v=202610291119';
+import { EngineMap } from './energy_map.js?v=202610291119';
 
 class EngineApp {
   constructor() {
@@ -79,8 +79,8 @@ class EngineApp {
                   if (e.target.checked) this.selectedStates.add(e.target.value);
                   else this.selectedStates.delete(e.target.value);
                   
-                  
-                  this._absoluteMaxTotal = undefined;
+                  this._absoluteMaxTotals = undefined;
+                  this._absoluteAggregateMaxTotal = undefined;
                   if (this.map && this.map.applyStateFilter) {
                       this.map.applyStateFilter(this.facilityMap, this.selectedStates);
                   }
@@ -96,10 +96,11 @@ class EngineApp {
                   else this.selectedStates.delete(cb.value);
               });
               
+              this._absoluteMaxTotals = undefined;
+              this._absoluteAggregateMaxTotal = undefined;
               if (this.map && this.map.applyStateFilter) {
                   this.map.applyStateFilter(this.facilityMap, this.selectedStates);
               }
-              this._absoluteMaxTotal = undefined;
               this._updateUI();
           };
           
