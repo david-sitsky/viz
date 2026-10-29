@@ -5,5 +5,8 @@
 
 # Git and GitHub Rules
 - Never automatically push commits to GitHub (e.g. `git push`) without explicit permission from the user. Always present the changes and ask for approval before pushing.
-
+- **Repository Hygiene:**
+  - Never stage files using blanket commands like `git add .`, `git add -A`, or `git commit -a`. Always stage specific files explicitly (`git add path/to/file`).
+  - Never commit temporary patch or scratch scripts (e.g. `patch_*.py`, `patch_*.js`, `fix_*.py`, `test_*.js`). Edit files directly and delete any temporary scripts before staging or committing.
+  - Always verify `git status` before committing to make sure untracked or unwanted files are not being introduced.
 - **Git Push Protocol:** Always run `git pull --rebase origin main` *before* starting work, and *right before* executing a `git push`. Since GitHub Actions (like the data pipeline and test runners) routinely push version-stamp and metadata updates to files like `index.html` and `energy_app.js`, failing to pull first will cause complex merge conflicts. If a conflict does occur with `?v=` version strings, abort the rebase, use `git merge` or discard the local changes, and rely on `python3 common/scripts/update_html_version.py` to rebuild them cleanly before pushing.

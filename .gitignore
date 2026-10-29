@@ -3,8 +3,16 @@ node_modules/
 .DS_Store
 *.csv
 *.*~
-data/audio_cache/
+**/data/audio_cache/
+__pycache__/
+*.py[cod]
+*$py.class
 
+# Scratch & patch files
+patch_*.py
+patch_*.js
+fix_*.py
+test_play.js
 
 # Playwright
 test-results/

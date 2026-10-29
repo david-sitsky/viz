@@ -5,8 +5,10 @@ If Playwright tests fail or hang open serving an HTML report, ALWAYS ensure you 
 
 ## Repository Hygiene
 1. **Never commit third-party site-packages** (e.g. `aiohttp`, `idna`, `pycparser`, etc.) or `__pycache__` directories directly into the repository. Let `pip` handle them via a `requirements.txt` or install them globally in your environment.
-2. **Never commit scratch scripts** (e.g. `test_*.py`, `patch_*.js`, `dump.py`, `download_aemo.js`). Any scratch files used to prototype code or test solutions should be stored exclusively outside the tracked tree or deleted entirely before concluding the interaction.
-3. **Keep binary files out of Git history** (wherever possible) unless they are static assets. Fast-moving generated data blobs should be handled by CI/CD artifacts to avoid bloating the Git `.pack` files.
+2. **Never commit scratch scripts or patch files** (e.g. `patch_*.py`, `patch_*.js`, `fix_*.py`, `test_*.py`, `test_*.js`, `dump.py`, `download_aemo.js`). Any scratch files used to prototype code, run one-off patches, or debug solutions must be deleted immediately after execution and before concluding the interaction. Prefer editing files in-place with standard tooling rather than writing temporary patch scripts.
+3. **Never stage files with broad commands** like `git add .`, `git add -A`, or `git commit -a`. Always stage specific, intended files individually (`git add path/to/file`).
+4. **Always verify `git status`** prior to creating a commit to confirm no untracked or scratch files were inadvertently created or staged.
+5. **Keep binary files out of Git history** (wherever possible) unless they are static assets. Fast-moving generated data blobs should be handled by CI/CD artifacts to avoid bloating the Git `.pack` files.
 
 ## Scaffolding a New Visualisation
 When asked to create a new visualisation for this repository, follow this strictly modular architecture:
