@@ -3607,6 +3607,7 @@ date_ms,lat,lon,species,common_name
 1761345240000,-29.128725,153.481325,Anoplognathus pallidicollis,Christmas Beetle
 1761372780000,-26.529146,153.090977,Anoplognathus porosus,
 1761372938000,-27.430958,153.537017,Anoplognathus olivieri,Christmas Beetle
+1761380019000,-31.632535,152.825715,Anoplognathus olivieri,Christmas Beetle
 1761382827000,-33.781211,151.244645,Anoplognathus concolor,
 1761396784000,-33.614803,151.190224,Anoplognathus concolor,
 1761419820000,-26.482674,152.897839,Anoplognathus abnormis,
@@ -3832,6 +3833,7 @@ date_ms,lat,lon,species,common_name
 1762889780000,-26.611365,153.025953,Anoplognathus porosus,
 1762889988000,-26.611357,153.025948,Anoplognathus pallidicollis,Christmas Beetle
 1762890452000,-20.823171,149.013655,Anoplognathus porosus,
+1762892917000,-30.438745,153.023758,Anoplognathus porosus,
 1762895250000,-29.06915,153.343995,Anoplognathus porosus,
 1762895400000,-29.853067,153.263157,Anoplognathus olivieri,Christmas Beetle
 1762895820000,-33.399916,151.328323,Anoplognathus concolor,
@@ -3941,6 +3943,7 @@ date_ms,lat,lon,species,common_name
 1763333520000,-27.989082,153.18657,Anoplognathus concolor,
 1763334198000,-32.957735,151.703933,Anoplognathus porosus,
 1763337060000,-27.522867,153.06032,Anoplognathus porosus,
+1763337600000,-33.555586,150.602385,Anoplognathus concolor,
 1763364908000,-33.815503,151.248122,Anoplognathus porosus,
 1763367056000,-33.427166,151.294375,Anoplognathus porosus,
 1763368920000,-33.364939,151.371445,Anoplognathus flavipennis,
@@ -4004,6 +4007,7 @@ date_ms,lat,lon,species,common_name
 1763497507000,-30.472839,151.635775,Anoplognathus porosus,
 1763497734000,-26.42083,152.907167,Anoplognathus pallidicollis,Christmas Beetle
 1763497893000,-26.495371,152.852198,Anoplognathus abnormis,
+1763498782000,-33.603016,150.747979,Anoplognathus porosus,
 1763499046000,-25.218806,153.256011,Anoplognathus boisduvalii,
 1763499537000,-33.426666,151.341667,Anoplognathus porosus,
 1763499960000,-26.08787,152.786747,Anoplognathus prasinus,
@@ -4306,6 +4310,7 @@ date_ms,lat,lon,species,common_name
 1764280075000,-33.6082,150.821915,Anoplognathus porosus,
 1764280134000,-33.608324,150.821722,Anoplognathus porosus,
 1764280200000,-33.838369,151.215051,Anoplognathus porosus,
+1764283175000,-28.050675,153.158376,Anoplognathus porosus,
 1764287520000,-35.182067,149.158852,Anoplognathus suturalis,
 1764313123000,-33.974581,151.121934,Anoplognathus olivieri,Christmas Beetle
 1764313752000,-36.611113,149.591033,Anoplognathus brunnipennis,
@@ -4335,6 +4340,7 @@ date_ms,lat,lon,species,common_name
 1764359398000,-24.446048,151.784396,Anoplognathus boisduvalii,
 1764361250000,-16.805008,145.724178,Anoplognathus nebulosus,
 1764361275000,-16.804721,145.724142,Anoplognathus nebulosus,
+1764361430000,-27.448971,152.576301,Anoplognathus boisduvalii,
 1764363055000,-30.472809,151.635762,Anoplognathus hirsutus,
 1764364189000,-27.546794,153.126547,Anoplognathus porosus,
 1764364334000,-32.312656,151.797364,Anoplognathus flavipennis,
@@ -4481,8 +4487,10 @@ date_ms,lat,lon,species,common_name
 1764859728000,-34.088975,151.155324,Anoplognathus olivieri,Christmas Beetle
 1764862860000,-35.293157,149.121318,Anoplognathus brunnipennis,
 1764874290000,-31.544844,138.589919,Anoplognathus montanus,
+1764877200000,-36.980271,142.325281,Anoplognathus montanus,
 1764880260000,-34.891182,150.609694,Anoplognathus brunnipennis,
 1764880794000,-32.947272,151.66748,Anoplognathus porosus,
+1764883791000,-27.607863,152.888076,Anoplognathus porosus,
 1764884524000,-27.487627,151.968144,Anoplognathus porosus,
 1764887640000,-27.52425,153.26626,Anoplognathus pallidicollis,Christmas Beetle
 1764915145000,-33.488411,151.3302,Anoplognathus olivieri,Christmas Beetle
@@ -4551,6 +4559,7 @@ date_ms,lat,lon,species,common_name
 1765054395000,-27.176908,152.071302,Anoplognathus montanus,
 1765054620000,-34.970672,148.963308,Anoplognathus brunnipennis,
 1765054763000,-26.560096,152.641471,Anoplognathus porosus,
+1765054877000,-27.274061,151.903988,Anoplognathus montanus,
 1765055288000,-31.712631,152.593434,Anoplognathus porosus,
 1765055605000,-30.451615,151.573031,Anoplognathus porosus,
 1765057200000,-33.419282,149.577501,Anoplognathus montanus,
@@ -4624,6 +4633,7 @@ date_ms,lat,lon,species,common_name
 1765191655000,-33.261661,151.423143,Anoplognathus porosus,
 1765192115000,-33.418137,151.278152,Anoplognathus olivieri,Christmas Beetle
 1765193461000,-33.693778,151.115883,Anoplognathus porosus,
+1765196930000,-33.476868,149.958756,Anoplognathus brunnipennis,
 1765197459000,-33.594362,150.664812,Anoplognathus viriditarsis,
 1765197811000,-33.930797,151.131028,Anoplognathus olivieri,Christmas Beetle
 1765206120000,-31.862754,152.420509,Anoplognathus porosus,
@@ -4870,12 +4880,14 @@ date_ms,lat,lon,species,common_name
 1765622458000,-33.765501,150.622854,Anoplognathus suturalis,
 1765622982000,-33.699462,151.280592,Anoplognathus porosus,
 1765623046000,-33.699462,151.280592,Anoplognathus porosus,
+1765623123000,-33.699462,151.280592,Anoplognathus porosus,
 1765623179000,-33.699462,151.280592,Anoplognathus olivieri,Christmas Beetle
 1765623522000,-33.27226,149.078158,Anoplognathus brunnipennis,
 1765624260000,-35.225605,149.070515,Anoplognathus brunnipennis,
 1765625792000,-36.986946,142.430239,Anoplognathus montanus,
 1765630312000,-33.597797,151.290237,Anoplognathus viridiaeneus,King Christmas Beetle
 1765630543000,-33.966299,151.122367,Anoplognathus porosus,
+1765630543000,-33.985666,151.014831,Anoplognathus porosus,
 1765630690000,-34.568651,150.80606,Anoplognathus olivieri,Christmas Beetle
 1765632600000,-37.094322,149.872883,Anoplognathus viriditarsis,
 1765635464000,-37.920738,147.729692,Anoplognathus porosus,
@@ -4924,6 +4936,7 @@ date_ms,lat,lon,species,common_name
 1765701540000,-33.79785,150.781193,Anoplognathus porosus,
 1765704443000,-24.77798,152.387601,Anoplognathus porosus,
 1765704564000,-30.335859,151.67339,Anoplognathus brunnipennis,
+1765705022000,-29.667566,152.866275,Anoplognathus porosus,
 1765708942000,-32.171139,152.482159,Anoplognathus olivieri,Christmas Beetle
 1765709400000,-35.362348,149.045833,Anoplognathus hirsutus,
 1765709580000,-35.362345,149.045831,Anoplognathus brunnipennis,
@@ -5233,14 +5246,18 @@ date_ms,lat,lon,species,common_name
 1766096913000,-34.741979,139.064687,Anoplognathus montanus,
 1766097120000,-35.812114,150.222502,Anoplognathus olivieri,Christmas Beetle
 1766097210000,-36.454079,143.760563,Anoplognathus montanus,
+1766097667000,-35.242295,149.068175,Anoplognathus brunnipennis,
 1766098437000,-36.60167,145.113481,Anoplognathus montanus,
 1766098620000,-35.384955,149.027865,Anoplognathus brunnipennis,
 1766098648000,-35.185333,149.101197,Anoplognathus brunnipennis,
 1766098680000,-35.385063,149.027652,Anoplognathus hirsutus,
 1766099030000,-35.112383,138.612644,Anoplognathus montanus,
+1766100394000,-32.882881,151.648089,Anoplognathus porosus,
 1766102400000,-36.422997,146.168989,Anoplognathus montanus,
 1766103411000,-16.835227,145.636468,Anoplognathus daemeli,
 1766105580000,-16.60548,145.34185,Anoplognathus aeneus,
+1766108743000,-37.596801,143.768603,Anoplognathus suturalis,
+1766110465000,-37.596801,143.768603,Anoplognathus suturalis,
 1766111797000,-29.779508,151.135382,Anoplognathus montanus,
 1766122606000,-24.44604,151.784371,Anoplognathus boisduvalii,
 1766126700000,-33.750015,151.264604,Anoplognathus olivieri,Christmas Beetle
@@ -5417,6 +5434,7 @@ date_ms,lat,lon,species,common_name
 1766267331000,-26.663434,152.003576,Anoplognathus porosus,
 1766268089000,-27.2315,152.818462,Anoplognathus porosus,
 1766268120000,-27.295731,152.728317,Anoplognathus porosus,
+1766268318000,-37.049951,142.361923,Anoplognathus montanus,
 1766269569000,-16.820695,145.634888,Anoplognathus daemeli,
 1766269759000,-36.532244,142.841514,Anoplognathus montanus,
 1766272159000,-27.713952,152.941223,Anoplognathus porosus,
@@ -5438,6 +5456,7 @@ date_ms,lat,lon,species,common_name
 1766313410000,-38.142149,145.15817,Anoplognathus olivieri,Christmas Beetle
 1766316080000,-30.514137,151.384095,Anoplognathus pallidicollis,Christmas Beetle
 1766317133000,-33.3068,149.043489,Anoplognathus porosus,
+1766325461000,-34.922117,148.167892,Anoplognathus montanus,
 1766329560000,-34.800015,149.341659,Anoplognathus brunnipennis,
 1766329959000,-37.218155,143.381395,Anoplognathus montanus,
 1766332765000,-25.275489,152.769385,Anoplognathus porosus,
@@ -5453,6 +5472,7 @@ date_ms,lat,lon,species,common_name
 1766347709000,-27.471395,151.933089,Anoplognathus porosus,
 1766347836000,-32.550783,151.735143,Anoplognathus porosus,
 1766347877000,-25.144505,152.072036,Anoplognathus boisduvalii,
+1766347918000,-27.449106,152.576218,Anoplognathus boisduvalii,
 1766348433000,-25.54241,152.681055,Anoplognathus pallidicollis,Christmas Beetle
 1766348520000,-27.470143,151.94254,Anoplognathus porosus,
 1766348580000,-27.470221,151.942547,Anoplognathus montanus,
@@ -5524,6 +5544,8 @@ date_ms,lat,lon,species,common_name
 1766436881000,-30.472616,151.635543,Anoplognathus porosus,
 1766437320000,-34.949369,149.064655,Anoplognathus brunnipennis,
 1766438040000,-26.230178,152.756317,Anoplognathus porosus,
+1766438325000,-34.835233,149.900886,Anoplognathus porosus,
+1766438732000,-34.835204,149.901227,Anoplognathus brunnipennis,
 1766438767000,-24.889814,152.301848,Anoplognathus porosus,
 1766438779000,-27.340478,152.414187,Anoplognathus porosus,
 1766438940000,-35.812114,150.222502,Anoplognathus olivieri,Christmas Beetle
@@ -5676,6 +5698,7 @@ date_ms,lat,lon,species,common_name
 1766611636000,-27.558425,151.895538,Anoplognathus montanus,
 1766612700000,-33.699384,151.280753,Anoplognathus olivieri,Christmas Beetle
 1766612700000,-33.699363,151.280467,Anoplognathus olivieri,Christmas Beetle
+1766612700000,-33.699455,151.280475,Anoplognathus olivieri,Christmas Beetle
 1766612722000,-35.339188,149.283067,Anoplognathus velutinus,
 1766612852000,-30.472596,151.635552,Anoplognathus porosus,
 1766612880000,-31.180283,150.906673,Anoplognathus porosus,
@@ -5718,10 +5741,12 @@ date_ms,lat,lon,species,common_name
 1766674560000,-35.063884,148.110119,Anoplognathus porosus,
 1766675127000,-33.998665,150.878581,Anoplognathus porosus,
 1766676077000,-21.074608,148.536637,Anoplognathus daemeli,
+1766676344000,-27.48792,152.455366,Anoplognathus boisduvalii,
 1766679148000,-25.218952,153.255888,Anoplognathus boisduvalii,
 1766680450000,-36.380588,148.693297,Anoplognathus suturalis,
 1766682854000,-34.83841,150.547567,Anoplognathus brunnipennis,
 1766682960000,-34.009501,151.091882,Anoplognathus olivieri,Christmas Beetle
+1766683230000,-33.451317,149.129486,Anoplognathus brunnipennis,
 1766686196000,-27.341525,152.41449,Anoplognathus boisduvalii,
 1766686759000,-35.028698,150.612467,Anoplognathus brunnipennis,
 1766689920000,-35.318602,147.333362,Anoplognathus montanus,
@@ -5999,6 +6024,7 @@ date_ms,lat,lon,species,common_name
 1767131586000,-28.224014,152.016989,Anoplognathus porosus,
 1767131602000,-28.224014,152.016989,Anoplognathus porosus,
 1767131619000,-28.224002,152.016968,Anoplognathus porosus,
+1767132463000,-35.242183,149.068192,Anoplognathus brunnipennis,
 1767133141000,-35.456528,149.789278,Anoplognathus brunnipennis,
 1767133426000,-33.789469,150.897215,Anoplognathus porosus,
 1767133567000,-33.753222,151.082134,Anoplognathus porosus,
@@ -6041,6 +6067,7 @@ date_ms,lat,lon,species,common_name
 1767205419000,-33.69963,150.536667,Anoplognathus concolor,
 1767207048000,-38.355772,147.215072,Anoplognathus olivieri,Christmas Beetle
 1767210704000,-25.95618,152.49768,Anoplognathus porosus,
+1767211681000,-37.378164,145.759414,Anoplognathus montanus,
 1767214345000,-29.726799,152.444356,Anoplognathus porosus,
 1767215310000,-30.472854,151.635755,Anoplognathus porosus,
 1767215425000,-30.472858,151.635768,Anoplognathus brunnipennis,
@@ -6333,6 +6360,7 @@ date_ms,lat,lon,species,common_name
 1767823475000,-37.673246,143.88734,Anoplognathus montanus,
 1767823860000,-37.68931,143.997026,Anoplognathus viriditarsis,
 1767824100000,-33.84795,148.690486,Anoplognathus boisduvalii,
+1767824143000,-34.26172,150.535673,Anoplognathus viriditarsis,
 1767824371000,-29.678364,152.938323,Anoplognathus porosus,
 1767824882000,-30.710659,152.92332,Anoplognathus porosus,
 1767825266000,-36.74157,145.13057,Anoplognathus montanus,
@@ -6512,6 +6540,7 @@ date_ms,lat,lon,species,common_name
 1768132158000,-33.755725,151.166747,Anoplognathus porosus,
 1768133685000,-26.463817,152.990708,Anoplognathus porosus,
 1768137061000,-26.463893,152.990645,Anoplognathus porosus,
+1768139735000,-27.565228,152.288178,Anoplognathus pallidicollis,Christmas Beetle
 1768140180000,-33.330444,149.08055,Anoplognathus brunnipennis,
 1768140900000,-41.167921,147.042819,Anoplognathus suturalis,
 1768142179000,-38.000942,145.094005,Anoplognathus olivieri,Christmas Beetle
@@ -6617,6 +6646,7 @@ date_ms,lat,lon,species,common_name
 1768399080000,-35.531108,149.065822,Anoplognathus montanus,
 1768410134000,-33.531065,149.602186,Anoplognathus montanus,
 1768410536000,-27.527087,153.009684,Anoplognathus porosus,
+1768413770000,-27.464528,152.530012,Anoplognathus boisduvalii,
 1768413900000,-27.60764,153.011528,Anoplognathus porosus,
 1768415189000,-36.898053,142.464705,Anoplognathus montanus,
 1768417425000,-36.479467,148.352705,Anoplognathus suturalis,
@@ -6686,6 +6716,7 @@ date_ms,lat,lon,species,common_name
 1768557179000,-30.555312,151.527148,Anoplognathus porosus,
 1768560660000,-17.355122,145.585256,Anoplognathus punctulatus,
 1768566746000,-33.073148,151.598924,Anoplognathus porosus,
+1768571876000,-34.39052,150.42122,Anoplognathus viriditarsis,
 1768582876000,-27.477731,151.932587,Anoplognathus boisduvalii,
 1768585311000,-34.788592,149.628289,Anoplognathus pallidicollis,Christmas Beetle
 1768588479000,-34.036949,151.056851,Anoplognathus olivieri,Christmas Beetle
@@ -6893,6 +6924,7 @@ date_ms,lat,lon,species,common_name
 1769245089000,-36.19048,147.896788,Anoplognathus montanus,
 1769257483000,-27.599637,152.723741,Anoplognathus boisduvalii,
 1769263140000,-32.7,152.0,Anoplognathus porosus,
+1769266745000,-38.068761,145.656617,Anoplognathus viriditarsis,
 1769270140000,-26.944327,151.957146,Anoplognathus porosus,
 1769276109000,-30.506894,151.650916,Anoplognathus porosus,
 1769283180000,-28.010448,153.263443,Anoplognathus concolor,
@@ -7067,6 +7099,7 @@ date_ms,lat,lon,species,common_name
 1770257531000,-28.223993,152.017238,Anoplognathus boisduvalii,
 1770257552000,-28.224057,152.017009,Anoplognathus porosus,
 1770281389000,-37.545519,144.854094,Anoplognathus montanus,
+1770285943000,-35.456494,149.78928,Anoplognathus brunnipennis,
 1770303357000,-37.544938,143.874206,Anoplognathus montanus,
 1770311407000,-30.486395,151.61145,Anoplognathus brunnipennis,
 1770323005000,-27.457113,152.401572,Anoplognathus porosus,
@@ -7153,6 +7186,7 @@ date_ms,lat,lon,species,common_name
 1771021020000,-37.795278,148.533034,Anoplognathus olivieri,Christmas Beetle
 1771023644000,-38.208512,146.548018,Anoplognathus olivieri,Christmas Beetle
 1771041651000,-35.171378,149.093758,Anoplognathus brunnipennis,
+1771102875000,-35.781688,150.140415,Anoplognathus olivieri,Christmas Beetle
 1771104041000,-16.236837,145.465042,Anoplognathus punctulatus,
 1771123740000,-38.354376,146.387945,Anoplognathus viriditarsis,
 1771154698000,-26.280517,132.134171,Anoplognathus macleayi aurora,
@@ -7160,6 +7194,7 @@ date_ms,lat,lon,species,common_name
 1771172058000,-37.867493,148.045369,Anoplognathus olivieri,Christmas Beetle
 1771191132000,-16.87288,145.529995,Anoplognathus punctulatus,
 1771193520000,-37.689312,143.997022,Anoplognathus montanus,
+1771200000000,-30.503571,151.652337,Anoplognathus brunnipennis,
 1771219140000,-35.248467,149.07245,Anoplognathus brunnipennis,
 1771243599000,-33.644958,150.958162,Anoplognathus viriditarsis,
 1771247100000,-30.217512,151.073143,Anoplognathus porosus,
@@ -7177,6 +7212,7 @@ date_ms,lat,lon,species,common_name
 1771342200000,-29.826953,152.891918,Anoplognathus porosus,
 1771342260000,-29.826953,152.891918,Anoplognathus porosus,
 1771358358000,-26.372517,151.673997,Anoplognathus nebulosus,
+1771358798000,-27.448969,152.576316,Anoplognathus boisduvalii,
 1771360020000,-34.331868,150.900019,Anoplognathus concolor,
 1771361118000,-33.699653,150.536728,Anoplognathus porosus,
 1771362599000,-28.91758,151.58372,Anoplognathus boisduvalii,
@@ -7186,6 +7222,7 @@ date_ms,lat,lon,species,common_name
 1771493541000,-16.903691,145.620564,Anoplognathus punctulatus,
 1771497430000,-33.737583,150.749955,Anoplognathus porosus,
 1771497444000,-33.737801,150.749657,Anoplognathus porosus,
+1771521937000,-27.610336,152.935385,Anoplognathus boisduvalii,
 1771531383000,-28.917608,151.583613,Anoplognathus boisduvalii,
 1771531661000,-16.91902,145.423734,Anoplognathus punctulatus,
 1771538149000,-36.791828,144.285437,Anoplognathus montanus,
@@ -7216,6 +7253,7 @@ date_ms,lat,lon,species,common_name
 1771788420000,-27.498787,152.956794,Anoplognathus porosus,
 1771796760000,-32.313731,151.798072,Anoplognathus porosus,
 1771800029000,-16.835227,145.636467,Anoplognathus punctulatus,
+1771844700000,-30.4893,151.6406,Anoplognathus brunnipennis,
 1771868380000,-33.728901,151.053747,Anoplognathus flavipennis,
 1771875992000,-26.572912,152.546722,Anoplognathus boisduvalii,
 1771880709000,-27.804063,153.050689,Anoplognathus boisduvalii,
@@ -7310,18 +7348,28 @@ date_ms,lat,lon,species,common_name
 1774206707000,-26.852546,152.692221,Anoplognathus boisduvalii,
 1774376291000,-34.78855,149.627994,Anoplognathus pallidicollis,Christmas Beetle
 1774472880000,-31.087774,141.703859,Anoplognathus macleayi,
+1774555000000,-32.990678,151.725892,Anoplognathus porosus,
 1774817640000,-31.088651,141.705627,Anoplognathus macleayi,
 1774819620000,-31.088647,141.705609,Anoplognathus macleayi,
 1774853700000,-34.042846,150.996177,Anoplognathus viridiaeneus,King Christmas Beetle
 1774877132000,-37.905367,147.335484,Anoplognathus olivieri,Christmas Beetle
+1774955173000,-37.195898,144.377771,Anoplognathus pallidicollis,Christmas Beetle
+1775230558000,-37.154109,146.248074,Anoplognathus viriditarsis,
 1775317740000,-33.719631,150.562885,Anoplognathus flavipennis,
 1775383484000,-27.799994,153.170541,Anoplognathus pallidicollis,Christmas Beetle
+1775406060000,-25.693006,152.517319,Anoplognathus viridiaeneus,King Christmas Beetle
 1775468359000,-28.101287,151.682114,Anoplognathus boisduvalii,
 1775562391000,-32.433822,150.270997,Anoplognathus montanus,
+1775576138000,-37.212095,145.606799,Anoplognathus montanus,
+1775641835000,-23.72175,133.869187,Anoplognathus macleayi aurora,
+1775651220000,-31.055189,152.794362,Anoplognathus porosus,
+1775751780000,-19.758277,146.835721,Anoplognathus parvulus,
 1775819882000,-33.500677,150.492117,Anoplognathus rugosus,
 1775847323000,-27.549197,152.025815,Anoplognathus pallidicollis,Christmas Beetle
 1776083903000,-31.087744,152.140553,Anoplognathus porosus,
 1776283224000,-26.729716,120.347875,Anoplognathus macleayi aurora,
+1776592774000,-30.583665,151.305767,Anoplognathus montanus,
+1776613260000,-34.687473,138.872624,Anoplognathus montanus,
 1776853870000,-38.328112,144.397922,Anoplognathus olivieri,Christmas Beetle
 1777285237000,-33.37768,149.578613,Anoplognathus brunnipennis,
 1777407410000,-23.5188,134.39653,Anoplognathus macleayi aurora,
@@ -7330,21 +7378,36 @@ date_ms,lat,lon,species,common_name
 1777671420000,-16.863399,145.467587,Anoplognathus nebulosus,
 1778009940000,-21.205376,148.546494,Anoplognathus concolor,
 1778408460000,-33.541345,149.9259,Anoplognathus viriditarsis,
+1778675633000,-36.112308,149.1144,Anoplognathus viriditarsis,
+1778763011000,-37.376113,144.68425,Anoplognathus suturalis,
+1778769150000,-34.799781,149.625723,Anoplognathus suturalis,
 1778844649000,-30.447313,151.824875,Anoplognathus brunnipennis,
 1778849017000,-25.075104,151.996304,Anoplognathus porosus,
 1778928793000,-16.831237,145.635863,Anoplognathus punctulatus,
+1778943120000,-37.05463,145.080975,Anoplognathus suturalis,
+1779542330000,-30.57127,151.726822,Anoplognathus hirsutus,
+1779785549000,-37.139701,143.34229,Anoplognathus montanus,
 1780183500000,-14.312673,132.424378,Anoplognathus pallidicollis,Christmas Beetle
+1780675772000,-35.219493,149.180143,Anoplognathus hirsutus,
+1780790400000,-30.199264,151.662177,Anoplognathus porosus,
+1781186187000,-31.8802,141.593737,Anoplognathus macleayi,
+1781437598000,-28.918538,151.592505,Anoplognathus porosus,
 1782215182000,-25.582958,153.080231,Anoplognathus viridiaeneus,King Christmas Beetle
+1783085393000,-32.921138,151.756763,Anoplognathus brunnipennis,
 1783418400000,-30.04033,151.78518,Anoplognathus porosus,
 1783600492000,-20.667917,148.706467,Anoplognathus viridiaeneus,King Christmas Beetle
 1784048400000,-30.043115,151.767692,Anoplognathus brunnipennis,
 1784049120000,-30.012,151.611303,Anoplognathus hirsutus,
 1784107964000,-28.64442,153.088822,Anoplognathus porosus,
+1785670680000,-28.610667,151.792361,Anoplognathus montanus,
 1786024046000,-30.418537,151.63652,Anoplognathus brunnipennis,
 1786024476000,-30.418374,151.636641,Anoplognathus brunnipennis,
+1787392980000,-38.1583,147.084531,Anoplognathus brunnipennis,
 1787418000000,-33.432376,149.383717,Anoplognathus montanus,
 1787432239000,-23.077256,150.886804,Anoplognathus porosus,
 1787566740000,-26.700501,153.07021,Anoplognathus velutinus,
+1787573280000,-15.25841,145.271493,Anoplognathus smaragdinus,
+1788721440000,-35.388909,150.444088,Anoplognathus velutinus,
 1788968125000,-37.870535,147.272885,Anoplognathus olivieri,Christmas Beetle
 1788988680000,-28.639398,153.608423,Anoplognathus prasinus,
 1789204586000,-33.644917,150.958192,Anoplognathus viriditarsis,
@@ -7355,10 +7418,14 @@ date_ms,lat,lon,species,common_name
 1790072280000,-35.376651,139.130015,Anoplognathus velutinus,
 1790072280000,-35.373209,139.142621,Anoplognathus velutinus,
 1790178434000,-35.360305,139.163833,Anoplognathus velutinus,
+1790330366000,-37.993035,145.137892,Anoplognathus brunnipennis,
 1790448240000,-27.487428,153.197689,Anoplognathus pallidicollis,Christmas Beetle
 1790512667000,-27.425895,153.532775,Anoplognathus olivieri,Christmas Beetle
+1790609358000,-26.719183,153.063583,Anoplognathus pallidicollis,Christmas Beetle
 1790719260000,-33.921718,151.200888,Anoplognathus velutinus,
 1790794562000,-35.49435,138.820188,Anoplognathus velutinus,
+1790795548000,-27.050269,152.952988,Anoplognathus pallidicollis,Christmas Beetle
+1790798740000,-35.072079,150.566998,Anoplognathus velutinus,
 1790812800000,-34.841099,138.671138,Anoplognathus velutinus,
 1791014487000,-31.454025,152.931733,Anoplognathus velutinus,
 1791062471000,-26.61136,153.025901,Anoplognathus pallidicollis,Christmas Beetle
@@ -7369,32 +7436,43 @@ date_ms,lat,lon,species,common_name
 1791195246000,-31.925718,151.238126,Anoplognathus velutinus,
 1791224940000,-36.598355,145.933762,Anoplognathus montanus,
 1791269462000,-27.585353,152.976897,Anoplognathus porosus,
+1791286541000,-37.084511,143.475771,Anoplognathus pallidicollis,Christmas Beetle
 1791297822000,-37.73039,145.213417,Anoplognathus velutinus,
+1791307490000,-27.062911,153.150447,Anoplognathus pallidicollis,Christmas Beetle
 1791315412000,-27.698122,153.180917,Anoplognathus pallidicollis,Christmas Beetle
 1791315540000,-30.404149,152.864126,Anoplognathus concolor,
+1791327660000,-35.468589,149.100392,Anoplognathus brunnipennis,
 1791402600000,-27.49872,152.956777,Anoplognathus pallidicollis,Christmas Beetle
+1791423732000,-27.669228,153.066097,Anoplognathus porosus,
 1791475711000,-27.230795,152.981201,Anoplognathus pallidicollis,Christmas Beetle
 1791490950000,-34.890153,138.771728,Anoplognathus velutinus,
 1791492508000,-26.611361,153.025931,Anoplognathus pallidicollis,Christmas Beetle
 1791536205000,-23.135344,150.734387,Anoplognathus pallidicollis,Christmas Beetle
 1791541065000,-37.845838,145.113105,Anoplognathus velutinus,
+1791571685000,-28.842698,151.919442,Anoplognathus velutinus,
 1791573884000,-26.611355,153.025906,Anoplognathus porosus,
 1791573907000,-26.611355,153.025917,Anoplognathus pallidicollis,Christmas Beetle
 1791574080000,-26.700695,153.070382,Anoplognathus prasinus,
+1791590460000,-27.195168,152.945588,Anoplognathus pallidicollis,Christmas Beetle
 1791621880000,-33.719981,151.030256,Anoplognathus velutinus,
 1791641746000,-28.668988,153.590113,Anoplognathus porosus,
 1791642671000,-25.349986,152.89783,Anoplognathus pallidicollis,Christmas Beetle
 1791645445000,-28.185944,153.518408,Anoplognathus olivieri,Christmas Beetle
 1791660420000,-27.498729,152.956779,Anoplognathus pallidicollis,Christmas Beetle
+1791660477000,-27.43718,153.543526,Anoplognathus olivieri,Christmas Beetle
+1791662160000,-31.555952,147.186019,Anoplognathus pallidicollis,Christmas Beetle
 1791662820000,-27.498729,152.956779,Anoplognathus pallidicollis,Christmas Beetle
 1791664041000,-33.65032,151.308747,Anoplognathus concolor,
 1791710908000,-34.917743,138.525809,Anoplognathus velutinus,
 1791719340000,-26.430409,152.905968,Anoplognathus prasinus,
 1791720360000,-27.980031,153.4062,Anoplognathus pallidicollis,Christmas Beetle
 1791736008000,-28.84212,153.604142,Anoplognathus olivieri,Christmas Beetle
+1791737589000,-32.952938,151.70816,Anoplognathus concolor,
+1791743173000,-35.283378,148.795823,Anoplognathus prasinus,
 1791744780000,-28.180996,153.345271,Anoplognathus pallidicollis,Christmas Beetle
 1791748767000,-26.611364,153.025901,Anoplognathus concolor,
 1791749179000,-28.094105,153.406005,Anoplognathus pallidicollis,Christmas Beetle
+1791749220000,-25.789943,152.69579,Anoplognathus porosus,
 1791753840000,-38.1826,145.119432,Anoplognathus velutinus,
 1791754041000,-26.611363,153.02593,Anoplognathus pallidicollis,Christmas Beetle
 1791786000000,-27.238477,152.810395,Anoplognathus pallidicollis,Christmas Beetle
@@ -7402,20 +7480,33 @@ date_ms,lat,lon,species,common_name
 1791835140000,-28.17571,153.0681,Anoplognathus concolor,
 1791835900000,-33.474044,151.343017,Anoplognathus concolor,
 1791839760000,-30.447534,151.825116,Anoplognathus velutinus,
+1791879073000,-35.152122,150.592955,Anoplognathus velutinus,
 1791884112000,-26.778239,153.02118,Anoplognathus velutinus,
+1791884834000,-27.232072,152.976913,Anoplognathus pallidicollis,Christmas Beetle
 1791890072000,-34.911819,138.561508,Anoplognathus velutinus,
 1791890520000,-34.910542,138.555527,Anoplognathus velutinus,
 1791890941000,-34.913914,138.551392,Anoplognathus velutinus,
 1791920398000,-27.382713,153.062775,Anoplognathus porosus,
 1791920880000,-28.080133,153.353748,Anoplognathus pallidicollis,Christmas Beetle
 1791920880000,-28.062221,153.253182,Anoplognathus pallidicollis,Christmas Beetle
+1791921780000,-27.510434,153.070009,Anoplognathus pallidicollis,Christmas Beetle
+1791923289000,-28.539524,153.547204,Anoplognathus olivieri,Christmas Beetle
 1791926941000,-29.068638,153.344486,Anoplognathus prasinus,
 1791955800000,-27.238616,152.810339,Anoplognathus pallidicollis,Christmas Beetle
+1791973440000,-26.717085,152.82335,Anoplognathus prasinus,
+1792061028000,-25.489274,152.655186,Anoplognathus porosus,
 1792095170000,-27.43952,153.147892,Anoplognathus pallidicollis,Christmas Beetle
+1792150713000,-25.598897,153.092103,Anoplognathus olivieri,Christmas Beetle
+1792158742000,-28.853451,153.595847,Anoplognathus montanus,
 1792166365000,-27.666146,153.17611,Anoplognathus porosus,
 1792179840000,-27.498749,152.956782,Anoplognathus pallidicollis,Christmas Beetle
+1792180775000,-25.259818,153.141406,Anoplognathus montanus,
+1792227900000,-27.476725,153.099936,Anoplognathus porosus,
 1792249386000,-27.559484,152.886119,Anoplognathus boisduvalii,
+1792250487000,-35.367876,139.157467,Anoplognathus velutinus,
+1792263240000,-35.54513,150.373088,Anoplognathus velutinus,
 1792264354000,-27.403253,152.929878,Anoplognathus pallidicollis,Christmas Beetle
+1792269423000,-31.421713,152.845041,Anoplognathus prasinus,
 1792270374000,-31.509004,152.752632,Anoplognathus prasinus,
 1792281000000,-37.714622,145.061094,Anoplognathus velutinus,
 1792284472000,-37.71465,145.061036,Anoplognathus velutinus,
@@ -7424,3 +7515,122 @@ date_ms,lat,lon,species,common_name
 1792303684000,-27.526864,153.147738,Anoplognathus pallidicollis,Christmas Beetle
 1792308120000,-27.175872,152.95228,Anoplognathus pallidicollis,Christmas Beetle
 1792309379000,-37.767595,145.131845,Anoplognathus velutinus,
+1792350118000,-27.830091,152.417775,Anoplognathus porosus,
+1792355982000,-37.618816,145.186188,Anoplognathus velutinus,
+1792356420000,-35.036733,138.536952,Anoplognathus montanus,
+1792357343000,-37.799322,144.825161,Anoplognathus velutinus,
+1792362508000,-27.94252,153.233827,Anoplognathus pallidicollis,Christmas Beetle
+1792397656000,-27.039295,153.133131,Anoplognathus olivieri,Christmas Beetle
+1792404475000,-37.845942,145.11299,Anoplognathus velutinus,
+1792404490000,-37.845667,145.11285,Anoplognathus velutinus,
+1792417240000,-27.52393,153.186646,Anoplognathus porosus,
+1792424241000,-34.85513,138.671944,Anoplognathus velutinus,
+1792441493000,-35.49432,138.820113,Anoplognathus velutinus,
+1792442280000,-37.144333,142.52147,Anoplognathus velutinus,
+1792442802000,-37.144319,142.521373,Anoplognathus velutinus,
+1792454400000,-25.239823,153.132524,Anoplognathus olivieri,Christmas Beetle
+1792492547000,-37.8466,145.113002,Anoplognathus velutinus,
+1792492557000,-37.846171,145.113066,Anoplognathus velutinus,
+1792492636000,-37.846188,145.113269,Anoplognathus velutinus,
+1792500050000,-25.599121,153.091614,Anoplognathus olivieri,Christmas Beetle
+1792500342000,-25.599108,153.091614,Anoplognathus olivieri,Christmas Beetle
+1792500370000,-25.599045,153.091737,Anoplognathus porosus,
+1792504912000,-28.132536,153.434414,Anoplognathus pallidicollis,Christmas Beetle
+1792522963000,-27.419147,153.005596,Anoplognathus porosus,
+1792528376000,-37.88378,145.283417,Anoplognathus velutinus,
+1792579560000,-27.900038,153.386285,Anoplognathus pallidicollis,Christmas Beetle
+1792599230000,-32.800769,151.512336,Anoplognathus porosus,
+1792617889000,-27.94252,153.233827,Anoplognathus concolor,
+1792658359000,-38.029178,145.183395,Anoplognathus velutinus,
+1792702570000,-35.494392,138.820257,Anoplognathus velutinus,
+1792748344000,-32.806687,151.600585,Anoplognathus porosus,
+1792751040000,-34.747867,146.550356,Anoplognathus pallidicollis,Christmas Beetle
+1792774774000,-31.870722,152.685608,Anoplognathus porosus,
+1792781205000,-33.938306,151.111786,Anoplognathus porosus,
+1792786800000,-27.571506,153.006794,Anoplognathus pallidicollis,Christmas Beetle
+1792786860000,-27.383505,152.949598,Anoplognathus concolor,
+1792787803000,-35.811133,148.032712,Anoplognathus velutinus,
+1792791262000,-32.710645,151.519869,Anoplognathus porosus,
+1792824481000,-35.301335,149.138582,Anoplognathus velutinus,
+1792827250000,-27.614613,152.760842,Anoplognathus porosus,
+1792827646000,-27.548625,153.024017,Anoplognathus pallidicollis,Christmas Beetle
+1792839720000,-27.493593,153.213787,Anoplognathus porosus,
+1792857471000,-38.32965,143.600228,Anoplognathus velutinus,
+1792858920000,-27.556519,152.935761,Anoplognathus brunnipennis,
+1792879260000,-30.404149,152.864126,Anoplognathus porosus,
+1792918671000,-27.54872,153.024964,Anoplognathus pallidicollis,Christmas Beetle
+1792919211000,-32.399967,152.471863,Anoplognathus olivieri,Christmas Beetle
+1792919242000,-32.400105,152.471558,Anoplognathus olivieri,Christmas Beetle
+1792924241000,-33.063328,151.46475,Anoplognathus porosus,
+1792958460000,-17.270883,145.63389,Anoplognathus concolor,
+1792959478000,-32.472139,151.461859,Anoplognathus concolor,
+1792962920000,-26.658959,152.877848,Anoplognathus concolor,
+1793019495000,-33.7602,150.659792,Anoplognathus porosus,
+1793041920000,-27.546855,153.060972,Anoplognathus pallidicollis,Christmas Beetle
+1793042345000,-26.736002,153.19758,Anoplognathus porosus,
+1793044064000,-27.225593,153.081254,Anoplognathus porosus,
+1793044115000,-27.225519,153.081476,Anoplognathus porosus,
+1793044212000,-27.225481,153.081797,Anoplognathus porosus,
+1793054828000,-27.671598,153.108529,Anoplognathus porosus,
+1793059420000,-27.322008,152.785179,Anoplognathus concolor,
+1793097325000,-33.827704,151.166324,Anoplognathus porosus,
+1793098201000,-33.423318,151.349401,Anoplognathus concolor,
+1793126693000,-28.726478,153.16867,Anoplognathus pallidicollis,Christmas Beetle
+1793129520000,-27.501174,153.020261,Anoplognathus pallidicollis,Christmas Beetle
+1793129580000,-27.569646,153.073633,Anoplognathus pallidicollis,Christmas Beetle
+1793134454000,-27.698166,153.18101,Anoplognathus pallidicollis,Christmas Beetle
+1793135100000,-21.128854,148.495046,Anoplognathus concolor,
+1793170768000,-33.858917,151.168434,Anoplognathus porosus,
+1793208483000,-33.712689,150.556686,Anoplognathus concolor,
+1793220420000,-37.60583,145.104978,Anoplognathus velutinus,
+1793229323000,-27.698076,153.18091,Anoplognathus porosus,
+1793229344000,-27.698086,153.180908,Anoplognathus pallidicollis,Christmas Beetle
+1793257620000,-29.494799,153.103674,Anoplognathus porosus,
+1793264233000,-32.965287,151.688419,Anoplognathus porosus,
+1793267003000,-33.676721,151.304414,Anoplognathus porosus,
+1793270533000,-27.623198,153.091095,Anoplognathus pallidicollis,Christmas Beetle
+1793271724000,-37.815917,147.747925,Anoplognathus velutinus,
+1793276041000,-27.489595,153.213683,Anoplognathus pallidicollis,Christmas Beetle
+1793301420000,-25.27892,152.72929,Anoplognathus porosus,
+1793301509000,-27.07055,153.133744,Anoplognathus porosus,
+1793301600000,-27.498731,152.956781,Anoplognathus pallidicollis,Christmas Beetle
+1793301960000,-27.744678,153.1777,Anoplognathus pallidicollis,Christmas Beetle
+1793303495000,-24.216883,151.91507,Anoplognathus olivieri,Christmas Beetle
+1793304300000,-27.121877,152.887662,Anoplognathus porosus,
+1793306712000,-32.683836,151.357038,Anoplognathus porosus,
+1793307076000,-35.494073,138.819962,Anoplognathus velutinus,
+1793308725000,-37.719725,145.141159,Anoplognathus velutinus,
+1793313742000,-32.980717,151.690063,Anoplognathus porosus,
+1793313744000,-32.980713,151.690063,Anoplognathus porosus,
+1793315922000,-27.322072,152.785342,Anoplognathus concolor,
+1793317448000,-34.816692,143.258363,Anoplognathus pallidicollis,Christmas Beetle
+1793362260000,-27.808022,153.352997,Anoplognathus porosus,
+1793366083000,-36.12167,144.744784,Anoplognathus pallidicollis,Christmas Beetle
+1793374841000,-27.41624,152.942493,Anoplognathus pallidicollis,Christmas Beetle
+1793392382000,-17.219684,145.404571,Anoplognathus porosus,
+1793394076000,-25.21896,153.256143,Anoplognathus olivieri,Christmas Beetle
+1793395075000,-38.41265,144.167382,Anoplognathus velutinus,
+1793398487000,-37.174066,142.538559,Anoplognathus velutinus,
+1793428140000,-27.238636,152.810221,Anoplognathus porosus,
+1793435441000,-26.33458,152.857103,Anoplognathus porosus,
+1793440445000,-33.981092,151.120133,Anoplognathus porosus,
+1793447298000,-34.239253,150.860361,Anoplognathus porosus,
+1793452394000,-37.958227,144.899946,Anoplognathus velutinus,
+1793457834000,-31.546398,152.854966,Anoplognathus olivieri,Christmas Beetle
+1793462607000,-34.014017,151.014378,Anoplognathus brunnipennis,
+1793464724000,-31.630623,152.760066,Anoplognathus porosus,
+1793470182000,-37.972788,145.194636,Anoplognathus velutinus,
+1793470200000,-16.1803,145.40906,Anoplognathus punctulatus,
+1793476967000,-34.123266,151.14986,Anoplognathus concolor,
+1793477525000,-33.74663,151.078125,Anoplognathus velutinus,
+1793481965000,-35.306675,138.672975,Anoplognathus velutinus,
+1793483065000,-29.722797,152.933608,Anoplognathus porosus,
+1793489593000,-33.78283,151.264405,Anoplognathus concolor,
+1793502134000,-33.820731,151.221136,Anoplognathus concolor,
+1793506619000,-27.629599,153.162408,Anoplognathus pallidicollis,Christmas Beetle
+1793515080000,-28.820435,153.333771,Anoplognathus porosus,
+1793517881000,-32.76699,151.597223,Anoplognathus porosus,
+1793519932000,-34.12133,150.790055,Anoplognathus porosus,
+1793529846000,-34.91841,138.534548,Anoplognathus velutinus,
+1793542130000,-35.462003,138.214535,Anoplognathus velutinus,
+1793552051000,-35.141153,147.465563,Anoplognathus montanus,
