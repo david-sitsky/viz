@@ -4498,6 +4498,7 @@ date_ms,lat,lon,species,common_name
 1790361044000,-32.894696,151.687146,Agrotis infusa,Bogong Moth
 1790361245000,-35.341496,150.467007,Agrotis infusa,Bogong Moth
 1790361294000,-35.128772,147.358612,Agrotis infusa,Bogong Moth
+1790361647000,-35.170713,150.5849,Agrotis infusa,Bogong Moth
 1790361665000,-35.267253,149.136611,Agrotis infusa,Bogong Moth
 1790361807000,-36.772076,146.978056,Agrotis infusa,Bogong Moth
 1790362125000,-33.266092,149.100206,Agrotis infusa,Bogong Moth
@@ -5565,6 +5566,7 @@ date_ms,lat,lon,species,common_name
 1790677123000,-34.058272,150.767245,Agrotis infusa,Bogong Moth
 1790677522000,-37.372508,144.686828,Agrotis infusa,Bogong Moth
 1790677620000,-35.390552,149.115522,Agrotis infusa,Bogong Moth
+1790678587000,-33.637003,151.290447,Agrotis infusa,Bogong Moth
 1790678703000,-33.75695,151.025886,Agrotis infusa,Bogong Moth
 1790678760000,-32.584611,151.780197,Agrotis infusa,Bogong Moth
 1790678845000,-34.666752,150.22204,Agrotis infusa,Bogong Moth
@@ -6678,6 +6680,7 @@ date_ms,lat,lon,species,common_name
 1790886077000,-32.957708,151.703919,Agrotis infusa,Bogong Moth
 1790886120000,-33.752801,151.084434,Agrotis infusa,Bogong Moth
 1790886264000,-32.957708,151.703919,Agrotis infusa,Bogong Moth
+1790886290000,-33.868203,151.224608,Agrotis infusa,Bogong Moth
 1790886461000,-33.755415,151.235201,Agrotis infusa,Bogong Moth
 1790886999000,-32.957718,151.703929,Agrotis infusa,Bogong Moth
 1790887066000,-33.736913,151.057782,Agrotis infusa,Bogong Moth
@@ -8857,6 +8860,7 @@ date_ms,lat,lon,species,common_name
 1791645338000,-33.7034,151.101914,Agrotis infusa,Bogong Moth
 1791646048000,-31.625257,115.696636,Agrotis infusa,Bogong Moth
 1791646164000,-33.700004,150.926944,Agrotis infusa,Bogong Moth
+1791646436000,-35.133422,150.705494,Agrotis infusa,Bogong Moth
 1791646965000,-32.931097,151.784605,Agrotis infusa,Bogong Moth
 1791647035000,-33.842497,151.251153,Agrotis infusa,Bogong Moth
 1791647189000,-33.896099,151.196306,Agrotis infusa,Bogong Moth
@@ -9607,6 +9611,7 @@ date_ms,lat,lon,species,common_name
 1792072732000,-33.590207,150.250691,Agrotis infusa,Bogong Moth
 1792072925000,-33.701255,151.125733,Agrotis infusa,Bogong Moth
 1792074663000,-34.064809,151.007653,Agrotis infusa,Bogong Moth
+1792075752000,-33.751833,151.288762,Agrotis infusa,Bogong Moth
 1792076400000,-34.077028,150.788798,Agrotis infusa,Bogong Moth
 1792077857000,-37.029909,145.141818,Agrotis infusa,Bogong Moth
 1792078380000,-34.287743,146.571959,Agrotis infusa,Bogong Moth
@@ -10086,6 +10091,7 @@ date_ms,lat,lon,species,common_name
 1792417051000,-38.454253,145.355928,Agrotis infusa,Bogong Moth
 1792417121000,-33.73039,151.005688,Agrotis infusa,Bogong Moth
 1792421432000,-35.993664,146.380272,Agrotis infusa,Bogong Moth
+1792421439000,-34.702862,135.843155,Agrotis infusa,Bogong Moth
 1792421802000,-34.692639,150.157713,Agrotis infusa,Bogong Moth
 1792423500000,-35.480462,148.905758,Agrotis infusa,Bogong Moth
 1792428492000,-34.170752,151.067213,Agrotis infusa,Bogong Moth
@@ -11042,6 +11048,8 @@ date_ms,lat,lon,species,common_name
 1793488842000,-37.914121,145.142046,Agrotis infusa,Bogong Moth
 1793490265000,-37.823342,145.045958,Agrotis infusa,Bogong Moth
 1793494440000,-34.38975,141.33791,Agrotis infusa,Bogong Moth
+1793496720000,-34.38959,141.338005,Agrotis infusa,Bogong Moth
+1793497020000,-34.389787,141.337785,Agrotis infusa,Bogong Moth
 1793516580000,-28.820435,153.333771,Agrotis infusa,Bogong Moth
 1793516700000,-28.820435,153.333771,Agrotis infusa,Bogong Moth
 1793517000000,-28.820435,153.333771,Agrotis infusa,Bogong Moth
@@ -11146,8 +11154,10 @@ date_ms,lat,lon,species,common_name
 1793654671000,-36.21,150.12,Agrotis infusa,Bogong Moth
 1793656260000,-35.812114,150.222502,Agrotis infusa,Bogong Moth
 1793656835000,-35.229072,149.16344,Agrotis infusa,Bogong Moth
+1793658120000,-35.025056,141.720268,Agrotis infusa,Bogong Moth
 1793660257000,-37.779422,145.176558,Agrotis infusa,Bogong Moth
 1793664000000,-37.929277,145.166663,Agrotis infusa,Bogong Moth
+1793666339000,-37.58295,144.699172,Agrotis infusa,Bogong Moth
 1793667640000,-38.319056,142.383641,Agrotis infusa,Bogong Moth
 1793690598000,-33.056246,135.467441,Agrotis infusa,Bogong Moth
 1793690693000,-38.252688,144.517747,Agrotis infusa,Bogong Moth
@@ -11250,6 +11260,7 @@ date_ms,lat,lon,species,common_name
 1793902298000,-35.225697,149.045986,Agrotis infusa,Bogong Moth
 1793902718000,-37.705694,144.995525,Agrotis infusa,Bogong Moth
 1793903840000,-38.018719,145.304477,Agrotis infusa,Bogong Moth
+1793907691000,-37.827722,145.143222,Agrotis infusa,Bogong Moth
 1793909035000,-37.805705,145.054213,Agrotis infusa,Bogong Moth
 1793910741000,-34.791503,149.623494,Agrotis infusa,Bogong Moth
 1793910966000,-34.907223,138.553824,Agrotis infusa,Bogong Moth
@@ -11323,6 +11334,7 @@ date_ms,lat,lon,species,common_name
 1794072120000,-33.192174,151.575604,Agrotis infusa,Bogong Moth
 1794073617000,-35.247903,150.400283,Agrotis infusa,Bogong Moth
 1794080160000,-33.951532,115.082787,Agrotis infusa,Bogong Moth
+1794080280000,-28.18378,153.08475,Agrotis infusa,Bogong Moth
 1794083068000,-38.069297,144.401916,Agrotis infusa,Bogong Moth
 1794084836000,-35.290722,149.144211,Agrotis infusa,Bogong Moth
 1794084848000,-35.29072,149.144225,Agrotis infusa,Bogong Moth
@@ -11346,8 +11358,10 @@ date_ms,lat,lon,species,common_name
 1794141154000,-37.82612,145.047745,Agrotis infusa,Bogong Moth
 1794146208000,-35.771925,148.909908,Agrotis infusa,Bogong Moth
 1794160057000,-33.034367,137.586212,Agrotis infusa,Bogong Moth
+1794164575000,-37.900463,147.320617,Agrotis infusa,Bogong Moth
 1794166946000,-35.369239,149.110396,Agrotis infusa,Bogong Moth
 1794171022000,-33.442475,141.891678,Agrotis infusa,Bogong Moth
+1794171716000,-35.274883,149.118524,Agrotis infusa,Bogong Moth
 1794174180000,-35.812114,150.222502,Agrotis infusa,Bogong Moth
 1794174634000,-35.228923,149.163461,Agrotis infusa,Bogong Moth
 1794174705000,-35.22893,149.163451,Agrotis infusa,Bogong Moth
@@ -11384,6 +11398,7 @@ date_ms,lat,lon,species,common_name
 1794301868000,-35.390878,149.065872,Agrotis infusa,Bogong Moth
 1794301940000,-35.390888,149.065872,Agrotis infusa,Bogong Moth
 1794301948000,-35.390883,149.065872,Agrotis infusa,Bogong Moth
+1794301962000,-35.390908,149.065886,Agrotis infusa,Bogong Moth
 1794301981000,-35.390883,149.065886,Agrotis infusa,Bogong Moth
 1794301994000,-35.3909,149.065886,Agrotis infusa,Bogong Moth
 1794302528000,-37.546312,143.780883,Agrotis infusa,Bogong Moth
@@ -11405,6 +11420,7 @@ date_ms,lat,lon,species,common_name
 1794348540000,-37.87,145.38,Agrotis infusa,Bogong Moth
 1794349229000,-35.22897,149.163445,Agrotis infusa,Bogong Moth
 1794349274000,-35.22892,149.163456,Agrotis infusa,Bogong Moth
+1794349295000,-35.228915,149.163464,Agrotis infusa,Bogong Moth
 1794349311000,-35.228921,149.163456,Agrotis infusa,Bogong Moth
 1794349354000,-35.228927,149.16346,Agrotis infusa,Bogong Moth
 1794349428000,-35.228918,149.163459,Agrotis infusa,Bogong Moth
@@ -11412,12 +11428,14 @@ date_ms,lat,lon,species,common_name
 1794350628000,-35.229078,149.163881,Agrotis infusa,Bogong Moth
 1794350652000,-35.229105,149.163907,Agrotis infusa,Bogong Moth
 1794350750000,-35.228907,149.164014,Agrotis infusa,Bogong Moth
+1794350781000,-35.2289,149.16402,Agrotis infusa,Bogong Moth
 1794350786000,-35.2289,149.16403,Agrotis infusa,Bogong Moth
 1794350860000,-35.228899,149.164031,Agrotis infusa,Bogong Moth
 1794351768000,-33.778436,151.137261,Agrotis infusa,Bogong Moth
 1794353606000,-37.715622,143.719889,Agrotis infusa,Bogong Moth
 1794384183000,-38.029022,145.18373,Agrotis infusa,Bogong Moth
 1794384453000,-33.84243,151.2513,Agrotis infusa,Bogong Moth
+1794386081000,-33.87408,151.183608,Agrotis infusa,Bogong Moth
 1794386293000,-33.798697,151.180361,Agrotis infusa,Bogong Moth
 1794387814000,-35.156937,148.232765,Agrotis infusa,Bogong Moth
 1794388279000,-35.39092,149.065886,Agrotis infusa,Bogong Moth
@@ -11431,9 +11449,11 @@ date_ms,lat,lon,species,common_name
 1794400069000,-34.799667,150.577513,Agrotis infusa,Bogong Moth
 1794404075000,-35.228959,149.163646,Agrotis infusa,Bogong Moth
 1794404481000,-35.163679,149.112524,Agrotis infusa,Bogong Moth
+1794404614000,-33.682304,150.925273,Agrotis infusa,Bogong Moth
 1794408070000,-33.838787,151.280746,Agrotis infusa,Bogong Moth
 1794408746000,-34.753166,149.716506,Agrotis infusa,Bogong Moth
 1794412901000,-35.340222,149.06305,Agrotis infusa,Bogong Moth
+1794414196000,-33.823524,151.248315,Agrotis infusa,Bogong Moth
 1794423842000,-35.340245,149.063125,Agrotis infusa,Bogong Moth
 1794425563000,-35.290286,149.308152,Agrotis infusa,Bogong Moth
 1794431820000,-32.078832,115.797743,Agrotis infusa,Bogong Moth
@@ -11447,6 +11467,7 @@ date_ms,lat,lon,species,common_name
 1794440266000,-38.837221,143.549086,Agrotis infusa,Bogong Moth
 1794465956000,-35.309178,148.21927,Agrotis infusa,Bogong Moth
 1794467699000,-35.291553,149.101761,Agrotis infusa,Bogong Moth
+1794468594000,-36.144883,146.875837,Agrotis infusa,Bogong Moth
 1794475856000,-36.212783,146.299003,Agrotis infusa,Bogong Moth
 1794476835000,-37.813552,145.048863,Agrotis infusa,Bogong Moth
 1794480999000,-35.340205,149.063033,Agrotis infusa,Bogong Moth
@@ -11457,15 +11478,19 @@ date_ms,lat,lon,species,common_name
 1794483531000,-33.879878,151.220672,Agrotis infusa,Bogong Moth
 1794485520000,-37.840181,145.161985,Agrotis infusa,Bogong Moth
 1794486828000,-35.180297,150.878657,Agrotis infusa,Bogong Moth
+1794487016000,-34.967362,138.625533,Agrotis infusa,Bogong Moth
+1794495938000,-37.974811,145.197365,Agrotis infusa,Bogong Moth
 1794495977000,-35.327837,149.071931,Agrotis infusa,Bogong Moth
 1794496060000,-35.3279,149.071883,Agrotis infusa,Bogong Moth
 1794500307000,-36.893593,147.24039,Agrotis infusa,Bogong Moth
 1794500460000,-34.884734,138.600447,Agrotis infusa,Bogong Moth
 1794502440000,-43.043364,147.113533,Agrotis infusa,Bogong Moth
+1794503504000,-34.84942,138.60324,Agrotis infusa,Bogong Moth
 1794504169000,-35.20066,149.061225,Agrotis infusa,Bogong Moth
 1794504480000,-35.322383,149.042008,Agrotis infusa,Bogong Moth
 1794505404000,-33.698905,151.105942,Agrotis infusa,Bogong Moth
 1794505409000,-33.772991,150.803802,Agrotis infusa,Bogong Moth
+1794506862000,-37.19978,145.704467,Agrotis infusa,Bogong Moth
 1794507801000,-35.34203,149.064208,Agrotis infusa,Bogong Moth
 1794508111000,-35.340225,149.06302,Agrotis infusa,Bogong Moth
 1794508367000,-34.029972,150.673583,Agrotis infusa,Bogong Moth
@@ -11475,8 +11500,10 @@ date_ms,lat,lon,species,common_name
 1794515883000,-34.791278,149.623745,Agrotis infusa,Bogong Moth
 1794516225000,-34.791031,149.623205,Agrotis infusa,Bogong Moth
 1794516823000,-34.791061,149.623198,Agrotis infusa,Bogong Moth
+1794517310000,-34.791056,149.623197,Agrotis infusa,Bogong Moth
 1794517393000,-35.51126,138.730861,Agrotis infusa,Bogong Moth
 1794517629000,-34.791025,149.6232,Agrotis infusa,Bogong Moth
+1794519136000,-34.791467,149.623528,Agrotis infusa,Bogong Moth
 1794519180000,-30.287872,152.737134,Agrotis infusa,Bogong Moth
 1794519660000,-34.331868,150.900019,Agrotis infusa,Bogong Moth
 1794520832000,-35.811357,148.03283,Agrotis infusa,Bogong Moth
@@ -11486,6 +11513,7 @@ date_ms,lat,lon,species,common_name
 1794550311000,-38.371262,146.371933,Agrotis infusa,Bogong Moth
 1794553966000,-35.30913,148.21927,Agrotis infusa,Bogong Moth
 1794554042000,-35.309128,148.219283,Agrotis infusa,Bogong Moth
+1794557388000,-35.144147,150.672707,Agrotis infusa,Bogong Moth
 1794558528000,-35.811263,148.032812,Agrotis infusa,Bogong Moth
 1794561558000,-33.877394,151.103662,Agrotis infusa,Bogong Moth
 1794567170000,-42.812258,147.261125,Agrotis infusa,Bogong Moth
@@ -11498,9 +11526,12 @@ date_ms,lat,lon,species,common_name
 1794590012000,-38.368787,146.274413,Agrotis infusa,Bogong Moth
 1794600142000,-35.829262,150.208205,Agrotis infusa,Bogong Moth
 1794603357000,-37.688705,143.365723,Agrotis infusa,Bogong Moth
+1794603600000,-31.119131,150.89827,Agrotis infusa,Bogong Moth
 1794605743000,-35.229031,149.163505,Agrotis infusa,Bogong Moth
 1794606834000,-35.229187,149.164309,Agrotis infusa,Bogong Moth
+1794609120000,-34.331868,150.900019,Agrotis infusa,Bogong Moth
 1794609420000,-34.331868,150.900019,Agrotis infusa,Bogong Moth
+1794617479000,-33.621637,150.302155,Agrotis infusa,Bogong Moth
 1794641138000,-35.309083,148.219208,Agrotis infusa,Bogong Moth
 1794644776000,-35.316493,148.227366,Agrotis infusa,Bogong Moth
 1794645475000,-35.316527,148.227549,Agrotis infusa,Bogong Moth
@@ -11511,6 +11542,8 @@ date_ms,lat,lon,species,common_name
 1794658486000,-37.696983,144.760364,Agrotis infusa,Bogong Moth
 1794658681000,-35.345547,149.054672,Agrotis infusa,Bogong Moth
 1794662496000,-34.632181,138.73437,Agrotis infusa,Bogong Moth
+1794664688000,-33.750337,150.967956,Agrotis infusa,Bogong Moth
+1794668662000,-33.812042,151.005736,Agrotis infusa,Bogong Moth
 1794683454000,-35.228951,149.163605,Agrotis infusa,Bogong Moth
 1794684641000,-27.522558,152.743881,Agrotis infusa,Bogong Moth
 1794693129000,-35.275347,149.115934,Agrotis infusa,Bogong Moth
@@ -11518,9 +11551,11 @@ date_ms,lat,lon,species,common_name
 1794695207000,-35.811364,148.032893,Agrotis infusa,Bogong Moth
 1794698927000,-35.228937,149.163433,Agrotis infusa,Bogong Moth
 1794699476000,-35.229064,149.16389,Agrotis infusa,Bogong Moth
+1794710561000,-35.275383,149.11585,Agrotis infusa,Bogong Moth
 1794723088000,-34.657003,150.296571,Agrotis infusa,Bogong Moth
 1794727517000,-35.811239,148.032823,Agrotis infusa,Bogong Moth
 1794732283000,-32.925467,151.741985,Agrotis infusa,Bogong Moth
 1794732469000,-36.43239,150.07807,Agrotis infusa,Bogong Moth
+1794738055000,-36.021476,150.153943,Agrotis infusa,Bogong Moth
 1794747477000,-33.858987,151.179973,Agrotis infusa,Bogong Moth
 1794748834000,-37.630787,144.482545,Agrotis infusa,Bogong Moth
