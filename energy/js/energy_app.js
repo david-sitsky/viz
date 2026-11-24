@@ -1,6 +1,6 @@
 import { makeDraggable } from '../../common/js/draggable.js';
-import { loadData } from './energy_data.js?v=202611222140';
-import { EngineMap } from './energy_map.js?v=202611222140';
+import { loadData } from './energy_data.js?v=202611240251';
+import { EngineMap } from './energy_map.js?v=202611240251';
 
 class EngineApp {
   constructor() {
